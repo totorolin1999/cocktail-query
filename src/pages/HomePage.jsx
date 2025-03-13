@@ -1,39 +1,39 @@
-import React, {useState, useEffect, useContext} from 'react'
-import AuthContext from '../context/AuthContext'
-import useAxios from '../utils/useAxios'
+// import React, {useState, useEffect, useContext} from 'react'
+// import AuthContext from '../context/AuthContext'
+// import useAxios from '../utils/useAxios'
 
-const HomePage = () => {
-    let [notes, setNotes] = useState([])
-    let {authTokens, logoutUser} = useContext(AuthContext)
+// const HomePage = () => {
+//     let [notes, setNotes] = useState([])
+//     let {authTokens, logoutUser} = useContext(AuthContext)
 
-    let api = useAxios()
+//     let api = useAxios()
 
-    useEffect(()=> {
-        getNotes()
-    }, [])
+//     useEffect(()=> {
+//         getNotes()
+//     }, [])
 
 
-    let getNotes = async() =>{
-        let response = await api.get('/api/cocktail-list/')
+//     let getNotes = async() =>{
+//         let response = await api.get('/api/cocktail-list/')
 
-        if(response.status === 200){
-            setNotes(response.data)
-        }
+//         if(response.status === 200){
+//             setNotes(response.data)
+//         }
         
-    }
+//     }
 
-    return (
-        <div>
-            <p>You are logged to the home page!</p>
+//     return (
+//         <div>
+//             <p>You are logged to the home page!</p>
 
 
-            {/* <ul>
-                {notes.map(note => (
-                    <li key={note.id} >{note.body}</li>
-                ))}
-            </ul> */}
-        </div>
-    )
-}
+//             {/* <ul>
+//                 {notes.map(note => (
+//                     <li key={note.id} >{note.body}</li>
+//                 ))}
+//             </ul> */}
+//         </div>
+//     )
+// }
 
-export default HomePage
+// export default HomePage
