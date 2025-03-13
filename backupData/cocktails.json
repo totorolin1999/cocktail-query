@@ -1,0 +1,1022 @@
+[
+  {
+    "model": "api.cocktail",
+    "fields": {
+      "Chinese_Name": "白色俄羅斯",
+      "English_Name": "White Russian",
+      "Bases": [
+        4
+      ],
+      "Liqueurs": [
+        8
+      ],
+      "Alcohols": [],
+      "Ingredients": [
+        6
+      ]
+    }
+  },
+  {
+    "model": "api.cocktail",
+    "fields": {
+      "Chinese_Name": "瑪格麗特",
+      "English_Name": "Margarita",
+      "Bases": [
+        3
+      ],
+      "Liqueurs": [
+        2
+      ],
+      "Alcohols": [],
+      "Ingredients": [
+        7,
+        18
+      ]
+    }
+  },
+  {
+    "model": "api.cocktail",
+    "fields": {
+      "Chinese_Name": "黛綺莉",
+      "English_Name": "Daiquiri",
+      "Bases": [
+        5
+      ],
+      "Liqueurs": [],
+      "Alcohols": [],
+      "Ingredients": [
+        7,
+        18
+      ]
+    }
+  },
+  {
+    "model": "api.cocktail",
+    "fields": {
+      "Chinese_Name": "自由古巴",
+      "English_Name": "Cuba Libre",
+      "Bases": [
+        5
+      ],
+      "Liqueurs": [],
+      "Alcohols": [],
+      "Ingredients": [
+        14,
+        22
+      ]
+    }
+  },
+  {
+    "model": "api.cocktail",
+    "fields": {
+      "Chinese_Name": "藍色夏威夷",
+      "English_Name": "Blue Hawaii",
+      "Bases": [
+        4,
+        5
+      ],
+      "Liqueurs": [
+        7
+      ],
+      "Alcohols": [],
+      "Ingredients": [
+        7,
+        13,
+        18
+      ]
+    }
+  },
+  {
+    "model": "api.cocktail",
+    "fields": {
+      "Chinese_Name": "鳳梨可樂達",
+      "English_Name": "Pina colada",
+      "Bases": [
+        5
+      ],
+      "Liqueurs": [],
+      "Alcohols": [],
+      "Ingredients": [
+        7,
+        13,
+        18,
+        25
+      ]
+    }
+  },
+  {
+    "model": "api.cocktail",
+    "fields": {
+      "Chinese_Name": "亞歷山大",
+      "English_Name": "Alexander",
+      "Bases": [
+        6
+      ],
+      "Liqueurs": [
+        3
+      ],
+      "Alcohols": [],
+      "Ingredients": [
+        12
+      ]
+    }
+  },
+  {
+    "model": "api.cocktail",
+    "fields": {
+      "Chinese_Name": "側車",
+      "English_Name": "Sidecar",
+      "Bases": [
+        2
+      ],
+      "Liqueurs": [
+        2
+      ],
+      "Alcohols": [],
+      "Ingredients": [
+        7,
+        18
+      ]
+    }
+  },
+  {
+    "model": "api.cocktail",
+    "fields": {
+      "Chinese_Name": "白蘭地亞歷山大",
+      "English_Name": "Brandy Alexander",
+      "Bases": [
+        2,
+        4
+      ],
+      "Liqueurs": [
+        6
+      ],
+      "Alcohols": [],
+      "Ingredients": [
+        6,
+        12
+      ]
+    }
+  },
+  {
+    "model": "api.cocktail",
+    "fields": {
+      "Chinese_Name": "長島冰茶",
+      "English_Name": "Long Island Iced Tea",
+      "Bases": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "Liqueurs": [
+        2
+      ],
+      "Alcohols": [],
+      "Ingredients": [
+        7,
+        14,
+        18
+      ]
+    }
+  },
+  {
+    "model": "api.cocktail",
+    "fields": {
+      "Chinese_Name": "柯夢波丹",
+      "English_Name": "Cosmopolitan",
+      "Bases": [
+        4
+      ],
+      "Liqueurs": [
+        2
+      ],
+      "Alcohols": [],
+      "Ingredients": [
+        7,
+        11,
+        18
+      ]
+    }
+  },
+  {
+    "model": "api.cocktail",
+    "fields": {
+      "Chinese_Name": "黑色俄羅斯",
+      "English_Name": "Black Russian",
+      "Bases": [
+        4
+      ],
+      "Liqueurs": [
+        8
+      ],
+      "Alcohols": [],
+      "Ingredients": []
+    }
+  },
+  {
+    "model": "api.cocktail",
+    "fields": {
+      "Chinese_Name": "血腥瑪麗",
+      "English_Name": "Bloody Mary",
+      "Bases": [
+        4
+      ],
+      "Liqueurs": [],
+      "Alcohols": [],
+      "Ingredients": [
+        4,
+        7,
+        15,
+        18,
+        24
+      ]
+    }
+  },
+  {
+    "model": "api.cocktail",
+    "fields": {
+      "Chinese_Name": "內格羅尼",
+      "English_Name": "Negroni",
+      "Bases": [
+        6
+      ],
+      "Liqueurs": [
+        4
+      ],
+      "Alcohols": [
+        1
+      ],
+      "Ingredients": []
+    }
+  },
+  {
+    "model": "api.cocktail",
+    "fields": {
+      "Chinese_Name": "馬丁尼",
+      "English_Name": "Martini",
+      "Bases": [
+        6
+      ],
+      "Liqueurs": [],
+      "Alcohols": [
+        1
+      ],
+      "Ingredients": []
+    }
+  },
+  {
+    "model": "api.cocktail",
+    "fields": {
+      "Chinese_Name": "琴通寧",
+      "English_Name": "Gin Tonic",
+      "Bases": [
+        6
+      ],
+      "Liqueurs": [],
+      "Alcohols": [],
+      "Ingredients": [
+        1,
+        22
+      ]
+    }
+  },
+  {
+    "model": "api.cocktail",
+    "fields": {
+      "Chinese_Name": "琴霸克",
+      "English_Name": "Gin Buck",
+      "Bases": [
+        6
+      ],
+      "Liqueurs": [],
+      "Alcohols": [],
+      "Ingredients": [
+        21,
+        22
+      ]
+    }
+  },
+  {
+    "model": "api.cocktail",
+    "fields": {
+      "Chinese_Name": "白色佳人",
+      "English_Name": "White Lady",
+      "Bases": [
+        6
+      ],
+      "Liqueurs": [
+        2
+      ],
+      "Alcohols": [],
+      "Ingredients": [
+        2,
+        7,
+        18
+      ]
+    }
+  },
+  {
+    "model": "api.cocktail",
+    "fields": {
+      "Chinese_Name": "美國佬",
+      "English_Name": "Americano",
+      "Bases": [],
+      "Liqueurs": [
+        4
+      ],
+      "Alcohols": [
+        1
+      ],
+      "Ingredients": [
+        23
+      ]
+    }
+  },
+  {
+    "model": "api.cocktail",
+    "fields": {
+      "Chinese_Name": "床笫之間",
+      "English_Name": "Between the Sheets",
+      "Bases": [
+        2,
+        5
+      ],
+      "Liqueurs": [
+        2
+      ],
+      "Alcohols": [],
+      "Ingredients": [
+        18
+      ]
+    }
+  },
+  {
+    "model": "api.cocktail",
+    "fields": {
+      "Chinese_Name": "B52轟炸機",
+      "English_Name": "B52",
+      "Bases": [
+        2
+      ],
+      "Liqueurs": [
+        8,
+        9
+      ],
+      "Alcohols": [],
+      "Ingredients": []
+    }
+  },
+  {
+    "model": "api.cocktail",
+    "fields": {
+      "Chinese_Name": "威士忌酸酒",
+      "English_Name": "Whiskey Sour",
+      "Bases": [
+        1
+      ],
+      "Liqueurs": [],
+      "Alcohols": [],
+      "Ingredients": [
+        7,
+        18
+      ]
+    }
+  },
+  {
+    "model": "api.cocktail",
+    "fields": {
+      "Chinese_Name": "莫希托",
+      "English_Name": "Mojito",
+      "Bases": [
+        5
+      ],
+      "Liqueurs": [],
+      "Alcohols": [],
+      "Ingredients": [
+        7,
+        10,
+        18,
+        23
+      ]
+    }
+  },
+  {
+    "model": "api.cocktail",
+    "fields": {
+      "Chinese_Name": "琴蕾",
+      "English_Name": "Gimlet",
+      "Bases": [
+        6
+      ],
+      "Liqueurs": [],
+      "Alcohols": [],
+      "Ingredients": [
+        18
+      ]
+    }
+  },
+  {
+    "model": "api.cocktail",
+    "fields": {
+      "Chinese_Name": "伏特加萊姆",
+      "English_Name": "Vodka Lime",
+      "Bases": [
+        4
+      ],
+      "Liqueurs": [],
+      "Alcohols": [],
+      "Ingredients": [
+        18
+      ]
+    }
+  },
+  {
+    "model": "api.cocktail",
+    "fields": {
+      "Chinese_Name": "莫斯科騾子",
+      "English_Name": "Moscow Mule",
+      "Bases": [
+        4
+      ],
+      "Liqueurs": [],
+      "Alcohols": [],
+      "Ingredients": [
+        18,
+        21
+      ]
+    }
+  },
+  {
+    "model": "api.cocktail",
+    "fields": {
+      "Chinese_Name": "伏特加通寧",
+      "English_Name": "Vodka Tonic",
+      "Bases": [
+        4
+      ],
+      "Liqueurs": [],
+      "Alcohols": [],
+      "Ingredients": [
+        1
+      ]
+    }
+  },
+  {
+    "model": "api.cocktail",
+    "fields": {
+      "Chinese_Name": "破冰船",
+      "English_Name": "Ice-Breaker",
+      "Bases": [
+        3
+      ],
+      "Liqueurs": [
+        2
+      ],
+      "Alcohols": [],
+      "Ingredients": [
+        5,
+        16
+      ]
+    }
+  },
+  {
+    "model": "api.cocktail",
+    "fields": {
+      "Chinese_Name": "龍舌蘭日出",
+      "English_Name": "Tequila Sunrise",
+      "Bases": [
+        3
+      ],
+      "Liqueurs": [],
+      "Alcohols": [],
+      "Ingredients": [
+        16,
+        17
+      ]
+    }
+  },
+  {
+    "model": "api.cocktail",
+    "fields": {
+      "Chinese_Name": "茉莉",
+      "English_Name": "Jasmine",
+      "Bases": [
+        6
+      ],
+      "Liqueurs": [
+        2,
+        4
+      ],
+      "Alcohols": [],
+      "Ingredients": [
+        7,
+        18
+      ]
+    }
+  },
+  {
+    "model": "api.cocktail",
+    "fields": {
+      "Chinese_Name": "南方",
+      "English_Name": "Southside",
+      "Bases": [
+        6
+      ],
+      "Liqueurs": [],
+      "Alcohols": [],
+      "Ingredients": [
+        7,
+        18
+      ]
+    }
+  },
+  {
+    "model": "api.cocktail",
+    "fields": {
+      "Chinese_Name": "泡泡",
+      "English_Name": "Spumoni",
+      "Bases": [],
+      "Liqueurs": [
+        4
+      ],
+      "Alcohols": [],
+      "Ingredients": [
+        1,
+        5
+      ]
+    }
+  },
+  {
+    "model": "api.cocktail",
+    "fields": {
+      "Chinese_Name": "海風",
+      "English_Name": "Sea Breeze",
+      "Bases": [
+        4
+      ],
+      "Liqueurs": [],
+      "Alcohols": [],
+      "Ingredients": [
+        1,
+        5,
+        11
+      ]
+    }
+  },
+  {
+    "model": "api.cocktail",
+    "fields": {
+      "Chinese_Name": "薄荷茱莉普",
+      "English_Name": "Mint Julep",
+      "Bases": [
+        1
+      ],
+      "Liqueurs": [],
+      "Alcohols": [],
+      "Ingredients": [
+        7,
+        10
+      ]
+    }
+  },
+  {
+    "model": "api.cocktail",
+    "fields": {
+      "Chinese_Name": "鹹狗",
+      "English_Name": "Salty Dog",
+      "Bases": [
+        4
+      ],
+      "Liqueurs": [],
+      "Alcohols": [],
+      "Ingredients": [
+        5
+      ]
+    }
+  },
+  {
+    "model": "api.cocktail",
+    "fields": {
+      "Chinese_Name": "國王谷",
+      "English_Name": "King's Valley",
+      "Bases": [
+        1
+      ],
+      "Liqueurs": [
+        2,
+        7
+      ],
+      "Alcohols": [],
+      "Ingredients": [
+        18
+      ]
+    }
+  },
+  {
+    "model": "api.cocktail",
+    "fields": {
+      "Chinese_Name": "螺絲起子",
+      "English_Name": "Screwdriver",
+      "Bases": [
+        4
+      ],
+      "Liqueurs": [],
+      "Alcohols": [],
+      "Ingredients": [
+        17
+      ]
+    }
+  },
+  {
+    "model": "api.cocktail",
+    "fields": {
+      "Chinese_Name": "鱈魚角",
+      "English_Name": "Cape Cod",
+      "Bases": [
+        4
+      ],
+      "Liqueurs": [],
+      "Alcohols": [],
+      "Ingredients": [
+        11
+      ]
+    }
+  },
+  {
+    "model": "api.cocktail",
+    "fields": {
+      "Chinese_Name": "X.Y.Z.",
+      "English_Name": "X.Y.Z.",
+      "Bases": [
+        5
+      ],
+      "Liqueurs": [
+        2
+      ],
+      "Alcohols": [],
+      "Ingredients": [
+        7,
+        18
+      ]
+    }
+  },
+  {
+    "model": "api.cocktail",
+    "fields": {
+      "Chinese_Name": "性感海灘",
+      "English_Name": "Sex on the Beach",
+      "Bases": [
+        4
+      ],
+      "Liqueurs": [
+        1
+      ],
+      "Alcohols": [],
+      "Ingredients": [
+        11,
+        17,
+        23
+      ]
+    }
+  },
+  {
+    "model": "api.cocktail",
+    "fields": {
+      "Chinese_Name": "猛牛",
+      "English_Name": "Brave Bull",
+      "Bases": [
+        3
+      ],
+      "Liqueurs": [
+        8
+      ],
+      "Alcohols": [],
+      "Ingredients": []
+    }
+  },
+  {
+    "model": "api.cocktail",
+    "fields": {
+      "Chinese_Name": "止痛藥",
+      "English_Name": "Painkiller",
+      "Bases": [
+        5
+      ],
+      "Liqueurs": [],
+      "Alcohols": [],
+      "Ingredients": [
+        7,
+        13,
+        17,
+        25
+      ]
+    }
+  },
+  {
+    "model": "api.cocktail",
+    "fields": {
+      "Chinese_Name": "颶風",
+      "English_Name": "Hurricane",
+      "Bases": [
+        5
+      ],
+      "Liqueurs": [],
+      "Alcohols": [],
+      "Ingredients": [
+        7,
+        8,
+        16,
+        17,
+        18
+      ]
+    }
+  },
+  {
+    "model": "api.cocktail",
+    "fields": {
+      "Chinese_Name": "多明諾",
+      "English_Name": "Domino",
+      "Bases": [
+        3
+      ],
+      "Liqueurs": [
+        8
+      ],
+      "Alcohols": [],
+      "Ingredients": [
+        12
+      ]
+    }
+  },
+  {
+    "model": "api.cocktail",
+    "fields": {
+      "Chinese_Name": "威士忌可林",
+      "English_Name": "Whisky Collins",
+      "Bases": [
+        1
+      ],
+      "Liqueurs": [],
+      "Alcohols": [],
+      "Ingredients": [
+        7,
+        18,
+        23
+      ]
+    }
+  },
+  {
+    "model": "api.cocktail",
+    "fields": {
+      "Chinese_Name": "愛爾蘭咖啡",
+      "English_Name": "Irish Coffee",
+      "Bases": [
+        1
+      ],
+      "Liqueurs": [],
+      "Alcohols": [],
+      "Ingredients": [
+        7,
+        12,
+        19
+      ]
+    }
+  },
+  {
+    "model": "api.cocktail",
+    "fields": {
+      "Chinese_Name": "奇奇",
+      "English_Name": "Chi Chi",
+      "Bases": [
+        4
+      ],
+      "Liqueurs": [],
+      "Alcohols": [],
+      "Ingredients": [
+        7,
+        13,
+        25
+      ]
+    }
+  },
+  {
+    "model": "api.cocktail",
+    "fields": {
+      "Chinese_Name": "神風特攻隊",
+      "English_Name": "Kamikaze",
+      "Bases": [
+        4
+      ],
+      "Liqueurs": [
+        2
+      ],
+      "Alcohols": [],
+      "Ingredients": [
+        7,
+        18
+      ]
+    }
+  },
+  {
+    "model": "api.cocktail",
+    "fields": {
+      "Chinese_Name": "琴費士",
+      "English_Name": "Gin Fizz",
+      "Bases": [
+        6
+      ],
+      "Liqueurs": [],
+      "Alcohols": [],
+      "Ingredients": [
+        7,
+        18,
+        23
+      ]
+    }
+  },
+  {
+    "model": "api.cocktail",
+    "fields": {
+      "Chinese_Name": "黑醋栗烏龍",
+      "English_Name": "Cassis Oolong",
+      "Bases": [],
+      "Liqueurs": [
+        5
+      ],
+      "Alcohols": [],
+      "Ingredients": [
+        3
+      ]
+    }
+  },
+  {
+    "model": "api.cocktail",
+    "fields": {
+      "Chinese_Name": "新鮮禁果",
+      "English_Name": "Fuzzy Navel",
+      "Bases": [],
+      "Liqueurs": [
+        1
+      ],
+      "Alcohols": [],
+      "Ingredients": [
+        17,
+        18
+      ]
+    }
+  },
+  {
+    "model": "api.cocktail",
+    "fields": {
+      "Chinese_Name": "粉紅佳人",
+      "English_Name": "Pink Lady",
+      "Bases": [
+        6
+      ],
+      "Liqueurs": [],
+      "Alcohols": [],
+      "Ingredients": [
+        2,
+        16,
+        18
+      ]
+    }
+  },
+  {
+    "model": "api.cocktail",
+    "fields": {
+      "Chinese_Name": "盤尼西林",
+      "English_Name": "Penicillin",
+      "Bases": [
+        1
+      ],
+      "Liqueurs": [],
+      "Alcohols": [],
+      "Ingredients": [
+        9,
+        18,
+        20
+      ]
+    }
+  },
+  {
+    "model": "api.cocktail",
+    "fields": {
+      "Chinese_Name": "蜜蜂之膝",
+      "English_Name": "Bee's Knees",
+      "Bases": [
+        6
+      ],
+      "Liqueurs": [],
+      "Alcohols": [],
+      "Ingredients": [
+        17,
+        18,
+        20
+      ]
+    }
+  },
+  {
+    "model": "api.cocktail",
+    "fields": {
+      "Chinese_Name": "肯巴利莫希托",
+      "English_Name": "Campari Mojito",
+      "Bases": [],
+      "Liqueurs": [
+        4
+      ],
+      "Alcohols": [],
+      "Ingredients": [
+        7,
+        10,
+        18,
+        23
+      ]
+    }
+  },
+  {
+    "model": "api.cocktail",
+    "fields": {
+      "Chinese_Name": "帕洛瑪",
+      "English_Name": "Paloma",
+      "Bases": [
+        3
+      ],
+      "Liqueurs": [],
+      "Alcohols": [],
+      "Ingredients": [
+        5,
+        7,
+        18,
+        23
+      ]
+    }
+  },
+  {
+    "model": "api.cocktail",
+    "fields": {
+      "Chinese_Name": "藍色珊瑚礁",
+      "English_Name": "Blue Lagoon",
+      "Bases": [
+        4
+      ],
+      "Liqueurs": [
+        7
+      ],
+      "Alcohols": [],
+      "Ingredients": [
+        18
+      ]
+    }
+  },
+  {
+    "model": "api.cocktail",
+    "fields": {
+      "Chinese_Name": "奧林匹克",
+      "English_Name": "Olympic",
+      "Bases": [
+        2
+      ],
+      "Liqueurs": [],
+      "Alcohols": [],
+      "Ingredients": [
+        17
+      ]
+    }
+  },
+  {
+    "model": "api.cocktail",
+    "fields": {
+      "Chinese_Name": "伯爵茶馬丁尼",
+      "English_Name": "Earl Grey Martini",
+      "Bases": [
+        6
+      ],
+      "Liqueurs": [],
+      "Alcohols": [],
+      "Ingredients": [
+        2,
+        7,
+        18
+      ]
+    }
+  },
+  {
+    "model": "api.cocktail",
+    "fields": {
+      "Chinese_Name": "內華達",
+      "English_Name": "Nevada",
+      "Bases": [
+        5
+      ],
+      "Liqueurs": [],
+      "Alcohols": [],
+      "Ingredients": [
+        5,
+        7,
+        18
+      ]
+    }
+  }
+]

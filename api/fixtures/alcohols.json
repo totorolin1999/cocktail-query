@@ -1,0 +1,9 @@
+[
+  {
+    "model": "api.alcohol",
+    "fields": {
+      "Chinese_Name": "香艾酒",
+      "English_Name": "Absinthe"
+    }
+  }
+]
