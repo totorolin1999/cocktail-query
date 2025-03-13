@@ -2,6 +2,6 @@
 /api/migrations/__pycache__
 /cocktail_query_drf/__pycache__
 /cocktail_query_drf/.env
-/windows-env
+/venv
 /staticfiles
 /db.sqlite3
