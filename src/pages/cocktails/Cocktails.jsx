@@ -25,11 +25,31 @@ const Cocktails = () => {
     fetchAllCocktails();
   }, []);
 
+  const downloadJsonFile = async () => {
+    try {
+        const response = await fetch(`${API_BASE_URL}/api/backup-data/`);
+        const blob = await response.blob();
+
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "cocktail_data.json";
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+    } catch (error) {
+        console.error("Download failed:", error);
+    }
+};
+
   return (
     <div className="admin">
       <Container>
         <Button variant="secondary" as={Link} to="/AddCocktail" className="mt-5">
           新增調酒
+        </Button>
+        <Button variant="warning" onClick={downloadJsonFile} className="mt-5">
+          下載備份資料
         </Button>
         <CocktailTable data={cocktails} />
       </Container>
