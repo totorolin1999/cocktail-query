@@ -60,7 +60,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'rest_framework_simplejwt.token_blacklist', # MSSQL似乎無法使用
+    'rest_framework_simplejwt.token_blacklist',
     'corsheaders',
     'api.apps.ApiConfig'
 ]
@@ -138,22 +138,22 @@ WSGI_APPLICATION = 'cocktail_query_drf.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-# MSSQL
-# 使用MSSQL需要將「'rest_framework_simplejwt.token_blacklist',」註解
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'mssql',
-#         'NAME': env('MSSQL_NAME'),
-#         'USER': env('MSSQL_USER'),
-#         'PASSWORD': env('MSSQL_PASSWORD'),
-#         'HOST': env('MSSQL_HOST'),
-#         'OPTIONS':{
-#             'driver':'ODBC Driver 17 for SQL Server',
-#             'isolation_level':'READ UNCOMMITTED' #to prevent deadlocks
-#         }
-#     }
-# }
+"""
+# 使用MSSQL需要將「'rest_framework_simplejwt.token_blacklist',」註解，因為MSSQL似乎無法使用此套件
+DATABASES = {
+    'default': {
+        'ENGINE': 'mssql',
+        'NAME': env('MSSQL_NAME'),
+        'USER': env('MSSQL_USER'),
+        'PASSWORD': env('MSSQL_PASSWORD'),
+        'HOST': env('MSSQL_HOST'),
+        'OPTIONS':{
+            'driver':'ODBC Driver 17 for SQL Server',
+            'isolation_level':'READ UNCOMMITTED' #to prevent deadlocks
+        }
+    }
+}
+"""
 
 # For Server
 DEVELOPMENT_MODE = os.getenv("DEVELOPMENT_MODE", "False") == "True"
