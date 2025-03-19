@@ -1,5 +1,292 @@
 [
   {
+    "model": "api.base",
+    "fields": {
+      "Chinese_Name": "威士忌",
+      "English_Name": "Whiskey"
+    }
+  },
+  {
+    "model": "api.base",
+    "fields": {
+      "Chinese_Name": "白蘭地",
+      "English_Name": "Brandy"
+    }
+  },
+  {
+    "model": "api.base",
+    "fields": {
+      "Chinese_Name": "龍舌蘭",
+      "English_Name": "Tequila"
+    }
+  },
+  {
+    "model": "api.base",
+    "fields": {
+      "Chinese_Name": "伏特加",
+      "English_Name": "Vodka"
+    }
+  },
+  {
+    "model": "api.base",
+    "fields": {
+      "Chinese_Name": "蘭姆酒",
+      "English_Name": "Rum"
+    }
+  },
+  {
+    "model": "api.base",
+    "fields": {
+      "Chinese_Name": "琴酒",
+      "English_Name": "Gin"
+    }
+  },
+  {
+    "model": "api.liqueur",
+    "fields": {
+      "Chinese_Name": "水蜜桃香甜酒",
+      "English_Name": "Peach Schnapps"
+    }
+  },
+  {
+    "model": "api.liqueur",
+    "fields": {
+      "Chinese_Name": "君度橙酒",
+      "English_Name": "Cointreau"
+    }
+  },
+  {
+    "model": "api.liqueur",
+    "fields": {
+      "Chinese_Name": "白巧克力香甜酒",
+      "English_Name": "White Chocolate Liqueur"
+    }
+  },
+  {
+    "model": "api.liqueur",
+    "fields": {
+      "Chinese_Name": "肯巴利苦酒",
+      "English_Name": "Campari"
+    }
+  },
+  {
+    "model": "api.liqueur",
+    "fields": {
+      "Chinese_Name": "黑醋栗香甜酒",
+      "English_Name": "Creme de Cassis"
+    }
+  },
+  {
+    "model": "api.liqueur",
+    "fields": {
+      "Chinese_Name": "黑巧克力香甜酒",
+      "English_Name": "Dark Chocolate Liqueur"
+    }
+  },
+  {
+    "model": "api.liqueur",
+    "fields": {
+      "Chinese_Name": "藍柑橘香甜酒",
+      "English_Name": "Blue Curacao"
+    }
+  },
+  {
+    "model": "api.liqueur",
+    "fields": {
+      "Chinese_Name": "咖啡香甜酒",
+      "English_Name": "Coffee Liqueur"
+    }
+  },
+  {
+    "model": "api.liqueur",
+    "fields": {
+      "Chinese_Name": "奶酒",
+      "English_Name": "Cream Liqueur"
+    }
+  },
+  {
+    "model": "api.alcohol",
+    "fields": {
+      "Chinese_Name": "香艾酒",
+      "English_Name": "Absinthe"
+    }
+  },
+  {
+    "model": "api.ingredient",
+    "fields": {
+      "Chinese_Name": "通寧水",
+      "English_Name": "Tonic Water"
+    }
+  },
+  {
+    "model": "api.ingredient",
+    "fields": {
+      "Chinese_Name": "蛋白",
+      "English_Name": "Egg White"
+    }
+  },
+  {
+    "model": "api.ingredient",
+    "fields": {
+      "Chinese_Name": "烏龍茶",
+      "English_Name": "Oolong Tea"
+    }
+  },
+  {
+    "model": "api.ingredient",
+    "fields": {
+      "Chinese_Name": "塔巴斯可辣醬",
+      "English_Name": "Tabasco Sauce"
+    }
+  },
+  {
+    "model": "api.ingredient",
+    "fields": {
+      "Chinese_Name": "葡萄柚汁",
+      "English_Name": "Grapefruit Juice"
+    }
+  },
+  {
+    "model": "api.ingredient",
+    "fields": {
+      "Chinese_Name": "鮮奶",
+      "English_Name": "Fresh Milk"
+    }
+  },
+  {
+    "model": "api.ingredient",
+    "fields": {
+      "Chinese_Name": "糖漿",
+      "English_Name": "Simple Syrup"
+    }
+  },
+  {
+    "model": "api.ingredient",
+    "fields": {
+      "Chinese_Name": "百香果汁",
+      "English_Name": "Passion Fruit Juice"
+    }
+  },
+  {
+    "model": "api.ingredient",
+    "fields": {
+      "Chinese_Name": "薑汁",
+      "English_Name": "Ginger Juice"
+    }
+  },
+  {
+    "model": "api.ingredient",
+    "fields": {
+      "Chinese_Name": "薄荷葉",
+      "English_Name": "Mint Leaves"
+    }
+  },
+  {
+    "model": "api.ingredient",
+    "fields": {
+      "Chinese_Name": "蔓越莓汁",
+      "English_Name": "Cranberry Juice"
+    }
+  },
+  {
+    "model": "api.ingredient",
+    "fields": {
+      "Chinese_Name": "鮮奶油",
+      "English_Name": "Whipped Cream"
+    }
+  },
+  {
+    "model": "api.ingredient",
+    "fields": {
+      "Chinese_Name": "鳳梨汁",
+      "English_Name": "Pineapple Juice"
+    }
+  },
+  {
+    "model": "api.ingredient",
+    "fields": {
+      "Chinese_Name": "可樂",
+      "English_Name": "Cola"
+    }
+  },
+  {
+    "model": "api.ingredient",
+    "fields": {
+      "Chinese_Name": "烏斯特黑醋醬",
+      "English_Name": "Worcestershire Sauce"
+    }
+  },
+  {
+    "model": "api.ingredient",
+    "fields": {
+      "Chinese_Name": "紅石榴糖漿",
+      "English_Name": "Grenadine"
+    }
+  },
+  {
+    "model": "api.ingredient",
+    "fields": {
+      "Chinese_Name": "柳橙汁",
+      "English_Name": "Orange Juice"
+    }
+  },
+  {
+    "model": "api.ingredient",
+    "fields": {
+      "Chinese_Name": "檸檬汁",
+      "English_Name": "Lemon Juice"
+    }
+  },
+  {
+    "model": "api.ingredient",
+    "fields": {
+      "Chinese_Name": "咖啡",
+      "English_Name": "Coffee"
+    }
+  },
+  {
+    "model": "api.ingredient",
+    "fields": {
+      "Chinese_Name": "蜂蜜",
+      "English_Name": "Honey"
+    }
+  },
+  {
+    "model": "api.ingredient",
+    "fields": {
+      "Chinese_Name": "薑汁汽水",
+      "English_Name": "Ginger Ale"
+    }
+  },
+  {
+    "model": "api.ingredient",
+    "fields": {
+      "Chinese_Name": "檸檬角",
+      "English_Name": "Lemon Wedge"
+    }
+  },
+  {
+    "model": "api.ingredient",
+    "fields": {
+      "Chinese_Name": "蘇打水",
+      "English_Name": "Soda Water"
+    }
+  },
+  {
+    "model": "api.ingredient",
+    "fields": {
+      "Chinese_Name": "蕃茄汁",
+      "English_Name": "Tomato Juice"
+    }
+  },
+  {
+    "model": "api.ingredient",
+    "fields": {
+      "Chinese_Name": "椰漿",
+      "English_Name": "Coconut Cream"
+    }
+  },
+  {
     "model": "api.cocktail",
     "fields": {
       "Chinese_Name": "白色俄羅斯",

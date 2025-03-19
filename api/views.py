@@ -3,6 +3,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from rest_framework_simplejwt.views import TokenObtainPairView
 from rest_framework.response import Response
+from django.http import FileResponse
 
 from .serializers import CocktailSerializer, BaseSerializer, LiqueurSerializer, AlcoholSerializer, IngredientSerializer
 from .models import Cocktail, Base, Liqueur, Alcohol, Ingredient
@@ -385,57 +386,57 @@ def cocktailRecommendation(request, pk):
 
 @api_view(['GET'])
 def backupData(request):
-    baseJson, liqueurJson, alcoholJson, ingredientJson, cocktailJson = [], [], [], [], []
+    data = []
+    index = 0
 
     bases = Base.objects.all()
     serializer = BaseSerializer(bases, many=True)
     for i in serializer.data:
-        baseJson.append({"model": "api.base", "fields": {"Chinese_Name": i['Chinese_Name'], "English_Name": i['English_Name']}})
-    jsonFile = open('backupData/bases.json','w',encoding="utf8")
-    json.dump(baseJson, jsonFile, indent=2, ensure_ascii = False)
+        data.append({"model": "api.base", "fields": {"Chinese_Name": i['Chinese_Name'], "English_Name": i['English_Name']}})
+        index += 1
 
     liqueurs = Liqueur.objects.all()
     serializer = LiqueurSerializer(liqueurs, many=True)
     for i in serializer.data:
-        liqueurJson.append({"model": "api.liqueur", "fields": {"Chinese_Name": i['Chinese_Name'], "English_Name": i['English_Name']}})
-    jsonFile = open('backupData/liqueurs.json','w',encoding="utf8")
-    json.dump(liqueurJson, jsonFile, indent=2, ensure_ascii = False)
+        data.append({"model": "api.liqueur", "fields": {"Chinese_Name": i['Chinese_Name'], "English_Name": i['English_Name']}})
+        index += 1
 
     alcohols = Alcohol.objects.all()
     serializer = AlcoholSerializer(alcohols, many=True)
     for i in serializer.data:
-        alcoholJson.append({"model": "api.alcohol", "fields": {"Chinese_Name": i['Chinese_Name'], "English_Name": i['English_Name']}})
-    jsonFile = open('backupData/alcohols.json','w',encoding="utf8")
-    json.dump(alcoholJson, jsonFile, indent=2, ensure_ascii = False)
+        data.append({"model": "api.alcohol", "fields": {"Chinese_Name": i['Chinese_Name'], "English_Name": i['English_Name']}})
+        index += 1
 
     ingredients = Ingredient.objects.all()
     serializer = IngredientSerializer(ingredients, many=True)
     for i in serializer.data:
-        ingredientJson.append({"model": "api.ingredient", "fields": {"Chinese_Name": i['Chinese_Name'], "English_Name": i['English_Name']}})
-    jsonFile = open('backupData/ingredients.json','w',encoding="utf8")
-    json.dump(ingredientJson, jsonFile, indent=2, ensure_ascii = False)
+        data.append({"model": "api.ingredient", "fields": {"Chinese_Name": i['Chinese_Name'], "English_Name": i['English_Name']}})
+        index += 1
 
     cocktails = Cocktail.objects.all()
     serializer = CocktailSerializer(cocktails, many=True)
-    index = 0
     for i in serializer.data:
-        cocktailJson.append({"model": "api.cocktail", "fields": {"Chinese_Name": i['Chinese_Name'], "English_Name": i['English_Name']}})
-        cocktailJson[index]["fields"]["Bases"] = []
-        cocktailJson[index]["fields"]["Liqueurs"] = []
-        cocktailJson[index]["fields"]["Alcohols"] = []
-        cocktailJson[index]["fields"]["Ingredients"] = []
+        data.append({"model": "api.cocktail", "fields": {"Chinese_Name": i['Chinese_Name'], "English_Name": i['English_Name']}})
+        data[index]["fields"]["Bases"] = []
+        data[index]["fields"]["Liqueurs"] = []
+        data[index]["fields"]["Alcohols"] = []
+        data[index]["fields"]["Ingredients"] = []
         for j in i['Bases']:
-                cocktailJson[index]["fields"]["Bases"].append(j['Base_ID'])
+                data[index]["fields"]["Bases"].append(j['Base_ID'])
         for j in i['Liqueurs']:
-                cocktailJson[index]["fields"]["Liqueurs"].append(j['Liqueur_ID'])
+                data[index]["fields"]["Liqueurs"].append(j['Liqueur_ID'])
         for j in i['Alcohols']:
-                cocktailJson[index]["fields"]["Alcohols"].append(j['Alcohol_ID'])
+                data[index]["fields"]["Alcohols"].append(j['Alcohol_ID'])
         for j in i['Ingredients']:
-                cocktailJson[index]["fields"]["Ingredients"].append(j['Ingredient_ID'])
+                data[index]["fields"]["Ingredients"].append(j['Ingredient_ID'])
         index += 1
-    jsonFile = open('backupData/cocktails.json','w',encoding="utf8")
-    json.dump(cocktailJson, jsonFile, indent=2, ensure_ascii = False)
-    return Response('備份完成')
+
+    file_path = "backupData/cocktail_data.json"
+    with open(file_path, "w", encoding="utf-8") as json_file:
+        json.dump(data, json_file, indent=2, ensure_ascii = False)
+    
+    response = FileResponse(open(file_path, "rb"), as_attachment=True, filename="data.json")
+    return response
 
 def buildModel():
     with open('cocktailData/cocktailOutput.csv', 'w', newline='', encoding='utf-8') as f:
