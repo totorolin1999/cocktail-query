@@ -178,17 +178,9 @@ if DEVELOPMENT_MODE is True:
         }
     }
 else:
-    """
     # Render PostgreSQL (Live)
     DATABASES = {
         "default": dj_database_url.parse(env('DATABASE_URL'))
-    }
-    """
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / "db.sqlite3",
-        }
     }
 
 # Password validation
