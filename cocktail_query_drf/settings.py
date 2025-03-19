@@ -159,16 +159,18 @@ WSGI_APPLICATION = 'cocktail_query_drf.wsgi.application'
 DEVELOPMENT_MODE = os.getenv("DEVELOPMENT_MODE", "False") == "True"
 
 if DEVELOPMENT_MODE is True:
-    # DATABASES = {
-    #     'default': {
-    #         'ENGINE': 'django.db.backends.postgresql',
-    #         'NAME': env('PostgreSQL_NAME'),
-    #         'USER': env('PostgreSQL_USER'),
-    #         'PASSWORD': env('PostgreSQL_PASSWORD'),
-    #         'HOST': env('PostgreSQL_HOST'),
-    #         'PORT': env('PostgreSQL_PORT'),
-    #     }
-    # }
+    """
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': env('PostgreSQL_NAME'),
+            'USER': env('PostgreSQL_USER'),
+            'PASSWORD': env('PostgreSQL_PASSWORD'),
+            'HOST': env('PostgreSQL_HOST'),
+            'PORT': env('PostgreSQL_PORT'),
+        }
+    }
+    """
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
@@ -176,9 +178,17 @@ if DEVELOPMENT_MODE is True:
         }
     }
 else:
+    """
     # Render PostgreSQL (Live)
     DATABASES = {
         "default": dj_database_url.parse(env('DATABASE_URL'))
+    }
+    """
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / "db.sqlite3",
+        }
     }
 
 # Password validation
