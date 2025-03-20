@@ -26,16 +26,18 @@ const UserBases = () => {
   }, []);
 
   return (
-    <Container>
-      <Row className="mt-5 mb-5">
-        <Col xs={12} md={6}>
-          <UserBaseTable data={bases} />
-        </Col>
-        <Col xs={12} md={6}>
-          <BaseChart />
-        </Col>
-      </Row>
-    </Container>
+    <div className="chartPageColor">
+      <Container>
+        <Row className="mt-5 mb-5">
+          <Col xs={12} md={6}>
+            <UserBaseTable data={bases} />
+          </Col>
+          <Col xs={12} md={6}>
+            <BaseChart />
+          </Col>
+        </Row>
+      </Container>
+    </div>
   );
 };
 

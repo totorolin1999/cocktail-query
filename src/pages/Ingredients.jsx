@@ -30,24 +30,26 @@ const Ingredients = () => {
   }, []);
 
   return (
-    <Container>
-      <Button
-        variant="secondary"
-        as={Link}
-        to="/AddIngredient"
-        className="mt-5"
-      >
-        新增其他成分
-      </Button>
-      <Row className="mb-5">
-        <Col xs={12} md={5}>
-          <IngredientTable data={ingredients} />
-        </Col>
-        <Col xs={12} md={7}>
-          <IngredientChart />
-        </Col>
-      </Row>
-    </Container>
+    <div className="chartPageColor">
+      <Container>
+        <Button
+          variant="secondary"
+          as={Link}
+          to="/AddIngredient"
+          className="mt-5"
+        >
+          新增其他成分
+        </Button>
+        <Row className="mb-5">
+          <Col xs={12} md={5}>
+            <IngredientTable data={ingredients} />
+          </Col>
+          <Col xs={12} md={7}>
+            <IngredientChart />
+          </Col>
+        </Row>
+      </Container>
+    </div>
   );
 };
 

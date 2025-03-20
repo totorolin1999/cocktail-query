@@ -28,16 +28,18 @@ const Ingredients = () => {
   }, []);
 
   return (
-    <Container>
-      <Row className="mt-5 mb-5">
-        <Col xs={12} md={5}>
-          <UserIngredientTable data={ingredients} />
-        </Col>
-        <Col xs={12} md={7}>
-          <IngredientChart />
-        </Col>
-      </Row>
-    </Container>
+    <div className="chartPageColor">
+      <Container>
+        <Row className="mt-5 mb-5">
+          <Col xs={12} md={5}>
+            <UserIngredientTable data={ingredients} />
+          </Col>
+          <Col xs={12} md={7}>
+            <IngredientChart />
+          </Col>
+        </Row>
+      </Container>
+    </div>
   );
 };
 

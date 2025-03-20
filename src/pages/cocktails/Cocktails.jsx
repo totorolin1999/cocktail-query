@@ -43,7 +43,7 @@ const Cocktails = () => {
 };
 
   return (
-    <div className="admin">
+    <div className="admin chartPageColor">
       <Container>
         <Button variant="secondary" as={Link} to="/AddCocktail" className="mt-5">
           新增調酒

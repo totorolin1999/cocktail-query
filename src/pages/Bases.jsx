@@ -28,19 +28,21 @@ const Bases = () => {
   }, []);
 
   return (
-    <Container>
-      <Button variant="secondary" as={Link} to="/AddBase" className="mt-5">
-        新增基酒
-      </Button>
-      <Row className="mb-5">
-        <Col xs={12} md={6}>
-          <BaseTable data={bases} />
-        </Col>
-        <Col xs={12} md={6}>
-          <BaseChart />
-        </Col>
-      </Row>
-    </Container>
+    <div className="chartPageColor">
+      <Container>
+        <Button variant="secondary" as={Link} to="/AddBase" className="mt-5">
+          新增基酒
+        </Button>
+        <Row className="mb-5">
+          <Col xs={12} md={6}>
+            <BaseTable data={bases} />
+          </Col>
+          <Col xs={12} md={6}>
+            <BaseChart />
+          </Col>
+        </Row>
+      </Container>
+    </div>
   );
 };
 

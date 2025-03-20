@@ -28,19 +28,21 @@ const Liqueurs = () => {
   }, []);
 
   return (
-    <Container>
-      <Button variant="secondary" as={Link} to="/AddLiqueur" className="mt-5">
-        新增利口酒
-      </Button>
-      <Row className="mb-5">
-        <Col xs={12} md={5}>
-          <LiqueurTable data={liqueurs} />
-        </Col>
-        <Col xs={12} md={7}>
-          <LiqueurChart />
-        </Col>
-      </Row>
-    </Container>
+    <div className="chartPageColor">
+      <Container>
+        <Button variant="secondary" as={Link} to="/AddLiqueur" className="mt-5">
+          新增利口酒
+        </Button>
+        <Row className="mb-5">
+          <Col xs={12} md={5}>
+            <LiqueurTable data={liqueurs} />
+          </Col>
+          <Col xs={12} md={7}>
+            <LiqueurChart />
+          </Col>
+        </Row>
+      </Container>
+    </div>
   );
 };
 

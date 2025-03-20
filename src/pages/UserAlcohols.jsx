@@ -26,16 +26,18 @@ const Alcohols = () => {
   }, []);
 
   return (
-    <Container>
-      <Row className="mt-5 mb-5">
-        <Col xs={12} md={6}>
-          <UserAlcoholTable data={alcohols} />
-        </Col>
-        <Col xs={12} md={6}>
-          <AlcoholChart />
-        </Col>
-      </Row>
-    </Container>
+    <div className="chartPageColor">
+      <Container>
+        <Row className="mt-5 mb-5">
+          <Col xs={12} md={6}>
+            <UserAlcoholTable data={alcohols} />
+          </Col>
+          <Col xs={12} md={6}>
+            <AlcoholChart />
+          </Col>
+        </Row>
+      </Container>
+    </div>
   );
 };
 

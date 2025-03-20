@@ -26,16 +26,18 @@ const Liqueurs = () => {
   }, []);
 
   return (
-    <Container>
-      <Row className="mt-5 mb-5">
-        <Col xs={12} md={5}>
-          <UserLiqueurTable data={liqueurs} />
-        </Col>
-        <Col xs={12} md={7}>
-          <LiqueurChart />
-        </Col>
-      </Row>
-    </Container>
+    <div className="chartPageColor">
+      <Container>
+        <Row className="mt-5 mb-5">
+          <Col xs={12} md={5}>
+            <UserLiqueurTable data={liqueurs} />
+          </Col>
+          <Col xs={12} md={7}>
+            <LiqueurChart />
+          </Col>
+        </Row>
+      </Container>
+    </div>
   );
 };
 
