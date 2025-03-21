@@ -47,33 +47,29 @@ class MyTokenObtainPairView(TokenObtainPairView):
 
 @api_view(['GET'])
 def cocktailList(request):
-    
-    name = request.query_params.get('name')
-    bases = request.query_params.get('bases[]')
-    liqueurs = request.query_params.get('liqueurs[]')
-    alcohols = request.query_params.get('alcohols[]')
-    ingredients = request.query_params.get('ingredients[]')
+    name = request.query_params.get('name', '')
+    bases = request.query_params.get('bases[]', '')
+    liqueurs = request.query_params.get('liqueurs[]', '')
+    alcohols = request.query_params.get('alcohols[]', '')
+    ingredients = request.query_params.get('ingredients[]', '')
 
-    if name == None or bases == None or liqueurs == None or alcohols == None or ingredients == None:
-        cocktails = Cocktail.objects.all()
-        serializer = CocktailSerializer(cocktails, many=True)
-        return Response(serializer.data)
-    
-    cocktails = Cocktail.objects.filter(Q(Chinese_Name__contains=name) | Q(English_Name__contains=name))
-    if len(bases):
-        # bases = bases.split("|")
+    cocktails = Cocktail.objects.all()
+
+    if name:
+        cocktails = cocktails.filter(Q(Chinese_Name__contains=name) | Q(English_Name__contains=name))
+    if bases:
         bases = list(map(int, bases.split("|")))
         for base in bases:
             cocktails =  cocktails.filter(Q(Bases=base))
-    if len(liqueurs):
+    if liqueurs:
         liqueurs = list(map(int, liqueurs.split("|")))
         for liqueur in liqueurs:
             cocktails =  cocktails.filter(Q(Liqueurs=liqueur))
-    if len(alcohols):
+    if alcohols:
         alcohols = list(map(int, alcohols.split("|")))
         for alcohol in alcohols:
             cocktails =  cocktails.filter(Q(Alcohols=alcohol))
-    if len(ingredients):
+    if ingredients:
         ingredients = list(map(int, ingredients.split("|")))
         for ingredient in ingredients:
             cocktails =  cocktails.filter(Q(Ingredients=ingredient))
