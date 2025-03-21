@@ -6,24 +6,34 @@ import Container from "react-bootstrap/Container";
 
 import UserAlcoholTable from "../components/userAlcoholTable/UserAlcoholTable";
 import AlcoholChart from "../components/alcoholChart/AlcoholChart";
+import LoadingMessage from "../components/LoadingMessage";
+import ErrorMessage from "../components/ErrorMessage";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-import API_BASE_URL from '../apiConfig';
+import API_BASE_URL from "../apiConfig";
 
 const Alcohols = () => {
   const [alcohols, setAlcohols] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchAllAlcohols = async () => {
+    const fetchAlcohols = async () => {
       try {
         const res = await axios.get(`${API_BASE_URL}/api/alcohol-list/`);
         setAlcohols(res.data);
       } catch (err) {
-        console.log(err);
+        setError(err.message);
+      } finally {
+        setLoading(false);
       }
     };
-    fetchAllAlcohols();
+
+    fetchAlcohols();
   }, []);
+
+  if (loading) return <LoadingMessage />;
+  if (error) return <ErrorMessage data={error} />;
 
   return (
     <div className="chartPageColor">

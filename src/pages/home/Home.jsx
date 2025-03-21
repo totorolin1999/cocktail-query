@@ -3,11 +3,13 @@ import "../layout/layout.scss";
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import CocktailCard from "../../components/cocktailCard/CocktailCard";
-
+import LoadingMessage from "../../components/LoadingMessage";
+import ErrorMessage from "../../components/ErrorMessage";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
+import Spinner from "react-bootstrap/Spinner";
 
 // import LocalBarIcon from "@mui/icons-material/LocalBar";
 import { useEffect } from "react";
@@ -22,11 +24,10 @@ import Form from "react-bootstrap/Form";
 import API_BASE_URL from "../../apiConfig";
 
 const Home = () => {
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [data, setData] = useState([]);
   const [query, setQuery] = useState("");
-  // const [data, setData] = useState([]);
-  // const [selectedOptions, setSelectedOptions] = useState([]);
   const [bases, setBases] = useState([]);
   const [liqueurs, setLiqueurs] = useState([]);
   const [alcohols, setAlcohols] = useState([]);
@@ -35,6 +36,8 @@ const Home = () => {
   const [selectedLiqueurs, setSelectedLiqueurs] = useState([]);
   const [selectedAlcohols, setSelectedAlcohols] = useState([]);
   const [selectedIngredients, setSelectedIngredients] = useState([]);
+  const [disabledBtn, setDisabledBtn] = useState(false);
+  const [showCard, setShowCard] = useState(true);
 
   const animatedComponents = makeAnimated();
 
@@ -48,11 +51,18 @@ const Home = () => {
       }
     };
 
-    fetchData(`${API_BASE_URL}/api/base-list/`, setBases);
-    fetchData(`${API_BASE_URL}/api/liqueur-list/`, setLiqueurs);
-    fetchData(`${API_BASE_URL}/api/alcohol-list/`, setAlcohols);
-    fetchData(`${API_BASE_URL}/api/ingredient-list/`, setIngredients);
-    fetchData(`${API_BASE_URL}/api/cocktail-list/`, setData);
+    const fetchAllData = async () => {
+      await Promise.all([
+        fetchData(`${API_BASE_URL}/api/base-list/`, setBases),
+        fetchData(`${API_BASE_URL}/api/liqueur-list/`, setLiqueurs),
+        fetchData(`${API_BASE_URL}/api/alcohol-list/`, setAlcohols),
+        fetchData(`${API_BASE_URL}/api/ingredient-list/`, setIngredients),
+        fetchData(`${API_BASE_URL}/api/cocktail-list/`, setData),
+      ]);
+      setLoading(false);
+    };
+
+    fetchAllData();
   }, []);
 
   // console.log(
@@ -80,6 +90,8 @@ const Home = () => {
   }));
 
   const handleClick = async (e) => {
+    setShowCard(false);
+    setDisabledBtn(true);
     e.preventDefault();
     try {
       const baseQuery = queryString.stringify(
@@ -104,6 +116,8 @@ const Home = () => {
           `${API_BASE_URL}/api/cocktail-list/?name=${query}&${baseQuery}&${liqueurQuery}&${alcoholQuery}&${ingredientQuery}`
         );
         setData(res.data);
+        setShowCard(true);
+        setDisabledBtn(false);
       };
       fetchCocktails();
     } catch (err) {
@@ -111,78 +125,92 @@ const Home = () => {
     }
   };
 
+  if (loading) return <LoadingMessage />;
+  if (error) return <ErrorMessage data={error} />;
+
   return (
     <>
       <div className="backgroundColor">
         <Container className="p-5">
-          {error ? (
-            <p style={{ color: "red" }}>Error: {error}</p>
-          ) : (
-            <>
-              <Form>
-                <Row className="mb-3">
-                  <Form.Group as={Col}>
-                    <Form.Label className="text-warning">基酒</Form.Label>
-                    <Select
-                      components={animatedComponents}
-                      onChange={(item) => setSelectedBases(item)}
-                      isMulti
-                      options={baseOptions}
-                      placeholder="選取基酒"
-                    />
-                  </Form.Group>
+          <Form>
+            <Row className="mb-3">
+              <Form.Group as={Col}>
+                <Form.Label className="text-warning">基酒</Form.Label>
+                <Select
+                  components={animatedComponents}
+                  onChange={(item) => setSelectedBases(item)}
+                  isMulti
+                  options={baseOptions}
+                  placeholder="選取基酒"
+                />
+              </Form.Group>
 
-                  <Form.Group as={Col}>
-                    <Form.Label className="text-warning">利口酒</Form.Label>
-                    <Select
-                      components={animatedComponents}
-                      onChange={(item) => setSelectedLiqueurs(item)}
-                      isMulti
-                      options={liqueurOptions}
-                      placeholder="選取利口酒"
-                    />
-                  </Form.Group>
+              <Form.Group as={Col}>
+                <Form.Label className="text-warning">利口酒</Form.Label>
+                <Select
+                  components={animatedComponents}
+                  onChange={(item) => setSelectedLiqueurs(item)}
+                  isMulti
+                  options={liqueurOptions}
+                  placeholder="選取利口酒"
+                />
+              </Form.Group>
 
-                  <Form.Group as={Col}>
-                    <Form.Label className="text-warning">其他酒類</Form.Label>
-                    <Select
-                      components={animatedComponents}
-                      onChange={(item) => setSelectedAlcohols(item)}
-                      isMulti
-                      options={alcoholOptions}
-                      placeholder="選取其他酒類"
-                    />
-                  </Form.Group>
-                </Row>
+              <Form.Group as={Col}>
+                <Form.Label className="text-warning">其他酒類</Form.Label>
+                <Select
+                  components={animatedComponents}
+                  onChange={(item) => setSelectedAlcohols(item)}
+                  isMulti
+                  options={alcoholOptions}
+                  placeholder="選取其他酒類"
+                />
+              </Form.Group>
+            </Row>
 
-                <Row className="mb-3">
-                  <Form.Group as={Col}>
-                    <Form.Label className="text-warning">其他成分</Form.Label>
-                    <Select
-                      components={animatedComponents}
-                      onChange={(item) => setSelectedIngredients(item)}
-                      isMulti
-                      options={ingredientOptions}
-                      placeholder="選取其他成分"
-                    />
-                  </Form.Group>
+            <Row className="mb-3">
+              <Form.Group as={Col}>
+                <Form.Label className="text-warning">其他成分</Form.Label>
+                <Select
+                  components={animatedComponents}
+                  onChange={(item) => setSelectedIngredients(item)}
+                  isMulti
+                  options={ingredientOptions}
+                  placeholder="選取其他成分"
+                />
+              </Form.Group>
 
-                  <Form.Group as={Col}>
-                    <Form.Label className="text-warning">調酒名稱</Form.Label>
-                    <Form.Control
-                      placeholder="輸入調酒名稱（中英文皆可）"
-                      onChange={(e) => setQuery(e.target.value)}
-                    />
-                  </Form.Group>
-                </Row>
+              <Form.Group as={Col}>
+                <Form.Label className="text-warning">調酒名稱</Form.Label>
+                <Form.Control
+                  placeholder="輸入調酒名稱（中英文皆可）"
+                  onChange={(e) => setQuery(e.target.value)}
+                />
+              </Form.Group>
+            </Row>
 
-                <Button variant="warning" onClick={handleClick}>
-                  查詢
-                </Button>
-              </Form>
-              <CocktailCard data={data} />
-            </>
-          )}
+            <Button
+              variant="warning"
+              onClick={handleClick}
+              disabled={disabledBtn}
+            >
+              {disabledBtn ? (
+                <>
+                  <Spinner
+                    as="span"
+                    animation="grow"
+                    size="sm"
+                    role="status"
+                    aria-hidden="true"
+                  />
+                  查詢中...
+                </>
+              ) : (
+                "查詢"
+              )}
+            </Button>
+          </Form>
+          {showCard && <CocktailCard data={data} />}
         </Container>
       </div>
     </>
