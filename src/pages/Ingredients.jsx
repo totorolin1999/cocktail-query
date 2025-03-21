@@ -8,26 +8,41 @@ import Container from "react-bootstrap/Container";
 
 import IngredientTable from "../components/ingredientTable/IngredientTable";
 import IngredientChart from "../components/ingredientChart/IngredientChart";
+import LoadingMessage from "../components/LoadingMessage";
+import ErrorMessage from "../components/ErrorMessage";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-import API_BASE_URL from '../apiConfig';
+import API_BASE_URL from "../apiConfig";
 
 const Ingredients = () => {
   const [ingredients, setIngredients] = useState([]);
+  const [ingredientChart, setIngredientChart] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchAllIngredients = async () => {
+    const fetchData = async (url, setter) => {
       try {
-        const res = await axios.get(
-          `${API_BASE_URL}/api/ingredient-list/`
-        );
-        setIngredients(res.data);
+        const res = await axios.get(url);
+        setter(res.data);
       } catch (err) {
-        console.log(err);
+        setError(err.message);
       }
     };
-    fetchAllIngredients();
+
+    const fetchAllData = async () => {
+      await Promise.all([
+        fetchData(`${API_BASE_URL}/api/ingredient-list/`, setIngredients),
+        fetchData(`${API_BASE_URL}/api/ingredient-chart/`, setIngredientChart),
+      ]);
+      setLoading(false);
+    };
+
+    fetchAllData();
   }, []);
+
+  if (loading) return <LoadingMessage />;
+  if (error) return <ErrorMessage data={error} />;
 
   return (
     <div className="chartPageColor">
@@ -45,7 +60,7 @@ const Ingredients = () => {
             <IngredientTable data={ingredients} />
           </Col>
           <Col xs={12} md={7}>
-            <IngredientChart />
+            <IngredientChart chartData={ingredientChart} />
           </Col>
         </Row>
       </Container>

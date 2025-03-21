@@ -1,35 +1,17 @@
 import "./alcoholChart.scss";
 import React from "react";
-import { useEffect } from "react";
-import { useState } from "react";
-import axios from "axios";
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
-import { Doughnut } from 'react-chartjs-2';
-import API_BASE_URL from '../../apiConfig';
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+import { Doughnut } from "react-chartjs-2";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-const AlcoholChart = () => {
-  const [alcoholChart, setAlcoholChart] = useState([]);
-
-  useEffect(() => {
-    const fetchAlcoholChart = async () => {
-      try {
-        const res = await axios.get(`${API_BASE_URL}/api/alcohol-chart/`);
-        setAlcoholChart(res.data);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    fetchAlcoholChart();
-  }, []);
-
+const AlcoholChart = ({ chartData }) => {
   const alcoholChartData = {
-    labels: alcoholChart.map((data) => data.label),
+    labels: chartData.map((data) => data.label),
     datasets: [
       {
         label: "其他酒類使用數量",
-        data: alcoholChart.map((data) => data.size),
+        data: chartData.map((data) => data.size),
         backgroundColor: [
           "rgba(255, 99, 132, 0.2)",
           "rgba(54, 162, 235, 0.2)",

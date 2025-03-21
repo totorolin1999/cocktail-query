@@ -1,8 +1,5 @@
 import "./liqueurChart.scss";
 import React from "react";
-import { useEffect } from "react";
-import { useState } from "react";
-import axios from "axios";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -13,7 +10,6 @@ import {
   Legend,
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
-import API_BASE_URL from '../../apiConfig';
 
 ChartJS.register(
   CategoryScale,
@@ -24,27 +20,13 @@ ChartJS.register(
   Legend
 );
 
-const LiqueurChart = () => {
-  const [liqueurChart, setLiqueurChart] = useState([]);
-
-  useEffect(() => {
-    const fetchLiqueurChart = async () => {
-      try {
-        const res = await axios.get(`${API_BASE_URL}/api/liqueur-chart/`);
-        setLiqueurChart(res.data);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    fetchLiqueurChart();
-  }, []);
-
+const LiqueurChart = ({ chartData }) => {
   const liqueurChartData = {
-    labels: liqueurChart.map((data) => data.label),
+    labels: chartData.map((data) => data.label),
     datasets: [
       {
         label: "利口酒使用數量",
-        data: liqueurChart.map((data) => data.size),
+        data: chartData.map((data) => data.size),
         backgroundColor: [
           "rgba(255, 99, 132, 0.2)",
           "rgba(54, 162, 235, 0.2)",

@@ -14,22 +14,29 @@ import API_BASE_URL from "../apiConfig";
 
 const Liqueurs = () => {
   const [liqueurs, setLiqueurs] = useState([]);
+  const [liqueurChart, setLiqueurChart] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchLiqueurs = async () => {
+    const fetchData = async (url, setter) => {
       try {
-        const res = await axios.get(`${API_BASE_URL}/api/liqueur-list/`);
-        setLiqueurs(res.data);
+        const res = await axios.get(url);
+        setter(res.data);
       } catch (err) {
         setError(err.message);
-      } finally {
-        setLoading(false);
       }
     };
 
-    fetchLiqueurs();
+    const fetchAllData = async () => {
+      await Promise.all([
+        fetchData(`${API_BASE_URL}/api/liqueur-list/`, setLiqueurs),
+        fetchData(`${API_BASE_URL}/api/liqueur-chart/`, setLiqueurChart),
+      ]);
+      setLoading(false);
+    };
+
+    fetchAllData();
   }, []);
 
   if (loading) return <LoadingMessage />;
@@ -43,7 +50,7 @@ const Liqueurs = () => {
             <UserLiqueurTable data={liqueurs} />
           </Col>
           <Col xs={12} md={7}>
-            <LiqueurChart />
+            <LiqueurChart chartData={liqueurChart} />
           </Col>
         </Row>
       </Container>

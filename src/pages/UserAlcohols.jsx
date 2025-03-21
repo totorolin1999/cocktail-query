@@ -14,22 +14,29 @@ import API_BASE_URL from "../apiConfig";
 
 const Alcohols = () => {
   const [alcohols, setAlcohols] = useState([]);
+  const [alcoholChart, setAlcoholChart] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchAlcohols = async () => {
+    const fetchData = async (url, setter) => {
       try {
-        const res = await axios.get(`${API_BASE_URL}/api/alcohol-list/`);
-        setAlcohols(res.data);
+        const res = await axios.get(url);
+        setter(res.data);
       } catch (err) {
         setError(err.message);
-      } finally {
-        setLoading(false);
       }
     };
 
-    fetchAlcohols();
+    const fetchAllData = async () => {
+      await Promise.all([
+        fetchData(`${API_BASE_URL}/api/alcohol-list/`, setAlcohols),
+        fetchData(`${API_BASE_URL}/api/alcohol-chart/`, setAlcoholChart),
+      ]);
+      setLoading(false);
+    };
+
+    fetchAllData();
   }, []);
 
   if (loading) return <LoadingMessage />;
@@ -43,7 +50,7 @@ const Alcohols = () => {
             <UserAlcoholTable data={alcohols} />
           </Col>
           <Col xs={12} md={6}>
-            <AlcoholChart />
+            <AlcoholChart chartData={alcoholChart} />
           </Col>
         </Row>
       </Container>

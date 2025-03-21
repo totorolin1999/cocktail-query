@@ -14,22 +14,29 @@ import API_BASE_URL from "../apiConfig";
 
 const Ingredients = () => {
   const [ingredients, setIngredients] = useState([]);
+  const [ingredientChart, setIngredientChart] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchIngredients = async () => {
+    const fetchData = async (url, setter) => {
       try {
-        const res = await axios.get(`${API_BASE_URL}/api/ingredient-list/`);
-        setIngredients(res.data);
+        const res = await axios.get(url);
+        setter(res.data);
       } catch (err) {
         setError(err.message);
-      } finally {
-        setLoading(false);
       }
     };
 
-    fetchIngredients();
+    const fetchAllData = async () => {
+      await Promise.all([
+        fetchData(`${API_BASE_URL}/api/ingredient-list/`, setIngredients),
+        fetchData(`${API_BASE_URL}/api/ingredient-chart/`, setIngredientChart),
+      ]);
+      setLoading(false);
+    };
+
+    fetchAllData();
   }, []);
 
   if (loading) return <LoadingMessage />;
@@ -43,7 +50,7 @@ const Ingredients = () => {
             <UserIngredientTable data={ingredients} />
           </Col>
           <Col xs={12} md={7}>
-            <IngredientChart />
+            <IngredientChart chartData={ingredientChart} />
           </Col>
         </Row>
       </Container>

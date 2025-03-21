@@ -8,24 +8,41 @@ import Container from "react-bootstrap/Container";
 
 import LiqueurTable from "../components/liqueurTable/LiqueurTable";
 import LiqueurChart from "../components/liqueurChart/LiqueurChart";
+import LoadingMessage from "../components/LoadingMessage";
+import ErrorMessage from "../components/ErrorMessage";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-import API_BASE_URL from '../apiConfig';
+import API_BASE_URL from "../apiConfig";
 
 const Liqueurs = () => {
   const [liqueurs, setLiqueurs] = useState([]);
+  const [liqueurChart, setLiqueurChart] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchAllLiqueurs = async () => {
+    const fetchData = async (url, setter) => {
       try {
-        const res = await axios.get(`${API_BASE_URL}/api/liqueur-list/`);
-        setLiqueurs(res.data);
+        const res = await axios.get(url);
+        setter(res.data);
       } catch (err) {
-        console.log(err);
+        setError(err.message);
       }
     };
-    fetchAllLiqueurs();
+
+    const fetchAllData = async () => {
+      await Promise.all([
+        fetchData(`${API_BASE_URL}/api/liqueur-list/`, setLiqueurs),
+        fetchData(`${API_BASE_URL}/api/liqueur-chart/`, setLiqueurChart),
+      ]);
+      setLoading(false);
+    };
+
+    fetchAllData();
   }, []);
+
+  if (loading) return <LoadingMessage />;
+  if (error) return <ErrorMessage data={error} />;
 
   return (
     <div className="chartPageColor">
@@ -38,7 +55,7 @@ const Liqueurs = () => {
             <LiqueurTable data={liqueurs} />
           </Col>
           <Col xs={12} md={7}>
-            <LiqueurChart />
+            <LiqueurChart chartData={liqueurChart} />
           </Col>
         </Row>
       </Container>

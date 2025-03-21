@@ -1,35 +1,17 @@
 import "./baseChart.scss";
 import React from "react";
-import { useEffect } from "react";
-import { useState } from "react";
-import axios from "axios";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Pie } from "react-chartjs-2";
-import API_BASE_URL from '../../apiConfig';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-const BaseChart = () => {
-  const [baseChart, setBaseChart] = useState([]);
-
-  useEffect(() => {
-    const fetchBaseChart = async () => {
-      try {
-        const res = await axios.get(`${API_BASE_URL}/api/base-chart/`);
-        setBaseChart(res.data);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    fetchBaseChart();
-  }, []);
-
+const BaseChart = ({ chartData }) => {
   const baseChartData = {
-    labels: baseChart.map((data) => data.label),
+    labels: chartData.map((data) => data.label),
     datasets: [
       {
         label: "基酒使用數量",
-        data: baseChart.map((data) => data.size),
+        data: chartData.map((data) => data.size),
         backgroundColor: [
           "rgba(255, 99, 132, 0.2)",
           "rgba(54, 162, 235, 0.2)",

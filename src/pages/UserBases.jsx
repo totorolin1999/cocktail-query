@@ -14,22 +14,29 @@ import API_BASE_URL from "../apiConfig";
 
 const UserBases = () => {
   const [bases, setBases] = useState([]);
+  const [baseChart, setBaseChart] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchBases = async () => {
+    const fetchData = async (url, setter) => {
       try {
-        const res = await axios.get(`${API_BASE_URL}/api/base-list/`);
-        setBases(res.data);
+        const res = await axios.get(url);
+        setter(res.data);
       } catch (err) {
         setError(err.message);
-      } finally {
-        setLoading(false);
       }
     };
 
-    fetchBases();
+    const fetchAllData = async () => {
+      await Promise.all([
+        fetchData(`${API_BASE_URL}/api/base-list/`, setBases),
+        fetchData(`${API_BASE_URL}/api/base-chart/`, setBaseChart),
+      ]);
+      setLoading(false);
+    };
+
+    fetchAllData();
   }, []);
 
   if (loading) return <LoadingMessage />;
@@ -43,7 +50,7 @@ const UserBases = () => {
             <UserBaseTable data={bases} />
           </Col>
           <Col xs={12} md={6}>
-            <BaseChart />
+            <BaseChart chartData={baseChart} />
           </Col>
         </Row>
       </Container>
