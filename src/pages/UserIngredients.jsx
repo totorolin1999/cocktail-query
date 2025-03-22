@@ -31,7 +31,7 @@ const Ingredients = () => {
     const fetchAllData = async () => {
       await Promise.all([
         fetchData(`${API_BASE_URL}/api/material-list/ingredient/`, setIngredients),
-        fetchData(`${API_BASE_URL}/api/ingredient-chart/`, setIngredientChart),
+        fetchData(`${API_BASE_URL}/api/chart-list/ingredient/`, setIngredientChart),
       ]);
       setLoading(false);
     };

@@ -33,7 +33,7 @@ const Bases = () => {
     const fetchAllData = async () => {
       await Promise.all([
         fetchData(`${API_BASE_URL}/api/material-list/base/`, setBases),
-        fetchData(`${API_BASE_URL}/api/base-chart/`, setBaseChart),
+        fetchData(`${API_BASE_URL}/api/chart-list/base/`, setBaseChart),
       ]);
       setLoading(false);
     };

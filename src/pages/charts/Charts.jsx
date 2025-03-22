@@ -33,10 +33,10 @@ const Charts = () => {
 
     const fetchAllData = async () => {
       await Promise.all([
-        fetchData(`${API_BASE_URL}/api/base-chart/`, setBaseChart),
-        fetchData(`${API_BASE_URL}/api/liqueur-chart/`, setLiqueurChart),
-        fetchData(`${API_BASE_URL}/api/alcohol-chart/`, setAlcoholChart),
-        fetchData(`${API_BASE_URL}/api/ingredient-chart/`, setIngredientChart),
+        fetchData(`${API_BASE_URL}/api/chart-list/base/`, setBaseChart),
+        fetchData(`${API_BASE_URL}/api/chart-list/liqueur/`, setLiqueurChart),
+        fetchData(`${API_BASE_URL}/api/chart-list/alcohol/`, setAlcoholChart),
+        fetchData(`${API_BASE_URL}/api/chart-list/ingredient/`, setIngredientChart),
       ]);
       setLoading(false);
     };
