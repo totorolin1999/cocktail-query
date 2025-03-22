@@ -30,7 +30,7 @@ const Alcohols = () => {
 
     const fetchAllData = async () => {
       await Promise.all([
-        fetchData(`${API_BASE_URL}/api/alcohol-list/`, setAlcohols),
+        fetchData(`${API_BASE_URL}/api/material-list/alcohol/`, setAlcohols),
         fetchData(`${API_BASE_URL}/api/alcohol-chart/`, setAlcoholChart),
       ]);
       setLoading(false);

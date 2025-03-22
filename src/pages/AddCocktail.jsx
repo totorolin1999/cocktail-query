@@ -49,19 +49,19 @@ const AddCocktail = () => {
 
   useEffect(() => {
     const fetchBases = async () => {
-      const res = await axios.get(`${API_BASE_URL}/api/base-list/`);
+      const res = await axios.get(`${API_BASE_URL}/api/material-list/base/`);
       setBases(res.data);
     };
     const fetchLiqueurs = async () => {
-      const res = await axios.get(`${API_BASE_URL}/api/liqueur-list/`);
+      const res = await axios.get(`${API_BASE_URL}/api/material-list/liqueur/`);
       setLiqueurs(res.data);
     };
     const fetchAlcohols = async () => {
-      const res = await axios.get(`${API_BASE_URL}/api/alcohol-list/`);
+      const res = await axios.get(`${API_BASE_URL}/api/material-list/alcohol/`);
       setAlcohols(res.data);
     };
     const fetchIngredients = async () => {
-      const res = await axios.get(`${API_BASE_URL}/api/ingredient-list/`);
+      const res = await axios.get(`${API_BASE_URL}/api/material-list/ingredient/`);
       setIngredients(res.data);
     };
     fetchBases();

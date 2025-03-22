@@ -53,10 +53,10 @@ const Home = () => {
 
     const fetchAllData = async () => {
       await Promise.all([
-        fetchData(`${API_BASE_URL}/api/base-list/`, setBases),
-        fetchData(`${API_BASE_URL}/api/liqueur-list/`, setLiqueurs),
-        fetchData(`${API_BASE_URL}/api/alcohol-list/`, setAlcohols),
-        fetchData(`${API_BASE_URL}/api/ingredient-list/`, setIngredients),
+        fetchData(`${API_BASE_URL}/api/material-list/base/`, setBases),
+        fetchData(`${API_BASE_URL}/api/material-list/liqueur/`, setLiqueurs),
+        fetchData(`${API_BASE_URL}/api/material-list/alcohol/`, setAlcohols),
+        fetchData(`${API_BASE_URL}/api/material-list/ingredient/`, setIngredients),
         fetchData(`${API_BASE_URL}/api/cocktail-list/`, setData),
       ]);
       setLoading(false);
