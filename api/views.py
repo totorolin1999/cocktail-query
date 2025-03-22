@@ -161,9 +161,26 @@ def cocktailDelete(request, pk):
     return Response('刪除成功')
 
 @api_view(['GET'])
-def baseList(request):
-    bases = Base.objects.all()
-    serializer = BaseSerializer(bases, many=True)
+def materialList(request, model_type):
+    """
+    通用的API端點，根據model_type參數返回不同模型的所有對象
+    
+    參數:
+    - model_type: 字符串，可以是 'base', 'liqueur', 'alcohol', 或 'ingredient'
+    """
+    model_mapping = {
+        'base': (Base, BaseSerializer),
+        'liqueur': (Liqueur, LiqueurSerializer),
+        'alcohol': (Alcohol, AlcoholSerializer),
+        'ingredient': (Ingredient, IngredientSerializer),
+    }
+    
+    if model_type not in model_mapping:
+        return Response({"error": f"Unknown model type: {model_type}"}, status=400)
+    
+    Model, Serializer = model_mapping[model_type]
+    items = Model.objects.all()
+    serializer = Serializer(items, many=True)
     return Response(serializer.data)
 
 @api_view(['GET'])
@@ -202,12 +219,6 @@ def baseDelete(request, pk):
     return Response('刪除成功')
 
 @api_view(['GET'])
-def liqueurList(request):
-    liqueurs = Liqueur.objects.all()
-    serializer = LiqueurSerializer(liqueurs, many=True)
-    return Response(serializer.data)
-
-@api_view(['GET'])
 def liqueurDetail(request, pk):
     liqueurs = Liqueur.objects.get(Liqueur_ID=pk)
     serializer = LiqueurSerializer(liqueurs, many=False)
@@ -243,12 +254,6 @@ def liqueurDelete(request, pk):
     return Response('刪除成功')
 
 @api_view(['GET'])
-def alcoholList(request):
-    alcohols = Alcohol.objects.all()
-    serializer = AlcoholSerializer(alcohols, many=True)
-    return Response(serializer.data)
-
-@api_view(['GET'])
 def alcoholDetail(request, pk):
     alcohols = Alcohol.objects.get(Alcohol_ID=pk)
     serializer = AlcoholSerializer(alcohols, many=False)
@@ -282,12 +287,6 @@ def alcoholDelete(request, pk):
     alcohol.delete()
 
     return Response('刪除成功')
-
-@api_view(['GET'])
-def ingredientList(request):
-    ingredients = Ingredient.objects.all()
-    serializer = IngredientSerializer(ingredients, many=True)
-    return Response(serializer.data)
 
 @api_view(['GET'])
 def ingredientDetail(request, pk):
