@@ -324,6 +324,41 @@ def ingredientDelete(request, pk):
     return Response('刪除成功')
 
 @api_view(['GET'])
+def chartList(request, model_type):
+    """
+    通用的API端點，根據model_type參數返回不同模型的圖表數據
+    
+    參數:
+    - model_type: 字符串，可以是 'base', 'liqueur', 'alcohol', 或 'ingredient'
+    """
+    model_mapping = {
+        'base': (Base, 'Bases'),
+        'liqueur': (Liqueur, 'Liqueurs'),
+        'alcohol': (Alcohol, 'Alcohols'),
+        'ingredient': (Ingredient, 'Ingredients'),
+    }
+    
+    if model_type not in model_mapping:
+        return Response({"error": f"未知的模型類型: {model_type}"}, status=400)
+    
+    Model, relation_field = model_mapping[model_type]
+    items = Model.objects.all()
+    
+    chart_list = []
+    for item in items:
+        # 使用動態的關聯欄位名稱創建查詢
+        filter_kwargs = {relation_field: item}
+        cocktails = Cocktail.objects.filter(**filter_kwargs)
+        
+        chart_list.append({
+            "label": item.Chinese_Name, 
+            "size": len(cocktails)
+        })
+    
+    return Response(chart_list)
+
+"""
+@api_view(['GET'])
 def baseChart(request):
     bases = Base.objects.all()
     chartList = []
@@ -332,36 +367,7 @@ def baseChart(request):
         cocktails = Cocktail.objects.filter(Q(Bases=base))
         chartList.append({"label": base.Chinese_Name, "size": len(cocktails)})
     return Response(chartList)
-
-@api_view(['GET'])
-def liqueurChart(request):
-    liqueurs = Liqueur.objects.all()
-    chartList = []
-    for liqueur in liqueurs:
-        liqueurs = Liqueur.objects.all()
-        cocktails = Cocktail.objects.filter(Q(Liqueurs=liqueur))
-        chartList.append({"label": liqueur.Chinese_Name, "size": len(cocktails)})
-    return Response(chartList)
-
-@api_view(['GET'])
-def alcoholChart(request):
-    alcohols = Alcohol.objects.all()
-    chartList = []
-    for alcohol in alcohols:
-        alcohols = Alcohol.objects.all()
-        cocktails = Cocktail.objects.filter(Q(Alcohols=alcohol))
-        chartList.append({"label": alcohol.Chinese_Name, "size": len(cocktails)})
-    return Response(chartList)
-
-@api_view(['GET'])
-def ingredientChart(request):
-    ingredients = Ingredient.objects.all()
-    chartList = []
-    for ingredient in ingredients:
-        ingredients = Ingredient.objects.all()
-        cocktails = Cocktail.objects.filter(Q(Ingredients=ingredient))
-        chartList.append({"label": ingredient.Chinese_Name, "size": len(cocktails)})
-    return Response(chartList)
+"""
 
 @api_view(['GET'])
 def cocktailRecommendation(request, pk):

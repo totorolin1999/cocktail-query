@@ -36,10 +36,7 @@ urlpatterns = [
     path('ingredient-create/', views.ingredientCreate, name='ingredient-create'),
     path('ingredient-update/<str:pk>/', views.ingredientUpdate, name='ingredient-update'),
     path('ingredient-delete/<str:pk>/', views.ingredientDelete, name='ingredient-delete'),
-    path('base-chart/', views.baseChart, name='base-chart'),
-    path('liqueur-chart/', views.liqueurChart, name='liqueur-chart'),
-    path('alcohol-chart/', views.alcoholChart, name='alcohol-chart'),
-    path('ingredient-chart/', views.ingredientChart, name='ingredient-chart'),
+    path('chart-list/<str:model_type>/', views.chartList, name='chart-list'),
     path('cocktail-recommendation/<str:pk>/', views.cocktailRecommendation, name='cocktail-recommendation'),
     path('backup-data/', views.backupData, name='backup-data'),
 ]
