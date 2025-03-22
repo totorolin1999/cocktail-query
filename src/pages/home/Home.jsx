@@ -193,6 +193,7 @@ const Home = () => {
               variant="warning"
               onClick={handleClick}
               disabled={disabledBtn}
+              className="queryBtn"
             >
               {disabledBtn ? (
                 <>
