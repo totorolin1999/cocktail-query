@@ -1,7 +1,6 @@
-/api/__pycache__
-/api/migrations/__pycache__
-/cocktail_query_drf/__pycache__
-/cocktail_query_drf/.env
+__pycache__/
+*.py[cod]
+*.env
 /venv
 /staticfiles
 /db.sqlite3
