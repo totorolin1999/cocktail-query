@@ -15,7 +15,7 @@ import API_BASE_URL from '../apiConfig';
 
 const UpdateCocktail = () => {
   const [cocktail, setCocktail] = useState({
-    Cocktail_ID: null,
+    id: null,
     Chinese_Name: "",
     English_Name: "",
   });

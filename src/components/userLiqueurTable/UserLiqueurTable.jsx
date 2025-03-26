@@ -34,7 +34,7 @@ const LiqueurTable = ({ data }) => {
         </thead>
         <tbody>
           {currentItems.map((liqueur) => (
-            <tr key={liqueur.Liqueur_ID}>
+            <tr key={liqueur.id}>
               <td>{liqueur.Chinese_Name}</td>
               <td>{liqueur.English_Name}</td>
             </tr>

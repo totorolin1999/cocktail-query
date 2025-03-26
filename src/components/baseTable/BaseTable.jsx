@@ -50,20 +50,20 @@ const BaseTable = ({ data }) => {
         </thead>
         <tbody>
           {currentItems.map((base) => (
-            <tr key={base.Base_ID}>
+            <tr key={base.id}>
               <td>{base.Chinese_Name}</td>
               <td>{base.English_Name}</td>
               <td>
                 <Button
                   variant="warning"
                   as={Link}
-                  to={`/UpdateBase/${base.Base_ID}`}
+                  to={`/UpdateBase/${base.id}`}
                 >
                   更新
                 </Button>{" "}
                 <Button
                   variant="danger"
-                  onClick={() => handleDelete(base.Base_ID)}
+                  onClick={() => handleDelete(base.id)}
                 >
                   刪除
                 </Button>{" "}

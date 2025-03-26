@@ -71,26 +71,26 @@ const AddCocktail = () => {
   }, []);
 
   console.log(
-    bases.map((item) => ({ value: item.Base_ID, label: item.Chinese_Name }))
+    bases.map((item) => ({ value: item.id, label: item.Chinese_Name }))
   );
 
   const baseOptions = bases.map((item) => ({
-    value: item.Base_ID,
+    value: item.id,
     label: item.Chinese_Name,
   }));
 
   const liqueurOptions = liqueurs.map((item) => ({
-    value: item.Liqueur_ID,
+    value: item.id,
     label: item.Chinese_Name,
   }));
 
   const alcoholOptions = alcohols.map((item) => ({
-    value: item.Alcohol_ID,
+    value: item.id,
     label: item.Chinese_Name,
   }));
 
   const ingredientOptions = ingredients.map((item) => ({
-    value: item.Ingredient_ID,
+    value: item.id,
     label: item.Chinese_Name,
   }));
 

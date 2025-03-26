@@ -34,7 +34,7 @@ const UserBaseTable = ({ data }) => {
         </thead>
         <tbody>
           {currentItems.map((base) => (
-            <tr key={base.Base_ID}>
+            <tr key={base.id}>
               <td>{base.Chinese_Name}</td>
               <td>{base.English_Name}</td>
             </tr>

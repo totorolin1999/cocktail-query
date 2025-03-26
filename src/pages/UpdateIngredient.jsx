@@ -15,7 +15,7 @@ import API_BASE_URL from '../apiConfig';
 
 const UpdateIngredient = () => {
   const [ingredient, setIngredient] = useState({
-    Ingredient_ID: null,
+    id: null,
     Chinese_Name: "",
     English_Name: "",
   });

@@ -15,7 +15,7 @@ import API_BASE_URL from '../apiConfig';
 
 const UpdateBase = () => {
   const [base, setBase] = useState({
-    Base_ID: null,
+    id: null,
     Chinese_Name: "",
     English_Name: "",
   });

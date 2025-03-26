@@ -68,7 +68,7 @@ const CocktailRec = ({ data }) => {
               <Button
                 variant="warning"
                 as={Link}
-                to={`/Cocktail/${item.Cocktail_ID}`}
+                to={`/Cocktail/${item.id}`}
               >
                 GO!
               </Button>

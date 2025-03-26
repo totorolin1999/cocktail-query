@@ -80,13 +80,13 @@ const CocktailTable = ({ data }) => {
                 <Button
                   variant="warning"
                   as={Link}
-                  to={`/UpdateCocktail/${item.Cocktail_ID}`}
+                  to={`/UpdateCocktail/${item.id}`}
                 >
                   更新
                 </Button>{" "}
                 <Button
                   variant="danger"
-                  onClick={() => handleDelete(item.Cocktail_ID)}
+                  onClick={() => handleDelete(item.id)}
                 >
                   刪除
                 </Button>{" "}

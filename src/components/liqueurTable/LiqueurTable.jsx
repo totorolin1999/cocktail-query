@@ -50,20 +50,20 @@ const LiqueurTable = ({ data }) => {
         </thead>
         <tbody>
           {currentItems.map((liqueur) => (
-            <tr key={liqueur.Liqueur_ID}>
+            <tr key={liqueur.id}>
               <td>{liqueur.Chinese_Name}</td>
               <td>{liqueur.English_Name}</td>
               <td>
                 <Button
                   variant="warning"
                   as={Link}
-                  to={`/UpdateLiqueur/${liqueur.Liqueur_ID}`}
+                  to={`/UpdateLiqueur/${liqueur.id}`}
                 >
                   更新
                 </Button>{" "}
                 <Button
                   variant="danger"
-                  onClick={() => handleDelete(liqueur.Liqueur_ID)}
+                  onClick={() => handleDelete(liqueur.id)}
                 >
                   刪除
                 </Button>{" "}

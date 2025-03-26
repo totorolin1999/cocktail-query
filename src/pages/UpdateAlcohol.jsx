@@ -15,7 +15,7 @@ import API_BASE_URL from '../apiConfig';
 
 const UpdateAlcohol = () => {
   const [alcohol, setAlcohol] = useState({
-    Alcohol_ID: null,
+    id: null,
     Chinese_Name: "",
     English_Name: "",
   });
