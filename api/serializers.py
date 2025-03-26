@@ -5,25 +5,25 @@ from .models import Base, Liqueur, Alcohol, Ingredient
 
 
 class BaseSerializer(serializers.ModelSerializer):
-    Base_ID = serializers.IntegerField(required=False)
+    id = serializers.IntegerField(required=False)
     class Meta:
         model = Base
         fields = '__all__'
 
 class LiqueurSerializer(serializers.ModelSerializer):
-    Liqueur_ID = serializers.IntegerField(required=False)
+    id = serializers.IntegerField(required=False)
     class Meta:
         model = Liqueur
         fields = '__all__'
 
 class AlcoholSerializer(serializers.ModelSerializer):
-    Alcohol_ID = serializers.IntegerField(required=False)
+    id = serializers.IntegerField(required=False)
     class Meta:
         model = Alcohol
         fields = '__all__'
 
 class IngredientSerializer(serializers.ModelSerializer):
-    Ingredient_ID = serializers.IntegerField(required=False)
+    id = serializers.IntegerField(required=False)
     class Meta:
         model = Ingredient
         fields = '__all__'
@@ -47,22 +47,22 @@ class CocktailSerializer(serializers.ModelSerializer):
         
         baseIdList = []
         for base_data in bases_data:
-            baseIdList.append(base_data["Base_ID"])
+            baseIdList.append(base_data["id"])
         cocktail.Bases.set(baseIdList)
 
         liqueurIdList = []
         for liqueur_data in liqueurs_data:
-            liqueurIdList.append(liqueur_data["Liqueur_ID"])
+            liqueurIdList.append(liqueur_data["id"])
         cocktail.Liqueurs.set(liqueurIdList)
 
         alcoholIdList = []
         for alcohol_data in alcohols_data:
-            alcoholIdList.append(alcohol_data["Alcohol_ID"])
+            alcoholIdList.append(alcohol_data["id"])
         cocktail.Alcohols.set(alcoholIdList)
 
         ingredientIdList = []
         for ingredient_data in ingredients_data:
-            ingredientIdList.append(ingredient_data["Ingredient_ID"])
+            ingredientIdList.append(ingredient_data["id"])
         cocktail.Ingredients.set(ingredientIdList)
 
         return cocktail

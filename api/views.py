@@ -78,7 +78,7 @@ def cocktailList(request):
 
 @api_view(['GET'])
 def cocktailDetail(request, pk):
-    cocktails = Cocktail.objects.get(Cocktail_ID=pk)
+    cocktails = Cocktail.objects.get(id=pk)
     serializer = CocktailSerializer(cocktails, many=False)
     return Response(serializer.data)
 
@@ -88,9 +88,9 @@ def cocktailCreate(request):
 
     baseList = []
     for baseData in request.data["Bases"]:
-        baseObj = Base.objects.get(Base_ID=baseData['value'])
+        baseObj = Base.objects.get(id=baseData['value'])
         baseList.append({
-            "Base_ID": baseObj.Base_ID,
+            "id": baseObj.id,
             "Chinese_Name": baseObj.Chinese_Name,
             "English_Name": baseObj.English_Name
         })
@@ -99,9 +99,9 @@ def cocktailCreate(request):
 
     liqueurList = []
     for liqueurData in request.data["Liqueurs"]:
-        liqueurObj = Liqueur.objects.get(Liqueur_ID=liqueurData['value'])
+        liqueurObj = Liqueur.objects.get(id=liqueurData['value'])
         liqueurList.append({
-            "Liqueur_ID": liqueurObj.Liqueur_ID,
+            "id": liqueurObj.id,
             "Chinese_Name": liqueurObj.Chinese_Name,
             "English_Name": liqueurObj.English_Name
         })
@@ -110,9 +110,9 @@ def cocktailCreate(request):
 
     alcoholList = []
     for alcoholData in request.data["Alcohols"]:
-        alcoholObj = Alcohol.objects.get(Alcohol_ID=alcoholData['value'])
+        alcoholObj = Alcohol.objects.get(id=alcoholData['value'])
         alcoholList.append({
-            "Alcohol_ID": alcoholObj.Alcohol_ID,
+            "id": alcoholObj.id,
             "Chinese_Name": alcoholObj.Chinese_Name,
             "English_Name": alcoholObj.English_Name
         })
@@ -121,9 +121,9 @@ def cocktailCreate(request):
 
     ingredientList = []
     for ingredientData in request.data["Ingredients"]:
-        ingredientObj = Ingredient.objects.get(Ingredient_ID=ingredientData['value'])
+        ingredientObj = Ingredient.objects.get(id=ingredientData['value'])
         ingredientList.append({
-            "Ingredient_ID": ingredientObj.Ingredient_ID,
+            "id": ingredientObj.id,
             "Chinese_Name": ingredientObj.Chinese_Name,
             "English_Name": ingredientObj.English_Name
         })
@@ -142,7 +142,7 @@ def cocktailCreate(request):
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def cocktailUpdate(request, pk):
-    cocktail = Cocktail.objects.get(Cocktail_ID=pk)
+    cocktail = Cocktail.objects.get(id=pk)
     serializer = CocktailSerializer(instance=cocktail,data=request.data)
     
     if serializer.is_valid():
@@ -154,7 +154,7 @@ def cocktailUpdate(request, pk):
 @api_view(['DELETE'])
 @permission_classes([IsAuthenticated])
 def cocktailDelete(request, pk):
-    cocktail = Cocktail.objects.get(Cocktail_ID=pk)
+    cocktail = Cocktail.objects.get(id=pk)
     cocktail.delete()
     buildModel()
 
@@ -185,7 +185,7 @@ def materialList(request, model_type):
 
 @api_view(['GET'])
 def baseDetail(request, pk):
-    bases = Base.objects.get(Base_ID=pk)
+    bases = Base.objects.get(id=pk)
     serializer = BaseSerializer(bases, many=False)
     return Response(serializer.data)
 
@@ -202,7 +202,7 @@ def baseCreate(request):
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def baseUpdate(request, pk):
-    base = Base.objects.get(Base_ID=pk)
+    base = Base.objects.get(id=pk)
     serializer = BaseSerializer(instance=base,data=request.data)
     
     if serializer.is_valid():
@@ -213,14 +213,14 @@ def baseUpdate(request, pk):
 @api_view(['DELETE'])
 @permission_classes([IsAuthenticated])
 def baseDelete(request, pk):
-    base = Base.objects.get(Base_ID=pk)
+    base = Base.objects.get(id=pk)
     base.delete()
 
     return Response('刪除成功')
 
 @api_view(['GET'])
 def liqueurDetail(request, pk):
-    liqueurs = Liqueur.objects.get(Liqueur_ID=pk)
+    liqueurs = Liqueur.objects.get(id=pk)
     serializer = LiqueurSerializer(liqueurs, many=False)
     return Response(serializer.data)
 
@@ -237,7 +237,7 @@ def liqueurCreate(request):
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def liqueurUpdate(request, pk):
-    liqueur = Liqueur.objects.get(Liqueur_ID=pk)
+    liqueur = Liqueur.objects.get(id=pk)
     serializer = LiqueurSerializer(instance=liqueur,data=request.data)
     
     if serializer.is_valid():
@@ -248,14 +248,14 @@ def liqueurUpdate(request, pk):
 @api_view(['DELETE'])
 @permission_classes([IsAuthenticated])
 def liqueurDelete(request, pk):
-    liqueur = Liqueur.objects.get(Liqueur_ID=pk)
+    liqueur = Liqueur.objects.get(id=pk)
     liqueur.delete()
 
     return Response('刪除成功')
 
 @api_view(['GET'])
 def alcoholDetail(request, pk):
-    alcohols = Alcohol.objects.get(Alcohol_ID=pk)
+    alcohols = Alcohol.objects.get(id=pk)
     serializer = AlcoholSerializer(alcohols, many=False)
     return Response(serializer.data)
 
@@ -272,7 +272,7 @@ def alcoholCreate(request):
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def alcoholUpdate(request, pk):
-    alcohol = Alcohol.objects.get(Alcohol_ID=pk)
+    alcohol = Alcohol.objects.get(id=pk)
     serializer = AlcoholSerializer(instance=alcohol,data=request.data)
     
     if serializer.is_valid():
@@ -283,14 +283,14 @@ def alcoholUpdate(request, pk):
 @api_view(['DELETE'])
 @permission_classes([IsAuthenticated])
 def alcoholDelete(request, pk):
-    alcohol = Alcohol.objects.get(Alcohol_ID=pk)
+    alcohol = Alcohol.objects.get(id=pk)
     alcohol.delete()
 
     return Response('刪除成功')
 
 @api_view(['GET'])
 def ingredientDetail(request, pk):
-    ingredients = Ingredient.objects.get(Ingredient_ID=pk)
+    ingredients = Ingredient.objects.get(id=pk)
     serializer = IngredientSerializer(ingredients, many=False)
     return Response(serializer.data)
 
@@ -307,7 +307,7 @@ def ingredientCreate(request):
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def ingredientUpdate(request, pk):
-    ingredient = Ingredient.objects.get(Ingredient_ID=pk)
+    ingredient = Ingredient.objects.get(id=pk)
     serializer = IngredientSerializer(instance=ingredient,data=request.data)
     
     if serializer.is_valid():
@@ -318,7 +318,7 @@ def ingredientUpdate(request, pk):
 @api_view(['DELETE'])
 @permission_classes([IsAuthenticated])
 def ingredientDelete(request, pk):
-    ingredient = Ingredient.objects.get(Ingredient_ID=pk)
+    ingredient = Ingredient.objects.get(id=pk)
     ingredient.delete()
 
     return Response('刪除成功')
@@ -371,7 +371,7 @@ def baseChart(request):
 
 @api_view(['GET'])
 def cocktailRecommendation(request, pk):
-    cocktail = Cocktail.objects.get(Cocktail_ID=pk)
+    cocktail = Cocktail.objects.get(id=pk)
 
     model = joblib.load('cocktailData/cocktailModel.joblib')
     input_cocktail = cocktail.Chinese_Name
@@ -423,13 +423,13 @@ def backupData(request):
         data[index]["fields"]["Alcohols"] = []
         data[index]["fields"]["Ingredients"] = []
         for j in i['Bases']:
-                data[index]["fields"]["Bases"].append(j['Base_ID'])
+                data[index]["fields"]["Bases"].append(j['id'])
         for j in i['Liqueurs']:
-                data[index]["fields"]["Liqueurs"].append(j['Liqueur_ID'])
+                data[index]["fields"]["Liqueurs"].append(j['id'])
         for j in i['Alcohols']:
-                data[index]["fields"]["Alcohols"].append(j['Alcohol_ID'])
+                data[index]["fields"]["Alcohols"].append(j['id'])
         for j in i['Ingredients']:
-                data[index]["fields"]["Ingredients"].append(j['Ingredient_ID'])
+                data[index]["fields"]["Ingredients"].append(j['id'])
         index += 1
 
     file_path = "backupData/cocktail_data.json"
