@@ -1,24 +1,30 @@
 import React from "react";
 import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 
-import AlcoholTable from "../components/alcoholTable/AlcoholTable";
-import AlcoholChart from "../components/alcoholChart/AlcoholChart";
+import MaterialTable from "../components/materialTable/MaterialTable";
+import MaterialPieChart from "../components/materialChart/MaterialPieChart";
+import MaterialBarChart from "../components/materialChart/MaterialBarChart";
 import LoadingMessage from "../components/LoadingMessage";
 import ErrorMessage from "../components/ErrorMessage";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import API_BASE_URL from "../apiConfig";
 
-const Alcohols = () => {
-  const [alcohols, setAlcohols] = useState([]);
-  const [alcoholChart, setAlcoholChart] = useState([]);
+const Material = () => {
+  const [materials, setMaterials] = useState([]);
+  const [materialChart, setMaterialChart] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  const location = useLocation();
+
+  const material = location.pathname.split("/")[2];
 
   useEffect(() => {
     const fetchData = async (url, setter) => {
@@ -32,14 +38,20 @@ const Alcohols = () => {
 
     const fetchAllData = async () => {
       await Promise.all([
-        fetchData(`${API_BASE_URL}/api/material-list/alcohol/`, setAlcohols),
-        fetchData(`${API_BASE_URL}/api/chart-list/alcohol/`, setAlcoholChart),
+        fetchData(
+          `${API_BASE_URL}/api/material-list/${material}/`,
+          setMaterials
+        ),
+        fetchData(
+          `${API_BASE_URL}/api/chart-list/${material}/`,
+          setMaterialChart
+        ),
       ]);
       setLoading(false);
     };
 
     fetchAllData();
-  }, []);
+  }, [material]);
 
   if (loading) return <LoadingMessage />;
   if (error) return <ErrorMessage data={error} />;
@@ -47,15 +59,24 @@ const Alcohols = () => {
   return (
     <div className="chartPageColor">
       <Container>
-        <Button variant="secondary" as={Link} to="/AddAlcohol" className="mt-5">
-          新增其他酒類
+        <Button
+          variant="secondary"
+          as={Link}
+          to={`/Add${material}`}
+          className="mt-5"
+        >
+          新增
         </Button>
         <Row className="mb-5">
           <Col xs={12} md={6}>
-            <AlcoholTable data={alcohols} />
+            <MaterialTable data={materials} />
           </Col>
           <Col xs={12} md={6}>
-            <AlcoholChart chartData={alcoholChart} />
+            {material === "base" || material === "alcohol" ? (
+              <MaterialPieChart chartData={materialChart} />
+            ) : (
+              <MaterialBarChart chartData={materialChart} />
+            )}
           </Col>
         </Row>
       </Container>
@@ -63,4 +84,4 @@ const Alcohols = () => {
   );
 };
 
-export default Alcohols;
+export default Material;

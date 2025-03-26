@@ -1,31 +1,16 @@
-import "./liqueurChart.scss";
+import "./materialChart.scss";
 import React from "react";
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend,
-} from "chart.js";
-import { Bar } from "react-chartjs-2";
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+import { Pie } from "react-chartjs-2";
 
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend
-);
+ChartJS.register(ArcElement, Tooltip, Legend);
 
-const LiqueurChart = ({ chartData }) => {
-  const liqueurChartData = {
+const MaterialPieChart = ({ chartData }) => {
+  const materialChartData = {
     labels: chartData.map((data) => data.label),
     datasets: [
       {
-        label: "利口酒使用數量",
+        label: "使用數量",
         data: chartData.map((data) => data.size),
         backgroundColor: [
           "rgba(255, 99, 132, 0.2)",
@@ -49,10 +34,10 @@ const LiqueurChart = ({ chartData }) => {
   };
 
   return (
-    <div className="liqueurChart">
-      <Bar data={liqueurChartData} />
+    <div className="materialPieChart">
+      <Pie data={materialChartData} />
     </div>
   );
 };
 
-export default LiqueurChart;
+export default MaterialPieChart;

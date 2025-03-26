@@ -1,16 +1,31 @@
-import "./baseChart.scss";
+import "./materialChart.scss";
 import React from "react";
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
-import { Pie } from "react-chartjs-2";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+} from "chart.js";
+import { Bar } from "react-chartjs-2";
 
-ChartJS.register(ArcElement, Tooltip, Legend);
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend
+);
 
-const BaseChart = ({ chartData }) => {
-  const baseChartData = {
+const MaterialBarChart = ({ chartData }) => {
+  const materialChartData = {
     labels: chartData.map((data) => data.label),
     datasets: [
       {
-        label: "基酒使用數量",
+        label: "使用數量",
         data: chartData.map((data) => data.size),
         backgroundColor: [
           "rgba(255, 99, 132, 0.2)",
@@ -34,10 +49,10 @@ const BaseChart = ({ chartData }) => {
   };
 
   return (
-    <div className="baseChart">
-      <Pie data={baseChartData} />
+    <div className="materialBarChart">
+      <Bar data={materialChartData} />
     </div>
   );
 };
 
-export default BaseChart;
+export default MaterialBarChart;

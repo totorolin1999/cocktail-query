@@ -23,16 +23,16 @@ const UserNavbar = () => {
                 管理調酒
               </Nav.Link>
               <NavDropdown title="管理調酒成分" id="basic-nav-dropdown">
-                <NavDropdown.Item as={Link} to="/Bases">
+                <NavDropdown.Item as={Link} to="/Material/base">
                   管理基酒
                 </NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/Liqueurs">
+                <NavDropdown.Item as={Link} to="/Material/liqueur">
                   管理利口酒
                 </NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/Alcohols">
+                <NavDropdown.Item as={Link} to="/Material/alcohol">
                   管理其他酒類
                 </NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/Ingredients">
+                <NavDropdown.Item as={Link} to="/Material/ingredient">
                   管理其他成分
                 </NavDropdown.Item>
                 <NavDropdown.Divider />
@@ -49,16 +49,16 @@ const UserNavbar = () => {
         ) : (
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link as={Link} to="/UserBases">
+              <Nav.Link as={Link} to="/UserMaterial/base">
                 基酒
               </Nav.Link>
-              <Nav.Link as={Link} to="/UserLiqueurs">
+              <Nav.Link as={Link} to="/UserMaterial/liqueur">
                 利口酒
               </Nav.Link>
-              <Nav.Link as={Link} to="/UserAlcohols">
+              <Nav.Link as={Link} to="/UserMaterial/alcohol">
                 其他酒類
               </Nav.Link>
-              <Nav.Link as={Link} to="/UserIngredients">
+              <Nav.Link as={Link} to="/UserMaterial/ingredient">
                 其他成分
               </Nav.Link>
               <Nav.Link as={Link} to="/Charts">

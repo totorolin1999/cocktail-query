@@ -3,10 +3,8 @@ import { useEffect } from "react";
 import { useState } from "react";
 import axios from "axios";
 import Container from "react-bootstrap/Container";
-import BaseChart from "../../components/baseChart/BaseChart";
-import LiqueurChart from "../../components/liqueurChart/LiqueurChart";
-import AlcoholChart from "../../components/alcoholChart/AlcoholChart";
-import IngredientChart from "../../components/ingredientChart/IngredientChart";
+import MaterialPieChart from "../../components/materialChart/MaterialPieChart";
+import MaterialBarChart from "../../components/materialChart/MaterialBarChart";
 import LoadingMessage from "../../components/LoadingMessage";
 import ErrorMessage from "../../components/ErrorMessage";
 import Col from "react-bootstrap/Col";
@@ -52,18 +50,18 @@ const Charts = () => {
       <Container>
         <Row className="m-5">
           <Col xs={12} md={5}>
-            <BaseChart chartData={baseChart} />
+            <MaterialPieChart chartData={baseChart} />
           </Col>
           <Col xs={12} md={7}>
-            <LiqueurChart chartData={liqueurChart} />
+            <MaterialBarChart chartData={liqueurChart} />
           </Col>
         </Row>
         <Row className="m-5">
           <Col xs={12} md={5}>
-            <AlcoholChart chartData={alcoholChart} />
+            <MaterialPieChart chartData={alcoholChart} />
           </Col>
           <Col xs={12} md={7}>
-            <IngredientChart chartData={ingredientChart} />
+            <MaterialBarChart chartData={ingredientChart} />
           </Col>
         </Row>
       </Container>

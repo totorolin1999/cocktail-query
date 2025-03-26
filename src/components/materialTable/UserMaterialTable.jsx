@@ -1,21 +1,15 @@
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
-import useAxios from '../../utils/useAxios'
-import { Link } from "react-router-dom";
 import Table from "react-bootstrap/Table";
-import Button from "react-bootstrap/Button";
 import ReactPaginate from "react-paginate";
-import "./baseTable.scss";
-import API_BASE_URL from '../../apiConfig';
+import "./materialTable.scss";
 
-const BaseTable = ({ data }) => {
+const UserMaterialTable = ({ data }) => {
   const [currentItems, setCurrentItems] = useState([]);
   const [pageCount, setPageCount] = useState(0);
   const [itemOffset, setItemOffset] = useState(0);
   const itemsPerPage = 6;
-
-  let api = useAxios()
 
   useEffect(() => {
     const endOffset = itemOffset + itemsPerPage;
@@ -29,45 +23,20 @@ const BaseTable = ({ data }) => {
     setItemOffset(newOffset);
   };
 
-  const handleDelete = async (id) => {
-    try {
-      await api.delete(`${API_BASE_URL}/api/base-delete/` + id);
-      window.location.reload();
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
   return (
-    <div className="baseTable">
+    <div className="materialTable">
       <Table striped bordered hover className="mt-2">
         <thead>
           <tr>
             <th>中文名稱</th>
             <th>英文名稱</th>
-            <th>編輯</th>
           </tr>
         </thead>
         <tbody>
-          {currentItems.map((base) => (
-            <tr key={base.id}>
-              <td>{base.Chinese_Name}</td>
-              <td>{base.English_Name}</td>
-              <td>
-                <Button
-                  variant="warning"
-                  as={Link}
-                  to={`/UpdateBase/${base.id}`}
-                >
-                  更新
-                </Button>{" "}
-                <Button
-                  variant="danger"
-                  onClick={() => handleDelete(base.id)}
-                >
-                  刪除
-                </Button>{" "}
-              </td>
+          {currentItems.map((item) => (
+            <tr key={item.id}>
+              <td>{item.Chinese_Name}</td>
+              <td>{item.English_Name}</td>
             </tr>
           ))}
         </tbody>
@@ -90,4 +59,4 @@ const BaseTable = ({ data }) => {
   );
 };
 
-export default BaseTable;
+export default UserMaterialTable;

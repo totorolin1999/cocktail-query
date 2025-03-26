@@ -1,22 +1,28 @@
 import React from "react";
 import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 import Container from "react-bootstrap/Container";
 
-import UserBaseTable from "../components/userBaseTable/UserBaseTable";
-import BaseChart from "../components/baseChart/BaseChart";
+import UserMaterialTable from "../components/materialTable/UserMaterialTable";
+import MaterialPieChart from "../components/materialChart/MaterialPieChart";
+import MaterialBarChart from "../components/materialChart/MaterialBarChart";
 import LoadingMessage from "../components/LoadingMessage";
 import ErrorMessage from "../components/ErrorMessage";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import API_BASE_URL from "../apiConfig";
 
-const UserBases = () => {
-  const [bases, setBases] = useState([]);
-  const [baseChart, setBaseChart] = useState([]);
+const UserMaterial = () => {
+  const [materials, setMaterials] = useState([]);
+  const [materialChart, setMaterialChart] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  const location = useLocation();
+
+  const material = location.pathname.split("/")[2];
 
   useEffect(() => {
     const fetchData = async (url, setter) => {
@@ -30,14 +36,20 @@ const UserBases = () => {
 
     const fetchAllData = async () => {
       await Promise.all([
-        fetchData(`${API_BASE_URL}/api/material-list/base/`, setBases),
-        fetchData(`${API_BASE_URL}/api/chart-list/base/`, setBaseChart),
+        fetchData(
+          `${API_BASE_URL}/api/material-list/${material}/`,
+          setMaterials
+        ),
+        fetchData(
+          `${API_BASE_URL}/api/chart-list/${material}/`,
+          setMaterialChart
+        ),
       ]);
       setLoading(false);
     };
 
     fetchAllData();
-  }, []);
+  }, [material]);
 
   if (loading) return <LoadingMessage />;
   if (error) return <ErrorMessage data={error} />;
@@ -47,10 +59,14 @@ const UserBases = () => {
       <Container>
         <Row className="mt-5 mb-5">
           <Col xs={12} md={6}>
-            <UserBaseTable data={bases} />
+            <UserMaterialTable data={materials} />
           </Col>
           <Col xs={12} md={6}>
-            <BaseChart chartData={baseChart} />
+            {material === "base" || material === "alcohol" ? (
+              <MaterialPieChart chartData={materialChart} />
+            ) : (
+              <MaterialBarChart chartData={materialChart} />
+            )}
           </Col>
         </Row>
       </Container>
@@ -58,4 +74,4 @@ const UserBases = () => {
   );
 };
 
-export default UserBases;
+export default UserMaterial;
