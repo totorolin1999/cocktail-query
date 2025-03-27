@@ -3,6 +3,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from rest_framework_simplejwt.views import TokenObtainPairView
 from rest_framework.response import Response
+from django.shortcuts import get_object_or_404
 from django.http import FileResponse
 
 from .serializers import CocktailSerializer, BaseSerializer, LiqueurSerializer, AlcoholSerializer, IngredientSerializer
@@ -17,6 +18,26 @@ from sklearn.metrics.pairwise import cosine_similarity
 import json
 
 # Create your views here.
+
+MODEL_MAPPING = {
+    'base': (Base, BaseSerializer),
+    'liqueur': (Liqueur, LiqueurSerializer),
+    'alcohol': (Alcohol, AlcoholSerializer),
+    'ingredient': (Ingredient, IngredientSerializer),
+}
+
+def get_model_and_serializer(model_type):
+    """
+    根據 model_type 獲取對應的模型和序列化器
+    
+    :param model_type: 模型類型字符串
+    :return: (Model, Serializer) 元組
+    :raises ValueError: 當 model_type 不存在時
+    """
+    if model_type not in MODEL_MAPPING:
+        raise ValueError(f"未知的模型類型: {model_type}")
+    
+    return MODEL_MAPPING[model_type]
 
 @api_view(['GET'])
 def apiOverview(request):
@@ -81,6 +102,17 @@ def cocktailDetail(request, pk):
     cocktails = Cocktail.objects.get(id=pk)
     serializer = CocktailSerializer(cocktails, many=False)
     return Response(serializer.data)
+
+@api_view(['GET'])
+def itemDetail(request, model_type, pk):
+    Model, Serializer = get_model_and_serializer(model_type)
+    
+    try:
+        item = get_object_or_404(Model, id=pk)
+        serializer = Serializer(item, many=False)
+        return Response(serializer.data)
+    except Exception as e:
+        return Response({'error': str(e)}, status=500)
 
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
@@ -151,6 +183,42 @@ def cocktailUpdate(request, pk):
 
     return Response(serializer.data)
 
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def itemCreate(request, model_type):
+    _, Serializer = get_model_and_serializer(model_type)
+    serializer = Serializer(data=request.data)
+    
+    try:
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=201)
+        else:
+            return Response(serializer.errors, status=400)
+    except Exception as e:
+        return Response({'error': str(e)}, status=500)
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def itemUpdate(request, model_type, pk):
+    Model, Serializer = get_model_and_serializer(model_type)
+    
+    try:
+        # 使用 get_object_or_404 确保对象存在，找不到时返回404
+        item = get_object_or_404(Model, id=pk)
+        
+        # 使用序列化器进行更新
+        serializer = Serializer(instance=item, data=request.data, partial=True)
+        
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=200)
+        else:
+            return Response(serializer.errors, status=400)
+    
+    except Exception as e:
+        return Response({'error': str(e)}, status=500)
+
 @api_view(['DELETE'])
 @permission_classes([IsAuthenticated])
 def cocktailDelete(request, pk):
@@ -162,175 +230,25 @@ def cocktailDelete(request, pk):
 
 @api_view(['GET'])
 def materialList(request, model_type):
-    """
-    通用的API端點，根據model_type參數返回不同模型的所有對象
-    
-    參數:
-    - model_type: 字符串，可以是 'base', 'liqueur', 'alcohol', 或 'ingredient'
-    """
-    model_mapping = {
-        'base': (Base, BaseSerializer),
-        'liqueur': (Liqueur, LiqueurSerializer),
-        'alcohol': (Alcohol, AlcoholSerializer),
-        'ingredient': (Ingredient, IngredientSerializer),
-    }
-    
-    if model_type not in model_mapping:
-        return Response({"error": f"Unknown model type: {model_type}"}, status=400)
-    
-    Model, Serializer = model_mapping[model_type]
+    Model, Serializer = get_model_and_serializer(model_type)
     items = Model.objects.all()
     serializer = Serializer(items, many=True)
     return Response(serializer.data)
 
-@api_view(['GET'])
-def baseDetail(request, pk):
-    bases = Base.objects.get(id=pk)
-    serializer = BaseSerializer(bases, many=False)
-    return Response(serializer.data)
-
-@api_view(['POST'])
-@permission_classes([IsAuthenticated])
-def baseCreate(request):
-    serializer = BaseSerializer(data=request.data)
-    
-    if serializer.is_valid():
-        serializer.save()
-
-    return Response(serializer.data)
-
-@api_view(['POST'])
-@permission_classes([IsAuthenticated])
-def baseUpdate(request, pk):
-    base = Base.objects.get(id=pk)
-    serializer = BaseSerializer(instance=base,data=request.data)
-    
-    if serializer.is_valid():
-        serializer.save()
-
-    return Response(serializer.data)
-
 @api_view(['DELETE'])
 @permission_classes([IsAuthenticated])
-def baseDelete(request, pk):
-    base = Base.objects.get(id=pk)
-    base.delete()
-
-    return Response('刪除成功')
-
-@api_view(['GET'])
-def liqueurDetail(request, pk):
-    liqueurs = Liqueur.objects.get(id=pk)
-    serializer = LiqueurSerializer(liqueurs, many=False)
-    return Response(serializer.data)
-
-@api_view(['POST'])
-@permission_classes([IsAuthenticated])
-def liqueurCreate(request):
-    serializer = LiqueurSerializer(data=request.data)
+def itemDelete(request, model_type, pk):
+    Model, _ = get_model_and_serializer(model_type)
     
-    if serializer.is_valid():
-        serializer.save()
-
-    return Response(serializer.data)
-
-@api_view(['POST'])
-@permission_classes([IsAuthenticated])
-def liqueurUpdate(request, pk):
-    liqueur = Liqueur.objects.get(id=pk)
-    serializer = LiqueurSerializer(instance=liqueur,data=request.data)
-    
-    if serializer.is_valid():
-        serializer.save()
-
-    return Response(serializer.data)
-
-@api_view(['DELETE'])
-@permission_classes([IsAuthenticated])
-def liqueurDelete(request, pk):
-    liqueur = Liqueur.objects.get(id=pk)
-    liqueur.delete()
-
-    return Response('刪除成功')
-
-@api_view(['GET'])
-def alcoholDetail(request, pk):
-    alcohols = Alcohol.objects.get(id=pk)
-    serializer = AlcoholSerializer(alcohols, many=False)
-    return Response(serializer.data)
-
-@api_view(['POST'])
-@permission_classes([IsAuthenticated])
-def alcoholCreate(request):
-    serializer = AlcoholSerializer(data=request.data)
-    
-    if serializer.is_valid():
-        serializer.save()
-
-    return Response(serializer.data)
-
-@api_view(['POST'])
-@permission_classes([IsAuthenticated])
-def alcoholUpdate(request, pk):
-    alcohol = Alcohol.objects.get(id=pk)
-    serializer = AlcoholSerializer(instance=alcohol,data=request.data)
-    
-    if serializer.is_valid():
-        serializer.save()
-
-    return Response(serializer.data)
-
-@api_view(['DELETE'])
-@permission_classes([IsAuthenticated])
-def alcoholDelete(request, pk):
-    alcohol = Alcohol.objects.get(id=pk)
-    alcohol.delete()
-
-    return Response('刪除成功')
-
-@api_view(['GET'])
-def ingredientDetail(request, pk):
-    ingredients = Ingredient.objects.get(id=pk)
-    serializer = IngredientSerializer(ingredients, many=False)
-    return Response(serializer.data)
-
-@api_view(['POST'])
-@permission_classes([IsAuthenticated])
-def ingredientCreate(request):
-    serializer = IngredientSerializer(data=request.data)
-    
-    if serializer.is_valid():
-        serializer.save()
-
-    return Response(serializer.data)
-
-@api_view(['POST'])
-@permission_classes([IsAuthenticated])
-def ingredientUpdate(request, pk):
-    ingredient = Ingredient.objects.get(id=pk)
-    serializer = IngredientSerializer(instance=ingredient,data=request.data)
-    
-    if serializer.is_valid():
-        serializer.save()
-
-    return Response(serializer.data)
-
-@api_view(['DELETE'])
-@permission_classes([IsAuthenticated])
-def ingredientDelete(request, pk):
-    ingredient = Ingredient.objects.get(id=pk)
-    ingredient.delete()
-
-    return Response('刪除成功')
+    try:
+        item = get_object_or_404(Model, id=pk)
+        item.delete()
+        return Response({'message': '刪除成功'}, status=200)
+    except Exception as e:
+        return Response({'error': str(e)}, status=500)
 
 @api_view(['GET'])
 def chartList(request, model_type):
-    """
-    通用的API端點，根據model_type參數返回不同模型的圖表數據
-    
-    參數:
-    - model_type: 字符串，可以是 'base', 'liqueur', 'alcohol', 或 'ingredient'
-    """
     model_mapping = {
         'base': (Base, 'Bases'),
         'liqueur': (Liqueur, 'Liqueurs'),
@@ -356,18 +274,6 @@ def chartList(request, model_type):
         })
     
     return Response(chart_list)
-
-"""
-@api_view(['GET'])
-def baseChart(request):
-    bases = Base.objects.all()
-    chartList = []
-    for base in bases:
-        bases = Base.objects.all()
-        cocktails = Cocktail.objects.filter(Q(Bases=base))
-        chartList.append({"label": base.Chinese_Name, "size": len(cocktails)})
-    return Response(chartList)
-"""
 
 @api_view(['GET'])
 def cocktailRecommendation(request, pk):

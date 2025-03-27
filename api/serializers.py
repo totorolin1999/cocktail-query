@@ -1,6 +1,5 @@
 from rest_framework import serializers
-from .models import Cocktail
-from .models import Base, Liqueur, Alcohol, Ingredient
+from .models import Cocktail, Base, Liqueur, Alcohol, Ingredient
 
 
 
