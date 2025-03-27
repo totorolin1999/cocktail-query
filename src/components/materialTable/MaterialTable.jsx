@@ -36,7 +36,7 @@ const MaterialTable = ({ data }) => {
 
   const handleDelete = async (id) => {
     try {
-      await api.delete(`${API_BASE_URL}/api/${material}-delete/` + id);
+      await api.delete(`${API_BASE_URL}/api/item-delete/${material}/` + id);
       window.location.reload();
     } catch (err) {
       console.log(err);
@@ -62,7 +62,7 @@ const MaterialTable = ({ data }) => {
                 <Button
                   variant="warning"
                   as={Link}
-                  to={`/Update${material}/${item.id}`}
+                  to={`/UpdateItem/${material}/${item.id}`}
                 >
                   更新
                 </Button>{" "}

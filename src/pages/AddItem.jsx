@@ -2,16 +2,17 @@ import useAxios from "../utils/useAxios";
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Card from "react-bootstrap/Card";
 import "./layout/layout.scss";
-import API_BASE_URL from '../apiConfig';
+import API_BASE_URL from "../apiConfig";
 
-const AddBase = () => {
-  const [base, setBase] = useState({
+const AddItem = () => {
+  const [item, setItem] = useState({
     Chinese_Name: "",
     English_Name: "",
   });
@@ -19,22 +20,24 @@ const AddBase = () => {
   let api = useAxios();
 
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const material = location.pathname.split("/")[2];
 
   const handleChange = (e) => {
-    setBase((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    setItem((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
   const handleClick = async (e) => {
     e.preventDefault();
     try {
-      await api.post(`${API_BASE_URL}/api/base-create/`, base);
-      navigate("/Bases");
+      await api.post(`${API_BASE_URL}/api/item-create/${material}/`, item);
+      navigate(`/Material/${material}`);
     } catch (err) {
       console.log(err);
     }
   };
 
-  console.log(base);
   return (
     <div className="backgroundColor pt-4">
       <Container className="p-5 d-flex justify-content-center">
@@ -77,4 +80,4 @@ const AddBase = () => {
   );
 };
 
-export default AddBase;
+export default AddItem;

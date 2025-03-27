@@ -1,5 +1,5 @@
-import axios from "axios";
 import useAxios from "../utils/useAxios";
+import axios from "axios";
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -13,8 +13,8 @@ import Card from "react-bootstrap/Card";
 import "./layout/layout.scss";
 import API_BASE_URL from '../apiConfig';
 
-const UpdateLiqueur = () => {
-  const [liqueur, setLiqueur] = useState({
+const UpdateItem = () => {
+  const [item, setItem] = useState({
     id: null,
     Chinese_Name: "",
     English_Name: "",
@@ -25,40 +25,37 @@ const UpdateLiqueur = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const liqueurId = location.pathname.split("/")[2];
+  const material = location.pathname.split("/")[2];
+  const itemId = location.pathname.split("/")[3];
 
   const handleChange = (e) => {
-    setLiqueur((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    setItem((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
   useEffect(() => {
-    const fetchAllLiqueurs = async () => {
+    const fetchAllItems = async () => {
       try {
         const res = await axios.get(
-          `${API_BASE_URL}/api/liqueur-detail/${liqueurId}/`
+          `${API_BASE_URL}/api/item-detail/${material}/${itemId}/`
         );
-        setLiqueur(res.data);
+        setItem(res.data);
       } catch (err) {
         console.log(err);
       }
     };
-    fetchAllLiqueurs();
-  }, [liqueurId]);
+    fetchAllItems();
+  }, [itemId]);
 
   const handleClick = async (e) => {
     e.preventDefault();
     try {
-      await api.post(
-        `${API_BASE_URL}/api/liqueur-update/${liqueurId}/`,
-        liqueur
-      );
-      navigate("/Liqueurs");
+      await api.post(`${API_BASE_URL}/api/item-update/${material}/${itemId}/`, item);
+      navigate(`/Material/${material}`);
     } catch (err) {
       console.log(err);
     }
   };
 
-  console.log(liqueur);
   return (
     <div className="backgroundColor pt-4">
       <Container className="p-5 d-flex justify-content-center">
@@ -69,7 +66,7 @@ const UpdateLiqueur = () => {
           style={{ width: "25rem" }}
           className="mb-2"
         >
-          <Card.Header>更新利口酒</Card.Header>
+          <Card.Header>更新基酒</Card.Header>
           <Card.Body>
             <Form>
               <Form.Group className="m-3">
@@ -78,7 +75,7 @@ const UpdateLiqueur = () => {
                   placeholder="輸入中文名稱"
                   onChange={handleChange}
                   name="Chinese_Name"
-                  value={liqueur.Chinese_Name}
+                  value={item.Chinese_Name}
                 />
               </Form.Group>
 
@@ -88,7 +85,7 @@ const UpdateLiqueur = () => {
                   placeholder="輸入英文名稱"
                   onChange={handleChange}
                   name="English_Name"
-                  value={liqueur.English_Name}
+                  value={item.English_Name}
                 />
               </Form.Group>
 
@@ -103,4 +100,4 @@ const UpdateLiqueur = () => {
   );
 };
 
-export default UpdateLiqueur;
+export default UpdateItem;

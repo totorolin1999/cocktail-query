@@ -62,7 +62,7 @@ const Material = () => {
         <Button
           variant="secondary"
           as={Link}
-          to={`/Add${material}`}
+          to={`/AddItem/${material}`}
           className="mt-5"
         >
           新增

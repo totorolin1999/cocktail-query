@@ -7,14 +7,8 @@ import LoginPage from "./pages/LoginPage";
 import Home from "./pages/home/Home";
 import UserMaterial from "./pages/UserMaterial";
 import Material from "./pages/Material";
-import AddBase from "./pages/AddBase";
-import UpdateBase from "./pages/UpdateBase";
-import AddLiqueur from "./pages/AddLiqueur";
-import UpdateLiqueur from "./pages/UpdateLiqueur";
-import AddAlcohol from "./pages/AddAlcohol";
-import UpdateAlcohol from "./pages/UpdateAlcohol";
-import AddIngredient from "./pages/AddIngredient";
-import UpdateIngredient from "./pages/UpdateIngredient";
+import AddItem from "./pages/AddItem";
+import UpdateItem from "./pages/UpdateItem";
 import Cocktails from "./pages/cocktails/Cocktails";
 import AddCocktail from "./pages/AddCocktail";
 import UpdateCocktail from "./pages/UpdateCocktail";
@@ -43,14 +37,8 @@ function App() {
         <Route element={<PrivateRoute />}>
           <Route element={<HomePage />} path="/Home" />
           <Route path="/Material/:id" element={<Material />} />
-          <Route path="/Addbase" element={<AddBase />} />
-          <Route path="/Addliqueur" element={<AddLiqueur />} />
-          <Route path="/Addalcohol" element={<AddAlcohol />} />
-          <Route path="/Addingredient" element={<AddIngredient />} />
-          <Route path="/Updatebase/:id" element={<UpdateBase />} />
-          <Route path="/Updateliqueur/:id" element={<UpdateLiqueur />} />
-          <Route path="/Updatealcohol/:id" element={<UpdateAlcohol />} />
-          <Route path="/Updateingredient/:id" element={<UpdateIngredient />} />
+          <Route path="/AddItem/:id" element={<AddItem />} />
+          <Route path="/UpdateItem/:id/:id" element={<UpdateItem />} />
           <Route path="/Cocktails" element={<Cocktails />} />
           <Route path="/AddCocktail" element={<AddCocktail />} />
           <Route path="/UpdateCocktail/:id" element={<UpdateCocktail />} />
