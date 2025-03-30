@@ -9,8 +9,7 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import CocktailDetail from "../components/cocktailDetail/CocktailDetail";
 import CocktailRec from "../components/cocktailRec/CocktailRec";
-import "./layout/layout.scss";
-import API_BASE_URL from '../apiConfig';
+import API_BASE_URL from "../apiConfig";
 
 const Cocktail = () => {
   const [cocktail, setCocktail] = useState([]);
@@ -46,18 +45,16 @@ const Cocktail = () => {
   }, [cocktailId]);
 
   return (
-    <div className="backgroundColor">
-      <Container className="p-5">
-        <Row className="p-5">
-          <Col xs={12} md={5}>
-            <CocktailDetail data={cocktail} />
-          </Col>
-          <Col xs={12} md={7}>
-            <CocktailRec data={cocktails} />
-          </Col>
-        </Row>
-      </Container>
-    </div>
+    <Container className="p-5">
+      <Row className="p-5">
+        <Col xs={12} md={5}>
+          <CocktailDetail data={cocktail} />
+        </Col>
+        <Col xs={12} md={7}>
+          <CocktailRec data={cocktails} />
+        </Col>
+      </Row>
+    </Container>
   );
 };
 

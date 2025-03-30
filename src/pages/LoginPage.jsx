@@ -3,14 +3,13 @@ import AuthContext from "../context/AuthContext";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
-import "./layout/layout.scss";
 import Card from "react-bootstrap/Card";
 
 const LoginPage = () => {
   let { loginUser } = useContext(AuthContext);
 
   return (
-    <div className="backgroundColor pt-4">
+    <div className="pt-4">
       <Container className="p-5 d-flex justify-content-center">
         <Card
           bg={"dark"}

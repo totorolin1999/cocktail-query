@@ -1,4 +1,3 @@
-import "./cocktails.scss";
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
@@ -43,7 +42,7 @@ const Cocktails = () => {
 };
 
   return (
-    <div className="admin chartPageColor">
+    <div className="chartPageColor">
       <Container>
         <Button variant="secondary" as={Link} to="/AddCocktail" className="mt-5">
           新增調酒

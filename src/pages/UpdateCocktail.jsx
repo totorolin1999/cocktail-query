@@ -10,8 +10,7 @@ import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Card from "react-bootstrap/Card";
-import "./layout/layout.scss";
-import API_BASE_URL from '../apiConfig';
+import API_BASE_URL from "../apiConfig";
 
 const UpdateCocktail = () => {
   const [cocktail, setCocktail] = useState({
@@ -60,7 +59,7 @@ const UpdateCocktail = () => {
 
   console.log(cocktail);
   return (
-    <div className="backgroundColor pt-4">
+    <div className="pt-4">
       <Container className="p-5 d-flex justify-content-center">
         <Card
           bg={"primary"}

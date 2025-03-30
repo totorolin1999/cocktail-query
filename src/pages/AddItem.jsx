@@ -8,7 +8,6 @@ import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Card from "react-bootstrap/Card";
-import "./layout/layout.scss";
 import API_BASE_URL from "../apiConfig";
 
 const AddItem = () => {
@@ -39,7 +38,7 @@ const AddItem = () => {
   };
 
   return (
-    <div className="backgroundColor pt-4">
+    <div className="pt-4">
       <Container className="p-5 d-flex justify-content-center">
         <Card
           bg={"primary"}

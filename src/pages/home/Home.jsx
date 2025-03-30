@@ -1,7 +1,4 @@
-import "./home.scss";
-import "../layout/layout.scss";
 import React from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
 import CocktailCard from "../../components/cocktailCard/CocktailCard";
 import LoadingMessage from "../../components/LoadingMessage";
 import ErrorMessage from "../../components/ErrorMessage";
@@ -55,7 +52,10 @@ const Home = () => {
         fetchData(`${API_BASE_URL}/api/material-list/base/`, setBases),
         fetchData(`${API_BASE_URL}/api/material-list/liqueur/`, setLiqueurs),
         fetchData(`${API_BASE_URL}/api/material-list/alcohol/`, setAlcohols),
-        fetchData(`${API_BASE_URL}/api/material-list/ingredient/`, setIngredients),
+        fetchData(
+          `${API_BASE_URL}/api/material-list/ingredient/`,
+          setIngredients
+        ),
         fetchData(`${API_BASE_URL}/api/cocktail-list/`, setData),
       ]);
       setLoading(false);
@@ -128,92 +128,88 @@ const Home = () => {
   if (error) return <ErrorMessage data={error} />;
 
   return (
-    <>
-      <div className="backgroundColor">
-        <Container className="p-5">
-          <Form>
-            <Row className="mb-3">
-              <Form.Group as={Col}>
-                <Form.Label className="text-warning">基酒</Form.Label>
-                <Select
-                  components={animatedComponents}
-                  onChange={(item) => setSelectedBases(item)}
-                  isMulti
-                  options={baseOptions}
-                  placeholder="選取基酒"
-                />
-              </Form.Group>
+    <Container className="p-5">
+      <Form>
+        <Row className="mb-3">
+          <Form.Group as={Col}>
+            <Form.Label className="text-warning">基酒</Form.Label>
+            <Select
+              components={animatedComponents}
+              onChange={(item) => setSelectedBases(item)}
+              isMulti
+              options={baseOptions}
+              placeholder="選取基酒"
+            />
+          </Form.Group>
 
-              <Form.Group as={Col}>
-                <Form.Label className="text-warning">利口酒</Form.Label>
-                <Select
-                  components={animatedComponents}
-                  onChange={(item) => setSelectedLiqueurs(item)}
-                  isMulti
-                  options={liqueurOptions}
-                  placeholder="選取利口酒"
-                />
-              </Form.Group>
+          <Form.Group as={Col}>
+            <Form.Label className="text-warning">利口酒</Form.Label>
+            <Select
+              components={animatedComponents}
+              onChange={(item) => setSelectedLiqueurs(item)}
+              isMulti
+              options={liqueurOptions}
+              placeholder="選取利口酒"
+            />
+          </Form.Group>
 
-              <Form.Group as={Col}>
-                <Form.Label className="text-warning">其他酒類</Form.Label>
-                <Select
-                  components={animatedComponents}
-                  onChange={(item) => setSelectedAlcohols(item)}
-                  isMulti
-                  options={alcoholOptions}
-                  placeholder="選取其他酒類"
-                />
-              </Form.Group>
-            </Row>
+          <Form.Group as={Col}>
+            <Form.Label className="text-warning">其他酒類</Form.Label>
+            <Select
+              components={animatedComponents}
+              onChange={(item) => setSelectedAlcohols(item)}
+              isMulti
+              options={alcoholOptions}
+              placeholder="選取其他酒類"
+            />
+          </Form.Group>
+        </Row>
 
-            <Row className="mb-3">
-              <Form.Group as={Col}>
-                <Form.Label className="text-warning">其他成分</Form.Label>
-                <Select
-                  components={animatedComponents}
-                  onChange={(item) => setSelectedIngredients(item)}
-                  isMulti
-                  options={ingredientOptions}
-                  placeholder="選取其他成分"
-                />
-              </Form.Group>
+        <Row className="mb-3">
+          <Form.Group as={Col}>
+            <Form.Label className="text-warning">其他成分</Form.Label>
+            <Select
+              components={animatedComponents}
+              onChange={(item) => setSelectedIngredients(item)}
+              isMulti
+              options={ingredientOptions}
+              placeholder="選取其他成分"
+            />
+          </Form.Group>
 
-              <Form.Group as={Col}>
-                <Form.Label className="text-warning">調酒名稱</Form.Label>
-                <Form.Control
-                  placeholder="輸入調酒名稱（中英文皆可）"
-                  onChange={(e) => setQuery(e.target.value)}
-                />
-              </Form.Group>
-            </Row>
+          <Form.Group as={Col}>
+            <Form.Label className="text-warning">調酒名稱</Form.Label>
+            <Form.Control
+              placeholder="輸入調酒名稱（中英文皆可）"
+              onChange={(e) => setQuery(e.target.value)}
+            />
+          </Form.Group>
+        </Row>
 
-            <Button
-              variant="warning"
-              onClick={handleClick}
-              disabled={disabledBtn}
-              className="queryBtn"
-            >
-              {disabledBtn ? (
-                <>
-                  <Spinner
-                    as="span"
-                    animation="grow"
-                    size="sm"
-                    role="status"
-                    aria-hidden="true"
-                  />
-                  查詢中...
-                </>
-              ) : (
-                "查詢"
-              )}
-            </Button>
-          </Form>
-          {showCard && <CocktailCard data={data} />}
-        </Container>
-      </div>
-    </>
+        <Button
+          variant="warning"
+          onClick={handleClick}
+          disabled={disabledBtn}
+          className="queryBtn"
+        >
+          {disabledBtn ? (
+            <>
+              <Spinner
+                as="span"
+                animation="grow"
+                size="sm"
+                role="status"
+                aria-hidden="true"
+              />
+              查詢中...
+            </>
+          ) : (
+            "查詢"
+          )}
+        </Button>
+      </Form>
+      {showCard && <CocktailCard data={data} />}
+    </Container>
   );
 };
 
