@@ -43,7 +43,7 @@ const UpdateItem = () => {
       }
     };
     fetchAllItems();
-  }, [itemId]);
+  }, [material, itemId]);
 
   const handleClick = async (e) => {
     e.preventDefault();
