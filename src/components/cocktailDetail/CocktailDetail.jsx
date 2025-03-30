@@ -1,24 +1,20 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
 import "./cocktailDetail.scss";
-import API_BASE_URL from '../../apiConfig';
+import API_BASE_URL from "../../apiConfig";
 
 const CocktailDetail = ({ data }) => {
-  const url = `${API_BASE_URL}${data.image}`
-  
+  const url = `${API_BASE_URL}${data.image}`;
+
   return (
-    <Card
-      bg="dark"
-      text="white"
-      border="warning"
-      className="cocktailCard"
-      style={{ width: "20rem" }}
-    >
+    <Card bg="dark" text="white" border="warning" className="cocktailCard">
+      <Card.Header className="text-success">{data.English_Name}</Card.Header>
       <Card.Img
         variant="top"
         src={url}
+        style={{ width: "260px", height: "340px", objectFit: "cover" }}
+        className="mx-auto"
       />
-      {/* <Card.Header className="text-success">{data.English_Name}</Card.Header> */}
       <Card.Body>
         <Card.Title className="text-warning">
           <span className="hovertext" data-hover={data.English_Name}>
