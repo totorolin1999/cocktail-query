@@ -48,7 +48,7 @@ const Charts = () => {
   return (
     <div className="chartPageColor">
       <Container>
-        <Row className="m-5">
+        <Row>
           <Col xs={12} md={5}>
             <MaterialPieChart chartData={baseChart} />
           </Col>
@@ -56,7 +56,7 @@ const Charts = () => {
             <MaterialBarChart chartData={liqueurChart} />
           </Col>
         </Row>
-        <Row className="m-5">
+        <Row>
           <Col xs={12} md={5}>
             <MaterialPieChart chartData={alcoholChart} />
           </Col>

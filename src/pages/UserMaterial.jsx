@@ -57,7 +57,7 @@ const UserMaterial = () => {
   return (
     <div className="chartPageColor">
       <Container>
-        <Row className="mt-5 mb-5">
+        <Row>
           <Col xs={12} md={6}>
             <UserMaterialTable data={materials} />
           </Col>

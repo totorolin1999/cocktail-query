@@ -67,7 +67,7 @@ const Material = () => {
         >
           新增
         </Button>
-        <Row className="mb-5">
+        <Row>
           <Col xs={12} md={6}>
             <MaterialTable data={materials} />
           </Col>
