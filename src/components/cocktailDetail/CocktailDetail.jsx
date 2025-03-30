@@ -4,7 +4,7 @@ import "./cocktailDetail.scss";
 import API_BASE_URL from '../../apiConfig';
 
 const CocktailDetail = ({ data }) => {
-  const url = `${API_BASE_URL}/media/images/cocktail1.svg`
+  const url = `${API_BASE_URL}${data.image}`
   
   return (
     <Card
