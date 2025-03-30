@@ -48,7 +48,7 @@ const AddItem = () => {
           style={{ width: "25rem" }}
           className="mb-2"
         >
-          <Card.Header>新增基酒</Card.Header>
+          <Card.Header>新增</Card.Header>
           <Card.Body>
             <Form>
               <Form.Group className="m-3">

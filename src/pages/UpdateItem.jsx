@@ -66,7 +66,7 @@ const UpdateItem = () => {
           style={{ width: "25rem" }}
           className="mb-2"
         >
-          <Card.Header>更新基酒</Card.Header>
+          <Card.Header>更新</Card.Header>
           <Card.Body>
             <Form>
               <Form.Group className="m-3">
