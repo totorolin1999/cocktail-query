@@ -323,7 +323,7 @@ def backupData(request):
     cocktails = Cocktail.objects.all()
     serializer = CocktailSerializer(cocktails, many=True)
     for i in serializer.data:
-        data.append({"model": "api.cocktail", "fields": {"Chinese_Name": i['Chinese_Name'], "English_Name": i['English_Name']}})
+        data.append({"model": "api.cocktail", "fields": {"Chinese_Name": i['Chinese_Name'], "English_Name": i['English_Name'], "image": f"/cocktail_images/{i['id']}.jpeg"}})
         data[index]["fields"]["Bases"] = []
         data[index]["fields"]["Liqueurs"] = []
         data[index]["fields"]["Alcohols"] = []

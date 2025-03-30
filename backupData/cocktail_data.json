@@ -291,6 +291,7 @@
     "fields": {
       "Chinese_Name": "白色俄羅斯",
       "English_Name": "White Russian",
+      "image": "/cocktail_images/1.jpeg",
       "Bases": [
         4
       ],
@@ -308,6 +309,7 @@
     "fields": {
       "Chinese_Name": "瑪格麗特",
       "English_Name": "Margarita",
+      "image": "/cocktail_images/2.jpeg",
       "Bases": [
         3
       ],
@@ -326,6 +328,7 @@
     "fields": {
       "Chinese_Name": "黛綺莉",
       "English_Name": "Daiquiri",
+      "image": "/cocktail_images/3.jpeg",
       "Bases": [
         5
       ],
@@ -342,6 +345,7 @@
     "fields": {
       "Chinese_Name": "自由古巴",
       "English_Name": "Cuba Libre",
+      "image": "/cocktail_images/4.jpeg",
       "Bases": [
         5
       ],
@@ -358,6 +362,7 @@
     "fields": {
       "Chinese_Name": "藍色夏威夷",
       "English_Name": "Blue Hawaii",
+      "image": "/cocktail_images/5.jpeg",
       "Bases": [
         4,
         5
@@ -378,6 +383,7 @@
     "fields": {
       "Chinese_Name": "鳳梨可樂達",
       "English_Name": "Pina colada",
+      "image": "/cocktail_images/6.jpeg",
       "Bases": [
         5
       ],
@@ -396,6 +402,7 @@
     "fields": {
       "Chinese_Name": "亞歷山大",
       "English_Name": "Alexander",
+      "image": "/cocktail_images/7.jpeg",
       "Bases": [
         6
       ],
@@ -413,6 +420,7 @@
     "fields": {
       "Chinese_Name": "側車",
       "English_Name": "Sidecar",
+      "image": "/cocktail_images/8.jpeg",
       "Bases": [
         2
       ],
@@ -431,6 +439,7 @@
     "fields": {
       "Chinese_Name": "白蘭地亞歷山大",
       "English_Name": "Brandy Alexander",
+      "image": "/cocktail_images/9.jpeg",
       "Bases": [
         2,
         4
@@ -450,6 +459,7 @@
     "fields": {
       "Chinese_Name": "長島冰茶",
       "English_Name": "Long Island Iced Tea",
+      "image": "/cocktail_images/10.jpeg",
       "Bases": [
         3,
         4,
@@ -472,6 +482,7 @@
     "fields": {
       "Chinese_Name": "柯夢波丹",
       "English_Name": "Cosmopolitan",
+      "image": "/cocktail_images/11.jpeg",
       "Bases": [
         4
       ],
@@ -491,6 +502,7 @@
     "fields": {
       "Chinese_Name": "黑色俄羅斯",
       "English_Name": "Black Russian",
+      "image": "/cocktail_images/12.jpeg",
       "Bases": [
         4
       ],
@@ -506,6 +518,7 @@
     "fields": {
       "Chinese_Name": "血腥瑪麗",
       "English_Name": "Bloody Mary",
+      "image": "/cocktail_images/13.jpeg",
       "Bases": [
         4
       ],
@@ -525,6 +538,7 @@
     "fields": {
       "Chinese_Name": "內格羅尼",
       "English_Name": "Negroni",
+      "image": "/cocktail_images/14.jpeg",
       "Bases": [
         6
       ],
@@ -542,6 +556,7 @@
     "fields": {
       "Chinese_Name": "馬丁尼",
       "English_Name": "Martini",
+      "image": "/cocktail_images/15.jpeg",
       "Bases": [
         6
       ],
@@ -557,6 +572,7 @@
     "fields": {
       "Chinese_Name": "琴通寧",
       "English_Name": "Gin Tonic",
+      "image": "/cocktail_images/16.jpeg",
       "Bases": [
         6
       ],
@@ -573,6 +589,7 @@
     "fields": {
       "Chinese_Name": "琴霸克",
       "English_Name": "Gin Buck",
+      "image": "/cocktail_images/17.jpeg",
       "Bases": [
         6
       ],
@@ -589,6 +606,7 @@
     "fields": {
       "Chinese_Name": "白色佳人",
       "English_Name": "White Lady",
+      "image": "/cocktail_images/18.jpeg",
       "Bases": [
         6
       ],
@@ -608,6 +626,7 @@
     "fields": {
       "Chinese_Name": "美國佬",
       "English_Name": "Americano",
+      "image": "/cocktail_images/19.jpeg",
       "Bases": [],
       "Liqueurs": [
         4
@@ -625,6 +644,7 @@
     "fields": {
       "Chinese_Name": "床笫之間",
       "English_Name": "Between the Sheets",
+      "image": "/cocktail_images/20.jpeg",
       "Bases": [
         2,
         5
@@ -643,6 +663,7 @@
     "fields": {
       "Chinese_Name": "B52轟炸機",
       "English_Name": "B52",
+      "image": "/cocktail_images/21.jpeg",
       "Bases": [
         2
       ],
@@ -659,6 +680,7 @@
     "fields": {
       "Chinese_Name": "威士忌酸酒",
       "English_Name": "Whiskey Sour",
+      "image": "/cocktail_images/22.jpeg",
       "Bases": [
         1
       ],
@@ -675,6 +697,7 @@
     "fields": {
       "Chinese_Name": "莫希托",
       "English_Name": "Mojito",
+      "image": "/cocktail_images/23.jpeg",
       "Bases": [
         5
       ],
@@ -693,6 +716,7 @@
     "fields": {
       "Chinese_Name": "琴蕾",
       "English_Name": "Gimlet",
+      "image": "/cocktail_images/24.jpeg",
       "Bases": [
         6
       ],
@@ -708,6 +732,7 @@
     "fields": {
       "Chinese_Name": "伏特加萊姆",
       "English_Name": "Vodka Lime",
+      "image": "/cocktail_images/25.jpeg",
       "Bases": [
         4
       ],
@@ -723,6 +748,7 @@
     "fields": {
       "Chinese_Name": "莫斯科騾子",
       "English_Name": "Moscow Mule",
+      "image": "/cocktail_images/26.jpeg",
       "Bases": [
         4
       ],
@@ -739,6 +765,7 @@
     "fields": {
       "Chinese_Name": "伏特加通寧",
       "English_Name": "Vodka Tonic",
+      "image": "/cocktail_images/27.jpeg",
       "Bases": [
         4
       ],
@@ -754,6 +781,7 @@
     "fields": {
       "Chinese_Name": "破冰船",
       "English_Name": "Ice-Breaker",
+      "image": "/cocktail_images/28.jpeg",
       "Bases": [
         3
       ],
@@ -772,6 +800,7 @@
     "fields": {
       "Chinese_Name": "龍舌蘭日出",
       "English_Name": "Tequila Sunrise",
+      "image": "/cocktail_images/29.jpeg",
       "Bases": [
         3
       ],
@@ -788,6 +817,7 @@
     "fields": {
       "Chinese_Name": "茉莉",
       "English_Name": "Jasmine",
+      "image": "/cocktail_images/30.jpeg",
       "Bases": [
         6
       ],
@@ -807,6 +837,7 @@
     "fields": {
       "Chinese_Name": "南方",
       "English_Name": "Southside",
+      "image": "/cocktail_images/31.jpeg",
       "Bases": [
         6
       ],
@@ -823,6 +854,7 @@
     "fields": {
       "Chinese_Name": "泡泡",
       "English_Name": "Spumoni",
+      "image": "/cocktail_images/32.jpeg",
       "Bases": [],
       "Liqueurs": [
         4
@@ -839,6 +871,7 @@
     "fields": {
       "Chinese_Name": "海風",
       "English_Name": "Sea Breeze",
+      "image": "/cocktail_images/33.jpeg",
       "Bases": [
         4
       ],
@@ -856,6 +889,7 @@
     "fields": {
       "Chinese_Name": "薄荷茱莉普",
       "English_Name": "Mint Julep",
+      "image": "/cocktail_images/34.jpeg",
       "Bases": [
         1
       ],
@@ -872,6 +906,7 @@
     "fields": {
       "Chinese_Name": "鹹狗",
       "English_Name": "Salty Dog",
+      "image": "/cocktail_images/35.jpeg",
       "Bases": [
         4
       ],
@@ -887,6 +922,7 @@
     "fields": {
       "Chinese_Name": "國王谷",
       "English_Name": "King's Valley",
+      "image": "/cocktail_images/36.jpeg",
       "Bases": [
         1
       ],
@@ -905,6 +941,7 @@
     "fields": {
       "Chinese_Name": "螺絲起子",
       "English_Name": "Screwdriver",
+      "image": "/cocktail_images/37.jpeg",
       "Bases": [
         4
       ],
@@ -920,6 +957,7 @@
     "fields": {
       "Chinese_Name": "鱈魚角",
       "English_Name": "Cape Cod",
+      "image": "/cocktail_images/38.jpeg",
       "Bases": [
         4
       ],
@@ -935,6 +973,7 @@
     "fields": {
       "Chinese_Name": "X.Y.Z.",
       "English_Name": "X.Y.Z.",
+      "image": "/cocktail_images/39.jpeg",
       "Bases": [
         5
       ],
@@ -953,6 +992,7 @@
     "fields": {
       "Chinese_Name": "性感海灘",
       "English_Name": "Sex on the Beach",
+      "image": "/cocktail_images/40.jpeg",
       "Bases": [
         4
       ],
@@ -972,6 +1012,7 @@
     "fields": {
       "Chinese_Name": "猛牛",
       "English_Name": "Brave Bull",
+      "image": "/cocktail_images/41.jpeg",
       "Bases": [
         3
       ],
@@ -987,6 +1028,7 @@
     "fields": {
       "Chinese_Name": "止痛藥",
       "English_Name": "Painkiller",
+      "image": "/cocktail_images/42.jpeg",
       "Bases": [
         5
       ],
@@ -1005,6 +1047,7 @@
     "fields": {
       "Chinese_Name": "颶風",
       "English_Name": "Hurricane",
+      "image": "/cocktail_images/43.jpeg",
       "Bases": [
         5
       ],
@@ -1024,6 +1067,7 @@
     "fields": {
       "Chinese_Name": "多明諾",
       "English_Name": "Domino",
+      "image": "/cocktail_images/44.jpeg",
       "Bases": [
         3
       ],
@@ -1041,6 +1085,7 @@
     "fields": {
       "Chinese_Name": "威士忌可林",
       "English_Name": "Whisky Collins",
+      "image": "/cocktail_images/45.jpeg",
       "Bases": [
         1
       ],
@@ -1058,6 +1103,7 @@
     "fields": {
       "Chinese_Name": "愛爾蘭咖啡",
       "English_Name": "Irish Coffee",
+      "image": "/cocktail_images/46.jpeg",
       "Bases": [
         1
       ],
@@ -1075,6 +1121,7 @@
     "fields": {
       "Chinese_Name": "奇奇",
       "English_Name": "Chi Chi",
+      "image": "/cocktail_images/47.jpeg",
       "Bases": [
         4
       ],
@@ -1092,6 +1139,7 @@
     "fields": {
       "Chinese_Name": "神風特攻隊",
       "English_Name": "Kamikaze",
+      "image": "/cocktail_images/48.jpeg",
       "Bases": [
         4
       ],
@@ -1110,6 +1158,7 @@
     "fields": {
       "Chinese_Name": "琴費士",
       "English_Name": "Gin Fizz",
+      "image": "/cocktail_images/49.jpeg",
       "Bases": [
         6
       ],
@@ -1127,6 +1176,7 @@
     "fields": {
       "Chinese_Name": "黑醋栗烏龍",
       "English_Name": "Cassis Oolong",
+      "image": "/cocktail_images/50.jpeg",
       "Bases": [],
       "Liqueurs": [
         5
@@ -1142,6 +1192,7 @@
     "fields": {
       "Chinese_Name": "新鮮禁果",
       "English_Name": "Fuzzy Navel",
+      "image": "/cocktail_images/51.jpeg",
       "Bases": [],
       "Liqueurs": [
         1
@@ -1158,6 +1209,7 @@
     "fields": {
       "Chinese_Name": "粉紅佳人",
       "English_Name": "Pink Lady",
+      "image": "/cocktail_images/52.jpeg",
       "Bases": [
         6
       ],
@@ -1175,6 +1227,7 @@
     "fields": {
       "Chinese_Name": "盤尼西林",
       "English_Name": "Penicillin",
+      "image": "/cocktail_images/53.jpeg",
       "Bases": [
         1
       ],
@@ -1192,6 +1245,7 @@
     "fields": {
       "Chinese_Name": "蜜蜂之膝",
       "English_Name": "Bee's Knees",
+      "image": "/cocktail_images/54.jpeg",
       "Bases": [
         6
       ],
@@ -1209,6 +1263,7 @@
     "fields": {
       "Chinese_Name": "肯巴利莫希托",
       "English_Name": "Campari Mojito",
+      "image": "/cocktail_images/55.jpeg",
       "Bases": [],
       "Liqueurs": [
         4
@@ -1227,6 +1282,7 @@
     "fields": {
       "Chinese_Name": "帕洛瑪",
       "English_Name": "Paloma",
+      "image": "/cocktail_images/56.jpeg",
       "Bases": [
         3
       ],
@@ -1245,6 +1301,7 @@
     "fields": {
       "Chinese_Name": "藍色珊瑚礁",
       "English_Name": "Blue Lagoon",
+      "image": "/cocktail_images/57.jpeg",
       "Bases": [
         4
       ],
@@ -1262,6 +1319,7 @@
     "fields": {
       "Chinese_Name": "奧林匹克",
       "English_Name": "Olympic",
+      "image": "/cocktail_images/58.jpeg",
       "Bases": [
         2
       ],
@@ -1277,6 +1335,7 @@
     "fields": {
       "Chinese_Name": "伯爵茶馬丁尼",
       "English_Name": "Earl Grey Martini",
+      "image": "/cocktail_images/59.jpeg",
       "Bases": [
         6
       ],
@@ -1294,6 +1353,7 @@
     "fields": {
       "Chinese_Name": "內華達",
       "English_Name": "Nevada",
+      "image": "/cocktail_images/60.jpeg",
       "Bases": [
         5
       ],

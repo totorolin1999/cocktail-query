@@ -42,6 +42,7 @@ class Cocktail(models.Model):
     Liqueurs = models.ManyToManyField(Liqueur, blank=True, null=True)
     Alcohols = models.ManyToManyField(Alcohol, blank=True, null=True)
     Ingredients = models.ManyToManyField(Ingredient, blank=True, null=True)
+    image = models.ImageField(default='cocktail_images/cocktail.svg', upload_to='cocktail_images')
 
     def __str__(self):
         return self.Chinese_Name
