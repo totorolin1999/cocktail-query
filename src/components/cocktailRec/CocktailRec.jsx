@@ -6,7 +6,6 @@ import Button from "react-bootstrap/Button";
 import API_BASE_URL from '../../apiConfig';
 
 const CocktailRec = ({ data }) => {
-  const url = `${API_BASE_URL}/media/images/cocktail2.svg`
   
   return (
     <>
@@ -18,7 +17,7 @@ const CocktailRec = ({ data }) => {
           <Carousel.Item key={idx}>
             <img
               className="d-block w-100"
-              src={url}
+              src={`${API_BASE_URL}${item.image}`}
               alt="First slide"
             />
             <Carousel.Caption>
