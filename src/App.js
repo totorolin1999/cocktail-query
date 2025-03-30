@@ -16,6 +16,8 @@ import Cocktail from "./pages/Cocktail";
 import Charts from "./pages/charts/Charts";
 import Layout from "./components/Layout";
 import Missing from "./components/Missing";
+
+import "bootstrap/dist/css/bootstrap.min.css";
 // import Header from "./components/Header";
 // import UserNavbar from "./components/userNavbar/UserNavbar";
 // import Footer from "./components/footer/Footer";

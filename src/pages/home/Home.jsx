@@ -18,7 +18,6 @@ import axios from "axios";
 import Select from "react-select";
 import makeAnimated from "react-select/animated";
 import queryString from "query-string";
-import "bootstrap/dist/css/bootstrap.min.css";
 
 import Form from "react-bootstrap/Form";
 import API_BASE_URL from "../../apiConfig";
