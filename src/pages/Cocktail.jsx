@@ -47,10 +47,10 @@ const Cocktail = () => {
   return (
     <Container className="p-5">
       <Row className="p-5">
-        <Col xs={12} md={5}>
+        <Col xs={12} md={6}>
           <CocktailDetail data={cocktail} />
         </Col>
-        <Col xs={12} md={7}>
+        <Col xs={12} md={6}>
           <CocktailRec data={cocktails} />
         </Col>
       </Row>
