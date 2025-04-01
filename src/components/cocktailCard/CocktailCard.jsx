@@ -55,51 +55,6 @@ function CocktailCard({ data }) {
                     {item.Chinese_Name}
                   </span>
                 </Card.Title>
-                <Card.Text>
-                  基酒：
-                  {item.Bases.map((base, index) => (
-                    <span
-                      key={index}
-                      className="hovertext"
-                      data-hover={base.English_Name}
-                    >
-                      {base.Chinese_Name}&nbsp;
-                    </span>
-                  ))}
-                  <br />
-                  利口酒：
-                  {item.Liqueurs.map((liqueur, index) => (
-                    <span
-                      key={index}
-                      className="hovertext"
-                      data-hover={liqueur.English_Name}
-                    >
-                      {liqueur.Chinese_Name}&nbsp;
-                    </span>
-                  ))}
-                  <br />
-                  其他酒類：
-                  {item.Alcohols.map((alcohol, index) => (
-                    <span
-                      key={index}
-                      className="hovertext"
-                      data-hover={alcohol.English_Name}
-                    >
-                      {alcohol.Chinese_Name}&nbsp;
-                    </span>
-                  ))}
-                  <br />
-                  其他成分：
-                  {item.Ingredients.map((ingredient, index) => (
-                    <span
-                      key={index}
-                      className="hovertext"
-                      data-hover={ingredient.English_Name}
-                    >
-                      {ingredient.Chinese_Name}&nbsp;
-                    </span>
-                  ))}
-                </Card.Text>
                 <Button variant="warning" as={Link} to={`/Cocktail/${item.id}`}>
                   GO!
                 </Button>
