@@ -50,13 +50,8 @@ function CocktailCard({ data }) {
                 className="mx-auto"
               />
               <Card.Body>
-                <Card.Title className="text-warning">
-                  <span className="hovertext" data-hover={item.English_Name}>
-                    {item.Chinese_Name}
-                  </span>
-                </Card.Title>
                 <Button variant="warning" as={Link} to={`/Cocktail/${item.id}`}>
-                  GO!
+                  {item.Chinese_Name}
                 </Button>
               </Card.Body>
             </Card>
