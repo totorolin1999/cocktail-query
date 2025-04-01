@@ -7,7 +7,7 @@ const CocktailDetail = ({ data }) => {
   const url = `${API_BASE_URL}${data.image}`;
 
   return (
-    <Card bg="dark" text="white" border="warning" className="cocktailCard">
+    <Card bg="dark" text="white" border="warning" className="text-center cocktailCard">
       <Card.Header className="text-success">{data.English_Name}</Card.Header>
       <Card.Img
         variant="top"

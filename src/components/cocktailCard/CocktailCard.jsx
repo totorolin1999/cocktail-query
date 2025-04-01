@@ -38,7 +38,7 @@ function CocktailCard({ data }) {
               bg="dark"
               text="white"
               border="warning"
-              className="cocktailCard"
+              className="text-center cocktailCard"
             >
               <Card.Header className="text-success">
                 {item.English_Name}
