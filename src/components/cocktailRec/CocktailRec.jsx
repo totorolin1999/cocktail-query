@@ -1,77 +1,41 @@
 import React from "react";
 import Carousel from "react-bootstrap/Carousel";
-import Badge from "react-bootstrap/Badge";
+import Card from "react-bootstrap/Card";
+import Alert from "react-bootstrap/Alert";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
-import API_BASE_URL from '../../apiConfig';
+import API_BASE_URL from "../../apiConfig";
 
 const CocktailRec = ({ data }) => {
-  
   return (
     <>
-      <h4 className="text-warning text-center mt-5">
-        您可能會喜歡的調酒！<Badge bg="success">New</Badge>
-      </h4>
+      <Alert key="warning" variant="warning" className="text-center">
+        推薦一些有相似成分的調酒
+      </Alert>
       <Carousel>
         {data.map((item, idx) => (
           <Carousel.Item key={idx}>
-            <img
-              className="d-block w-100"
-              src={`${API_BASE_URL}${item.image}`}
-              alt="First slide"
-            />
-            <Carousel.Caption>
-              <h3>
-                <span className="hovertext" data-hover={item.English_Name}>
+            <Card
+              bg="dark"
+              text="white"
+              border="warning"
+              className="text-center cocktailCard"
+            >
+              <Card.Header className="text-success">
+                {item.English_Name}
+              </Card.Header>
+              <Card.Img
+                variant="top"
+                src={`${API_BASE_URL}${item.image}`}
+                style={{ width: "260px", height: "340px", objectFit: "cover" }}
+                className="mx-auto"
+              />
+              <Card.Body>
+                <Button variant="warning" as={Link} to={`/Cocktail/${item.id}`}>
                   {item.Chinese_Name}
-                </span>
-              </h3>
-              <p>
-                {item.Bases.map((base, index) => (
-                  <span
-                    key={index}
-                    className="hovertext"
-                    data-hover={base.English_Name}
-                  >
-                    {base.Chinese_Name}&nbsp;
-                  </span>
-                ))}
-                {item.Liqueurs.map((liqueur, index) => (
-                  <span
-                    key={index}
-                    className="hovertext"
-                    data-hover={liqueur.English_Name}
-                  >
-                    {liqueur.Chinese_Name}&nbsp;
-                  </span>
-                ))}
-                {item.Alcohols.map((alcohol, index) => (
-                  <span
-                    key={index}
-                    className="hovertext"
-                    data-hover={alcohol.English_Name}
-                  >
-                    {alcohol.Chinese_Name}&nbsp;
-                  </span>
-                ))}
-                {item.Ingredients.map((ingredient, index) => (
-                  <span
-                    key={index}
-                    className="hovertext"
-                    data-hover={ingredient.English_Name}
-                  >
-                    {ingredient.Chinese_Name}&nbsp;
-                  </span>
-                ))}
-              </p>
-              <Button
-                variant="warning"
-                as={Link}
-                to={`/Cocktail/${item.id}`}
-              >
-                GO!
-              </Button>
-            </Carousel.Caption>
+                </Button>
+              </Card.Body>
+            </Card>
           </Carousel.Item>
         ))}
       </Carousel>
