@@ -269,7 +269,8 @@ def chartList(request, model_type):
         cocktails = Cocktail.objects.filter(**filter_kwargs)
         
         chart_list.append({
-            "label": item.Chinese_Name, 
+            "chinese_label": item.Chinese_Name,
+            "english_label": item.English_Name,
             "size": len(cocktails)
         })
     
