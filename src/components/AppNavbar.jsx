@@ -5,9 +5,9 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { useTranslation } from "react-i18next";
-import AuthContext from "../../context/AuthContext";
+import AuthContext from "../context/AuthContext";
 
-const UserNavbar = () => {
+const AppNavbar = () => {
   let { user, logoutUser } = useContext(AuthContext);
 
   const [t, i18n] = useTranslation("global");
@@ -96,4 +96,4 @@ const UserNavbar = () => {
   );
 };
 
-export default UserNavbar;
+export default AppNavbar;

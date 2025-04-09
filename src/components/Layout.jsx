@@ -1,11 +1,11 @@
 import { Outlet } from "react-router-dom";
-import UserNavbar from "./userNavbar/UserNavbar";
+import AppNavbar from "./AppNavbar";
 import Footer from "./footer/Footer";
 
 const Layout = () => {
   return (
     <main className="App">
-      <UserNavbar />
+      <AppNavbar />
       <Outlet />
       <Footer />
     </main>
