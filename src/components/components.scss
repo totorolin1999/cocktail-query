@@ -1,0 +1,53 @@
+.footer {
+  background: #191970;
+}
+
+.cocktailCard {
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+  padding: 10px;
+  -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
+  box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+  border-radius: 10px;
+}
+
+.materialTable {
+  flex: 1;
+}
+
+.materialPieChart {
+  flex: 1;
+}
+
+.materialBarChart {
+  flex: 2;
+}
+
+.pagination {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5rem;
+  font-size: 1.2rem;
+  gap: 5px;
+  margin-top: 45px;
+}
+
+.pagination .page-num {
+  padding: 8px 15px;
+  cursor: pointer;
+  border-radius: 3px;
+  font-weight: 400;
+  color: black;
+}
+
+.pagination .page-num:hover {
+  background-color: orange;
+  color: orangered;
+}
+
+.pagination .active {
+  background-color: orange;
+}

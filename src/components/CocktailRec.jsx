@@ -5,7 +5,7 @@ import Alert from "react-bootstrap/Alert";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import { useTranslation } from "react-i18next";
-import API_BASE_URL from "../../apiConfig";
+import API_BASE_URL from "../apiConfig";
 
 const CocktailRec = ({ data }) => {
   const [t, i18n] = useTranslation("global");

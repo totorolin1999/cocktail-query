@@ -3,13 +3,13 @@ import { useEffect } from "react";
 import { useState } from "react";
 import axios from "axios";
 import Container from "react-bootstrap/Container";
-import MaterialPieChart from "../../components/materialChart/MaterialPieChart";
-import MaterialBarChart from "../../components/materialChart/MaterialBarChart";
-import LoadingMessage from "../../components/LoadingMessage";
-import ErrorMessage from "../../components/ErrorMessage";
+import MaterialPieChart from "../components/MaterialPieChart";
+import MaterialBarChart from "../components/MaterialBarChart";
+import LoadingMessage from "../components/LoadingMessage";
+import ErrorMessage from "../components/ErrorMessage";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-import API_BASE_URL from "../../apiConfig";
+import API_BASE_URL from "../apiConfig";
 
 const Charts = () => {
   const [loading, setLoading] = useState(true);

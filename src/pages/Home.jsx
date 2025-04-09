@@ -1,7 +1,7 @@
 import React from "react";
-import CocktailCard from "../../components/cocktailCard/CocktailCard";
-import LoadingMessage from "../../components/LoadingMessage";
-import ErrorMessage from "../../components/ErrorMessage";
+import CocktailCard from "../components/CocktailCard";
+import LoadingMessage from "../components/LoadingMessage";
+import ErrorMessage from "../components/ErrorMessage";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -16,7 +16,7 @@ import Select from "react-select";
 import makeAnimated from "react-select/animated";
 import queryString from "query-string";
 import { useTranslation } from "react-i18next";
-import API_BASE_URL from "../../apiConfig";
+import API_BASE_URL from "../apiConfig";
 
 const Home = () => {
   const [loading, setLoading] = useState(true);

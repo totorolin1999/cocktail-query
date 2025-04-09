@@ -7,8 +7,8 @@ import { useEffect } from "react";
 import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-import CocktailDetail from "../components/cocktailDetail/CocktailDetail";
-import CocktailRec from "../components/cocktailRec/CocktailRec";
+import CocktailDetail from "../components/CocktailDetail";
+import CocktailRec from "../components/CocktailRec";
 import API_BASE_URL from "../apiConfig";
 
 const Cocktail = () => {

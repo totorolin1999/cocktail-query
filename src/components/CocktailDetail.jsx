@@ -1,8 +1,8 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
-import "./cocktailDetail.scss";
+import "./components.scss";
 import { useTranslation } from "react-i18next";
-import API_BASE_URL from "../../apiConfig";
+import API_BASE_URL from "../apiConfig";
 
 const CocktailDetail = ({ data }) => {
   const url = `${API_BASE_URL}${data.image}`;

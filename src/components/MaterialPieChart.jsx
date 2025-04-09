@@ -1,27 +1,12 @@
-import "./materialChart.scss";
+import "./components.scss";
 import React from "react";
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend,
-} from "chart.js";
-import { Bar } from "react-chartjs-2";
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+import { Pie } from "react-chartjs-2";
 import { useTranslation } from "react-i18next";
 
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend
-);
+ChartJS.register(ArcElement, Tooltip, Legend);
 
-const MaterialBarChart = ({ chartData }) => {
+const MaterialPieChart = ({ chartData }) => {
   const [t, i18n] = useTranslation("global");
 
   const materialChartData = {
@@ -54,10 +39,10 @@ const MaterialBarChart = ({ chartData }) => {
   };
 
   return (
-    <div className="materialBarChart">
-      <Bar data={materialChartData} />
+    <div className="materialPieChart">
+      <Pie data={materialChartData} />
     </div>
   );
 };
 
-export default MaterialBarChart;
+export default MaterialPieChart;

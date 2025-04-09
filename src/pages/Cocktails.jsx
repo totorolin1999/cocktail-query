@@ -6,8 +6,8 @@ import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 
-import CocktailTable from "../../components/cocktailTable/CocktailTable";
-import API_BASE_URL from '../../apiConfig';
+import CocktailTable from "../components/CocktailTable";
+import API_BASE_URL from '../apiConfig';
 
 const Cocktails = () => {
   const [cocktails, setCocktails] = useState([]);

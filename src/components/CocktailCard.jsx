@@ -1,8 +1,7 @@
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-import "./cocktailCard.scss";
-import "../pagination/pagination.scss";
+import "./components.scss";
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
@@ -10,7 +9,7 @@ import ReactPaginate from "react-paginate";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import { useTranslation } from "react-i18next";
-import API_BASE_URL from "../../apiConfig";
+import API_BASE_URL from "../apiConfig";
 
 function CocktailCard({ data }) {
   const [currentItems, setCurrentItems] = useState([]);

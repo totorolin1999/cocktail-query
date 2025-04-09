@@ -1,20 +1,26 @@
 import React from "react";
 import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { useState } from "react";
-import useAxios from '../../utils/useAxios'
+import useAxios from "../utils/useAxios";
 import { Link } from "react-router-dom";
 import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 import ReactPaginate from "react-paginate";
-import API_BASE_URL from '../../apiConfig';
+import "./components.scss";
+import API_BASE_URL from "../apiConfig";
 
-const CocktailTable = ({ data }) => {
+const MaterialTable = ({ data }) => {
   const [currentItems, setCurrentItems] = useState([]);
   const [pageCount, setPageCount] = useState(0);
   const [itemOffset, setItemOffset] = useState(0);
   const itemsPerPage = 6;
 
-  let api = useAxios()
+  const location = useLocation();
+
+  const material = location.pathname.split("/")[2];
+
+  let api = useAxios();
 
   useEffect(() => {
     const endOffset = itemOffset + itemsPerPage;
@@ -30,7 +36,7 @@ const CocktailTable = ({ data }) => {
 
   const handleDelete = async (id) => {
     try {
-      await api.delete(`${API_BASE_URL}/api/cocktail-delete/` + id);
+      await api.delete(`${API_BASE_URL}/api/item-delete/${material}/` + id);
       window.location.reload();
     } catch (err) {
       console.log(err);
@@ -38,49 +44,25 @@ const CocktailTable = ({ data }) => {
   };
 
   return (
-    <>
+    <div className="materialTable">
       <Table striped bordered hover className="mt-2">
         <thead>
           <tr>
             <th>中文名稱</th>
             <th>英文名稱</th>
-            <th>基酒</th>
-            <th>利口酒</th>
-            <th>其他酒類</th>
-            <th>其他成分</th>
             <th>編輯</th>
           </tr>
         </thead>
         <tbody>
-          {currentItems.map((item, idx) => (
-            <tr key={idx}>
+          {currentItems.map((item) => (
+            <tr key={item.id}>
               <td>{item.Chinese_Name}</td>
               <td>{item.English_Name}</td>
-              <td>
-                {item.Bases.map((base, index) => (
-                  <span key={index}>{base.Chinese_Name}&nbsp;</span>
-                ))}
-              </td>
-              <td>
-                {item.Liqueurs.map((liqueur, index) => (
-                  <span key={index}>{liqueur.Chinese_Name}&nbsp;</span>
-                ))}
-              </td>
-              <td>
-                {item.Alcohols.map((alcohol, index) => (
-                  <span key={index}>{alcohol.Chinese_Name}&nbsp;</span>
-                ))}
-              </td>
-              <td>
-                {item.Ingredients.map((ingredient, index) => (
-                  <span key={index}>{ingredient.Chinese_Name}&nbsp;</span>
-                ))}
-              </td>
               <td>
                 <Button
                   variant="warning"
                   as={Link}
-                  to={`/UpdateCocktail/${item.id}`}
+                  to={`/UpdateItem/${material}/${item.id}`}
                 >
                   更新
                 </Button>{" "}
@@ -109,8 +91,8 @@ const CocktailTable = ({ data }) => {
         nextLinkClassName="page-num"
         activeLinkClassName="active"
       />
-    </>
+    </div>
   );
 };
 
-export default CocktailTable;
+export default MaterialTable;

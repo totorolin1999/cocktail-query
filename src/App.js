@@ -4,16 +4,16 @@ import PrivateRoute from "./utils/PrivateRoute";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 
-import Home from "./pages/home/Home";
+import Home from "./pages/Home";
 import UserMaterial from "./pages/UserMaterial";
 import Material from "./pages/Material";
 import AddItem from "./pages/AddItem";
 import UpdateItem from "./pages/UpdateItem";
-import Cocktails from "./pages/cocktails/Cocktails";
+import Cocktails from "./pages/Cocktails";
 import AddCocktail from "./pages/AddCocktail";
 import UpdateCocktail from "./pages/UpdateCocktail";
 import Cocktail from "./pages/Cocktail";
-import Charts from "./pages/charts/Charts";
+import Charts from "./pages/Charts";
 import Layout from "./components/Layout";
 import Missing from "./components/Missing";
 

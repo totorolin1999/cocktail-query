@@ -6,14 +6,13 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
-
-import MaterialTable from "../components/materialTable/MaterialTable";
-import MaterialPieChart from "../components/materialChart/MaterialPieChart";
-import MaterialBarChart from "../components/materialChart/MaterialBarChart";
-import LoadingMessage from "../components/LoadingMessage";
-import ErrorMessage from "../components/ErrorMessage";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
+import MaterialTable from "../components/MaterialTable";
+import MaterialPieChart from "../components/MaterialPieChart";
+import MaterialBarChart from "../components/MaterialBarChart";
+import LoadingMessage from "../components/LoadingMessage";
+import ErrorMessage from "../components/ErrorMessage";
 import API_BASE_URL from "../apiConfig";
 
 const Material = () => {

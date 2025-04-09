@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import Table from "react-bootstrap/Table";
 import ReactPaginate from "react-paginate";
-import "./materialTable.scss";
+import "./components.scss";
 import { useTranslation } from "react-i18next";
 
 const UserMaterialTable = ({ data }) => {

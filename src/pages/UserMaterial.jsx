@@ -4,14 +4,13 @@ import { useLocation } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 import Container from "react-bootstrap/Container";
-
-import UserMaterialTable from "../components/materialTable/UserMaterialTable";
-import MaterialPieChart from "../components/materialChart/MaterialPieChart";
-import MaterialBarChart from "../components/materialChart/MaterialBarChart";
-import LoadingMessage from "../components/LoadingMessage";
-import ErrorMessage from "../components/ErrorMessage";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
+import UserMaterialTable from "../components/UserMaterialTable";
+import MaterialPieChart from "../components/MaterialPieChart";
+import MaterialBarChart from "../components/MaterialBarChart";
+import LoadingMessage from "../components/LoadingMessage";
+import ErrorMessage from "../components/ErrorMessage";
 import API_BASE_URL from "../apiConfig";
 
 const UserMaterial = () => {
