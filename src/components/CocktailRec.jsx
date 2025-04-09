@@ -19,12 +19,12 @@ const CocktailRec = ({ data }) => {
         {data.map((item, idx) => (
           <Carousel.Item key={idx}>
             <Card
-              bg="dark"
+              bg="secondary"
               text="white"
               border="warning"
               className="text-center cocktailCard"
             >
-              <Card.Header className="text-success">
+              <Card.Header>
                 {item.English_Name}
               </Card.Header>
               <Card.Img
