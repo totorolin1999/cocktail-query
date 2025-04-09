@@ -21,76 +21,40 @@ const AppNavbar = () => {
           {t("navbar.title")}
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        {user ? (
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto">
-              <Nav.Link as={Link} to="/Cocktails">
-                管理調酒
-              </Nav.Link>
-              <NavDropdown title="管理調酒成分" id="basic-nav-dropdown">
-                <NavDropdown.Item as={Link} to="/Material/base">
-                  管理基酒
-                </NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/Material/liqueur">
-                  管理利口酒
-                </NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/Material/alcohol">
-                  管理其他酒類
-                </NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/Material/ingredient">
-                  管理其他成分
-                </NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item as={Link} to="/Charts">
-                  調酒成分視覺化
-                </NavDropdown.Item>
-              </NavDropdown>
-            </Nav>
-            <Navbar.Text>目前身分為管理員：{user.username}</Navbar.Text>
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto">
+            <Nav.Link as={Link} to="/Material/base">
+              {t("navbar.base")}
+            </Nav.Link>
+            <Nav.Link as={Link} to="/Material/liqueur">
+              {t("navbar.liqueur")}
+            </Nav.Link>
+            <Nav.Link as={Link} to="/Material/alcohol">
+              {t("navbar.alcohol")}
+            </Nav.Link>
+            <Nav.Link as={Link} to="/Material/ingredient">
+              {t("navbar.ingredient")}
+            </Nav.Link>
+            <Nav.Link as={Link} to="/Charts">
+              {t("navbar.visualization")}
+            </Nav.Link>
+          </Nav>
+          <Nav>
+            <NavDropdown title={t("navbar.language")} id="basic-nav-dropdown">
+              <NavDropdown.Item onClick={() => handleChangeLanguage("chinese")}>
+                中文
+              </NavDropdown.Item>
+              <NavDropdown.Item onClick={() => handleChangeLanguage("english")}>
+                English
+              </NavDropdown.Item>
+            </NavDropdown>
+          </Nav>
+          {user && (
             <Nav>
-              <Nav.Link onClick={logoutUser}>登出</Nav.Link>
+              <Nav.Link onClick={logoutUser}>{user.username} 登出</Nav.Link>
             </Nav>
-          </Navbar.Collapse>
-        ) : (
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto">
-              <Nav.Link as={Link} to="/UserMaterial/base">
-                {t("navbar.base")}
-              </Nav.Link>
-              <Nav.Link as={Link} to="/UserMaterial/liqueur">
-                {t("navbar.liqueur")}
-              </Nav.Link>
-              <Nav.Link as={Link} to="/UserMaterial/alcohol">
-                {t("navbar.alcohol")}
-              </Nav.Link>
-              <Nav.Link as={Link} to="/UserMaterial/ingredient">
-                {t("navbar.ingredient")}
-              </Nav.Link>
-              <Nav.Link as={Link} to="/Charts">
-                {t("navbar.visualization")}
-              </Nav.Link>
-            </Nav>
-            <Nav>
-              <NavDropdown title={t("navbar.language")} id="basic-nav-dropdown">
-                <NavDropdown.Item
-                  onClick={() => handleChangeLanguage("chinese")}
-                >
-                  中文
-                </NavDropdown.Item>
-                <NavDropdown.Item
-                  onClick={() => handleChangeLanguage("english")}
-                >
-                  English
-                </NavDropdown.Item>
-              </NavDropdown>
-            </Nav>
-            {/* <Nav>
-              <Nav.Link as={Link} to="/Cocktails">
-                管理員登入
-              </Nav.Link>
-            </Nav> */}
-          </Navbar.Collapse>
-        )}
+          )}
+        </Navbar.Collapse>
       </Container>
     </Navbar>
   );

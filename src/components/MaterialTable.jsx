@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
@@ -8,6 +8,8 @@ import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 import ReactPaginate from "react-paginate";
 import "./components.scss";
+import { useTranslation } from "react-i18next";
+import AuthContext from "../context/AuthContext";
 import API_BASE_URL from "../apiConfig";
 
 const MaterialTable = ({ data }) => {
@@ -16,9 +18,12 @@ const MaterialTable = ({ data }) => {
   const [itemOffset, setItemOffset] = useState(0);
   const itemsPerPage = 6;
 
-  const location = useLocation();
+  const [t, i18n] = useTranslation("global");
 
+  const location = useLocation();
   const material = location.pathname.split("/")[2];
+
+  let { user, logoutUser } = useContext(AuthContext);
 
   let api = useAxios();
 
@@ -48,9 +53,9 @@ const MaterialTable = ({ data }) => {
       <Table striped bordered hover className="mt-2">
         <thead>
           <tr>
-            <th>中文名稱</th>
-            <th>英文名稱</th>
-            <th>編輯</th>
+            <th>{t("table.chinese")}</th>
+            <th>{t("table.english")}</th>
+            {user && <th>編輯</th>}
           </tr>
         </thead>
         <tbody>
@@ -58,21 +63,23 @@ const MaterialTable = ({ data }) => {
             <tr key={item.id}>
               <td>{item.Chinese_Name}</td>
               <td>{item.English_Name}</td>
-              <td>
-                <Button
-                  variant="warning"
-                  as={Link}
-                  to={`/UpdateItem/${material}/${item.id}`}
-                >
-                  更新
-                </Button>{" "}
-                <Button
-                  variant="danger"
-                  onClick={() => handleDelete(item.id)}
-                >
-                  刪除
-                </Button>{" "}
-              </td>
+              {user && (
+                <td>
+                  <Button
+                    variant="warning"
+                    as={Link}
+                    to={`/UpdateItem/${material}/${item.id}`}
+                  >
+                    更新
+                  </Button>{" "}
+                  <Button
+                    variant="danger"
+                    onClick={() => handleDelete(item.id)}
+                  >
+                    刪除
+                  </Button>{" "}
+                </td>
+              )}
             </tr>
           ))}
         </tbody>

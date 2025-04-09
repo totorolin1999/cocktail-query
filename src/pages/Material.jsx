@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
@@ -13,6 +13,7 @@ import MaterialPieChart from "../components/MaterialPieChart";
 import MaterialBarChart from "../components/MaterialBarChart";
 import LoadingMessage from "../components/LoadingMessage";
 import ErrorMessage from "../components/ErrorMessage";
+import AuthContext from "../context/AuthContext";
 import API_BASE_URL from "../apiConfig";
 
 const Material = () => {
@@ -22,8 +23,9 @@ const Material = () => {
   const [error, setError] = useState(null);
 
   const location = useLocation();
-
   const material = location.pathname.split("/")[2];
+
+  let { user, logoutUser } = useContext(AuthContext);
 
   useEffect(() => {
     const fetchData = async (url, setter) => {
@@ -58,14 +60,16 @@ const Material = () => {
   return (
     <div className="chartPageColor">
       <Container>
-        <Button
-          variant="secondary"
-          as={Link}
-          to={`/AddItem/${material}`}
-          className="mt-5"
-        >
-          新增
-        </Button>
+        {user && (
+          <Button
+            variant="secondary"
+            as={Link}
+            to={`/AddItem/${material}`}
+            className="mt-5"
+          >
+            新增
+          </Button>
+        )}
         <Row>
           <Col xs={12} md={6}>
             <MaterialTable data={materials} />
