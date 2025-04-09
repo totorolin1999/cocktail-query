@@ -97,11 +97,11 @@ const CocktailTable = ({ data }) => {
       </Table>
       <ReactPaginate
         breakLabel="..."
-        nextLabel="下一頁 >"
+        nextLabel=">"
         onPageChange={handlePageClick}
         pageRangeDisplayed={3}
         pageCount={pageCount}
-        previousLabel="< 上一頁"
+        previousLabel="<"
         renderOnZeroPageCount={null}
         containerClassName="pagination"
         pageLinkClassName="page-num"

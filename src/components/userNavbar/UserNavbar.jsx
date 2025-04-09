@@ -4,15 +4,21 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
+import { useTranslation } from "react-i18next";
 import AuthContext from "../../context/AuthContext";
 
 const UserNavbar = () => {
   let { user, logoutUser } = useContext(AuthContext);
+
+  const [t, i18n] = useTranslation("global");
+  const handleChangeLanguage = (lang) => {
+    i18n.changeLanguage(lang);
+  };
   return (
     <Navbar variant="dark" expand="lg">
       <Container>
         <Navbar.Brand as={Link} to="/">
-          調酒查詢系統
+          {t("navbar.title")}
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         {user ? (
@@ -49,20 +55,34 @@ const UserNavbar = () => {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
               <Nav.Link as={Link} to="/UserMaterial/base">
-                基酒
+                {t("navbar.base")}
               </Nav.Link>
               <Nav.Link as={Link} to="/UserMaterial/liqueur">
-                利口酒
+                {t("navbar.liqueur")}
               </Nav.Link>
               <Nav.Link as={Link} to="/UserMaterial/alcohol">
-                其他酒類
+                {t("navbar.alcohol")}
               </Nav.Link>
               <Nav.Link as={Link} to="/UserMaterial/ingredient">
-                其他成分
+                {t("navbar.ingredient")}
               </Nav.Link>
               <Nav.Link as={Link} to="/Charts">
-                調酒成分視覺化
+                {t("navbar.visualization")}
               </Nav.Link>
+            </Nav>
+            <Nav>
+              <NavDropdown title={t("navbar.language")} id="basic-nav-dropdown">
+                <NavDropdown.Item
+                  onClick={() => handleChangeLanguage("chinese")}
+                >
+                  中文
+                </NavDropdown.Item>
+                <NavDropdown.Item
+                  onClick={() => handleChangeLanguage("english")}
+                >
+                  English
+                </NavDropdown.Item>
+              </NavDropdown>
             </Nav>
             {/* <Nav>
               <Nav.Link as={Link} to="/Cocktails">

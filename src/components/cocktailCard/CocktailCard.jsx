@@ -9,6 +9,7 @@ import { useState } from "react";
 import ReactPaginate from "react-paginate";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
+import { useTranslation } from "react-i18next";
 import API_BASE_URL from "../../apiConfig";
 
 function CocktailCard({ data }) {
@@ -16,6 +17,8 @@ function CocktailCard({ data }) {
   const [pageCount, setPageCount] = useState(0);
   const [itemOffset, setItemOffset] = useState(0);
   const itemsPerPage = 6;
+
+  const [t, i18n] = useTranslation("global");
 
   useEffect(() => {
     const endOffset = itemOffset + itemsPerPage;
@@ -51,7 +54,9 @@ function CocktailCard({ data }) {
               />
               <Card.Body>
                 <Button variant="warning" as={Link} to={`/Cocktail/${item.id}`}>
-                  {item.Chinese_Name}
+                  {i18n.language === "chinese"
+                    ? item.Chinese_Name
+                    : item.English_Name}
                 </Button>
               </Card.Body>
             </Card>
@@ -60,11 +65,11 @@ function CocktailCard({ data }) {
       </Row>
       <ReactPaginate
         breakLabel="..."
-        nextLabel="下一頁 >"
+        nextLabel=">"
         onPageChange={handlePageClick}
         pageRangeDisplayed={3}
         pageCount={pageCount}
-        previousLabel="< 上一頁"
+        previousLabel="<"
         renderOnZeroPageCount={null}
         containerClassName="pagination"
         pageLinkClassName="page-num"

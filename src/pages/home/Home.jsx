@@ -7,7 +7,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import Spinner from "react-bootstrap/Spinner";
-
+import Form from "react-bootstrap/Form";
 // import LocalBarIcon from "@mui/icons-material/LocalBar";
 import { useEffect } from "react";
 import { useState } from "react";
@@ -15,8 +15,7 @@ import axios from "axios";
 import Select from "react-select";
 import makeAnimated from "react-select/animated";
 import queryString from "query-string";
-
-import Form from "react-bootstrap/Form";
+import { useTranslation } from "react-i18next";
 import API_BASE_URL from "../../apiConfig";
 
 const Home = () => {
@@ -36,6 +35,8 @@ const Home = () => {
   const [showCard, setShowCard] = useState(true);
 
   const animatedComponents = makeAnimated();
+
+  const [t, i18n] = useTranslation("global");
 
   useEffect(() => {
     const fetchData = async (url, setter) => {
@@ -64,28 +65,24 @@ const Home = () => {
     fetchAllData();
   }, []);
 
-  // console.log(
-  //   bases.map((item) => ({ value: item.id, label: item.Chinese_Name }))
-  // );
-
   const baseOptions = bases.map((item) => ({
     value: item.id,
-    label: item.Chinese_Name,
+    label: i18n.language === "chinese" ? item.Chinese_Name : item.English_Name,
   }));
 
   const liqueurOptions = liqueurs.map((item) => ({
     value: item.id,
-    label: item.Chinese_Name,
+    label: i18n.language === "chinese" ? item.Chinese_Name : item.English_Name,
   }));
 
   const alcoholOptions = alcohols.map((item) => ({
     value: item.id,
-    label: item.Chinese_Name,
+    label: i18n.language === "chinese" ? item.Chinese_Name : item.English_Name,
   }));
 
   const ingredientOptions = ingredients.map((item) => ({
     value: item.id,
-    label: item.Chinese_Name,
+    label: i18n.language === "chinese" ? item.Chinese_Name : item.English_Name,
   }));
 
   const handleClick = async (e) => {
@@ -125,62 +122,72 @@ const Home = () => {
   };
 
   if (loading) return <LoadingMessage />;
-  if (error) return <ErrorMessage data={error} />;
+  if (error) return <ErrorMessage />;
 
   return (
     <Container className="p-5">
       <Form>
         <Row className="mb-3">
           <Form.Group as={Col}>
-            <Form.Label className="text-warning">基酒</Form.Label>
+            <Form.Label className="text-warning">
+              {t("home.label_base")}
+            </Form.Label>
             <Select
               components={animatedComponents}
               onChange={(item) => setSelectedBases(item)}
               isMulti
               options={baseOptions}
-              placeholder="選取基酒"
+              placeholder={t("home.select_base")}
             />
           </Form.Group>
 
           <Form.Group as={Col}>
-            <Form.Label className="text-warning">利口酒</Form.Label>
+            <Form.Label className="text-warning">
+              {t("home.label_liqueur")}
+            </Form.Label>
             <Select
               components={animatedComponents}
               onChange={(item) => setSelectedLiqueurs(item)}
               isMulti
               options={liqueurOptions}
-              placeholder="選取利口酒"
+              placeholder={t("home.select_liqueur")}
             />
           </Form.Group>
 
           <Form.Group as={Col}>
-            <Form.Label className="text-warning">其他酒類</Form.Label>
+            <Form.Label className="text-warning">
+              {t("home.label_alcohol")}
+            </Form.Label>
             <Select
               components={animatedComponents}
               onChange={(item) => setSelectedAlcohols(item)}
               isMulti
               options={alcoholOptions}
-              placeholder="選取其他酒類"
+              placeholder={t("home.select_alcohol")}
             />
           </Form.Group>
         </Row>
 
         <Row className="mb-3">
           <Form.Group as={Col}>
-            <Form.Label className="text-warning">其他成分</Form.Label>
+            <Form.Label className="text-warning">
+              {t("home.label_ingredient")}
+            </Form.Label>
             <Select
               components={animatedComponents}
               onChange={(item) => setSelectedIngredients(item)}
               isMulti
               options={ingredientOptions}
-              placeholder="選取其他成分"
+              placeholder={t("home.select_ingredient")}
             />
           </Form.Group>
 
           <Form.Group as={Col}>
-            <Form.Label className="text-warning">調酒名稱</Form.Label>
+            <Form.Label className="text-warning">
+              {t("home.label_cocktail")}
+            </Form.Label>
             <Form.Control
-              placeholder="輸入調酒名稱（中英文皆可）"
+              placeholder={t("home.input_cocktail")}
               onChange={(e) => setQuery(e.target.value)}
             />
           </Form.Group>
@@ -193,18 +200,15 @@ const Home = () => {
           className="queryBtn"
         >
           {disabledBtn ? (
-            <>
-              <Spinner
-                as="span"
-                animation="grow"
-                size="sm"
-                role="status"
-                aria-hidden="true"
-              />
-              查詢中...
-            </>
+            <Spinner
+              as="span"
+              animation="grow"
+              size="sm"
+              role="status"
+              aria-hidden="true"
+            />
           ) : (
-            "查詢"
+            <>{t("home.query")}</>
           )}
         </Button>
       </Form>

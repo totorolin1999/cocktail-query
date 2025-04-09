@@ -4,12 +4,15 @@ import { useState } from "react";
 import Table from "react-bootstrap/Table";
 import ReactPaginate from "react-paginate";
 import "./materialTable.scss";
+import { useTranslation } from "react-i18next";
 
 const UserMaterialTable = ({ data }) => {
   const [currentItems, setCurrentItems] = useState([]);
   const [pageCount, setPageCount] = useState(0);
   const [itemOffset, setItemOffset] = useState(0);
   const itemsPerPage = 6;
+
+  const [t, i18n] = useTranslation("global");
 
   useEffect(() => {
     const endOffset = itemOffset + itemsPerPage;
@@ -28,8 +31,8 @@ const UserMaterialTable = ({ data }) => {
       <Table striped bordered hover className="mt-2">
         <thead>
           <tr>
-            <th>中文名稱</th>
-            <th>英文名稱</th>
+            <th>{t("table.chinese")}</th>
+            <th>{t("table.english")}</th>
           </tr>
         </thead>
         <tbody>
@@ -43,11 +46,11 @@ const UserMaterialTable = ({ data }) => {
       </Table>
       <ReactPaginate
         breakLabel="..."
-        nextLabel="下一頁 >"
+        nextLabel=">"
         onPageChange={handlePageClick}
         pageRangeDisplayed={3}
         pageCount={pageCount}
-        previousLabel="< 上一頁"
+        previousLabel="<"
         renderOnZeroPageCount={null}
         containerClassName="pagination"
         pageLinkClassName="page-num"

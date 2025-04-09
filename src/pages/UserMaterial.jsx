@@ -52,7 +52,7 @@ const UserMaterial = () => {
   }, [material]);
 
   if (loading) return <LoadingMessage />;
-  if (error) return <ErrorMessage data={error} />;
+  if (error) return <ErrorMessage />;
 
   return (
     <div className="chartPageColor">

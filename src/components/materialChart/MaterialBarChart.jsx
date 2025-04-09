@@ -10,6 +10,7 @@ import {
   Legend,
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
+import { useTranslation } from "react-i18next";
 
 ChartJS.register(
   CategoryScale,
@@ -21,11 +22,15 @@ ChartJS.register(
 );
 
 const MaterialBarChart = ({ chartData }) => {
+  const [t, i18n] = useTranslation("global");
+
   const materialChartData = {
-    labels: chartData.map((data) => data.label),
+    labels: chartData.map((data) =>
+      i18n.language === "chinese" ? data.chinese_label : data.english_label
+    ),
     datasets: [
       {
-        label: "使用數量",
+        label: t("chart.label"),
         data: chartData.map((data) => data.size),
         backgroundColor: [
           "rgba(255, 99, 132, 0.2)",
