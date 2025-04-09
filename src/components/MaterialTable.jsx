@@ -18,12 +18,12 @@ const MaterialTable = ({ data }) => {
   const [itemOffset, setItemOffset] = useState(0);
   const itemsPerPage = 6;
 
-  const [t, i18n] = useTranslation("global");
+  const [t] = useTranslation("global");
 
   const location = useLocation();
   const material = location.pathname.split("/")[2];
 
-  let { user, logoutUser } = useContext(AuthContext);
+  let { user } = useContext(AuthContext);
 
   let api = useAxios();
 

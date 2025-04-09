@@ -17,7 +17,7 @@ function CocktailCard({ data }) {
   const [itemOffset, setItemOffset] = useState(0);
   const itemsPerPage = 6;
 
-  const [t, i18n] = useTranslation("global");
+  const [, i18n] = useTranslation("global");
 
   useEffect(() => {
     const endOffset = itemOffset + itemsPerPage;

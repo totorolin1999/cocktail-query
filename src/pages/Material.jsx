@@ -25,7 +25,7 @@ const Material = () => {
   const location = useLocation();
   const material = location.pathname.split("/")[2];
 
-  let { user, logoutUser } = useContext(AuthContext);
+  let { user } = useContext(AuthContext);
 
   useEffect(() => {
     const fetchData = async (url, setter) => {

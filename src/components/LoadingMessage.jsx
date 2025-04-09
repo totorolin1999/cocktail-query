@@ -5,7 +5,7 @@ import Spinner from "react-bootstrap/Spinner";
 import { useTranslation } from "react-i18next";
 
 const LoadingMessage = () => {
-  const [t, i18n] = useTranslation("global");
+  const [t] = useTranslation("global");
   return (
     <Container className="p-5">
       <Alert key="success" variant="success">

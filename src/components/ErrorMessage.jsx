@@ -4,7 +4,7 @@ import Alert from "react-bootstrap/Alert";
 import { useTranslation } from "react-i18next";
 
 const ErrorMessage = () => {
-  const [t, i18n] = useTranslation("global");
+  const [t] = useTranslation("global");
   return (
     <Container className="p-5">
       <Alert key="danger" variant="danger">
