@@ -1,7 +1,6 @@
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-import "./components.scss";
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
@@ -25,7 +24,6 @@ function CocktailCard({ data }) {
     setPageCount(Math.ceil(data.length / itemsPerPage));
   }, [itemOffset, itemsPerPage, data]);
 
-  // Invoke when user click to request another page.
   const handlePageClick = (event) => {
     const newOffset = (event.selected * itemsPerPage) % data.length;
     setItemOffset(newOffset);
@@ -33,14 +31,14 @@ function CocktailCard({ data }) {
 
   return (
     <>
-      <Row xs={1} md={3} className="g-4 mt-4">
+      <Row xs={1} sm={2} lg={3} className="g-4">
         {currentItems.map((item, idx) => (
-          <Col key={idx}>
+          <Col key={idx} className="d-flex">
             <Card
               bg="dark"
               text="white"
               border="warning"
-              className="text-center cocktailCard"
+              className="text-center cocktailCard w-100"
             >
               <Card.Header className="text-success">
                 {item.English_Name}
@@ -48,11 +46,16 @@ function CocktailCard({ data }) {
               <Card.Img
                 variant="top"
                 src={`${API_BASE_URL}${item.image}`}
-                style={{ width: "260px", height: "340px", objectFit: "cover" }}
-                className="mx-auto"
+                className="cocktail-card-img"
+                alt={item.English_Name}
               />
               <Card.Body>
-                <Button variant="warning" as={Link} to={`/Cocktail/${item.id}`}>
+                <Button
+                  variant="warning"
+                  as={Link}
+                  to={`/Cocktail/${item.id}`}
+                  className="btn-accent"
+                >
                   {i18n.language === "chinese"
                     ? item.Chinese_Name
                     : item.English_Name}
@@ -62,20 +65,22 @@ function CocktailCard({ data }) {
           </Col>
         ))}
       </Row>
-      <ReactPaginate
-        breakLabel="..."
-        nextLabel=">"
-        onPageChange={handlePageClick}
-        pageRangeDisplayed={3}
-        pageCount={pageCount}
-        previousLabel="<"
-        renderOnZeroPageCount={null}
-        containerClassName="pagination"
-        pageLinkClassName="page-num"
-        previousLinkClassName="page-num"
-        nextLinkClassName="page-num"
-        activeLinkClassName="active"
-      />
+      {pageCount > 1 && (
+        <ReactPaginate
+          breakLabel="..."
+          nextLabel=">"
+          onPageChange={handlePageClick}
+          pageRangeDisplayed={3}
+          pageCount={pageCount}
+          previousLabel="<"
+          renderOnZeroPageCount={null}
+          containerClassName="pagination"
+          pageLinkClassName="page-num"
+          previousLinkClassName="page-num"
+          nextLinkClassName="page-num"
+          activeLinkClassName="active"
+        />
+      )}
     </>
   );
 }

@@ -7,7 +7,6 @@ import { Link } from "react-router-dom";
 import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 import ReactPaginate from "react-paginate";
-import "./components.scss";
 import { useTranslation } from "react-i18next";
 import AuthContext from "../context/AuthContext";
 import API_BASE_URL from "../apiConfig";
@@ -33,7 +32,6 @@ const MaterialTable = ({ data }) => {
     setPageCount(Math.ceil(data.length / itemsPerPage));
   }, [itemOffset, itemsPerPage, data]);
 
-  // Invoke when user click to request another page.
   const handlePageClick = (event) => {
     const newOffset = (event.selected * itemsPerPage) % data.length;
     setItemOffset(newOffset);
@@ -50,54 +48,65 @@ const MaterialTable = ({ data }) => {
 
   return (
     <div className="materialTable">
-      <Table striped bordered hover className="mt-2">
-        <thead>
-          <tr>
-            <th>{t("table.chinese")}</th>
-            <th>{t("table.english")}</th>
-            {user && <th>編輯</th>}
-          </tr>
-        </thead>
-        <tbody>
-          {currentItems.map((item) => (
-            <tr key={item.id}>
-              <td>{item.Chinese_Name}</td>
-              <td>{item.English_Name}</td>
-              {user && (
-                <td>
-                  <Button
-                    variant="warning"
-                    as={Link}
-                    to={`/UpdateItem/${material}/${item.id}`}
-                  >
-                    更新
-                  </Button>{" "}
-                  <Button
-                    variant="danger"
-                    onClick={() => handleDelete(item.id)}
-                  >
-                    刪除
-                  </Button>{" "}
-                </td>
-              )}
-            </tr>
-          ))}
-        </tbody>
-      </Table>
-      <ReactPaginate
-        breakLabel="..."
-        nextLabel=">"
-        onPageChange={handlePageClick}
-        pageRangeDisplayed={3}
-        pageCount={pageCount}
-        previousLabel="<"
-        renderOnZeroPageCount={null}
-        containerClassName="pagination"
-        pageLinkClassName="page-num"
-        previousLinkClassName="page-num"
-        nextLinkClassName="page-num"
-        activeLinkClassName="active"
-      />
+      <div className="table-panel">
+        <div className="table-responsive-wrapper">
+          <Table striped bordered hover responsive className="mb-0">
+            <thead>
+              <tr>
+                <th>{t("table.chinese")}</th>
+                <th>{t("table.english")}</th>
+                {user && <th>編輯</th>}
+              </tr>
+            </thead>
+            <tbody>
+              {currentItems.map((item) => (
+                <tr key={item.id}>
+                  <td>{item.Chinese_Name}</td>
+                  <td>{item.English_Name}</td>
+                  {user && (
+                    <td>
+                      <div className="action-buttons">
+                        <Button
+                          variant="warning"
+                          size="sm"
+                          as={Link}
+                          to={`/UpdateItem/${material}/${item.id}`}
+                          className="btn-accent"
+                        >
+                          更新
+                        </Button>
+                        <Button
+                          variant="outline-danger"
+                          size="sm"
+                          onClick={() => handleDelete(item.id)}
+                        >
+                          刪除
+                        </Button>
+                      </div>
+                    </td>
+                  )}
+                </tr>
+              ))}
+            </tbody>
+          </Table>
+        </div>
+      </div>
+      {pageCount > 1 && (
+        <ReactPaginate
+          breakLabel="..."
+          nextLabel=">"
+          onPageChange={handlePageClick}
+          pageRangeDisplayed={3}
+          pageCount={pageCount}
+          previousLabel="<"
+          renderOnZeroPageCount={null}
+          containerClassName="pagination"
+          pageLinkClassName="page-num"
+          previousLinkClassName="page-num"
+          nextLinkClassName="page-num"
+          activeLinkClassName="active"
+        />
+      )}
     </div>
   );
 };

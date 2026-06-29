@@ -4,6 +4,7 @@ import App from "./App";
 import { AuthProvider } from "./context/AuthContext";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./index.css";
+import "./components/components.scss";
 import global_chinese from "./translations/chinese/global.json";
 import global_english from "./translations/english/global.json";
 import i18next from "i18next";

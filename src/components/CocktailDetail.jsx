@@ -1,6 +1,5 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
-import "./components.scss";
 import { useTranslation } from "react-i18next";
 import API_BASE_URL from "../apiConfig";
 
@@ -13,14 +12,14 @@ const CocktailDetail = ({ data }) => {
       bg="dark"
       text="white"
       border="warning"
-      className="text-center cocktailCard"
+      className="text-center cocktailCard detail-card"
     >
       <Card.Header className="text-success">{data.English_Name}</Card.Header>
       <Card.Img
         variant="top"
         src={url}
-        style={{ width: "260px", height: "340px", objectFit: "cover" }}
-        className="mx-auto"
+        className="cocktail-card-img"
+        alt={data.English_Name}
       />
       <Card.Body>
         <Card.Title className="text-warning">

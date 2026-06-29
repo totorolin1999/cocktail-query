@@ -9,6 +9,7 @@ import LoadingMessage from "../components/LoadingMessage";
 import ErrorMessage from "../components/ErrorMessage";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
+import { useTranslation } from "react-i18next";
 import API_BASE_URL from "../apiConfig";
 
 const Charts = () => {
@@ -18,6 +19,8 @@ const Charts = () => {
   const [liqueurChart, setLiqueurChart] = useState([]);
   const [alcoholChart, setAlcoholChart] = useState([]);
   const [ingredientChart, setIngredientChart] = useState([]);
+
+  const [, i18n] = useTranslation("global");
 
   useEffect(() => {
     const fetchData = async (url, setter) => {
@@ -46,22 +49,41 @@ const Charts = () => {
   if (error) return <ErrorMessage />;
 
   return (
-    <div className="chartPageColor">
+    <div className="chartPageColor page-section">
       <Container>
-        <Row>
+        <div className="page-header">
+          <h1 className="page-title">
+            {i18n.language === "chinese" ? "資料視覺化" : "Data Visualization"}
+          </h1>
+          <p className="page-subtitle">
+            {i18n.language === "chinese"
+              ? "各類材料在調酒中的使用分布"
+              : "Distribution of materials used across cocktails"}
+          </p>
+        </div>
+
+        <Row className="g-4 mb-2">
           <Col xs={12} md={5}>
-            <MaterialPieChart chartData={baseChart} />
+            <div className="chart-panel">
+              <MaterialPieChart chartData={baseChart} />
+            </div>
           </Col>
           <Col xs={12} md={7}>
-            <MaterialBarChart chartData={liqueurChart} />
+            <div className="chart-panel">
+              <MaterialBarChart chartData={liqueurChart} />
+            </div>
           </Col>
         </Row>
-        <Row>
+        <Row className="g-4">
           <Col xs={12} md={5}>
-            <MaterialPieChart chartData={alcoholChart} />
+            <div className="chart-panel">
+              <MaterialPieChart chartData={alcoholChart} />
+            </div>
           </Col>
           <Col xs={12} md={7}>
-            <MaterialBarChart chartData={ingredientChart} />
+            <div className="chart-panel">
+              <MaterialBarChart chartData={ingredientChart} />
+            </div>
           </Col>
         </Row>
       </Container>

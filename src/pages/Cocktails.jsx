@@ -42,14 +42,22 @@ const Cocktails = () => {
 };
 
   return (
-    <div className="chartPageColor">
+    <div className="chartPageColor page-section">
       <Container>
-        <Button variant="secondary" as={Link} to="/AddCocktail" className="mt-5">
-          新增調酒
-        </Button>
-        <Button variant="warning" onClick={downloadJsonFile} className="mt-5">
-          下載備份資料
-        </Button>
+        <div className="page-header">
+          <h1 className="page-title">調酒管理</h1>
+          <p className="page-subtitle">管理所有調酒資料</p>
+        </div>
+
+        <div className="page-actions">
+          <Button variant="warning" as={Link} to="/AddCocktail" className="btn-accent">
+            新增調酒
+          </Button>
+          <Button variant="outline-secondary" onClick={downloadJsonFile}>
+            下載備份資料
+          </Button>
+        </div>
+
         <CocktailTable data={cocktails} />
       </Container>
     </div>

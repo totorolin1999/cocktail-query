@@ -4,11 +4,17 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
-import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import Card from "react-bootstrap/Card";
+import AdminFormLayout from "../components/AdminFormLayout";
 import API_BASE_URL from "../apiConfig";
+
+const materialTitles = {
+  base: "基酒",
+  liqueur: "利口酒",
+  alcohol: "其他酒類",
+  ingredient: "其他成分",
+};
 
 const AddItem = () => {
   const [item, setItem] = useState({
@@ -22,6 +28,7 @@ const AddItem = () => {
   const location = useLocation();
 
   const material = location.pathname.split("/")[2];
+  const materialLabel = materialTitles[material] || material;
 
   const handleChange = (e) => {
     setItem((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -38,44 +45,46 @@ const AddItem = () => {
   };
 
   return (
-    <div className="pt-4">
-      <Container className="p-5 d-flex justify-content-center">
-        <Card
-          bg={"primary"}
-          key={"primary"}
-          text={"dark"}
-          style={{ width: "25rem" }}
-          className="mb-2"
-        >
-          <Card.Header>新增</Card.Header>
-          <Card.Body>
-            <Form>
-              <Form.Group className="m-3">
-                <Form.Label>中文名稱</Form.Label>
-                <Form.Control
-                  placeholder="輸入中文名稱"
-                  onChange={handleChange}
-                  name="Chinese_Name"
-                />
-              </Form.Group>
+    <AdminFormLayout
+      title={`新增${materialLabel}`}
+      subtitle="請填寫中英文名稱"
+      backTo={`/Material/${material}`}
+      backLabel={`返回${materialLabel}列表`}
+    >
+      <Form onSubmit={handleClick}>
+        <Form.Group className="mb-3">
+          <Form.Label>中文名稱</Form.Label>
+          <Form.Control
+            placeholder="輸入中文名稱"
+            onChange={handleChange}
+            name="Chinese_Name"
+            required
+          />
+        </Form.Group>
 
-              <Form.Group className="m-3">
-                <Form.Label>英文名稱</Form.Label>
-                <Form.Control
-                  placeholder="輸入英文名稱"
-                  onChange={handleChange}
-                  name="English_Name"
-                />
-              </Form.Group>
+        <Form.Group className="mb-3">
+          <Form.Label>英文名稱</Form.Label>
+          <Form.Control
+            placeholder="輸入英文名稱"
+            onChange={handleChange}
+            name="English_Name"
+            required
+          />
+        </Form.Group>
 
-              <Button variant="light" onClick={handleClick} className="m-3">
-                新增
-              </Button>
-            </Form>
-          </Card.Body>
-        </Card>
-      </Container>
-    </div>
+        <div className="admin-form-actions">
+          <Button variant="warning" type="submit" className="btn-accent">
+            新增
+          </Button>
+          <Button
+            variant="outline-secondary"
+            onClick={() => navigate(`/Material/${material}`)}
+          >
+            取消
+          </Button>
+        </div>
+      </Form>
+    </AdminFormLayout>
   );
 };
 

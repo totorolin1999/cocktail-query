@@ -15,7 +15,7 @@ const AppNavbar = () => {
     i18n.changeLanguage(lang);
   };
   return (
-    <Navbar variant="dark" expand="lg">
+    <Navbar variant="dark" expand="lg" className="app-navbar">
       <Container>
         <Navbar.Brand as={Link} to="/">
           {t("navbar.title")}
@@ -39,7 +39,7 @@ const AppNavbar = () => {
               {t("navbar.visualization")}
             </Nav.Link>
           </Nav>
-          <Nav>
+          <Nav className="align-items-lg-center">
             <NavDropdown title={t("navbar.language")} id="basic-nav-dropdown">
               <NavDropdown.Item onClick={() => handleChangeLanguage("chinese")}>
                 中文
@@ -48,12 +48,12 @@ const AppNavbar = () => {
                 English
               </NavDropdown.Item>
             </NavDropdown>
+            {user && (
+              <Nav.Link onClick={logoutUser} className="text-nowrap">
+                {user.username} 登出
+              </Nav.Link>
+            )}
           </Nav>
-          {user && (
-            <Nav>
-              <Nav.Link onClick={logoutUser}>{user.username} 登出</Nav.Link>
-            </Nav>
-          )}
         </Navbar.Collapse>
       </Container>
     </Navbar>

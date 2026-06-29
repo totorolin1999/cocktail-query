@@ -8,11 +8,11 @@ import { useEffect } from "react";
 import Select from "react-select";
 import makeAnimated from "react-select/animated";
 
-import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import Card from "react-bootstrap/Card";
+import AdminFormLayout from "../components/AdminFormLayout";
 import API_BASE_URL from "../apiConfig";
+import { lightSelectProps } from "../utils/reactSelectConfig";
 
 const AddCocktail = () => {
   const [bases, setBases] = useState([]);
@@ -71,10 +71,6 @@ const AddCocktail = () => {
     fetchIngredients();
   }, []);
 
-  console.log(
-    bases.map((item) => ({ value: item.id, label: item.Chinese_Name }))
-  );
-
   const baseOptions = bases.map((item) => ({
     value: item.id,
     label: item.Chinese_Name,
@@ -112,84 +108,95 @@ const AddCocktail = () => {
   };
 
   return (
-    <Container className="p-5 d-flex justify-content-center">
-      <Card
-        bg={"primary"}
-        key={"primary"}
-        text={"dark"}
-        style={{ width: "25rem" }}
-        className="mb-2"
-      >
-        <Card.Header>新增調酒</Card.Header>
-        <Card.Body>
-          <Form>
-            <Form.Group className="m-3">
-              <Form.Label>中文名稱</Form.Label>
-              <Form.Control
-                placeholder="輸入中文名稱"
-                onChange={handleChange}
-                name="Chinese_Name"
-              />
-            </Form.Group>
+    <AdminFormLayout
+      title="新增調酒"
+      subtitle="填寫調酒名稱並選取相關材料"
+      backTo="/Cocktails"
+      backLabel="返回調酒列表"
+      wide
+    >
+      <Form onSubmit={handleClick}>
+        <Form.Group className="mb-3">
+          <Form.Label>中文名稱</Form.Label>
+          <Form.Control
+            placeholder="輸入中文名稱"
+            onChange={handleChange}
+            name="Chinese_Name"
+            required
+          />
+        </Form.Group>
 
-            <Form.Group className="m-3">
-              <Form.Label>英文名稱</Form.Label>
-              <Form.Control
-                placeholder="輸入英文名稱"
-                onChange={handleChange}
-                name="English_Name"
-              />
-            </Form.Group>
-            <Form.Group className="m-3">
-              <Form.Label>基酒</Form.Label>
-              <Select
-                components={animatedComponents}
-                onChange={(item) => setSelectedBases(item)}
-                isMulti
-                options={baseOptions}
-                placeholder="選取基酒"
-              />
-            </Form.Group>
+        <Form.Group className="mb-3">
+          <Form.Label>英文名稱</Form.Label>
+          <Form.Control
+            placeholder="輸入英文名稱"
+            onChange={handleChange}
+            name="English_Name"
+            required
+          />
+        </Form.Group>
 
-            <Form.Group className="m-3">
-              <Form.Label>利口酒</Form.Label>
-              <Select
-                components={animatedComponents}
-                onChange={(item) => setSelectedLiqueurs(item)}
-                isMulti
-                options={liqueurOptions}
-                placeholder="選取利口酒"
-              />
-            </Form.Group>
-            <Form.Group className="m-3">
-              <Form.Label>其他酒類</Form.Label>
-              <Select
-                components={animatedComponents}
-                onChange={(item) => setSelectedAlcohols(item)}
-                isMulti
-                options={alcoholOptions}
-                placeholder="選取其他酒類"
-              />
-            </Form.Group>
+        <Form.Group className="mb-3">
+          <Form.Label>基酒</Form.Label>
+          <Select
+            components={animatedComponents}
+            onChange={(item) => setSelectedBases(item || [])}
+            isMulti
+            options={baseOptions}
+            placeholder="選取基酒"
+            {...lightSelectProps}
+          />
+        </Form.Group>
 
-            <Form.Group className="m-3">
-              <Form.Label>其他成分</Form.Label>
-              <Select
-                components={animatedComponents}
-                onChange={(item) => setSelectedIngredients(item)}
-                isMulti
-                options={ingredientOptions}
-                placeholder="選取其他成分"
-              />
-            </Form.Group>
+        <Form.Group className="mb-3">
+          <Form.Label>利口酒</Form.Label>
+          <Select
+            components={animatedComponents}
+            onChange={(item) => setSelectedLiqueurs(item || [])}
+            isMulti
+            options={liqueurOptions}
+            placeholder="選取利口酒"
+            {...lightSelectProps}
+          />
+        </Form.Group>
 
-            <Button variant="light" onClick={handleClick} className="m-3">
-              新增
-            </Button>
-          </Form>
-        </Card.Body>
-      </Card>
-    </Container>
+        <Form.Group className="mb-3">
+          <Form.Label>其他酒類</Form.Label>
+          <Select
+            components={animatedComponents}
+            onChange={(item) => setSelectedAlcohols(item || [])}
+            isMulti
+            options={alcoholOptions}
+            placeholder="選取其他酒類"
+            {...lightSelectProps}
+          />
+        </Form.Group>
+
+        <Form.Group className="mb-3">
+          <Form.Label>其他成分</Form.Label>
+          <Select
+            components={animatedComponents}
+            onChange={(item) => setSelectedIngredients(item || [])}
+            isMulti
+            options={ingredientOptions}
+            placeholder="選取其他成分"
+            {...lightSelectProps}
+          />
+        </Form.Group>
+
+        <div className="admin-form-actions">
+          <Button variant="warning" type="submit" className="btn-accent">
+            新增
+          </Button>
+          <Button
+            variant="outline-secondary"
+            onClick={() => navigate("/Cocktails")}
+          >
+            取消
+          </Button>
+        </div>
+      </Form>
+    </AdminFormLayout>
   );
 };
 

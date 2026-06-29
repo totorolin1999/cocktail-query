@@ -14,7 +14,15 @@ import MaterialBarChart from "../components/MaterialBarChart";
 import LoadingMessage from "../components/LoadingMessage";
 import ErrorMessage from "../components/ErrorMessage";
 import AuthContext from "../context/AuthContext";
+import { useTranslation } from "react-i18next";
 import API_BASE_URL from "../apiConfig";
+
+const materialTitles = {
+  base: { zh: "基酒", en: "Base Spirits" },
+  liqueur: { zh: "利口酒", en: "Liqueurs" },
+  alcohol: { zh: "其他酒類", en: "Other Alcohols" },
+  ingredient: { zh: "其他成分", en: "Other Ingredients" },
+};
 
 const Material = () => {
   const [materials, setMaterials] = useState([]);
@@ -26,6 +34,9 @@ const Material = () => {
   const material = location.pathname.split("/")[2];
 
   let { user } = useContext(AuthContext);
+  const [, i18n] = useTranslation("global");
+
+  const title = materialTitles[material] || { zh: material, en: material };
 
   useEffect(() => {
     const fetchData = async (url, setter) => {
@@ -58,28 +69,39 @@ const Material = () => {
   if (error) return <ErrorMessage />;
 
   return (
-    <div className="chartPageColor">
+    <div className="chartPageColor page-section">
       <Container>
+        <div className="page-header">
+          <h1 className="page-title">
+            {i18n.language === "chinese" ? title.zh : title.en}
+          </h1>
+        </div>
+
         {user && (
-          <Button
-            variant="secondary"
-            as={Link}
-            to={`/AddItem/${material}`}
-            className="mt-5"
-          >
-            新增
-          </Button>
+          <div className="page-actions">
+            <Button
+              variant="warning"
+              as={Link}
+              to={`/AddItem/${material}`}
+              className="btn-accent"
+            >
+              新增
+            </Button>
+          </div>
         )}
-        <Row>
-          <Col xs={12} md={6}>
+
+        <Row className="g-4">
+          <Col xs={12} lg={6}>
             <MaterialTable data={materials} />
           </Col>
-          <Col xs={12} md={6}>
-            {material === "base" || material === "alcohol" ? (
-              <MaterialPieChart chartData={materialChart} />
-            ) : (
-              <MaterialBarChart chartData={materialChart} />
-            )}
+          <Col xs={12} lg={6}>
+            <div className="chart-panel">
+              {material === "base" || material === "alcohol" ? (
+                <MaterialPieChart chartData={materialChart} />
+              ) : (
+                <MaterialBarChart chartData={materialChart} />
+              )}
+            </div>
           </Col>
         </Row>
       </Container>

@@ -9,32 +9,40 @@ import API_BASE_URL from "../apiConfig";
 
 const CocktailRec = ({ data }) => {
   const [t, i18n] = useTranslation("global");
-  
+
+  if (!data || data.length === 0) {
+    return null;
+  }
+
   return (
     <>
-      <Alert key="warning" variant="warning" className="text-center">
+      <Alert variant="warning" className="text-center rec-alert">
         {t("recommend.message")}
       </Alert>
-      <Carousel>
+      <Carousel className="rec-carousel">
         {data.map((item, idx) => (
           <Carousel.Item key={idx}>
             <Card
               bg="secondary"
               text="white"
               border="warning"
-              className="text-center cocktailCard"
+              className="text-center cocktailCard mx-auto"
+              style={{ maxWidth: "360px" }}
             >
-              <Card.Header>
-                {item.English_Name}
-              </Card.Header>
+              <Card.Header>{item.English_Name}</Card.Header>
               <Card.Img
                 variant="top"
                 src={`${API_BASE_URL}${item.image}`}
-                style={{ width: "260px", height: "340px", objectFit: "cover" }}
-                className="mx-auto"
+                className="cocktail-card-img"
+                alt={item.English_Name}
               />
               <Card.Body>
-                <Button variant="warning" as={Link} to={`/Cocktail/${item.id}`}>
+                <Button
+                  variant="warning"
+                  as={Link}
+                  to={`/Cocktail/${item.id}`}
+                  className="btn-accent"
+                >
                   {i18n.language === "chinese"
                     ? item.Chinese_Name
                     : item.English_Name}

@@ -45,16 +45,18 @@ const Cocktail = () => {
   }, [cocktailId]);
 
   return (
-    <Container className="p-5">
-      <Row className="p-5">
-        <Col xs={12} md={6}>
-          <CocktailDetail data={cocktail} />
-        </Col>
-        <Col xs={12} md={6}>
-          <CocktailRec data={cocktails} />
-        </Col>
-      </Row>
-    </Container>
+    <div className="page-section">
+      <Container>
+        <Row className="g-4">
+          <Col xs={12} lg={6}>
+            <CocktailDetail data={cocktail} />
+          </Col>
+          <Col xs={12} lg={6}>
+            <CocktailRec data={cocktails} />
+          </Col>
+        </Row>
+      </Container>
+    </div>
   );
 };
 

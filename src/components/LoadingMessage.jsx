@@ -1,5 +1,4 @@
 import React from "react";
-import Container from "react-bootstrap/Container";
 import Alert from "react-bootstrap/Alert";
 import Spinner from "react-bootstrap/Spinner";
 import { useTranslation } from "react-i18next";
@@ -7,12 +6,12 @@ import { useTranslation } from "react-i18next";
 const LoadingMessage = () => {
   const [t] = useTranslation("global");
   return (
-    <Container className="p-5">
-      <Alert key="success" variant="success">
+    <div className="status-panel">
+      <Alert variant="success" className="w-100" style={{ maxWidth: "560px" }}>
         {t("loading.message")}
       </Alert>
       <Spinner animation="border" variant="warning" />
-    </Container>
+    </div>
   );
 };
 

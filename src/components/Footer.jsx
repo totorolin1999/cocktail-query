@@ -1,10 +1,9 @@
 import React from "react";
-import "./components.scss";
 
 const Footer = () => {
   return (
     <div className="footer">
-      <footer className="p-5 text-white text-center position-relative">
+      <footer className="text-white text-center">
         <div className="container">
           <p className="lead">Copyright &copy; Totoro.Lin</p>
         </div>

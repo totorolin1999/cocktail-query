@@ -9,24 +9,22 @@ const LoginPage = () => {
   let { loginUser } = useContext(AuthContext);
 
   return (
-    <div className="pt-4">
-      <Container className="p-5 d-flex justify-content-center">
+    <div className="login-page">
+      <Container>
         <Card
-          bg={"dark"}
-          key={"dark"}
-          text={"white"}
-          style={{ width: "25rem" }}
-          className="mb-2"
+          bg="dark"
+          text="white"
+          className="login-card mx-auto"
         >
           <Card.Header>管理員登入</Card.Header>
-          <Card.Body>
+          <Card.Body className="p-4">
             <Form onSubmit={loginUser}>
-              <Form.Group className="m-3">
+              <Form.Group className="mb-3">
                 <Form.Label>帳號</Form.Label>
                 <Form.Control placeholder="請輸入姓名" name="username" />
               </Form.Group>
 
-              <Form.Group className="m-3">
+              <Form.Group className="mb-4">
                 <Form.Label>密碼</Form.Label>
                 <Form.Control
                   type="password"
@@ -34,7 +32,7 @@ const LoginPage = () => {
                   name="password"
                 />
               </Form.Group>
-              <Button variant="primary" type="submit" className="m-3">
+              <Button variant="warning" type="submit" className="w-100 btn-accent">
                 登入
               </Button>
             </Form>

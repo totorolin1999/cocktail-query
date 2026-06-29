@@ -1,16 +1,15 @@
 import React from "react";
-import Container from "react-bootstrap/Container";
 import Alert from "react-bootstrap/Alert";
 import { useTranslation } from "react-i18next";
 
 const ErrorMessage = () => {
   const [t] = useTranslation("global");
   return (
-    <Container className="p-5">
-      <Alert key="danger" variant="danger">
+    <div className="status-panel">
+      <Alert variant="danger" className="w-100" style={{ maxWidth: "560px" }}>
         {t("error.message")}
       </Alert>
-    </Container>
+    </div>
   );
 };
 
