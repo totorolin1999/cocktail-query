@@ -12,21 +12,19 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from datetime import timedelta
 from pathlib import Path
-import os
 from urllib.parse import urlparse
 from django.core.management.utils import get_random_secret_key
 import sys
 import dj_database_url
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+import environ
+import os
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
-import environ
-
 env = environ.Env()
-
-environ.Env.read_env()
+# 確保這行有精準指到內層資料夾
+environ.Env.read_env(os.path.join(BASE_DIR, 'cocktail_query_drf', '.env'))
 
 
 # Quick-start development settings - unsuitable for production
@@ -138,52 +136,31 @@ WSGI_APPLICATION = 'cocktail_query_drf.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-"""
-# 使用MSSQL需要將「'rest_framework_simplejwt.token_blacklist',」註解，因為MSSQL似乎無法使用此套件
-DATABASES = {
-    'default': {
-        'ENGINE': 'mssql',
-        'NAME': env('MSSQL_NAME'),
-        'USER': env('MSSQL_USER'),
-        'PASSWORD': env('MSSQL_PASSWORD'),
-        'HOST': env('MSSQL_HOST'),
-        'OPTIONS':{
-            'driver':'ODBC Driver 17 for SQL Server',
-            'isolation_level':'READ UNCOMMITTED' #to prevent deadlocks
-        }
+# ==============================================================================
+# Database 設定 (完美支援：本機有無 Docker / Render 雙棲部署)
+# ==============================================================================
+
+# 1. 優先檢查：不論本地還是線上，只要有 DATABASE_URL (如 Docker 內網或 Render 線上)，就自動使用 PostgreSQL
+if os.getenv("DATABASE_URL"):
+    DATABASES = {
+        'default': dj_database_url.parse(os.getenv("DATABASE_URL"))
     }
-}
-"""
 
-# For Server
-DEVELOPMENT_MODE = os.getenv("DEVELOPMENT_MODE", "False") == "True"
-
-if DEVELOPMENT_MODE is True:
-    """
+# 2. 次要檢查：如果開啟了開發模式，且環境變數裡有設定本機實體的 PostgreSQL 帳密
+elif os.getenv("DEVELOPMENT_MODE", "False") == "True" and os.getenv('PostgreSQL_NAME'):
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
-            'NAME': env('PostgreSQL_NAME'),
-            'USER': env('PostgreSQL_USER'),
-            'PASSWORD': env('PostgreSQL_PASSWORD'),
-            'HOST': env('PostgreSQL_HOST'),
-            'PORT': env('PostgreSQL_PORT'),
+            'NAME': os.getenv('PostgreSQL_NAME'),
+            'USER': os.getenv('PostgreSQL_USER'),
+            'PASSWORD': os.getenv('PostgreSQL_PASSWORD'),
+            'HOST': os.getenv('PostgreSQL_HOST', '127.0.0.1'),
+            'PORT': os.getenv('PostgreSQL_PORT', '5432'),
         }
     }
-    """
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / "db.sqlite3",
-        }
-    }
+
+# 3. 最終保底：如果以上都沒有，則自動降級使用 SQLite (防崩潰安全機制)
 else:
-    """
-    # Render PostgreSQL (Live)
-    DATABASES = {
-        "default": dj_database_url.parse(env('DATABASE_URL'))
-    }
-    """
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',

@@ -1,0 +1,31 @@
+services:
+  # 本地資料庫服務
+  db:
+    image: postgres:15-alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=cocktail_db
+      - POSTGRES_USER=cocktail_user
+      - POSTGRES_PASSWORD=cocktail_password
+    ports:
+      - "5432:5432"
+
+  # Django Web 服務
+  web:
+    build: .
+    # 本地開發覆蓋 Dockerfile 的 CMD，改用 runserver 方便熱重載 (Hot-reload)
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    environment:
+      - DEBUG=True
+      # 讓 Django 自動連到上面定義的 db 服務
+      - DATABASE_URL=postgres://cocktail_user:cocktail_password@db:5432/cocktail_db
+    depends_on:
+      - db
+
+volumes:
+  postgres_data:
