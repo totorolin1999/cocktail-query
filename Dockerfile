@@ -1,5 +1,5 @@
 # 使用官方輕量版 Python 映像檔
-FROM python:3.11-slim
+FROM python:3.12.5-slim
 
 # 設定環境變數
 ENV PYTHONUNBUFFERED=1
