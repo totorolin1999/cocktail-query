@@ -38,10 +38,10 @@ class Cocktail(models.Model):
     id = models.AutoField(primary_key=True)
     Chinese_Name = models.CharField(max_length=255)
     English_Name = models.CharField(max_length=255)
-    Bases = models.ManyToManyField(Base, blank=True, null=True)
-    Liqueurs = models.ManyToManyField(Liqueur, blank=True, null=True)
-    Alcohols = models.ManyToManyField(Alcohol, blank=True, null=True)
-    Ingredients = models.ManyToManyField(Ingredient, blank=True, null=True)
+    Bases = models.ManyToManyField(Base, blank=True)
+    Liqueurs = models.ManyToManyField(Liqueur, blank=True)
+    Alcohols = models.ManyToManyField(Alcohol, blank=True)
+    Ingredients = models.ManyToManyField(Ingredient, blank=True)
     image = models.ImageField(default='cocktail_images/cocktail.svg', upload_to='cocktail_images')
 
     def __str__(self):

@@ -15,6 +15,7 @@ from pathlib import Path
 from urllib.parse import urlparse
 from django.core.management.utils import get_random_secret_key
 import sys
+import tempfile
 import dj_database_url
 
 import environ
@@ -25,6 +26,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 env = environ.Env()
 # 確保這行有精準指到內層資料夾
 environ.Env.read_env(os.path.join(BASE_DIR, 'cocktail_query_drf', '.env'))
+
+TESTING = len(sys.argv) > 1 and sys.argv[1] == 'test'
+COCKTAIL_OUTPUT_CSV = BASE_DIR / 'cocktailData' / 'cocktailOutput.csv'
+COCKTAIL_MODEL_FILE = BASE_DIR / 'cocktailData' / 'cocktailModel.joblib'
+COCKTAIL_OUTPUT_CSV_TEST = Path(tempfile.gettempdir()) / 'cocktailOutput_test.csv'
+COCKTAIL_MODEL_FILE_TEST = Path(tempfile.gettempdir()) / 'cocktailModel_test.joblib'
 
 
 # Quick-start development settings - unsuitable for production

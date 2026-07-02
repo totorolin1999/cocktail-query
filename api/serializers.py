@@ -32,6 +32,7 @@ class CocktailSerializer(serializers.ModelSerializer):
     Liqueurs = LiqueurSerializer(many=True)
     Alcohols = AlcoholSerializer(many=True)
     Ingredients = IngredientSerializer(many=True)
+    image = serializers.ImageField(required=False, allow_null=True)
 
     class Meta:
         model = Cocktail
@@ -67,8 +68,27 @@ class CocktailSerializer(serializers.ModelSerializer):
         return cocktail
     
     def update(self, instance, validated_data):
+        bases_data = validated_data.pop('Bases', None)
+        liqueurs_data = validated_data.pop('Liqueurs', None)
+        alcohols_data = validated_data.pop('Alcohols', None)
+        ingredients_data = validated_data.pop('Ingredients', None)
+
         instance.Chinese_Name = validated_data.get('Chinese_Name', instance.Chinese_Name)
         instance.English_Name = validated_data.get('English_Name', instance.English_Name)
+        instance.image = validated_data.get('image', instance.image)
         instance.save()
+
+        if bases_data is not None:
+            base_ids = [item['id'] for item in bases_data if 'id' in item]
+            instance.Bases.set(base_ids)
+        if liqueurs_data is not None:
+            liqueur_ids = [item['id'] for item in liqueurs_data if 'id' in item]
+            instance.Liqueurs.set(liqueur_ids)
+        if alcohols_data is not None:
+            alcohol_ids = [item['id'] for item in alcohols_data if 'id' in item]
+            instance.Alcohols.set(alcohol_ids)
+        if ingredients_data is not None:
+            ingredient_ids = [item['id'] for item in ingredients_data if 'id' in item]
+            instance.Ingredients.set(ingredient_ids)
 
         return instance
