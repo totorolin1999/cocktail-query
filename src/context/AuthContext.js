@@ -8,17 +8,32 @@ const AuthContext = createContext();
 export default AuthContext;
 
 export const AuthProvider = ({ children }) => {
-  let [authTokens, setAuthTokens] = useState(() =>
-    localStorage.getItem("authTokens")
-      ? JSON.parse(localStorage.getItem("authTokens"))
-      : null
-  );
-  let [user, setUser] = useState(() =>
-    localStorage.getItem("authTokens")
-      ? jwt_decode(localStorage.getItem("authTokens"))
-      : null
-  );
+  let [authTokens, setAuthTokens] = useState(() => {
+    const storedTokens = localStorage.getItem("authTokens");
+    if (!storedTokens) return null;
+
+    try {
+      const parsedTokens = JSON.parse(storedTokens);
+      return parsedTokens;
+    } catch (error) {
+      localStorage.removeItem("authTokens");
+      return null;
+    }
+  });
+  let [user, setUser] = useState(() => {
+    const storedTokens = localStorage.getItem("authTokens");
+    if (!storedTokens) return null;
+
+    try {
+      const parsedTokens = JSON.parse(storedTokens);
+      return jwt_decode(parsedTokens.access);
+    } catch (error) {
+      localStorage.removeItem("authTokens");
+      return null;
+    }
+  });
   let [loading, setLoading] = useState(true);
+  let [loginError, setLoginError] = useState("");
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -26,25 +41,32 @@ export const AuthProvider = ({ children }) => {
 
   let loginUser = async (e) => {
     e.preventDefault();
-    let response = await fetch(`${API_BASE_URL}/api/token/`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        username: e.target.username.value,
-        password: e.target.password.value,
-      }),
-    });
-    let data = await response.json();
+    setLoginError("");
 
-    if (response.status === 200) {
-      setAuthTokens(data);
-      setUser(jwt_decode(data.access));
-      localStorage.setItem("authTokens", JSON.stringify(data));
-      navigate(from, { replace: true });
-    } else {
-      alert("Something went wrong!");
+    try {
+      let response = await fetch(`${API_BASE_URL}/api/token/`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          username: e.target.username.value,
+          password: e.target.password.value,
+        }),
+      });
+      let data = await response.json();
+
+      if (response.status === 200) {
+        setAuthTokens(data);
+        setUser(jwt_decode(data.access));
+        localStorage.setItem("authTokens", JSON.stringify(data));
+        navigate(from, { replace: true });
+      } else {
+        const detail = data?.detail || data?.non_field_errors?.[0] || "登入失敗，請確認帳號與密碼。";
+        setLoginError(detail);
+      }
+    } catch (error) {
+      setLoginError("無法連線到後端服務，請確認後端是否已啟動。");
     }
   };
 
@@ -87,14 +109,24 @@ export const AuthProvider = ({ children }) => {
     setUser: setUser,
     loginUser: loginUser,
     logoutUser: logoutUser,
+    loginError: loginError,
+    setLoginError: setLoginError,
   };
 
   useEffect(() => {
-    if (authTokens) {
-      setUser(jwt_decode(authTokens.access));
+    if (authTokens?.access) {
+      try {
+        setUser(jwt_decode(authTokens.access));
+      } catch (error) {
+        setUser(null);
+        setAuthTokens(null);
+        localStorage.removeItem("authTokens");
+      }
+    } else {
+      setUser(null);
     }
     setLoading(false);
-  }, [authTokens, loading]);
+  }, [authTokens]);
 
   return (
     <AuthContext.Provider value={contextData}>

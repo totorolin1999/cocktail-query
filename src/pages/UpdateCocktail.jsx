@@ -10,6 +10,8 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import AdminFormLayout from "../components/AdminFormLayout";
 import API_BASE_URL from "../apiConfig";
+import { buildCocktailFormData } from "../utils/cocktailPayloadUtils";
+import Alert from "react-bootstrap/Alert";
 
 const UpdateCocktail = () => {
   const [cocktail, setCocktail] = useState({
@@ -17,6 +19,7 @@ const UpdateCocktail = () => {
     Chinese_Name: "",
     English_Name: "",
   });
+  const [submitError, setSubmitError] = useState("");
 
   let api = useAxios();
 
@@ -45,14 +48,21 @@ const UpdateCocktail = () => {
 
   const handleClick = async (e) => {
     e.preventDefault();
+    setSubmitError("");
     try {
-      await api.post(
+      const payload = buildCocktailFormData(cocktail);
+      const response = await api.post(
         `${API_BASE_URL}/api/cocktail-update/${cocktailId}/`,
-        cocktail
+        payload
       );
-      navigate("/Cocktails");
+      if (response?.status >= 200 && response?.status < 300) {
+        navigate("/Cocktails");
+      } else {
+        setSubmitError("更新失敗，請稍後再試。");
+      }
     } catch (err) {
-      console.log(err);
+      const errorMessage = err?.response?.data?.detail || err?.response?.data?.message || "更新失敗，請稍後再試。";
+      setSubmitError(errorMessage);
     }
   };
 
@@ -64,6 +74,11 @@ const UpdateCocktail = () => {
       backLabel="返回調酒列表"
     >
       <Form onSubmit={handleClick}>
+        {submitError && (
+          <Alert variant="danger" className="mb-3">
+            {submitError}
+          </Alert>
+        )}
         <Form.Group className="mb-3">
           <Form.Label>中文名稱</Form.Label>
           <Form.Control

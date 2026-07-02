@@ -4,9 +4,10 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
+import Alert from "react-bootstrap/Alert";
 
 const LoginPage = () => {
-  let { loginUser } = useContext(AuthContext);
+  let { loginUser, loginError } = useContext(AuthContext);
 
   return (
     <div className="login-page">
@@ -19,6 +20,11 @@ const LoginPage = () => {
           <Card.Header>管理員登入</Card.Header>
           <Card.Body className="p-4">
             <Form onSubmit={loginUser}>
+              {loginError && (
+                <Alert variant="danger" className="mb-3">
+                  {loginError}
+                </Alert>
+              )}
               <Form.Group className="mb-3">
                 <Form.Label>帳號</Form.Label>
                 <Form.Control placeholder="請輸入姓名" name="username" />

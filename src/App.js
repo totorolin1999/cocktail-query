@@ -1,7 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import PrivateRoute from "./utils/PrivateRoute";
 
-import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 
 import Home from "./pages/Home";
@@ -28,9 +27,8 @@ function App() {
         <Route path="/Material/:id" element={<Material />} />
         <Route path="/Cocktail/:id" element={<Cocktail />} />
         <Route element={<PrivateRoute />}>
-          <Route element={<HomePage />} path="/Home" />
-          <Route path="/AddItem/:id" element={<AddItem />} />
-          <Route path="/UpdateItem/:id/:id" element={<UpdateItem />} />
+          <Route path="/AddItem/:material" element={<AddItem />} />
+          <Route path="/UpdateItem/:material/:id" element={<UpdateItem />} />
           <Route path="/Cocktails" element={<Cocktails />} />
           <Route path="/AddCocktail" element={<AddCocktail />} />
           <Route path="/UpdateCocktail/:id" element={<UpdateCocktail />} />
