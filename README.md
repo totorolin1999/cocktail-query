@@ -1,70 +1,121 @@
-# Getting Started with Create React App
+# 雞尾酒查詢系統前端 (Cocktail Query Frontend)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+這是一個基於 React 框架構建的雞尾酒查詢與管理系統前端專案。本專案與後端 API 進行互動，提供雞尾酒搜尋、詳細資訊展示、原料（材料）管理、數據統計圖表以及管理員後台編輯等功能，並支援中英文雙語切換。
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🚀 快速開始
 
-### `npm start`
+### 1. 環境準備
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+在開始之前，請確保您的開發環境已安裝以下工具：
+- [Node.js](https://nodejs.org/) (建議版本 16.x 或 18.x)
+- npm (通常隨 Node.js 一併安裝)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 2. 安裝專案依賴
 
-### `npm test`
+複製專案或進入專案根目錄後，執行以下命令來安裝所需的套件：
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+npm install
+```
 
-### `npm run build`
+### 3. 配置環境變數
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+在專案根目錄下，您會找到 `.env` 檔案。此檔案用於配置後端 API 的連接位址。
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+預設內容如下：
+```env
+REACT_APP_APP_URL=http://127.0.0.1:8000
+# 或者是部署後的後端網址：
+# REACT_APP_APP_URL=https://cocktail-query-backend.onrender.com
+```
+請根據您本地或遠端後端服務的實際埠號與位址進行調整。
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 4. 啟動開發伺服器
 
-### `npm run eject`
+執行以下命令以啟動本地開發伺服器：
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+npm start
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+啟動後，瀏覽器將會自動開啟並載入 [http://localhost:3000](http://localhost:3000)。
+在開發模式下，若修改程式碼，頁面將會即時熱更新 (Hot Reload)。
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 🧪 測試專案
 
-## Learn More
+本專案使用 Jest 與 React Testing Library 進行單元測試。
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 執行互動式測試
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+執行以下命令以開啟互動式測試觀測模式 (Watch Mode)：
 
-### Code Splitting
+```bash
+npm test
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### 執行單次測試 (CI 模式)
 
-### Analyzing the Bundle Size
+如果您只需要在終端機中執行一次所有測試（例如在部署或 CI/CD 流程中），可以使用以下命令：
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```bash
+npm test -- --watchAll=false
+```
 
-### Making a Progressive Web App
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 📦 專案打包
 
-### Advanced Configuration
+當專案開發完成並準備部署至生產環境時，請執行以下命令進行打包：
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```bash
+npm run build
+```
 
-### Deployment
+這將會在專案根目錄下生成一個 `build` 資料夾，其中包含經過壓縮、優化且已加上雜湊值 (Hash) 的靜態檔案，您可以直接將此資料夾部署至靜態網站託管服務（如 Netlify, Vercel, GitHub Pages 等）。
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+---
 
-### `npm run build` fails to minify
+## 📂 專案目錄結構
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```text
+src/
+├── components/          # 共享與通用元件
+│   ├── AppNavbar.jsx    # 頂部導覽列（含語言切換、登入狀態）
+│   ├── CocktailCard.jsx # 雞尾酒卡片元件
+│   ├── CocktailDetail.jsx # 雞尾酒詳細資訊元件
+│   ├── MaterialTable.jsx # 原料表格元件
+│   ├── MaterialBarChart.jsx # 原料統計直條圖
+│   └── ...
+├── context/             # 全域 Context 狀態管理
+│   └── AuthContext.js   # 登入與 Token 驗證狀態
+├── pages/               # 頁面元件 (對應路由)
+│   ├── Home.jsx         # 首頁 (雞尾酒查詢)
+│   ├── LoginPage.jsx    # 管理員登入頁面
+│   ├── Cocktails.jsx    # 雞尾酒清單管理頁面 (需登入)
+│   ├── Material.jsx     # 原料詳細資訊頁面
+│   ├── Charts.jsx       # 統計圖表頁面
+│   └── ...
+├── translations/        # 多語系語系檔
+│   ├── chinese/         # 中文翻譯 json
+│   └── english/         # 英文翻譯 json
+├── utils/               # 工具函式與路由守衛
+│   ├── PrivateRoute.js  # 路由守衛 (限制未登入使用者存取特定頁面)
+│   ├── axiosInstance.js # Axios 攔截器設定 (自動帶入 JWT)
+│   └── cocktailPayloadUtils.js # 雞尾酒表單 payload 處理工具
+└── App.js               # 路由定義與主要應用進入點
+```
+
+---
+
+## 🛠️ 主要技術棧
+
+- **核心框架**：React 18.2.0 & React DOM
+- **路由管理**：React Router DOM v6.11.1
+- **樣式與 UI**：Bootstrap 5.2.3 & React Bootstrap 2.7.4 & Sass
+- **圖表繪製**：Chart.js & React Chartjs 2
+- **多語系支援**：i18next & React i18next (支援中文、英文)
+- **API 請求**：Axios (配有自訂的 token 刷新與自動附加 Authorization 標頭邏輯)
