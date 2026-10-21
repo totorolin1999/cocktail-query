@@ -43,17 +43,20 @@ SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", get_random_secret_key())
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DEBUG", "False") == "True"
 
-# ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ['*']
-# ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "127.0.0.1, localhost").split(",")
+# 允許的主機名稱 (支援環境變數指定，若處於開發模式且未指定則允許所有)
+_allowed_hosts = os.getenv("ALLOWED_HOSTS", os.getenv("DJANGO_ALLOWED_HOSTS", ""))
+if _allowed_hosts:
+    ALLOWED_HOSTS = [h.strip() for h in _allowed_hosts.split(",") if h.strip()]
+else:
+    ALLOWED_HOSTS = ['*'] if DEBUG else ['127.0.0.1', 'localhost', '0.0.0.0']
 
-
-CORS_ORIGIN_ALLOW_ALL = True
-# CORS_ORIGIN_WHITELIST = [
-
-#     "http://localhost:3000",
-    
-# ]
+# 跨來源資源共享 (CORS) 設定
+_cors_origins = os.getenv("CORS_ALLOWED_ORIGINS", os.getenv("CORS_ORIGIN_WHITELIST", ""))
+if _cors_origins:
+    CORS_ALLOWED_ORIGINS = [o.strip() for o in _cors_origins.split(",") if o.strip()]
+    CORS_ORIGIN_ALLOW_ALL = False
+else:
+    CORS_ORIGIN_ALLOW_ALL = os.getenv("CORS_ALLOW_ALL", "True") == "True" 
 
 # Application definition
 
@@ -215,9 +218,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'cocktail_query_reactapp/build/static')
-]
+_frontend_static = os.path.join(BASE_DIR.parent, 'frontend', 'build', 'static')
+_legacy_static = os.path.join(BASE_DIR, 'cocktail_query_reactapp', 'build', 'static')
+STATICFILES_DIRS = [p for p in [_frontend_static, _legacy_static] if os.path.exists(p)]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
