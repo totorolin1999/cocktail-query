@@ -1,0 +1,46 @@
+{
+  "navbar": {
+    "title": "調酒查詢系統",
+    "language": "Switch Language",
+    "base": "基酒",
+    "liqueur": "利口酒",
+    "alcohol": "其他酒類",
+    "ingredient": "其他成分",
+    "visualization": "資料視覺化"
+  },
+  "home": {
+    "label_base": "基酒",
+    "label_liqueur": "利口酒",
+    "label_alcohol": "其他酒類",
+    "label_ingredient": "其他成分",
+    "label_cocktail": "調酒名稱",
+    "select_base": "選取基酒",
+    "select_liqueur": "選取利口酒",
+    "select_alcohol": "選取其他酒類",
+    "select_ingredient": "選取其他成分",
+    "input_cocktail": "輸入調酒名稱 - 中文或英文",
+    "query": "查詢"
+  },
+  "detail": {
+    "base": "基酒：",
+    "liqueur": "利口酒：",
+    "alcohol": "其他酒類：",
+    "ingredient": "其他成分："
+  },
+  "table": {
+    "chinese": "中文名稱",
+    "english": "英文名稱"
+  },
+  "chart": {
+    "label": "使用數量"
+  },
+  "loading": {
+    "message": "本系統供測試使用，伺服器可能會因為沒有人使用而休眠，請耐心等候！"
+  },
+  "error": {
+    "message": "伺服器發生錯誤，請稍後再試！"
+  },
+  "recommend": {
+    "message": "推薦一些有相似成分的調酒"
+  }
+}

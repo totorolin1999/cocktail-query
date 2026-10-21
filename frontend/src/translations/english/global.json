@@ -1,0 +1,46 @@
+{
+  "navbar": {
+    "title": "Cocktail Query System",
+    "language": "切換語言",
+    "base": "Base Spirit",
+    "liqueur": "Liqueur",
+    "alcohol": "Other Alcohols",
+    "ingredient": "Other Ingredients",
+    "visualization": "Data Visualization"
+  },
+  "home": {
+    "label_base": "Base Spirit",
+    "label_liqueur": "Liqueur",
+    "label_alcohol": "Other Alcohols",
+    "label_ingredient": "Other Ingredients",
+    "label_cocktail": "Cocktail Name",
+    "select_base": "Select Base Spirit",
+    "select_liqueur": "Select Liqueur",
+    "select_alcohol": "Select Other Alcohols",
+    "select_ingredient": "Select Other Ingredients",
+    "input_cocktail": "Enter cocktail name - Chinese or English",
+    "query": "Query"
+  },
+  "detail": {
+    "base": "Base Spirit: ",
+    "liqueur": "Liqueur: ",
+    "alcohol": "Other Alcohols: ",
+    "ingredient": "Other Ingredients: "
+  },
+  "table": {
+    "chinese": "Chinese Name",
+    "english": "English Name"
+  },
+  "chart": {
+    "label": "Usage Count"
+  },
+  "loading": {
+    "message": "This system is for testing purposes. The server may be asleep due to inactivity. Please wait patiently!"
+  },
+  "error": {
+    "message": "A server error occurred. Please try again later!"
+  },
+  "recommend": {
+    "message": "Recommended cocktails with similar ingredients"
+  }
+}
