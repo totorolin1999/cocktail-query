@@ -42,7 +42,6 @@ cocktail_query_backend/
 ├── build.sh                   # Render 雲端自動建置腳本
 ├── manage.py                  # Django 命令行管理工具
 ├── requirements.txt           # Python 套件依賴清單
-└── tmp_debug_image_upload.py  # 圖片上傳除錯輔助腳本
 ```
 
 ---
@@ -153,7 +152,7 @@ Docker 具備自動 Build 機制。在專案最外層目錄直接使用以下指
 
 本專案利用**自然語言處理 (NLP)** 技術實作酒譜推薦：
 1. **特徵建置 (Feature Building)**：
-   - 呼叫 [api/utils.py](file:///C:/Users/totor/MyData/Programming/cocktail_query_backend/api/utils.py) 中的 `build_model` 函數。
+   - 呼叫 [api/utils.py](api/utils.py) 中的 `build_model` 函數。
    - 該工具會讀取資料庫中所有 Cocktail 的基酒、利口酒、其他酒類、副材料名稱，整合成特徵字串並匯出為 CSV。
 2. **相似度計算 (Cosine Similarity)**：
    - 利用 `CountVectorizer` 將酒譜原料轉換為詞頻向量，並計算雞尾酒之間的餘弦相似度。
@@ -168,7 +167,7 @@ Docker 具備自動 Build 機制。在專案最外層目錄直接使用以下指
 為避免手動維護測試資料的繁瑣，API 提供了一鍵式備份端點：
 - **端點路由**：`/api/backup-data/`
 - **運作原理**：
-  - 視圖 [backupData](file:///C:/Users/totor/MyData/Programming/cocktail_query_backend/api/views.py#L387-L401) 會自動查詢資料庫中所有的基酒、利口酒、其他酒類、副材料以及雞尾酒資料。
+  - 視圖 [backupData](api/views.py) 會自動查詢資料庫中所有的基酒、利口酒、其他酒類、副材料以及雞尾酒資料。
   - 將其序列化為 Django 標準 fixture 的格式，並在專案根目錄的 `backupData/cocktail_data.json` 寫入。
   - 最後將該 JSON 檔作為附件回傳給請求者進行下載。
 - **恢復方式**：可使用 `python manage.py loaddata backupData/cocktail_data.json` 進行資料恢復。
@@ -236,7 +235,7 @@ Docker 具備自動 Build 機制。在專案最外層目錄直接使用以下指
 1. **獲取外部連線字串**：
    到 Render 後台的 PostgreSQL 頁面，複製 **External Database URL**。
 2. **暫時開通本地傳送門**：
-   打開本地電腦內層 [cocktail_query_drf/.env](file:///C:/Users/totor/MyData/Programming/cocktail_query_backend/cocktail_query_drf/.env)，將該 URL 貼至 `DATABASE_URL` 欄位：
+   打開本地電腦內層 [cocktail_query_drf/.env](cocktail_query_drf/.env)，將該 URL 貼至 `DATABASE_URL` 欄位：
    ```ini
    # 👈 暫時貼上 Render External Database URL
    DATABASE_URL=postgres://cocktail_user:password@xxxx.singapore-postgres.render.com/cocktail_db
@@ -251,7 +250,7 @@ Docker 具備自動 Build 機制。在專案最外層目錄直接使用以下指
    python manage.py loaddata cocktail_data.json
    ```
 4. **收尾與安全關閉 (⚠️ 極重要)**：
-   操作完成後，請**立刻**回到本地 [.env](file:///C:/Users/totor/MyData/Programming/cocktail_query_backend/cocktail_query_drf/.env) 檔案中，將 `DATABASE_URL` 後方的字串**全部清空、恢復留白**：
+   操作完成後，請**立刻**回到本地 [.env](cocktail_query_drf/.env) 檔案中，將 `DATABASE_URL` 後方的字串**全部清空、恢復留白**：
    ```ini
    # 👈 務必恢復留白！防止本地開發變更污染雲端資料庫
    DATABASE_URL=
