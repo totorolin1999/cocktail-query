@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+/venv
+/staticfiles
+/db.sqlite3
+
+# 🔒 萬無一失的環境變數封鎖組合
+.env
+*.env
+
+# 備註：目前暫不排除 /media/，允許測試照片上傳至 GitHub 方便開發
