@@ -39,6 +39,7 @@ cocktail-query/
 │   ├── src/components/        # 共用 UI 元件 (卡片、圖表、導覽列)
 │   ├── src/pages/             # 頁面元件 (首頁搜尋、推薦詳情、管理後台)
 │   ├── src/context/           # AuthContext 全域登入狀態管理
+│   ├── .env.example           # 前端環境變數範本
 │   └── package.json           # 前端依賴清單
 │
 └── .gitignore                 # 根目錄全域忽略規則
@@ -102,6 +103,9 @@ python manage.py runserver
 
 ```bash
 cd frontend
+# 複製環境變數範本
+cp .env.example .env
+
 npm install
 npm start
 ```

@@ -22,9 +22,13 @@ npm install
 
 ### 3. 配置環境變數
 
-在專案根目錄下，您會找到 `.env` 檔案。此檔案用於配置後端 API 的連接位址。
+在 `frontend` 目錄下提供有環境變數範本檔案 `.env.example`，請先複製一份並重新命名為 `.env`：
 
-預設內容如下：
+```bash
+cp .env.example .env
+```
+
+此檔案用於配置後端 API 的連接位址，預設內容如下：
 ```env
 REACT_APP_APP_URL=http://127.0.0.1:8000
 # 或者是部署後的後端網址：
@@ -82,31 +86,35 @@ npm run build
 ## 📂 專案目錄結構
 
 ```text
-src/
-├── components/          # 共享與通用元件
-│   ├── AppNavbar.jsx    # 頂部導覽列（含語言切換、登入狀態）
-│   ├── CocktailCard.jsx # 雞尾酒卡片元件
-│   ├── CocktailDetail.jsx # 雞尾酒詳細資訊元件
-│   ├── MaterialTable.jsx # 原料表格元件
-│   ├── MaterialBarChart.jsx # 原料統計直條圖
-│   └── ...
-├── context/             # 全域 Context 狀態管理
-│   └── AuthContext.js   # 登入與 Token 驗證狀態
-├── pages/               # 頁面元件 (對應路由)
-│   ├── Home.jsx         # 首頁 (雞尾酒查詢)
-│   ├── LoginPage.jsx    # 管理員登入頁面
-│   ├── Cocktails.jsx    # 雞尾酒清單管理頁面 (需登入)
-│   ├── Material.jsx     # 原料詳細資訊頁面
-│   ├── Charts.jsx       # 統計圖表頁面
-│   └── ...
-├── translations/        # 多語系語系檔
-│   ├── chinese/         # 中文翻譯 json
-│   └── english/         # 英文翻譯 json
-├── utils/               # 工具函式與路由守衛
-│   ├── PrivateRoute.js  # 路由守衛 (限制未登入使用者存取特定頁面)
-│   ├── axiosInstance.js # Axios 攔截器設定 (自動帶入 JWT)
-│   └── cocktailPayloadUtils.js # 雞尾酒表單 payload 處理工具
-└── App.js               # 路由定義與主要應用進入點
+frontend/
+├── .env.example         # 前端環境變數範本
+├── package.json         # 專案依賴與腳本設定
+├── public/              # 靜態資源 (HTML 樣本、圖示等)
+└── src/
+    ├── components/      # 共享與通用元件
+    │   ├── AppNavbar.jsx    # 頂部導覽列（含語言切換、登入狀態）
+    │   ├── CocktailCard.jsx # 雞尾酒卡片元件
+    │   ├── CocktailDetail.jsx # 雞尾酒詳細資訊元件
+    │   ├── MaterialTable.jsx # 原料表格元件
+    │   ├── MaterialBarChart.jsx # 原料統計直條圖
+    │   └── ...
+    ├── context/         # 全域 Context 狀態管理
+    │   └── AuthContext.js   # 登入與 Token 驗證狀態
+    ├── pages/           # 頁面元件 (對應路由)
+    │   ├── Home.jsx         # 首頁 (雞尾酒查詢)
+    │   ├── LoginPage.jsx    # 管理員登入頁面
+    │   ├── Cocktails.jsx    # 雞尾酒清單管理頁面 (需登入)
+    │   ├── Material.jsx     # 原料詳細資訊頁面
+    │   ├── Charts.jsx       # 統計圖表頁面
+    │   └── ...
+    ├── translations/    # 多語系語系檔
+    │   ├── chinese/     # 中文翻譯 json
+    │   └── english/     # 英文翻譯 json
+    ├── utils/           # 工具函式與路由守衛
+    │   ├── PrivateRoute.js  # 路由守衛 (限制未登入使用者存取特定頁面)
+    │   ├── axiosInstance.js # Axios 攔截器設定 (自動帶入 JWT)
+    │   └── cocktailPayloadUtils.js # 雞尾酒表單 payload 處理工具
+    └── App.js           # 路由定義與主要應用進入點
 ```
 
 ---
