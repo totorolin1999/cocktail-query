@@ -24,8 +24,11 @@ RUN pip install --no-cache-dir --upgrade pip && \
 # 複製專案所有程式碼到容器中
 COPY . /app/
 
+# 收集靜態檔案 (供生產環境 WhiteNoise 託管)
+RUN python manage.py collectstatic --no-input
+
 # 開放連接埠
 EXPOSE 8000
 
-# 啟動命令 (使用你的專案名稱 cocktail_query_drf)
-CMD ["gunicorn", "cocktail_query_drf.wsgi:application", "--bind", "0.0.0.0:8000"]
+# 啟動命令：自動執行資料庫遷移後啟動 Gunicorn 伺服器
+CMD ["sh", "-c", "python manage.py migrate && gunicorn cocktail_query_drf.wsgi:application --bind 0.0.0.0:8000"]

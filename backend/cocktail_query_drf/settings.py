@@ -50,6 +50,11 @@ if _allowed_hosts:
 else:
     ALLOWED_HOSTS = ['*'] if DEBUG else ['127.0.0.1', 'localhost', '0.0.0.0']
 
+# 若在 Render 上運行且提供 RENDER_EXTERNAL_HOSTNAME，自動加入允許清單以防 400 錯誤
+render_external_hostname = os.getenv("RENDER_EXTERNAL_HOSTNAME")
+if render_external_hostname and render_external_hostname not in ALLOWED_HOSTS:
+    ALLOWED_HOSTS.append(render_external_hostname)
+
 # 跨來源資源共享 (CORS) 設定
 _cors_origins = os.getenv("CORS_ALLOWED_ORIGINS", os.getenv("CORS_ORIGIN_WHITELIST", ""))
 if _cors_origins:
@@ -57,6 +62,13 @@ if _cors_origins:
     CORS_ORIGIN_ALLOW_ALL = False
 else:
     CORS_ORIGIN_ALLOW_ALL = os.getenv("CORS_ALLOW_ALL", "True") == "True" 
+
+# CSRF 受信任來源設定 (針對 HTTPS 網域登入 Admin 或 API 操作)
+_csrf_origins = os.getenv("CSRF_TRUSTED_ORIGINS", "")
+if _csrf_origins:
+    CSRF_TRUSTED_ORIGINS = [c.strip() for c in _csrf_origins.split(",") if c.strip()]
+elif render_external_hostname:
+    CSRF_TRUSTED_ORIGINS = [f"https://{render_external_hostname}"] 
 
 # Application definition
 
@@ -114,6 +126,7 @@ SIMPLE_JWT = {
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -214,6 +227,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# WhiteNoise 生產環境靜態檔案儲存設定（啟用壓縮與快取）
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+WHITENOISE_MANIFEST_STRICT = False
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')

@@ -173,7 +173,7 @@ python manage.py shell -c "from api.utils import build_model; build_model()"
 
 ### 📦 Step 2：選擇 Web Service 部署方案
 
-#### 💡 方案 A：使用「原生 Python 環境」部署 (推薦：輕量快速)
+#### 💡 方案 A：使用「原生 Python 環境」部署 (輕量快速)
 1. **確認自動建置腳本 `build.sh`**：
    該腳本會自動安裝依賴、收集靜態檔案並進行資料庫遷移：
    ```bash
@@ -185,21 +185,29 @@ python manage.py shell -c "from api.utils import build_model; build_model()"
    ```
 2. **在 Render 建立 Web Service**：
    - **Language**: `Python`
+   - **Root Directory**: `backend`
    - **Build Command**: `./build.sh`
    - **Start Command**: `gunicorn cocktail_query_drf.wsgi:application`
 3. **🚨 配置環境變數 (Environment Variables)**：
    - **`PYTHON_VERSION`** ➔ **`3.12.5`** *(極重要！對齊本地 Python 版本，確保 numpy, pandas 預編譯套件在 Linux 上能成功安裝)*
    - `DJANGO_SECRET_KEY` ➔ 生產環境專用密鑰字串
    - `DEBUG` ➔ `False`
+   - `ALLOWED_HOSTS` ➔ `127.0.0.1,localhost,your-backend-app.onrender.com` *(排除 Django 400 Bad Request 錯誤)*
    - `DATABASE_URL` ➔ 填入 Render 提供之 **Internal Database URL**
 
-#### 🐳 方案 B：使用「Docker 容器環境」部署 (環境 100% 鏡像對齊)
+#### 🐳 方案 B：使用「Docker 容器環境」部署 (推薦：環境 100% 鏡像對齊)
 1. **Render Web Service 設定**：
-   - **Language**: `Docker`
-2. **配置環境變數**：
+   - **Language / Environment**: `Docker`
+   - **Root Directory**: `backend` *(儲存庫為前後端共用，務必指定後端根目錄)*
+   - **Name**: 自訂服務名稱（如 `cocktail-query`，此名稱會直接決定配發的預設子網域 `https://your-backend-app.onrender.com`。若事後需更改子網域，需刪除該 Service 後重新建立）
+2. **配置環境變數 (Environment Variables)**：
    - `DJANGO_SECRET_KEY` ➔ 生產環境專用密鑰字串
    - `DEBUG` ➔ `False`
+   - `ALLOWED_HOSTS` ➔ `127.0.0.1,localhost,your-backend-app.onrender.com` *(務必加入 Render 子網域，否則存取時 Django 會拋出 400 Bad Request)*
    - `DATABASE_URL` ➔ 填入 Render 提供之 **Internal Database URL**
+3. **靜態檔案與樣式託管機制 (WhiteNoise)**：
+   - 在生產環境（`DEBUG=False`）下，Django 預設不處理靜態資源，會造成 Django REST framework (DRF) 與 Admin 後台樣式跑版遺失（缺少 CSS/JS）。
+   - 本專案已整合 **WhiteNoise** 模組，並在 `Dockerfile` 建置階段自動執行 `python manage.py collectstatic --no-input`，由 Gunicorn/WSGI 原生高速提供壓縮與快取的靜態檔案服務。
 
 ---
 
@@ -242,5 +250,6 @@ python manage.py shell -c "from api.utils import build_model; build_model()"
 
 ### 🌐 Step 5：上線驗證
 部署與初始化完成後，可透過 Render 提供的網址進行測試：
+- **驗證 API 總覽**：`https://[你的專案名稱].onrender.com/api/`
 - **驗證前端 API**：`https://[你的專案名稱].onrender.com/api/cocktail-list/`
-- **後台登入**：`https://[font-color][你的專案名稱].onrender.com/admin/` (使用 Step 4 建立的雲端帳密)
+- **後台登入**：`https://[你的專案名稱].onrender.com/admin/` (使用 Step 4 建立的雲端帳密)
