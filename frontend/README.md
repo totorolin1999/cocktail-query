@@ -6,23 +6,11 @@
 
 ## 🚀 快速開始
 
-### 1. 環境準備
+> 💡 專案環境初始化與完整一鍵啟動步驟，請直接參閱 **[專案根目錄 Quick Start](../README.md#3-啟動前端-frontend)**。
 
-在開始之前，請確保您的開發環境已安裝以下工具：
-- [Node.js](https://nodejs.org/) (建議版本 16.x 或 18.x)
-- npm (通常隨 Node.js 一併安裝)
+### 環境變數配置 (`.env`)
 
-### 2. 安裝專案依賴
-
-複製專案或進入專案根目錄後，執行以下命令來安裝所需的套件：
-
-```bash
-npm install
-```
-
-### 3. 配置環境變數
-
-在 `frontend` 目錄下提供有環境變數範本檔案 `.env.example`，請先複製一份並重新命名為 `.env`：
+在 `frontend` 目錄下提供有環境變數範本檔案 `.env.example`，請複製一份為 `.env`：
 
 ```bash
 cp .env.example .env
@@ -31,21 +19,9 @@ cp .env.example .env
 此檔案用於配置後端 API 的連接位址，預設內容如下：
 ```env
 REACT_APP_APP_URL=http://127.0.0.1:8000
-# 或者是部署後的後端網址：
+# 部署至線上時的後端網址範例：
 # REACT_APP_APP_URL=https://cocktail-query-backend.onrender.com
 ```
-請根據您本地或遠端後端服務的實際埠號與位址進行調整。
-
-### 4. 啟動開發伺服器
-
-執行以下命令以啟動本地開發伺服器：
-
-```bash
-npm start
-```
-
-啟動後，瀏覽器將會自動開啟並載入 [http://localhost:3000](http://localhost:3000)。
-在開發模式下，若修改程式碼，頁面將會即時熱更新 (Hot Reload)。
 
 ---
 

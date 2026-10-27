@@ -60,20 +60,21 @@ cocktail_query_backend/
 
 ---
 
-## 🚀 本地開發初始化指南
+## 🚀 本地開發指南
 
-### 🟢 模式一：原生實體環境開發 (輕快敏捷模式)
+> 💡 本地環境與 Docker 快速啟動完整步驟，請直接參閱 **[專案根目錄 Quick Start](../README.md#2-啟動後端-backend)**。本篇著重說明本地資料庫配置與常用維護指令。
+
+### 🟢 模式一：原生實體環境配置
 *適合時機：進行秒級反應的輕量修改、希望節省電腦耗電與記憶體時。*
 
 #### 1. 本地 PostgreSQL 資料庫設定
 1. 按下 `Win + R` 輸入 `services.msc`，確保本機 **`postgresql-x64-16`**（或對應版本）處於 **啟動 (Start)** 狀態。
 2. 開啟 **pgAdmin 4** 以 `postgres` 管理員登入：
    - 建立 Login Role: `cocktail_user`，密碼設為 `cocktail_password`。
-   - **關鍵授權 (CREATEDB)**：點擊 `cocktail_user` 右鍵 Properties ➔ Privileges ➔ 將 **`Can create database?`** (或 `CREATEDB`) 勾選為 **YES**。*(此權限使 Django `test` 自動化測試能順利建立暫時資料庫)*。
+   - **關鍵授權 (CREATEDB)**：點擊 `cocktail_user` 右鍵 Properties ➔ Privileges ➔ 將 **`Can create database?`** (或 `CREATEDB`) 勾選為 **YES** *(此權限使 Django `test` 自動化測試能順利建立暫時資料庫)*。
    - 建立 Database: `cocktail_db`，擁有者 (Owner) 務必選為 **`cocktail_user`**。
 
-#### 2. 環境變數設定
-複製根目錄的 `.env.example` 並置於內層 `cocktail_query_drf/.env` 中：
+#### 2. 環境變數設定 (`cocktail_query_drf/.env`)
 ```ini
 DJANGO_SECRET_KEY=your-local-dev-secret-key
 DEBUG=True
@@ -87,59 +88,40 @@ PostgreSQL_HOST=127.0.0.1
 PostgreSQL_PORT=5432
 ```
 
-#### 3. 初始化專案與啟動
-打開 PowerShell 並於專案根目錄下輸入：
+#### 3. 常用開發指令
 ```powershell
-# 建立並啟用虛擬環境
-python -m venv venv
-.\venv\Scripts\Activate.ps1
-
-# 安裝套件
-pip install -r requirements.txt
-
-# 執行資料庫遷移
-python manage.py migrate
-
 # 執行自動化測試
 python manage.py test
 
-# 匯入初始酒譜測試資料
-python manage.py loaddata cocktail_data.json
-
-# 建立超級管理員 (本地後台帳密)
-python manage.py createsuperuser
-
-# 啟動開發伺服器
-python manage.py runserver
+# 重新訓練/更新機器學習模型
+python manage.py shell -c "from api.utils import build_model; build_model()"
 ```
-- **前端 API 位置**：[http://127.0.0.1:8000/api/cocktail-list/](http://127.0.0.1:8000/api/cocktail-list/)
-- **Django 管理後台**：[http://127.0.0.1:8000/admin/](http://127.0.0.1:8000/admin/)
 
 ---
 
-### 🔵 模式二：Docker 容器環境開發 (標準模擬考模式)
+### 🔵 模式二：Docker 容器環境日常維護
 *適合時機：主力功能開發、新增第三方套件、準備推上 Render 線上環境前的最終 100% 複製測試。*
 
 #### 1. 釋放 5432 連接埠
 進入 Windows 服務（`services.msc`），找到 **`postgresql-x64-16`**（或本機對應的 PostgreSQL），按右鍵點擊 **停止 (Stop)**。
 
-#### 2. Docker Compose 常用指令
-Docker 具備自動 Build 機制。在專案最外層目錄直接使用以下指令：
+#### 2. Docker 常用維護指令
+在 `backend` 目錄下執行：
 
-- **日常開機上班（程式熱重載）**：
+- **日常開機（背景執行）**：
   ```bash
   docker compose up -d
   ```
-- **更新 `requirements.txt` 或修改 `Dockerfile` 時（強制重構）**：
+- **更新 `requirements.txt` 或修改 `Dockerfile` 時（重新構建）**：
   ```bash
   docker compose up -d --build
   ```
-- **日常維護指令**：
+- **日常維護與測試指令**：
   ```bash
-  docker compose exec web python manage.py migrate                      # 變更欄位結構時執行
   docker compose exec web python manage.py test                         # 於容器內執行單元測試
+  docker compose exec web python manage.py migrate                      # 變更欄位結構時執行
+  docker compose exec web python manage.py loaddata api/fixtures/cocktail_data.json  # 匯入初始酒譜資料
   docker compose exec web python manage.py createsuperuser              # 建立容器內超級管理員
-  docker compose exec web python manage.py loaddata cocktail_data.json  # 僅在初次建置或清空 Volume 後執行一次
   ```
 - **下班關機（釋放 Port，資料仍儲存於 volume 不會遺失）**：
   ```bash
@@ -247,7 +229,7 @@ Docker 具備自動 Build 機制。在專案最外層目錄直接使用以下指
    python manage.py createsuperuser
 
    # 匯入初始酒譜測試資料
-   python manage.py loaddata cocktail_data.json
+   python manage.py loaddata api/fixtures/cocktail_data.json
    ```
 4. **收尾與安全關閉 (⚠️ 極重要)**：
    操作完成後，請**立刻**回到本地 [.env](cocktail_query_drf/.env) 檔案中，將 `DATABASE_URL` 後方的字串**全部清空、恢復留白**：

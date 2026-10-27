@@ -62,20 +62,28 @@ cd cocktail-query
 
 您可以選擇使用 **Docker 容器**（推薦）或 **原生 Python 虛擬環境**：
 
-#### 方案 A：使用 Docker 一鍵啟動 (推薦)
+#### 方案 A：使用 Docker 容器啟動 (推薦)
 
 ```bash
 cd backend
-# 複製環境變數範本
+# 設定環境變數
 cp .env.example cocktail_query_drf/.env
 
 # 啟動 Web 與 PostgreSQL 容器
 docker compose up -d
 
-# 匯入初始酒譜資料
+# 執行資料庫遷移
+docker compose exec web python manage.py migrate
+
+# 匯入初始調酒資料
 docker compose exec web python manage.py loaddata api/fixtures/cocktail_data.json
+
+# 建立超級管理員帳號
+docker compose exec web python manage.py createsuperuser
 ```
-> 後端 API 服務將運行於 `http://127.0.0.1:8000`。
+
+> - 後端 API 服務：`http://127.0.0.1:8000`
+> - Django 管理後台：`http://127.0.0.1:8000/admin/`
 
 #### 方案 B：使用本機 Python 環境
 
@@ -90,8 +98,12 @@ venv\Scripts\Activate.ps1
 pip install -r requirements.txt
 cp .env.example cocktail_query_drf/.env
 
+# 執行資料庫遷移與匯入資料
 python manage.py migrate
 python manage.py loaddata api/fixtures/cocktail_data.json
+python manage.py createsuperuser
+
+# 啟動開發伺服器
 python manage.py runserver
 ```
 
@@ -103,12 +115,14 @@ python manage.py runserver
 
 ```bash
 cd frontend
-# 複製環境變數範本
+# 設定環境變數
 cp .env.example .env
 
+# 安裝套件並啟動開發伺服器
 npm install
 npm start
 ```
+
 > 瀏覽器將自動開啟 `http://localhost:3000`。
 
 ---
