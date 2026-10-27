@@ -143,6 +143,9 @@
 
 // ── Cards ───────────────────────────────────────────────
 .cocktailCard {
+  max-width: 320px;
+  width: 100%;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -187,17 +190,41 @@
 .cocktail-card-img {
   width: 100%;
   max-width: 100%;
-  aspect-ratio: 13 / 17;
+  height: 240px;
   object-fit: cover;
+  object-position: center;
 }
 
 // ── Detail card ─────────────────────────────────────────
 .detail-card {
-  height: 100%;
+  max-width: 420px;
+  width: 100%;
+  margin: 0 auto;
+  height: auto;
+
+  .cocktail-card-img {
+    height: 300px;
+  }
 }
 
 // ── Recommendation carousel ─────────────────────────────
+.rec-section {
+  max-width: 420px;
+  width: 100%;
+  margin: 0 auto;
+}
+
 .rec-carousel {
+  .cocktailCard,
+  .rec-card {
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  .cocktail-card-img {
+    height: 240px;
+  }
+
   .carousel-control-prev,
   .carousel-control-next {
     width: 10%;

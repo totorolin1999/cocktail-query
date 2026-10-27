@@ -46,18 +46,9 @@ cocktail_query_backend/
 
 ---
 
-## 🧭 核心資料庫連線藍圖與 `DATABASE_URL` 機制
+## 🧭 核心資料庫連線機制與 `DATABASE_URL`
 
 本專案後端在 [`settings.py`](cocktail_query_drf/settings.py) 實作了靈活的 **「三層資料庫自動回退策略 (Database Fallback Strategy)」**，系統會依照環境變數有無 `DATABASE_URL` 自動切換連線目標：
-
-```mermaid
-flowchart TD
-    Start["啟動 Django 服務"] --> CheckUrl{"環境變數是否有<br/>DATABASE_URL？"}
-    CheckUrl -- "是 (優先級最高)" --> PgUrl["連線至指定 PostgreSQL<br/>(Docker 容器 / Render 雲端)"]
-    CheckUrl -- "否 (留空)" --> CheckPg{"DEVELOPMENT_MODE=True<br/>且有 PostgreSQL 帳密？"}
-    CheckPg -- "是" --> PgLocal["連線至本機實體 PostgreSQL<br/>(127.0.0.1:5432)"]
-    CheckPg -- "否" --> Sqlite["優雅降級為 SQLite (db.sqlite3)<br/>✨ 零設定開箱即用"]
-```
 
 ### 📊 有無 `DATABASE_URL` 的運作模式對照
 
@@ -67,21 +58,36 @@ flowchart TD
 | **模式 B：本地實體 DB** | **留空** (`DATABASE_URL=`)<br>+ 填寫 `PostgreSQL_*` 帳密 | **本地實體 PostgreSQL** | 本機 Windows/macOS 有安裝獨立 PostgreSQL 服務時使用 |
 | **模式 C：零門檻體驗** | **留空** (`DATABASE_URL=`)<br>+ PostgreSQL 帳密留空 | **本機 SQLite (`db.sqlite3`)** | 新手開箱、不想開 Docker 也不想裝 DB 時的極速輕量測試 |
 
-> ⚠️ **跨模式資料隔離提醒**：
-> SQLite 檔案 (`db.sqlite3`) 與 PostgreSQL（Docker 容器或本地資料庫）為**各自獨立的資料庫個體**。若您從 Docker 切換到無 `DATABASE_URL` 的本機原生環境，會連向不同的資料庫，請記得在新環境執行一次 `python manage.py migrate` 即可自動完成初始化。
+### 🚨 極重要：使用 SQLite 時的資料特性與消失風險
+
+雖然 SQLite 具備免安裝、零設定的便利性，但有以下關鍵限制需特別注意：
+
+1. **雲端容器的短暫性檔案系統 (Ephemeral Filesystem)**：
+   - Render、Heroku 等 PaaS 平台的 Web 容器在閒置休眠喚醒或重新部署時，**整個磁碟會被重置還原為初始狀態**。
+   - 若線上環境未配置 `DATABASE_URL` 而誤走 SQLite，**所有線上新增、修改的資料與帳號隨容器重啟將瞬間全數蒸發**！
+2. **本機資料隔離與版本控制忽略**：
+   - SQLite (`db.sqlite3`) 與 PostgreSQL 為彼此獨立的資料庫個體，資料不互通（若切換模式需重新執行 `migrate`）。
+   - `db.sqlite3` 預設被 `.gitignore` 忽略，資料不會隨 Git 提交，換電腦或重新 Clone 時無法同步。
+3. **並發寫入鎖定 (Database Lock)**：
+   - SQLite 僅支援單一進程寫入鎖定，無法負荷生產環境 Gunicorn 多 Worker 同時寫入，易引發 `database is locked`。
+
+> 💡 **最佳實踐**：
+> - **本機免安裝極速體驗** ➔ 可利用 SQLite 開箱即用。
+> - **主力開發 (Docker) 與雲端上線 (Render)** ➔ **務必提供 `DATABASE_URL`** 串接持久化的 PostgreSQL！
 
 ---
 
-### ⚠️ 實體與 Docker 雙軌同步心法：Port 5432 爭奪戰
+## 🧭 實體與 Docker 雙軌同步設定
 
-為了確保本地端**實體電腦環境 (原生 venv)** 與 **Docker 容器環境** 100% 鏡像同步，本專案將兩者的資料庫名稱、帳號與密碼完全對齊：
+為了確保本地端**實體電腦環境 (原生 venv)** 與 **Docker 容器環境** 100% 鏡像同步，本專案將兩者的 PostgreSQL 資料庫名稱、帳號與密碼完全對齊：
 - **資料庫名稱**：`cocktail_db`
 - **資料庫帳號**：`cocktail_user`
 - **資料庫密碼**：`cocktail_password`
 
-兩套模式在連向本機時都會佔用 **`5432` 連接埠**，**同一時間只能擇一啟動**：
-- **想用原生環境** ➔ 必須**啟動** Windows 實體 PostgreSQL 服務。
-- **想用 Docker 環境** ➔ 必須**停止** Windows 實體 PostgreSQL 服務，釋放 `5432` 連接埠給 Docker。
+> ⚠️ **Port 5432 連接埠提醒**：
+> 兩套模式在連向本機時都會佔用 **`5432` 埠**，同一時間只能擇一啟動：
+> - 若使用**原生環境**：需啟動 Windows 實體 PostgreSQL 服務。
+> - 若切換至 **Docker 環境**：需暫停 Windows 實體 PostgreSQL 服務，釋放 5432 埠給 Docker 容器。
 
 ---
 

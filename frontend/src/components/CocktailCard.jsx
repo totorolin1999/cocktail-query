@@ -31,9 +31,9 @@ function CocktailCard({ data }) {
 
   return (
     <>
-      <Row xs={1} sm={2} lg={3} className="g-4">
+      <Row xs={1} sm={2} lg={3} className="g-4 justify-content-center">
         {currentItems.map((item, idx) => (
-          <Col key={idx} className="d-flex">
+          <Col key={idx} className="d-flex justify-content-center">
             <Card
               bg="dark"
               text="white"

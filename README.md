@@ -103,12 +103,10 @@ python manage.py createsuperuser
 python manage.py runserver
 ```
 
-> 💡 **資料庫連線小提示（有無 `DATABASE_URL` 的差別）**：
-> - **使用 Docker 啟動（方案 A）**：Docker 會自動注入 `DATABASE_URL`，連線至專屬的 PostgreSQL 容器。
-> - **本機原生啟動（方案 B）**：
->   - 若 `.env` 中的 `DATABASE_URL` 保持空白且未設定本機 PostgreSQL，系統將**自動優雅降級為 SQLite (`db.sqlite3`)**，無須安裝任何資料庫即可直接開箱體驗！
->   - 若想連線至本機安裝的 PostgreSQL，填入 `.env` 中的 `PostgreSQL_*` 帳密即可。
->   - *(⚠️ 注意：SQLite 與 PostgreSQL 資料庫彼此獨立，資料不會互通)*。
+> 💡 **資料庫連線小提示**：
+> - **Docker 啟動（方案 A，推薦）**：自動注入 `DATABASE_URL` 連線至持久化 PostgreSQL 容器。
+> - **本機原生啟動（方案 B）**：若未配置 PostgreSQL，系統將**自動優雅降級為 SQLite (`db.sqlite3`)**，零設定即可開箱體驗！
+> - ⚠️ **注意**：SQLite 僅供本地輕量測試，換環境不隨 Git 同步；雲端部署請務必設定 `DATABASE_URL`（詳見 [後端技術手冊](backend/README.md#🧭-核心資料庫連線機制與-database_url)）。
 
 ---
 

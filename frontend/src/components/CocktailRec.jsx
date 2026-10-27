@@ -15,7 +15,7 @@ const CocktailRec = ({ data }) => {
   }
 
   return (
-    <>
+    <div className="rec-section">
       <Alert variant="warning" className="text-center rec-alert">
         {t("recommend.message")}
       </Alert>
@@ -26,8 +26,7 @@ const CocktailRec = ({ data }) => {
               bg="secondary"
               text="white"
               border="warning"
-              className="text-center cocktailCard mx-auto"
-              style={{ maxWidth: "360px" }}
+              className="text-center cocktailCard mx-auto rec-card"
             >
               <Card.Header>{item.English_Name}</Card.Header>
               <Card.Img
@@ -52,7 +51,7 @@ const CocktailRec = ({ data }) => {
           </Carousel.Item>
         ))}
       </Carousel>
-    </>
+    </div>
   );
 };
 

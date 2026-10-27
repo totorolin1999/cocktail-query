@@ -47,11 +47,11 @@ const Cocktail = () => {
   return (
     <div className="page-section">
       <Container>
-        <Row className="g-4">
-          <Col xs={12} lg={6}>
+        <Row className="g-4 justify-content-center">
+          <Col xs={12} lg={6} className="d-flex justify-content-center">
             <CocktailDetail data={cocktail} />
           </Col>
-          <Col xs={12} lg={6}>
+          <Col xs={12} lg={6} className="d-flex justify-content-center">
             <CocktailRec data={cocktails} />
           </Col>
         </Row>
