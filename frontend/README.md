@@ -20,7 +20,7 @@ cp .env.example .env
 ```env
 REACT_APP_APP_URL=http://127.0.0.1:8000
 # 部署至線上時的後端網址範例：
-# REACT_APP_APP_URL=https://cocktail-query-backend.onrender.com
+# REACT_APP_APP_URL=https://your-backend-app.onrender.com
 ```
 
 ---
