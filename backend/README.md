@@ -119,8 +119,7 @@ python manage.py shell -c "from api.utils import build_model; build_model()"
 - **日常維護與測試指令**：
   ```bash
   docker compose exec web python manage.py test                         # 於容器內執行單元測試
-  docker compose exec web python manage.py migrate                      # 變更欄位結構時執行
-  docker compose exec web python manage.py loaddata api/fixtures/cocktail_data.json  # 匯入初始酒譜資料
+  docker compose exec web python manage.py migrate                      # 套用遷移（首次執行會自動匯入初始酒譜）
   docker compose exec web python manage.py createsuperuser              # 建立容器內超級管理員
   ```
 - **下班關機（釋放 Port，資料仍儲存於 volume 不會遺失）**：
@@ -211,40 +210,21 @@ python manage.py shell -c "from api.utils import build_model; build_model()"
 
 ---
 
-### 🛑 Step 3：免費方案之「重複匯入防禦」
-由於專案初始 fixture `api/fixtures/cocktail_data.json` 中的資料**沒有指定 `"pk"` 或 `"id"`**，若直接在 Render 每次部署建置的 `build.sh` 中執行 `loaddata`，由於免費方案的休眠唤醒機制，會導致資料在資料庫中**成倍重複寫入**。
+### ✅ Step 3：資料庫自動遷移與初始資料載入 (已自動化)
+現已在初始 fixture `api/fixtures/cocktail_data.json` 中為所有資料完整指定唯一主鍵 `"pk"`，並透過 Django Data Migration (`0003_load_cocktail_fixtures.py`) 內建防呆檢查（僅在調酒表為空時載入）：
 
-**解決對策**：**嚴禁**將 `loaddata` 指令寫在 `build.sh` 或 Docker 啟動指令中。一律採用下方的 **Step 4 SOP** 進行一次性、安全的手動初始化。
+- **自動化運作**：Render 每次部署執行 `build.sh`（內含 `python manage.py migrate`）時，若為新資料庫將**自動且安全地載入初始資料**。
+- **防止重複寫入**：若資料庫已有資料，Migration 會自動略過匯入，避免重複寫入或覆蓋後台維護的資料。
 
 ---
 
-### 🛠️ Step 4：免費方案專用——遠端直連安全資料初始化 SOP
+### 🛠️ Step 4：建立雲端超級管理員 (Superuser)
 
-本方案利用本地實體電腦作為跳板，透過 Render 的外部管道（傳送門）直連雲端 PostgreSQL，進行安全且乾淨的單次初始化。
+如需在雲端建立超級管理員帳號，可透過 Render Shell 或遠端連線執行：
 
-1. **獲取外部連線字串**：
-   到 Render 後台的 PostgreSQL 頁面，複製 **External Database URL**。
-2. **暫時開通本地傳送門**：
-   打開本地電腦內層 [cocktail_query_drf/.env](cocktail_query_drf/.env)，將該 URL 貼至 `DATABASE_URL` 欄位：
-   ```ini
-   # 👈 暫時貼上 Render External Database URL
-   DATABASE_URL=postgres://cocktail_user:password@xxxx.singapore-postgres.render.com/cocktail_db
-   ```
-3. **執行一次性初始化指令**：
-   確保本地虛擬環境已啟用，在最外層目錄執行：
-   ```powershell
-   # 建立雲端超級管理員 (請在提示下設定帳密)
-   python manage.py createsuperuser
-
-   # 匯入初始酒譜測試資料
-   python manage.py loaddata api/fixtures/cocktail_data.json
-   ```
-4. **收尾與安全關閉 (⚠️ 極重要)**：
-   操作完成後，請**立刻**回到本地 [.env](cocktail_query_drf/.env) 檔案中，將 `DATABASE_URL` 後方的字串**全部清空、恢復留白**：
-   ```ini
-   # 👈 務必恢復留白！防止本地開發變更污染雲端資料庫
-   DATABASE_URL=
-   ```
+```powershell
+python manage.py createsuperuser
+```
 
 ---
 

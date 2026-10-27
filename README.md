@@ -72,11 +72,8 @@ cp .env.example cocktail_query_drf/.env
 # 啟動 Web 與 PostgreSQL 容器
 docker compose up -d
 
-# 執行資料庫遷移
+# 執行資料庫遷移（將自動套用欄位設定並自動匯入初始調酒資料，無需手動 loaddata）
 docker compose exec web python manage.py migrate
-
-# 匯入初始調酒資料
-docker compose exec web python manage.py loaddata api/fixtures/cocktail_data.json
 
 # 建立超級管理員帳號
 docker compose exec web python manage.py createsuperuser
@@ -98,9 +95,8 @@ venv\Scripts\Activate.ps1
 pip install -r requirements.txt
 cp .env.example cocktail_query_drf/.env
 
-# 執行資料庫遷移與匯入資料
+# 執行資料庫遷移（自動載入初始調酒資料）
 python manage.py migrate
-python manage.py loaddata api/fixtures/cocktail_data.json
 python manage.py createsuperuser
 
 # 啟動開發伺服器

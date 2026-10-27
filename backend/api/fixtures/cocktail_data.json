@@ -1,6 +1,7 @@
 [
   {
     "model": "api.base",
+    "pk": 1,
     "fields": {
       "Chinese_Name": "威士忌",
       "English_Name": "Whiskey"
@@ -8,6 +9,7 @@
   },
   {
     "model": "api.base",
+    "pk": 2,
     "fields": {
       "Chinese_Name": "白蘭地",
       "English_Name": "Brandy"
@@ -15,6 +17,7 @@
   },
   {
     "model": "api.base",
+    "pk": 3,
     "fields": {
       "Chinese_Name": "龍舌蘭",
       "English_Name": "Tequila"
@@ -22,6 +25,7 @@
   },
   {
     "model": "api.base",
+    "pk": 4,
     "fields": {
       "Chinese_Name": "伏特加",
       "English_Name": "Vodka"
@@ -29,6 +33,7 @@
   },
   {
     "model": "api.base",
+    "pk": 5,
     "fields": {
       "Chinese_Name": "蘭姆酒",
       "English_Name": "Rum"
@@ -36,6 +41,7 @@
   },
   {
     "model": "api.base",
+    "pk": 6,
     "fields": {
       "Chinese_Name": "琴酒",
       "English_Name": "Gin"
@@ -43,6 +49,7 @@
   },
   {
     "model": "api.liqueur",
+    "pk": 1,
     "fields": {
       "Chinese_Name": "水蜜桃香甜酒",
       "English_Name": "Peach Schnapps"
@@ -50,6 +57,7 @@
   },
   {
     "model": "api.liqueur",
+    "pk": 2,
     "fields": {
       "Chinese_Name": "君度橙酒",
       "English_Name": "Cointreau"
@@ -57,6 +65,7 @@
   },
   {
     "model": "api.liqueur",
+    "pk": 3,
     "fields": {
       "Chinese_Name": "白巧克力香甜酒",
       "English_Name": "White Chocolate Liqueur"
@@ -64,6 +73,7 @@
   },
   {
     "model": "api.liqueur",
+    "pk": 4,
     "fields": {
       "Chinese_Name": "肯巴利苦酒",
       "English_Name": "Campari"
@@ -71,6 +81,7 @@
   },
   {
     "model": "api.liqueur",
+    "pk": 5,
     "fields": {
       "Chinese_Name": "黑醋栗香甜酒",
       "English_Name": "Creme de Cassis"
@@ -78,6 +89,7 @@
   },
   {
     "model": "api.liqueur",
+    "pk": 6,
     "fields": {
       "Chinese_Name": "黑巧克力香甜酒",
       "English_Name": "Dark Chocolate Liqueur"
@@ -85,6 +97,7 @@
   },
   {
     "model": "api.liqueur",
+    "pk": 7,
     "fields": {
       "Chinese_Name": "藍柑橘香甜酒",
       "English_Name": "Blue Curacao"
@@ -92,6 +105,7 @@
   },
   {
     "model": "api.liqueur",
+    "pk": 8,
     "fields": {
       "Chinese_Name": "咖啡香甜酒",
       "English_Name": "Coffee Liqueur"
@@ -99,6 +113,7 @@
   },
   {
     "model": "api.liqueur",
+    "pk": 9,
     "fields": {
       "Chinese_Name": "奶酒",
       "English_Name": "Cream Liqueur"
@@ -106,6 +121,7 @@
   },
   {
     "model": "api.alcohol",
+    "pk": 1,
     "fields": {
       "Chinese_Name": "香艾酒",
       "English_Name": "Absinthe"
@@ -113,6 +129,7 @@
   },
   {
     "model": "api.ingredient",
+    "pk": 1,
     "fields": {
       "Chinese_Name": "通寧水",
       "English_Name": "Tonic Water"
@@ -120,6 +137,7 @@
   },
   {
     "model": "api.ingredient",
+    "pk": 2,
     "fields": {
       "Chinese_Name": "蛋白",
       "English_Name": "Egg White"
@@ -127,6 +145,7 @@
   },
   {
     "model": "api.ingredient",
+    "pk": 3,
     "fields": {
       "Chinese_Name": "烏龍茶",
       "English_Name": "Oolong Tea"
@@ -134,6 +153,7 @@
   },
   {
     "model": "api.ingredient",
+    "pk": 4,
     "fields": {
       "Chinese_Name": "塔巴斯可辣醬",
       "English_Name": "Tabasco Sauce"
@@ -141,6 +161,7 @@
   },
   {
     "model": "api.ingredient",
+    "pk": 5,
     "fields": {
       "Chinese_Name": "葡萄柚汁",
       "English_Name": "Grapefruit Juice"
@@ -148,6 +169,7 @@
   },
   {
     "model": "api.ingredient",
+    "pk": 6,
     "fields": {
       "Chinese_Name": "鮮奶",
       "English_Name": "Fresh Milk"
@@ -155,6 +177,7 @@
   },
   {
     "model": "api.ingredient",
+    "pk": 7,
     "fields": {
       "Chinese_Name": "糖漿",
       "English_Name": "Simple Syrup"
@@ -162,6 +185,7 @@
   },
   {
     "model": "api.ingredient",
+    "pk": 8,
     "fields": {
       "Chinese_Name": "百香果汁",
       "English_Name": "Passion Fruit Juice"
@@ -169,6 +193,7 @@
   },
   {
     "model": "api.ingredient",
+    "pk": 9,
     "fields": {
       "Chinese_Name": "薑汁",
       "English_Name": "Ginger Juice"
@@ -176,6 +201,7 @@
   },
   {
     "model": "api.ingredient",
+    "pk": 10,
     "fields": {
       "Chinese_Name": "薄荷葉",
       "English_Name": "Mint Leaves"
@@ -183,6 +209,7 @@
   },
   {
     "model": "api.ingredient",
+    "pk": 11,
     "fields": {
       "Chinese_Name": "蔓越莓汁",
       "English_Name": "Cranberry Juice"
@@ -190,6 +217,7 @@
   },
   {
     "model": "api.ingredient",
+    "pk": 12,
     "fields": {
       "Chinese_Name": "鮮奶油",
       "English_Name": "Whipped Cream"
@@ -197,6 +225,7 @@
   },
   {
     "model": "api.ingredient",
+    "pk": 13,
     "fields": {
       "Chinese_Name": "鳳梨汁",
       "English_Name": "Pineapple Juice"
@@ -204,6 +233,7 @@
   },
   {
     "model": "api.ingredient",
+    "pk": 14,
     "fields": {
       "Chinese_Name": "可樂",
       "English_Name": "Cola"
@@ -211,6 +241,7 @@
   },
   {
     "model": "api.ingredient",
+    "pk": 15,
     "fields": {
       "Chinese_Name": "烏斯特黑醋醬",
       "English_Name": "Worcestershire Sauce"
@@ -218,6 +249,7 @@
   },
   {
     "model": "api.ingredient",
+    "pk": 16,
     "fields": {
       "Chinese_Name": "紅石榴糖漿",
       "English_Name": "Grenadine"
@@ -225,6 +257,7 @@
   },
   {
     "model": "api.ingredient",
+    "pk": 17,
     "fields": {
       "Chinese_Name": "柳橙汁",
       "English_Name": "Orange Juice"
@@ -232,6 +265,7 @@
   },
   {
     "model": "api.ingredient",
+    "pk": 18,
     "fields": {
       "Chinese_Name": "檸檬汁",
       "English_Name": "Lemon Juice"
@@ -239,6 +273,7 @@
   },
   {
     "model": "api.ingredient",
+    "pk": 19,
     "fields": {
       "Chinese_Name": "咖啡",
       "English_Name": "Coffee"
@@ -246,6 +281,7 @@
   },
   {
     "model": "api.ingredient",
+    "pk": 20,
     "fields": {
       "Chinese_Name": "蜂蜜",
       "English_Name": "Honey"
@@ -253,6 +289,7 @@
   },
   {
     "model": "api.ingredient",
+    "pk": 21,
     "fields": {
       "Chinese_Name": "薑汁汽水",
       "English_Name": "Ginger Ale"
@@ -260,6 +297,7 @@
   },
   {
     "model": "api.ingredient",
+    "pk": 22,
     "fields": {
       "Chinese_Name": "檸檬角",
       "English_Name": "Lemon Wedge"
@@ -267,6 +305,7 @@
   },
   {
     "model": "api.ingredient",
+    "pk": 23,
     "fields": {
       "Chinese_Name": "蘇打水",
       "English_Name": "Soda Water"
@@ -274,6 +313,7 @@
   },
   {
     "model": "api.ingredient",
+    "pk": 24,
     "fields": {
       "Chinese_Name": "蕃茄汁",
       "English_Name": "Tomato Juice"
@@ -281,6 +321,7 @@
   },
   {
     "model": "api.ingredient",
+    "pk": 25,
     "fields": {
       "Chinese_Name": "椰漿",
       "English_Name": "Coconut Cream"
@@ -288,6 +329,7 @@
   },
   {
     "model": "api.cocktail",
+    "pk": 1,
     "fields": {
       "Chinese_Name": "白色俄羅斯",
       "English_Name": "White Russian",
@@ -306,6 +348,7 @@
   },
   {
     "model": "api.cocktail",
+    "pk": 2,
     "fields": {
       "Chinese_Name": "瑪格麗特",
       "English_Name": "Margarita",
@@ -325,6 +368,7 @@
   },
   {
     "model": "api.cocktail",
+    "pk": 3,
     "fields": {
       "Chinese_Name": "黛綺莉",
       "English_Name": "Daiquiri",
@@ -342,6 +386,7 @@
   },
   {
     "model": "api.cocktail",
+    "pk": 4,
     "fields": {
       "Chinese_Name": "自由古巴",
       "English_Name": "Cuba Libre",
@@ -359,6 +404,7 @@
   },
   {
     "model": "api.cocktail",
+    "pk": 5,
     "fields": {
       "Chinese_Name": "藍色夏威夷",
       "English_Name": "Blue Hawaii",
@@ -380,6 +426,7 @@
   },
   {
     "model": "api.cocktail",
+    "pk": 6,
     "fields": {
       "Chinese_Name": "鳳梨可樂達",
       "English_Name": "Pina colada",
@@ -399,6 +446,7 @@
   },
   {
     "model": "api.cocktail",
+    "pk": 7,
     "fields": {
       "Chinese_Name": "亞歷山大",
       "English_Name": "Alexander",
@@ -417,6 +465,7 @@
   },
   {
     "model": "api.cocktail",
+    "pk": 8,
     "fields": {
       "Chinese_Name": "側車",
       "English_Name": "Sidecar",
@@ -436,6 +485,7 @@
   },
   {
     "model": "api.cocktail",
+    "pk": 9,
     "fields": {
       "Chinese_Name": "白蘭地亞歷山大",
       "English_Name": "Brandy Alexander",
@@ -456,6 +506,7 @@
   },
   {
     "model": "api.cocktail",
+    "pk": 10,
     "fields": {
       "Chinese_Name": "長島冰茶",
       "English_Name": "Long Island Iced Tea",
@@ -479,6 +530,7 @@
   },
   {
     "model": "api.cocktail",
+    "pk": 11,
     "fields": {
       "Chinese_Name": "柯夢波丹",
       "English_Name": "Cosmopolitan",
@@ -499,6 +551,7 @@
   },
   {
     "model": "api.cocktail",
+    "pk": 12,
     "fields": {
       "Chinese_Name": "黑色俄羅斯",
       "English_Name": "Black Russian",
@@ -515,6 +568,7 @@
   },
   {
     "model": "api.cocktail",
+    "pk": 13,
     "fields": {
       "Chinese_Name": "血腥瑪麗",
       "English_Name": "Bloody Mary",
@@ -535,6 +589,7 @@
   },
   {
     "model": "api.cocktail",
+    "pk": 14,
     "fields": {
       "Chinese_Name": "內格羅尼",
       "English_Name": "Negroni",
@@ -553,6 +608,7 @@
   },
   {
     "model": "api.cocktail",
+    "pk": 15,
     "fields": {
       "Chinese_Name": "馬丁尼",
       "English_Name": "Martini",
@@ -569,6 +625,7 @@
   },
   {
     "model": "api.cocktail",
+    "pk": 16,
     "fields": {
       "Chinese_Name": "琴通寧",
       "English_Name": "Gin Tonic",
@@ -586,6 +643,7 @@
   },
   {
     "model": "api.cocktail",
+    "pk": 17,
     "fields": {
       "Chinese_Name": "琴霸克",
       "English_Name": "Gin Buck",
@@ -603,6 +661,7 @@
   },
   {
     "model": "api.cocktail",
+    "pk": 18,
     "fields": {
       "Chinese_Name": "白色佳人",
       "English_Name": "White Lady",
@@ -623,6 +682,7 @@
   },
   {
     "model": "api.cocktail",
+    "pk": 19,
     "fields": {
       "Chinese_Name": "美國佬",
       "English_Name": "Americano",
@@ -641,6 +701,7 @@
   },
   {
     "model": "api.cocktail",
+    "pk": 20,
     "fields": {
       "Chinese_Name": "床笫之間",
       "English_Name": "Between the Sheets",
@@ -660,6 +721,7 @@
   },
   {
     "model": "api.cocktail",
+    "pk": 21,
     "fields": {
       "Chinese_Name": "B52轟炸機",
       "English_Name": "B52",
@@ -677,6 +739,7 @@
   },
   {
     "model": "api.cocktail",
+    "pk": 22,
     "fields": {
       "Chinese_Name": "威士忌酸酒",
       "English_Name": "Whiskey Sour",
@@ -694,6 +757,7 @@
   },
   {
     "model": "api.cocktail",
+    "pk": 23,
     "fields": {
       "Chinese_Name": "莫希托",
       "English_Name": "Mojito",
@@ -713,6 +777,7 @@
   },
   {
     "model": "api.cocktail",
+    "pk": 24,
     "fields": {
       "Chinese_Name": "琴蕾",
       "English_Name": "Gimlet",
@@ -729,6 +794,7 @@
   },
   {
     "model": "api.cocktail",
+    "pk": 25,
     "fields": {
       "Chinese_Name": "伏特加萊姆",
       "English_Name": "Vodka Lime",
@@ -745,6 +811,7 @@
   },
   {
     "model": "api.cocktail",
+    "pk": 26,
     "fields": {
       "Chinese_Name": "莫斯科騾子",
       "English_Name": "Moscow Mule",
@@ -762,6 +829,7 @@
   },
   {
     "model": "api.cocktail",
+    "pk": 27,
     "fields": {
       "Chinese_Name": "伏特加通寧",
       "English_Name": "Vodka Tonic",
@@ -778,6 +846,7 @@
   },
   {
     "model": "api.cocktail",
+    "pk": 28,
     "fields": {
       "Chinese_Name": "破冰船",
       "English_Name": "Ice-Breaker",
@@ -797,6 +866,7 @@
   },
   {
     "model": "api.cocktail",
+    "pk": 29,
     "fields": {
       "Chinese_Name": "龍舌蘭日出",
       "English_Name": "Tequila Sunrise",
@@ -814,6 +884,7 @@
   },
   {
     "model": "api.cocktail",
+    "pk": 30,
     "fields": {
       "Chinese_Name": "茉莉",
       "English_Name": "Jasmine",
@@ -834,6 +905,7 @@
   },
   {
     "model": "api.cocktail",
+    "pk": 31,
     "fields": {
       "Chinese_Name": "南方",
       "English_Name": "Southside",
@@ -851,6 +923,7 @@
   },
   {
     "model": "api.cocktail",
+    "pk": 32,
     "fields": {
       "Chinese_Name": "泡泡",
       "English_Name": "Spumoni",
@@ -868,6 +941,7 @@
   },
   {
     "model": "api.cocktail",
+    "pk": 33,
     "fields": {
       "Chinese_Name": "海風",
       "English_Name": "Sea Breeze",
@@ -886,6 +960,7 @@
   },
   {
     "model": "api.cocktail",
+    "pk": 34,
     "fields": {
       "Chinese_Name": "薄荷茱莉普",
       "English_Name": "Mint Julep",
@@ -903,6 +978,7 @@
   },
   {
     "model": "api.cocktail",
+    "pk": 35,
     "fields": {
       "Chinese_Name": "鹹狗",
       "English_Name": "Salty Dog",
@@ -919,6 +995,7 @@
   },
   {
     "model": "api.cocktail",
+    "pk": 36,
     "fields": {
       "Chinese_Name": "國王谷",
       "English_Name": "King's Valley",
@@ -938,6 +1015,7 @@
   },
   {
     "model": "api.cocktail",
+    "pk": 37,
     "fields": {
       "Chinese_Name": "螺絲起子",
       "English_Name": "Screwdriver",
@@ -954,6 +1032,7 @@
   },
   {
     "model": "api.cocktail",
+    "pk": 38,
     "fields": {
       "Chinese_Name": "鱈魚角",
       "English_Name": "Cape Cod",
@@ -970,6 +1049,7 @@
   },
   {
     "model": "api.cocktail",
+    "pk": 39,
     "fields": {
       "Chinese_Name": "X.Y.Z.",
       "English_Name": "X.Y.Z.",
@@ -989,6 +1069,7 @@
   },
   {
     "model": "api.cocktail",
+    "pk": 40,
     "fields": {
       "Chinese_Name": "性感海灘",
       "English_Name": "Sex on the Beach",
@@ -1009,6 +1090,7 @@
   },
   {
     "model": "api.cocktail",
+    "pk": 41,
     "fields": {
       "Chinese_Name": "猛牛",
       "English_Name": "Brave Bull",
@@ -1025,6 +1107,7 @@
   },
   {
     "model": "api.cocktail",
+    "pk": 42,
     "fields": {
       "Chinese_Name": "止痛藥",
       "English_Name": "Painkiller",
@@ -1044,6 +1127,7 @@
   },
   {
     "model": "api.cocktail",
+    "pk": 43,
     "fields": {
       "Chinese_Name": "颶風",
       "English_Name": "Hurricane",
@@ -1064,6 +1148,7 @@
   },
   {
     "model": "api.cocktail",
+    "pk": 44,
     "fields": {
       "Chinese_Name": "多明諾",
       "English_Name": "Domino",
@@ -1082,6 +1167,7 @@
   },
   {
     "model": "api.cocktail",
+    "pk": 45,
     "fields": {
       "Chinese_Name": "威士忌可林",
       "English_Name": "Whisky Collins",
@@ -1100,6 +1186,7 @@
   },
   {
     "model": "api.cocktail",
+    "pk": 46,
     "fields": {
       "Chinese_Name": "愛爾蘭咖啡",
       "English_Name": "Irish Coffee",
@@ -1118,6 +1205,7 @@
   },
   {
     "model": "api.cocktail",
+    "pk": 47,
     "fields": {
       "Chinese_Name": "奇奇",
       "English_Name": "Chi Chi",
@@ -1136,6 +1224,7 @@
   },
   {
     "model": "api.cocktail",
+    "pk": 48,
     "fields": {
       "Chinese_Name": "神風特攻隊",
       "English_Name": "Kamikaze",
@@ -1155,6 +1244,7 @@
   },
   {
     "model": "api.cocktail",
+    "pk": 49,
     "fields": {
       "Chinese_Name": "琴費士",
       "English_Name": "Gin Fizz",
@@ -1173,6 +1263,7 @@
   },
   {
     "model": "api.cocktail",
+    "pk": 50,
     "fields": {
       "Chinese_Name": "黑醋栗烏龍",
       "English_Name": "Cassis Oolong",
@@ -1189,6 +1280,7 @@
   },
   {
     "model": "api.cocktail",
+    "pk": 51,
     "fields": {
       "Chinese_Name": "新鮮禁果",
       "English_Name": "Fuzzy Navel",
@@ -1206,6 +1298,7 @@
   },
   {
     "model": "api.cocktail",
+    "pk": 52,
     "fields": {
       "Chinese_Name": "粉紅佳人",
       "English_Name": "Pink Lady",
@@ -1224,6 +1317,7 @@
   },
   {
     "model": "api.cocktail",
+    "pk": 53,
     "fields": {
       "Chinese_Name": "盤尼西林",
       "English_Name": "Penicillin",
@@ -1242,6 +1336,7 @@
   },
   {
     "model": "api.cocktail",
+    "pk": 54,
     "fields": {
       "Chinese_Name": "蜜蜂之膝",
       "English_Name": "Bee's Knees",
@@ -1260,6 +1355,7 @@
   },
   {
     "model": "api.cocktail",
+    "pk": 55,
     "fields": {
       "Chinese_Name": "肯巴利莫希托",
       "English_Name": "Campari Mojito",
@@ -1279,6 +1375,7 @@
   },
   {
     "model": "api.cocktail",
+    "pk": 56,
     "fields": {
       "Chinese_Name": "帕洛瑪",
       "English_Name": "Paloma",
@@ -1298,6 +1395,7 @@
   },
   {
     "model": "api.cocktail",
+    "pk": 57,
     "fields": {
       "Chinese_Name": "藍色珊瑚礁",
       "English_Name": "Blue Lagoon",
@@ -1316,6 +1414,7 @@
   },
   {
     "model": "api.cocktail",
+    "pk": 58,
     "fields": {
       "Chinese_Name": "奧林匹克",
       "English_Name": "Olympic",
@@ -1332,6 +1431,7 @@
   },
   {
     "model": "api.cocktail",
+    "pk": 59,
     "fields": {
       "Chinese_Name": "伯爵茶馬丁尼",
       "English_Name": "Earl Grey Martini",
@@ -1350,6 +1450,7 @@
   },
   {
     "model": "api.cocktail",
+    "pk": 60,
     "fields": {
       "Chinese_Name": "內華達",
       "English_Name": "Nevada",
