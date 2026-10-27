@@ -46,14 +46,39 @@ cocktail_query_backend/
 
 ---
 
-## 🧭 核心同步設計藍圖 (Dual-Track Development)
+## 🧭 核心資料庫連線藍圖與 `DATABASE_URL` 機制
+
+本專案後端在 [`settings.py`](cocktail_query_drf/settings.py) 實作了靈活的 **「三層資料庫自動回退策略 (Database Fallback Strategy)」**，系統會依照環境變數有無 `DATABASE_URL` 自動切換連線目標：
+
+```mermaid
+flowchart TD
+    Start["啟動 Django 服務"] --> CheckUrl{"環境變數是否有<br/>DATABASE_URL？"}
+    CheckUrl -- "是 (優先級最高)" --> PgUrl["連線至指定 PostgreSQL<br/>(Docker 容器 / Render 雲端)"]
+    CheckUrl -- "否 (留空)" --> CheckPg{"DEVELOPMENT_MODE=True<br/>且有 PostgreSQL 帳密？"}
+    CheckPg -- "是" --> PgLocal["連線至本機實體 PostgreSQL<br/>(127.0.0.1:5432)"]
+    CheckPg -- "否" --> Sqlite["優雅降級為 SQLite (db.sqlite3)<br/>✨ 零設定開箱即用"]
+```
+
+### 📊 有無 `DATABASE_URL` 的運作模式對照
+
+| 模式 | `DATABASE_URL` 設定 | 實際連線資料庫 | 適用情境與說明 |
+| :--- | :--- | :--- | :--- |
+| **模式 A：URL 優先** | **已填寫**（如 `postgres://...`） | **PostgreSQL** (依 URL 指向) | • **Docker Compose**：容器自動注入 `DATABASE_URL=postgres://...@db:5432/...`<br>• **Render / 雲端部署**：雲端平台自動注入連線字串 |
+| **模式 B：本地實體 DB** | **留空** (`DATABASE_URL=`)<br>+ 填寫 `PostgreSQL_*` 帳密 | **本地實體 PostgreSQL** | 本機 Windows/macOS 有安裝獨立 PostgreSQL 服務時使用 |
+| **模式 C：零門檻體驗** | **留空** (`DATABASE_URL=`)<br>+ PostgreSQL 帳密留空 | **本機 SQLite (`db.sqlite3`)** | 新手開箱、不想開 Docker 也不想裝 DB 時的極速輕量測試 |
+
+> ⚠️ **跨模式資料隔離提醒**：
+> SQLite 檔案 (`db.sqlite3`) 與 PostgreSQL（Docker 容器或本地資料庫）為**各自獨立的資料庫個體**。若您從 Docker 切換到無 `DATABASE_URL` 的本機原生環境，會連向不同的資料庫，請記得在新環境執行一次 `python manage.py migrate` 即可自動完成初始化。
+
+---
+
+### ⚠️ 實體與 Docker 雙軌同步心法：Port 5432 爭奪戰
 
 為了確保本地端**實體電腦環境 (原生 venv)** 與 **Docker 容器環境** 100% 鏡像同步，本專案將兩者的資料庫名稱、帳號與密碼完全對齊：
 - **資料庫名稱**：`cocktail_db`
 - **資料庫帳號**：`cocktail_user`
 - **資料庫密碼**：`cocktail_password`
 
-### ⚠️ 核心心法：Port 5432 爭奪戰
 兩套模式在連向本機時都會佔用 **`5432` 連接埠**，**同一時間只能擇一啟動**：
 - **想用原生環境** ➔ 必須**啟動** Windows 實體 PostgreSQL 服務。
 - **想用 Docker 環境** ➔ 必須**停止** Windows 實體 PostgreSQL 服務，釋放 `5432` 連接埠給 Docker。
