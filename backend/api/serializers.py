@@ -28,10 +28,10 @@ class IngredientSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class CocktailSerializer(serializers.ModelSerializer):
-    Bases = BaseSerializer(many=True)
-    Liqueurs = LiqueurSerializer(many=True)
-    Alcohols = AlcoholSerializer(many=True)
-    Ingredients = IngredientSerializer(many=True)
+    Bases = BaseSerializer(many=True, required=False)
+    Liqueurs = LiqueurSerializer(many=True, required=False)
+    Alcohols = AlcoholSerializer(many=True, required=False)
+    Ingredients = IngredientSerializer(many=True, required=False)
     image = serializers.ImageField(required=False, allow_null=True)
 
     class Meta:
@@ -39,10 +39,10 @@ class CocktailSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
     def create(self, validated_data):
-        bases_data = validated_data.pop('Bases')
-        liqueurs_data = validated_data.pop('Liqueurs')
-        alcohols_data = validated_data.pop('Alcohols')
-        ingredients_data = validated_data.pop('Ingredients')
+        bases_data = validated_data.pop('Bases', [])
+        liqueurs_data = validated_data.pop('Liqueurs', [])
+        alcohols_data = validated_data.pop('Alcohols', [])
+        ingredients_data = validated_data.pop('Ingredients', [])
         cocktail = Cocktail.objects.create(**validated_data)
         
         baseIdList = []
@@ -73,9 +73,8 @@ class CocktailSerializer(serializers.ModelSerializer):
         alcohols_data = validated_data.pop('Alcohols', None)
         ingredients_data = validated_data.pop('Ingredients', None)
 
-        instance.Chinese_Name = validated_data.get('Chinese_Name', instance.Chinese_Name)
-        instance.English_Name = validated_data.get('English_Name', instance.English_Name)
-        instance.image = validated_data.get('image', instance.image)
+        for field_name, value in validated_data.items():
+            setattr(instance, field_name, value)
         instance.save()
 
         if bases_data is not None:

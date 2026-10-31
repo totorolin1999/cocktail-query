@@ -1,6 +1,7 @@
 ﻿from rest_framework.decorators import api_view, permission_classes, parser_classes
 from rest_framework.parsers import MultiPartParser, FormParser, JSONParser
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.exceptions import ValidationError
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from rest_framework_simplejwt.views import TokenObtainPairView
 from rest_framework.response import Response
@@ -31,7 +32,7 @@ MODEL_MAPPING = {
 
 def get_model_and_serializer(model_type):
     if model_type not in MODEL_MAPPING:
-        raise ValueError(f'未知的模型類型: {model_type}')
+        raise ValidationError(f'未知的模型類型: {model_type}')
     return MODEL_MAPPING[model_type]
 
 
@@ -52,7 +53,7 @@ def _parse_ids(request, key):
             try:
                 ids.append(int(part))
             except ValueError:
-                continue
+                raise ValidationError({key: [f'材料 ID 無效：{part}']})
     return ids
 
 
@@ -115,24 +116,33 @@ def _normalize_request_data(request):
 
 def _resolve_related_payload(payload, field_name, model):
     raw_items = payload.get(field_name, []) or []
+    if not isinstance(raw_items, list):
+        raise ValidationError({field_name: ['必須提供材料清單。']})
+
     ids = []
     for item in raw_items:
-        if not isinstance(item, dict):
-            continue
-        value = item.get('value') or item.get('id')
+        value = item.get('value', item.get('id')) if isinstance(item, dict) else item
         try:
-            ids.append(int(value))
+            related_id = int(value)
         except (TypeError, ValueError):
-            continue
+            raise ValidationError({field_name: [f'材料 ID 無效：{value}']})
+        if related_id not in ids:
+            ids.append(related_id)
 
-    objects = model.objects.filter(id__in=ids)
+    objects_by_id = model.objects.in_bulk(ids)
+    missing_ids = [related_id for related_id in ids if related_id not in objects_by_id]
+    if missing_ids:
+        raise ValidationError({
+            field_name: [f'找不到材料 ID：{", ".join(map(str, missing_ids))}']
+        })
+
     return [
         {
-            'id': obj.id,
-            'Chinese_Name': obj.Chinese_Name,
-            'English_Name': obj.English_Name,
+            'id': objects_by_id[related_id].id,
+            'Chinese_Name': objects_by_id[related_id].Chinese_Name,
+            'English_Name': objects_by_id[related_id].English_Name,
         }
-        for obj in objects
+        for related_id in ids
     ]
 
 
@@ -159,11 +169,27 @@ def _serialize_cocktail_backup(items):
                 'fields': {
                     'Chinese_Name': item['Chinese_Name'],
                     'English_Name': item['English_Name'],
-                    'image': f"/cocktail_images/{item['id']}.jpeg",
+                    'image': item['image'].replace('/media/', '', 1),
                     'Bases': [base['id'] for base in item['Bases']],
                     'Liqueurs': [liqueur['id'] for liqueur in item['Liqueurs']],
                     'Alcohols': [alcohol['id'] for alcohol in item['Alcohols']],
                     'Ingredients': [ingredient['id'] for ingredient in item['Ingredients']],
+                    'recipe_ingredients': item['recipe_ingredients'],
+                    'iba_category': item['iba_category'],
+                    'instructions_zh': item['instructions_zh'],
+                    'instructions_en': item['instructions_en'],
+                    'glassware_zh': item['glassware_zh'],
+                    'glassware_en': item['glassware_en'],
+                    'garnish_zh': item['garnish_zh'],
+                    'garnish_en': item['garnish_en'],
+                    'flavor_zh': item['flavor_zh'],
+                    'flavor_en': item['flavor_en'],
+                    'strength': item['strength'],
+                    'history_zh': item['history_zh'],
+                    'history_en': item['history_en'],
+                    'source_url': item['source_url'],
+                    'artwork_color': item['artwork_color'],
+                    'is_active': item['is_active'],
                 },
             }
         )
@@ -199,16 +225,31 @@ class MyTokenObtainPairView(TokenObtainPairView):
 @api_view(['GET'])
 def cocktailList(request):
     name = request.query_params.get('name', '')
+    iba_category = request.query_params.get('iba_category', '')
+    strength = request.query_params.get('strength', '')
+    glassware = request.query_params.get('glassware', '').strip()
     bases = _parse_ids(request, 'bases[]')
     liqueurs = _parse_ids(request, 'liqueurs[]')
     alcohols = _parse_ids(request, 'alcohols[]')
     ingredients = _parse_ids(request, 'ingredients[]')
 
-    cocktails = Cocktail.objects.all()
+    cocktails = Cocktail.objects.filter(is_active=True)
 
     if name:
         cocktails = cocktails.filter(
-            Q(Chinese_Name__contains=name) | Q(English_Name__contains=name)
+            Q(Chinese_Name__icontains=name) | Q(English_Name__icontains=name)
+        )
+
+    if iba_category:
+        cocktails = cocktails.filter(iba_category=iba_category)
+
+    if strength:
+        cocktails = cocktails.filter(strength=strength)
+
+    if glassware:
+        cocktails = cocktails.filter(
+            Q(glassware_zh__iexact=glassware)
+            | Q(glassware_en__iexact=glassware)
         )
 
     if bases:
@@ -226,7 +267,7 @@ def cocktailList(request):
 
 @api_view(['GET'])
 def cocktailDetail(request, pk):
-    cocktail = get_object_or_404(Cocktail, id=pk)
+    cocktail = get_object_or_404(Cocktail, id=pk, is_active=True)
     serializer = CocktailSerializer(cocktail, many=False)
     return Response(serializer.data)
 
@@ -245,15 +286,14 @@ def itemDetail(request, model_type, pk):
 def cocktailCreate(request):
     data = _normalize_request_data(request)
 
-    data['Bases'] = _parse_json_field(data.get('Bases', []))
-    data['Liqueurs'] = _parse_json_field(data.get('Liqueurs', []))
-    data['Alcohols'] = _parse_json_field(data.get('Alcohols', []))
-    data['Ingredients'] = _parse_json_field(data.get('Ingredients', []))
-
-    data['Bases'] = _resolve_related_payload(data, 'Bases', Base)
-    data['Liqueurs'] = _resolve_related_payload(data, 'Liqueurs', Liqueur)
-    data['Alcohols'] = _resolve_related_payload(data, 'Alcohols', Alcohol)
-    data['Ingredients'] = _resolve_related_payload(data, 'Ingredients', Ingredient)
+    for field_name, model in (
+        ('Bases', Base),
+        ('Liqueurs', Liqueur),
+        ('Alcohols', Alcohol),
+        ('Ingredients', Ingredient),
+    ):
+        data[field_name] = _parse_json_field(data.get(field_name, []))
+        data[field_name] = _resolve_related_payload(data, field_name, model)
 
     serializer = CocktailSerializer(data=data)
     if serializer.is_valid():
@@ -270,10 +310,15 @@ def cocktailUpdate(request, pk):
     cocktail = get_object_or_404(Cocktail, id=pk)
     data = _normalize_request_data(request)
 
-    data['Bases'] = _parse_json_field(data.get('Bases', []))
-    data['Liqueurs'] = _parse_json_field(data.get('Liqueurs', []))
-    data['Alcohols'] = _parse_json_field(data.get('Alcohols', []))
-    data['Ingredients'] = _parse_json_field(data.get('Ingredients', []))
+    for field_name, model in (
+        ('Bases', Base),
+        ('Liqueurs', Liqueur),
+        ('Alcohols', Alcohol),
+        ('Ingredients', Ingredient),
+    ):
+        if field_name in data:
+            data[field_name] = _parse_json_field(data[field_name])
+            data[field_name] = _resolve_related_payload(data, field_name, model)
 
     serializer = CocktailSerializer(instance=cocktail, data=data, partial=True)
     if serializer.is_valid():
@@ -347,7 +392,9 @@ def chartList(request, model_type):
     items = Model.objects.all()
     chart_list = []
     for item in items:
-        count = Cocktail.objects.filter(**{relation_field: item}).count()
+        count = Cocktail.objects.filter(
+            **{relation_field: item}, is_active=True
+        ).count()
         chart_list.append(
             {
                 'chinese_label': item.Chinese_Name,
@@ -360,7 +407,7 @@ def chartList(request, model_type):
 
 @api_view(['GET'])
 def cocktailRecommendation(request, pk):
-    cocktail = get_object_or_404(Cocktail, id=pk)
+    cocktail = get_object_or_404(Cocktail, id=pk, is_active=True)
     model_path = settings.COCKTAIL_MODEL_FILE_TEST if settings.TESTING else settings.COCKTAIL_MODEL_FILE
     try:
         similarity_df = joblib.load(model_path)
@@ -378,7 +425,7 @@ def cocktailRecommendation(request, pk):
 
     recommendations = similarity_df.loc[input_cocktail].nlargest(9)
     recommendations = [name for name in recommendations.index if name != input_cocktail]
-    cocktails = Cocktail.objects.filter(Chinese_Name__in=recommendations)
+    cocktails = Cocktail.objects.filter(Chinese_Name__in=recommendations, is_active=True)
     serializer = CocktailSerializer(cocktails, many=True)
     return Response(serializer.data)
 

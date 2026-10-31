@@ -13,19 +13,50 @@
     "label_liqueur": "Liqueur",
     "label_alcohol": "Other Alcohols",
     "label_ingredient": "Other Ingredients",
+    "label_iba_category": "IBA Category",
+    "label_strength": "Strength",
+    "label_glassware": "Glassware",
     "label_cocktail": "Cocktail Name",
     "select_base": "Select Base Spirit",
     "select_liqueur": "Select Liqueur",
     "select_alcohol": "Select Other Alcohols",
     "select_ingredient": "Select Other Ingredients",
+    "select_iba_category": "Select IBA Category",
+    "select_strength": "Select Strength",
+    "select_glassware": "Select Glassware",
     "input_cocktail": "Enter cocktail name - Chinese or English",
-    "query": "Query"
+    "query": "Query",
+    "results_count": "Results: {{count}} cocktails",
+    "strengths": {
+      "low": "Light (estimated)",
+      "medium": "Medium (estimated)",
+      "high": "Strong (estimated)"
+    },
+    "iba_categories": {
+      "the_unforgettables": "The unforgettables",
+      "contemporary_classics": "Contemporary Classics",
+      "new_era": "New Era"
+    }
   },
   "detail": {
     "base": "Base Spirit: ",
     "liqueur": "Liqueur: ",
     "alcohol": "Other Alcohols: ",
-    "ingredient": "Other Ingredients: "
+    "ingredient": "Other Ingredients: ",
+    "recipe": "Ingredients",
+    "method": "Method",
+    "methodTranslation": "Chinese translation (not official)",
+    "officialMethod": "Official IBA method:",
+    "glassware": "Glassware:",
+    "garnish": "Garnish:",
+    "flavor": "Estimated flavor profile",
+    "strength": "Estimated strength:",
+    "strength_low": "Light",
+    "strength_medium": "Medium",
+    "strength_high": "Strong",
+    "ibaCategory": "IBA Category:",
+    "ibaTag": "IBA Cocktail",
+    "history": "About this cocktail"
   },
   "table": {
     "chinese": "Chinese Name",

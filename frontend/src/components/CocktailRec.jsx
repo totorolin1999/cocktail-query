@@ -1,11 +1,10 @@
 import React from "react";
-import Carousel from "react-bootstrap/Carousel";
-import Card from "react-bootstrap/Card";
-import Alert from "react-bootstrap/Alert";
 import { Link } from "react-router-dom";
-import Button from "react-bootstrap/Button";
 import { useTranslation } from "react-i18next";
 import API_BASE_URL from "../apiConfig";
+import CocktailArtwork, { isCocktailArtwork } from "./CocktailArtwork";
+
+const MAX_RECOMMENDATIONS = 6;
 
 const CocktailRec = ({ data }) => {
   const [t, i18n] = useTranslation("global");
@@ -14,44 +13,54 @@ const CocktailRec = ({ data }) => {
     return null;
   }
 
+  const chinese = i18n.language === "chinese";
+
   return (
-    <div className="rec-section">
-      <Alert variant="warning" className="text-center rec-alert">
+    <section className="rec-section" aria-labelledby="recommendations-title">
+      <h2 className="recommend-title" id="recommendations-title">
         {t("recommend.message")}
-      </Alert>
-      <Carousel className="rec-carousel">
-        {data.map((item, idx) => (
-          <Carousel.Item key={idx}>
-            <Card
-              bg="secondary"
-              text="white"
-              border="warning"
-              className="text-center cocktailCard mx-auto rec-card"
+      </h2>
+      <div className="recommendation-grid">
+        {data.slice(0, MAX_RECOMMENDATIONS).map((item) => {
+          const image = item.image ? `${API_BASE_URL}${item.image}` : "";
+          const displayName = chinese ? item.Chinese_Name : item.English_Name;
+
+          return (
+            <Link
+              className="recommendation-card"
+              key={item.id}
+              to={`/Cocktail/${item.id}`}
+              aria-label={`${displayName} (${item.English_Name})`}
             >
-              <Card.Header>{item.English_Name}</Card.Header>
-              <Card.Img
-                variant="top"
-                src={`${API_BASE_URL}${item.image}`}
-                className="cocktail-card-img"
-                alt={item.English_Name}
-              />
-              <Card.Body>
-                <Button
-                  variant="warning"
-                  as={Link}
-                  to={`/Cocktail/${item.id}`}
-                  className="btn-accent"
-                >
-                  {i18n.language === "chinese"
-                    ? item.Chinese_Name
-                    : item.English_Name}
-                </Button>
-              </Card.Body>
-            </Card>
-          </Carousel.Item>
-        ))}
-      </Carousel>
-    </div>
+              {isCocktailArtwork(item.image) ? (
+                <CocktailArtwork cocktail={item} />
+              ) : (
+                <img
+                  className="recommendation-artwork"
+                  src={image}
+                  alt=""
+                  loading="lazy"
+                />
+              )}
+              <span className="recommendation-copy">
+                <span className="recommendation-name">{displayName}</span>
+                <span className="recommendation-english">
+                  {chinese ? item.English_Name : item.Chinese_Name}
+                </span>
+                {item.iba_category && (
+                  <span className="recommendation-category">
+                    {item.iba_category}
+                  </span>
+                )}
+              </span>
+              <span className="recommendation-arrow" aria-hidden="true">
+                &rarr;
+              </span>
+            </Link>
+          );
+        })}
+      </div>
+    </section>
   );
 };
 

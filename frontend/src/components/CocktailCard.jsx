@@ -6,9 +6,10 @@ import { useEffect } from "react";
 import { useState } from "react";
 import ReactPaginate from "react-paginate";
 import { Link } from "react-router-dom";
-import Button from "react-bootstrap/Button";
 import { useTranslation } from "react-i18next";
 import API_BASE_URL from "../apiConfig";
+import CocktailArtwork, { isCocktailArtwork } from "./CocktailArtwork";
+import IbaBadge from "./IbaBadge";
 
 function CocktailCard({ data }) {
   const [currentItems, setCurrentItems] = useState([]);
@@ -19,14 +20,30 @@ function CocktailCard({ data }) {
   const [, i18n] = useTranslation("global");
 
   useEffect(() => {
+    if (!data.length) {
+      setCurrentItems([]);
+      setItemOffset(0);
+      setPageCount(0);
+      return;
+    }
+
+    const totalPages = Math.ceil(data.length / itemsPerPage);
+    const maxOffset = Math.max(0, (totalPages - 1) * itemsPerPage);
+
+    if (itemOffset > maxOffset) {
+      setItemOffset(maxOffset);
+      return;
+    }
+
     const endOffset = itemOffset + itemsPerPage;
     setCurrentItems(data.slice(itemOffset, endOffset));
-    setPageCount(Math.ceil(data.length / itemsPerPage));
+    setPageCount(totalPages);
   }, [itemOffset, itemsPerPage, data]);
 
   const handlePageClick = (event) => {
-    const newOffset = (event.selected * itemsPerPage) % data.length;
-    setItemOffset(newOffset);
+    const totalPages = data.length === 0 ? 0 : Math.ceil(data.length / itemsPerPage);
+    const selectedPage = Math.min(Math.max(event.selected, 0), Math.max(totalPages - 1, 0));
+    setItemOffset(selectedPage * itemsPerPage);
   };
 
   return (
@@ -35,31 +52,38 @@ function CocktailCard({ data }) {
         {currentItems.map((item, idx) => (
           <Col key={idx} className="d-flex justify-content-center">
             <Card
+              as={Link}
+              to={`/Cocktail/${item.id}`}
               bg="dark"
               text="white"
               border="warning"
-              className="text-center cocktailCard w-100"
+              className="text-center cocktailCard cocktail-card-link w-100"
+              aria-label={
+                i18n.language === "chinese"
+                  ? item.Chinese_Name
+                  : item.English_Name
+              }
             >
-              <Card.Header className="text-success">
+              <Card.Header>
                 {item.English_Name}
               </Card.Header>
-              <Card.Img
-                variant="top"
-                src={`${API_BASE_URL}${item.image}`}
-                className="cocktail-card-img"
-                alt={item.English_Name}
-              />
+              {isCocktailArtwork(item.image) ? (
+                <CocktailArtwork cocktail={item} />
+              ) : (
+                <Card.Img
+                  variant="top"
+                  src={`${API_BASE_URL}${item.image}`}
+                  className="cocktail-card-img"
+                  alt={item.English_Name}
+                />
+              )}
               <Card.Body>
-                <Button
-                  variant="warning"
-                  as={Link}
-                  to={`/Cocktail/${item.id}`}
-                  className="btn-accent"
-                >
+                <Card.Title className="cocktail-card-title">
                   {i18n.language === "chinese"
                     ? item.Chinese_Name
                     : item.English_Name}
-                </Button>
+                  <IbaBadge category={item.iba_category} />
+                </Card.Title>
               </Card.Body>
             </Card>
           </Col>

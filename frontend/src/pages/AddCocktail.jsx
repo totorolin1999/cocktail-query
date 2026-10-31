@@ -14,6 +14,7 @@ import AdminFormLayout from "../components/AdminFormLayout";
 import API_BASE_URL from "../apiConfig";
 import { lightSelectProps } from "../utils/reactSelectConfig";
 import { buildCocktailFormData } from "../utils/cocktailPayloadUtils";
+import { buildMaterialOptions } from "../utils/materialOptionUtils";
 import Alert from "react-bootstrap/Alert";
 
 const AddCocktail = () => {
@@ -74,25 +75,10 @@ const AddCocktail = () => {
     fetchIngredients();
   }, []);
 
-  const baseOptions = bases.map((item) => ({
-    value: item.id,
-    label: item.Chinese_Name,
-  }));
-
-  const liqueurOptions = liqueurs.map((item) => ({
-    value: item.id,
-    label: item.Chinese_Name,
-  }));
-
-  const alcoholOptions = alcohols.map((item) => ({
-    value: item.id,
-    label: item.Chinese_Name,
-  }));
-
-  const ingredientOptions = ingredients.map((item) => ({
-    value: item.id,
-    label: item.Chinese_Name,
-  }));
+  const baseOptions = buildMaterialOptions(bases, true);
+  const liqueurOptions = buildMaterialOptions(liqueurs, true);
+  const alcoholOptions = buildMaterialOptions(alcohols, true);
+  const ingredientOptions = buildMaterialOptions(ingredients, true);
 
   const navigate = useNavigate();
 

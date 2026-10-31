@@ -7,6 +7,7 @@ import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 import ReactPaginate from "react-paginate";
 import API_BASE_URL from '../apiConfig';
+import IbaBadge from "./IbaBadge";
 
 const CocktailTable = ({ data }) => {
   const [currentItems, setCurrentItems] = useState([]);
@@ -17,14 +18,30 @@ const CocktailTable = ({ data }) => {
   let api = useAxios()
 
   useEffect(() => {
+    if (!data.length) {
+      setCurrentItems([]);
+      setItemOffset(0);
+      setPageCount(0);
+      return;
+    }
+
+    const totalPages = Math.ceil(data.length / itemsPerPage);
+    const maxOffset = Math.max(0, (totalPages - 1) * itemsPerPage);
+
+    if (itemOffset > maxOffset) {
+      setItemOffset(maxOffset);
+      return;
+    }
+
     const endOffset = itemOffset + itemsPerPage;
     setCurrentItems(data.slice(itemOffset, endOffset));
-    setPageCount(Math.ceil(data.length / itemsPerPage));
+    setPageCount(totalPages);
   }, [itemOffset, itemsPerPage, data]);
 
   const handlePageClick = (event) => {
-    const newOffset = (event.selected * itemsPerPage) % data.length;
-    setItemOffset(newOffset);
+    const totalPages = data.length === 0 ? 0 : Math.ceil(data.length / itemsPerPage);
+    const selectedPage = Math.min(Math.max(event.selected, 0), Math.max(totalPages - 1, 0));
+    setItemOffset(selectedPage * itemsPerPage);
   };
 
   const handleDelete = async (id) => {
@@ -56,7 +73,10 @@ const CocktailTable = ({ data }) => {
               {currentItems.map((item, idx) => (
                 <tr key={idx}>
                   <td>{item.Chinese_Name}</td>
-                  <td>{item.English_Name}</td>
+                  <td>
+                    {item.English_Name}
+                    <IbaBadge category={item.iba_category} />
+                  </td>
                   <td>
                     {item.Bases.map((base, index) => (
                       <span key={index}>{base.Chinese_Name}&nbsp;</span>

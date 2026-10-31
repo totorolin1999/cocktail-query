@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 240">
+  <defs>
+    <linearGradient id="drink" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#d99a43" stop-opacity=".7"/>
+      <stop offset="1" stop-color="#d99a43"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity=".3"/>
+      <stop offset="1" stop-color="#fff" stop-opacity=".05"/>
+    </linearGradient>
+  </defs>
+  <rect width="320" height="240" fill="#12132b"/>
+  <ellipse cx="160" cy="205" rx="74" ry="12" fill="#060815" opacity=".35"/>
+  <path d="M112 48h96l-10 140h-76z" fill="url(#drink)" opacity=".86"/>
+  <path d="M112 48h96l-10 140h-76z" fill="url(#glass)" stroke="#d9e7e7" stroke-width="4" stroke-linejoin="round"/>
+</svg>

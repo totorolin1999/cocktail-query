@@ -42,12 +42,28 @@
 
 ## 🌟 主要功能亮點 (Key Features)
 
-- 🔍 **多維度智能檢索**：支援依調酒名稱、六大基酒、利口酒、其他酒類及副材料進行即時交叉篩選。
+- 🔍 **多維度智能檢索**：支援依調酒名稱、材料、IBA 分類、酒感與杯型進行交叉篩選，並顯示結果筆數。
 - 🤖 **NLP 調酒推薦引擎**：運用 `scikit-learn` 將酒譜成份轉化為詞頻特徵向量，透過餘弦相似度（Cosine Similarity）推薦風格相近的調酒。
 - 📊 **原料分佈數據可視化**：整合 Chart.js 提供各類材料在整體酒譜中的使用頻率長條圖與圓餅圖分析。
 - 🔐 **JWT 認證與管理員後台**：基於 SimpleJWT 實作無狀態 Token 驗證，提供安全完整的調酒及原料 CRUD 管理。
 - 🌐 **中英雙語系切換 (i18n)**：全站介面支援中文繁體與英文動態即時切換。
 - 🐳 **Docker 容器化支援**：提供完整的 `Dockerfile` 與 `docker-compose.yml`，一鍵快速建置後端與 PostgreSQL 環境。
+
+### 調酒資料與圖片
+
+調酒詳情支援雙語材料與用量、調製方式、杯型、裝飾、風味、酒感、背景及來源連結。`recipe_ingredients` 為結構化清單，每項包含 `name_zh`、`name_en`、`amount`、`unit_zh` 與 `unit_en`；用量應保留所採用酒譜版本的單位，不同來源可能存在配方差異。
+
+沒有專屬素材的酒款使用前端繪製的原創 SVG 插畫，依酒色、杯型與裝飾呈現；管理員上傳的圖片仍會照常顯示。插畫是示意圖，不能取代實際成品照片。
+
+新版資料庫以 IBA 官方三個分類的 102 款酒譜為主，匯入官方頁面的材料、用量、分類與來源連結。部分官方頁面未明確標示杯型，這些杯型依常見供酒方式整理；雙語調製步驟是摘要整理，並非官方逐字翻譯。風味、酒感與插畫酒色是描述性估計，酒感不是酒精濃度；IBA 未提供歷史背景的酒款不會補寫推測內容。
+
+### 查詢功能簡介
+
+在首頁選擇材料、IBA 分類、酒感或杯型，也可輸入中文或英文調酒名稱，再按「查詢」。所有條件會同時套用；同一材料類別中多選的材料必須全部符合。酒感與杯型選擇器可清除條件，查詢結果會顯示符合筆數。切換中英文介面時，IBA 分類、酒感及杯型名稱會同步切換；杯型選項依目前資料庫酒譜產生。
+
+結構化來源快照位於 `backend/api/fixtures/iba_recipe_source.json`，匯入用資料位於 `backend/api/fixtures/iba_cocktail_recipes.json`；在專案根目錄執行 `python backend/api/scripts/build_iba_recipes.py` 可重新產生匯入資料。
+
+原先以數字命名的舊 JPEG 插畫已移除，資料庫圖片欄位改指向 SVG 示意插畫；管理員上傳的其他圖片不受影響。
 
 ---
 
@@ -58,7 +74,7 @@
 - **身份驗證**：SimpleJWT (JSON Web Token)
 - **資料庫支援**：PostgreSQL (本地/Docker/Render 雲端) 搭配 SQLite 保底機制
 - **容器化技術**：Docker & Docker Compose
-- **機器學習/資料處理**：scikit-learn (CountVectorizer), pandas, numpy, joblib
+- **機器學習/資料處理**：scikit-learn (DictVectorizer、cosine similarity), pandas, numpy, joblib
 - **部署平台**：Render (Web Service + Managed PostgreSQL)
 - **其他套件**：django-environ (環境變數讀取), dj-database-url (資料庫連線解析), gunicorn (生產伺服器), pillow (圖片處理), whitenoise (生產環境靜態檔案託管)
 
@@ -79,7 +95,7 @@ cocktail-query/
 ├── backend/                               # Django REST Framework 後端服務
 │   ├── api/                               # API 應用程式目錄
 │   │   ├── fixtures/                      # 資料庫初始資料 (包含 cocktail_data.json)
-│   │   ├── migrations/                    # 資料庫遷移檔 (含 0003 自動載入初始資料防呆)
+│   │   ├── migrations/                    # 資料庫遷移檔 (含 IBA 酒譜資料匯入)
 │   │   ├── models.py                      # 資料庫模型 (Base, Liqueur, Alcohol, Ingredient, Cocktail)
 │   │   ├── serializers.py                 # DRF 序列化器
 │   │   ├── tests.py                       # API 端點單元測試
@@ -313,6 +329,9 @@ docker compose up -d --build
 # 於容器內執行自動化單元測試
 docker compose exec web python manage.py test
 
+# 重新產生調酒推薦模型（資料或推薦特徵更新後執行）
+docker compose exec web python manage.py shell -c "from api.utils import build_model; build_model()"
+
 # 下班關機（釋放 Port 與記憶體，資料仍儲存於 volume 不會遺失）
 docker compose down
 ```
@@ -342,12 +361,13 @@ npm run build
 
 1. **特徵建置 (Feature Building)**：
    - 呼叫 [`backend/api/utils.py`](backend/api/utils.py) 中的 `build_model` 函數。
-   - 該工具會讀取資料庫中所有 Cocktail 的基酒、利口酒、其他酒類、副材料名稱，整合成特徵字串並匯出為 CSV。
+   - 該工具會讀取所有啟用中調酒的材料關聯，依材料資料庫 ID 建立不受固定欄位數限制的類別特徵，並匯出 CSV 供檢查。
 2. **相似度計算 (Cosine Similarity)**：
-   - 利用 `CountVectorizer` 將酒譜原料轉換為詞頻向量，並計算雞尾酒之間的餘弦相似度。
+   - 使用 `DictVectorizer` 將材料轉成類別化特徵，再以餘弦相似度衡量酒譜相似度；基酒權重為 2.0、利口酒 1.5、其他酒類 1.25、副材料 1.0。
    - 相似度矩陣以 `joblib` 序列化並儲存於 `backend/cocktailData/cocktailModel.joblib`。
 3. **API 推薦服務**：
    - 請求 `/api/cocktail-recommendation/<pk>/` 時，系統載入 `joblib` 模型，比對輸入酒款與其他酒款的相似係數，取出相似度最高的前 9 款調酒（排除自身），序列化後回傳。
+   - 新增、更新或刪除調酒時會自動重建模型；批次匯入資料或調整材料分類後，請手動執行 `docker compose exec web python manage.py shell -c "from api.utils import build_model; build_model()"`。
 
 ---
 
@@ -442,6 +462,8 @@ python manage.py createsuperuser
 - **API 總覽**：`https://[你的專案名稱].onrender.com/api/`
 - **調酒清單 API**：`https://[你的專案名稱].onrender.com/api/cocktail-list/`
 - **Django 管理後台**：`https://[你的專案名稱].onrender.com/admin/`
+
+調酒清單 API 可使用 `iba_category`、`strength`（`low`、`medium`、`high`）及 `glassware` 篩選；杯型可傳中文或英文名稱。這些條件可與 `name` 及材料 ID 篩選條件搭配。
 
 ---
 

@@ -1,64 +1,103 @@
-Chinese_Name,English_Name,Ingredient1,Ingredient2,Ingredient3,Ingredient4,Ingredient5,Ingredient6,Ingredient7,Ingredient8
-白色俄羅斯,White Russian,伏特加,咖啡香甜酒,鮮奶
-瑪格麗特,Margarita,龍舌蘭,君度橙酒,檸檬汁,糖漿
-黛綺莉,Daiquiri,蘭姆酒,檸檬汁,糖漿
-自由古巴,Cuba Libre,蘭姆酒,可樂,檸檬角
-藍色夏威夷,Blue Hawaii,伏特加,蘭姆酒,藍柑橘香甜酒,檸檬汁,鳳梨汁,糖漿
-鳳梨可樂達,Pina colada,蘭姆酒,椰漿,檸檬汁,鳳梨汁,糖漿
-亞歷山大,Alexander,琴酒,白巧克力香甜酒,鮮奶油
-側車,Sidecar,白蘭地,君度橙酒,檸檬汁,糖漿
-白蘭地亞歷山大,Brandy Alexander,白蘭地,伏特加,黑巧克力香甜酒,鮮奶油,鮮奶
-長島冰茶,Long Island Iced Tea,龍舌蘭,伏特加,蘭姆酒,琴酒,君度橙酒,檸檬汁,可樂,糖漿
-柯夢波丹,Cosmopolitan,伏特加,君度橙酒,檸檬汁,蔓越莓汁,糖漿
-黑色俄羅斯,Black Russian,伏特加,咖啡香甜酒
-血腥瑪麗,Bloody Mary,伏特加,塔巴斯可辣醬,糖漿,烏斯特黑醋醬,檸檬汁,蕃茄汁
-內格羅尼,Negroni,琴酒,香艾酒,肯巴利苦酒
-馬丁尼,Martini,琴酒,香艾酒
-琴通寧,Gin Tonic,琴酒,通寧水,檸檬角
-琴霸克,Gin Buck,琴酒,薑汁汽水,檸檬角
-白色佳人,White Lady,琴酒,君度橙酒,蛋白,檸檬汁,糖漿
-美國佬,Americano,香艾酒,肯巴利苦酒,蘇打水
-床笫之間,Between the Sheets,白蘭地,蘭姆酒,君度橙酒,檸檬汁
-B52轟炸機,B52,白蘭地,咖啡香甜酒,奶酒
-威士忌酸酒,Whiskey Sour,威士忌,檸檬汁,糖漿
-莫希托,Mojito,蘭姆酒,薄荷葉,檸檬汁,蘇打水,糖漿
-琴蕾,Gimlet,琴酒,檸檬汁
-伏特加萊姆,Vodka Lime,伏特加,檸檬汁
-莫斯科騾子,Moscow Mule,伏特加,檸檬汁,薑汁汽水
-伏特加通寧,Vodka Tonic,伏特加,通寧水
-破冰船,Ice-Breaker,龍舌蘭,君度橙酒,紅石榴糖漿,葡萄柚汁
-龍舌蘭日出,Tequila Sunrise,龍舌蘭,紅石榴糖漿,柳橙汁
-茉莉,Jasmine,琴酒,君度橙酒,肯巴利苦酒,檸檬汁,糖漿
-南方,Southside,琴酒,檸檬汁,糖漿
-泡泡,Spumoni,肯巴利苦酒,通寧水,葡萄柚汁
-海風,Sea Breeze,伏特加,通寧水,蔓越莓汁,葡萄柚汁
-薄荷茱莉普,Mint Julep,威士忌,薄荷葉,糖漿
-鹹狗,Salty Dog,伏特加,葡萄柚汁
-國王谷,King's Valley,威士忌,君度橙酒,藍柑橘香甜酒,檸檬汁
-螺絲起子,Screwdriver,伏特加,柳橙汁
-鱈魚角,Cape Cod,伏特加,蔓越莓汁
-X.Y.Z.,X.Y.Z.,蘭姆酒,君度橙酒,檸檬汁,糖漿
-性感海灘,Sex on the Beach,伏特加,水蜜桃香甜酒,柳橙汁,蔓越莓汁,蘇打水
-猛牛,Brave Bull,龍舌蘭,咖啡香甜酒
-止痛藥,Painkiller,蘭姆酒,柳橙汁,鳳梨汁,椰漿,糖漿
-颶風,Hurricane,蘭姆酒,糖漿,百香果汁,紅石榴糖漿,柳橙汁,檸檬汁
-多明諾,Domino,龍舌蘭,咖啡香甜酒,鮮奶油
-威士忌可林,Whisky Collins,威士忌,檸檬汁,蘇打水,糖漿
-愛爾蘭咖啡,Irish Coffee,威士忌,咖啡,鮮奶油,糖漿
-奇奇,Chi Chi,伏特加,椰漿,鳳梨汁,糖漿
-神風特攻隊,Kamikaze,伏特加,君度橙酒,檸檬汁,糖漿
-琴費士,Gin Fizz,琴酒,檸檬汁,蘇打水,糖漿
-黑醋栗烏龍,Cassis Oolong,黑醋栗香甜酒,烏龍茶
-新鮮禁果,Fuzzy Navel,水蜜桃香甜酒,柳橙汁,檸檬汁
-粉紅佳人,Pink Lady,琴酒,紅石榴糖漿,蛋白,檸檬汁
-盤尼西林,Penicillin,威士忌,薑汁,檸檬汁,蜂蜜
-蜜蜂之膝,Bee's Knees,琴酒,柳橙汁,檸檬汁,蜂蜜
-肯巴利莫希托,Campari Mojito,肯巴利苦酒,薄荷葉,檸檬汁,蘇打水,糖漿
-帕洛瑪,Paloma,龍舌蘭,檸檬汁,蘇打水,葡萄柚汁,糖漿
-藍色珊瑚礁,Blue Lagoon,伏特加,藍柑橘香甜酒,檸檬汁
-奧林匹克,Olympic,白蘭地,柳橙汁
-伯爵茶馬丁尼,Earl Grey Martini,琴酒,蛋白,檸檬汁,糖漿
-內華達,Nevada,蘭姆酒,檸檬汁,葡萄柚汁,糖漿
-測試調酒,Test Cocktail,威士忌
-測試調酒,Test Cocktail,威士忌
-測試調酒,Test Cocktail
+Chinese_Name,English_Name,Ingredient1,Ingredient2,Ingredient3,Ingredient4,Ingredient5,Ingredient6,Ingredient7,Ingredient8,Ingredient9
+床笫之間,Between the Sheets,蘭姆酒,干邑白蘭地,橙皮香甜酒,檸檬汁
+血腥瑪麗,Bloody Mary,伏特加,伍斯特醬,番茄汁,檸檬汁,塔巴斯可辣醬、芹菜鹽與胡椒
+白蘭地克魯斯塔,Brandy Crusta,白蘭地,馬拉斯奇諾櫻桃酒,庫拉索酒,苦精,檸檬汁,簡單糖漿
+凱匹林納,Caipirinha,卡莎薩酒,萊姆,糖
+坎昌查拉,Canchanchara,古巴甘蔗烈酒,萊姆汁,蜂蜜,水
+卡西諾,Casino,琴酒,馬拉斯奇諾櫻桃酒,橙味苦精,檸檬汁
+莫斯科騾子,Moscow Mule,伏特加,薑汁啤酒,萊姆汁
+亞歷山大,Alexander,干邑白蘭地,可可香甜酒,鮮奶油
+天使之顏,Angel Face,蘋果白蘭地,琴酒,杏桃白蘭地
+航空,Aviation,琴酒,馬拉斯奇諾櫻桃酒,紫羅蘭香甜酒,檸檬汁
+貝里尼,Bellini,普羅賽克氣泡酒,白桃泥
+林蔭大道,Boulevardier,黑麥威士忌,金巴利,苦艾酒
+黑莓琴酒,Bramble,琴酒,黑莓香甜酒,糖,檸檬汁
+樞機主教,Cardinale,琴酒,金巴利,乾苦艾酒
+香檳雞尾酒,Champagne Cocktail,干邑白蘭地,香檳,安格式苦精,糖,柑曼怡橙酒
+夏翠絲搖拌,Chartreuse Swizzle,夏翠絲香甜酒,法勒南香甜酒,鳳梨汁,萊姆汁
+黑色俄羅斯,Black Russian,伏特加,咖啡
+三葉草俱樂部,Clover Club,琴酒,蛋白,檸檬汁,覆盆子
+屍體復甦者 2 號,Corpse Reviver #2,琴酒,君度橙酒,苦艾酒,莉蕾白苦艾酒,檸檬汁
+基爾,Kir,黑醋栗香甜酒,葡萄酒
+柯夢波丹,Cosmopolitan,伏特加,君度橙酒,蔓越莓汁,萊姆汁
+自由古巴,Cuba Libre,蘭姆酒,可樂,萊姆汁
+黛綺莉,Daiquiri,古巴白蘭姆酒,萊姆汁,糖
+黑暗風暴,Dark 'n' Stormy,蘭姆酒,薑汁啤酒
+唐氏特調黛綺莉,Don's Special Daiquiri,蘭姆酒,蘭姆酒,蜂蜜,百香果,萊姆汁
+乾馬丁尼,Dry Martini,琴酒,乾苦艾酒
+濃縮咖啡馬丁尼,Espresso Martini,伏特加,咖啡香甜酒,糖,濃縮咖啡
+費南迪托,Fernandito,費爾內特苦酒,可樂
+法式 75,French 75,琴酒,香檳,糖,檸檬汁
+法式連結,French Connection,干邑白蘭地,杏仁香甜酒
+法式馬丁尼,French Martini,伏特加,覆盆子,鳳梨汁
+加里波第,Garibaldi,金巴利,柳橙汁
+羅勒琴酒碎,Gin Basil Smash,琴酒,糖,檸檬汁,羅勒
+美國佬,Americano,金巴利,苦艾酒,蘇打水
+蜜蜂之膝,Bee's Knees,乾琴酒,檸檬汁,蜂蜜,柳橙汁
+琴費士,Gin Fizz,琴酒,蘇打水,簡單糖漿,檸檬汁
+大瑪格麗特,Grand Margarita,龍舌蘭酒,柑曼怡橙酒,萊姆汁
+蚱蜢,Grasshopper,可可香甜酒,薄荷香甜酒,鮮奶油
+漢基潘基,Hanky Panky,乾琴酒,費爾內特苦酒,苦艾酒
+海明威特調,Hemingway Special,蘭姆酒,馬拉斯奇諾櫻桃酒,葡萄柚汁,萊姆
+馬頸,Horse's Neck,干邑白蘭地,安格式苦精,薑汁汽水
+IBA 提基,Iba Tiki,Havana Club Profundo 蘭姆酒,Havana Club Smoky 蘭姆酒,杏仁香甜酒,馬拉斯奇諾櫻桃酒,萊姆汁,鳳梨汁,榛果香甜酒,百香果,薑片
+非法,Illegal,梅斯卡爾酒,蘭姆酒,法勒南香甜酒,馬拉斯奇諾櫻桃酒,蛋白,萊姆汁,簡單糖漿
+愛爾蘭咖啡,Irish Coffee,愛爾蘭威士忌,咖啡,鮮奶油,糖
+約翰可林,John Collins,琴酒,檸檬汁,簡單糖漿,蘇打水
+叢林之鳥,Jungle Bird,蘭姆酒,金巴利,鳳梨汁,萊姆汁,糖
+最後一語,Last Word,琴酒,夏翠絲香甜酒,馬拉斯奇諾櫻桃酒,萊姆汁
+檸檬滴馬丁尼,Lemon Drop Martini,伏特加,橙皮香甜酒,檸檬汁
+長島冰茶,Long Island Iced Tea,龍舌蘭酒,伏特加,琴酒,蘭姆酒,君度橙酒,可樂,檸檬汁,簡單糖漿
+邁泰,Mai Tai,蘭姆酒,馬丁尼克糖蜜蘭姆酒,庫拉索酒,杏仁糖漿,萊姆汁,簡單糖漿
+曼哈頓,Manhattan,黑麥威士忌,苦艾酒,安格式苦精
+瑪格麗特,Margarita,龍舌蘭酒,橙皮香甜酒,萊姆汁
+馬丁尼茲,Martinez,乾琴酒,馬拉斯奇諾櫻桃酒,苦艾酒,橙味苦精
+瑪麗·畢克馥,Mary Pickford,蘭姆酒,馬拉斯奇諾櫻桃酒,鳳梨汁,石榴糖漿
+含羞草,Mimosa,普羅賽克氣泡酒,柳橙汁
+薄荷茱莉普,Mint Julep,波本威士忌,糖,水,薄荷
+傳教士的墜落,Missionary's Downfall,蘭姆酒,蜜桃白蘭地,鳳梨,蜂蜜,薄荷,萊姆汁
+莫希托,Mojito,古巴白蘭姆酒,蘇打水,糖,薄荷,萊姆汁
+猴腺,Monkey Gland,乾琴酒,苦艾酒,柳橙汁,石榴糖漿
+赤裸而聞名,Naked And Famous,梅斯卡爾酒,夏翠絲香甜酒,阿佩羅,萊姆汁
+內格羅尼,Negroni,琴酒,金巴利,苦艾酒
+紐約酸酒,New York Sour,黑麥威士忌,葡萄酒,簡單糖漿,蛋白,檸檬汁
+老古巴,Old Cuban,蘭姆酒,安格式苦精,香檳,薄荷,萊姆汁,簡單糖漿
+古典雞尾酒,Old Fashioned,黑麥威士忌,安格式苦精,糖,水
+帕洛瑪,Paloma,龍舌蘭酒,鹽,粉紅葡萄柚汽水,萊姆
+紙飛機,Paper Plane,波本威士忌,阿佩羅,Nonino 苦味利口酒,檸檬汁
+天堂,Paradise,琴酒,杏桃白蘭地,柳橙汁
+盤尼西林,Penicillin,蘇格蘭威士忌,拉加維林威士忌,蜂蜜,檸檬汁,新鮮薑
+鳳梨可樂達,Piña Colada,蘭姆酒,鮮奶油,鳳梨汁
+皮斯可潘趣,Pisco Punch,皮斯可,葡萄酒,鳳梨汁,檸檬汁,丁香,簡單糖漿
+皮斯可酸酒,Pisco Sour,皮斯可,檸檬汁,蛋白,簡單糖漿
+種植園潘趣,Planter's Punch,蘭姆酒,糖,萊姆汁
+性感明星馬丁尼,Porn Star Martini,伏特加,百香果,香檳,糖,百香果
+波特翻轉,Porto Flip,白蘭地,葡萄酒,蛋黃
+公雞尾,Rabo De Galo,卡莎薩酒,奇拿苦酒,苦艾酒,安格式苦精
+拉莫斯琴費士,Ramos Fizz,琴酒,糖,萊姆汁,蘇打水,檸檬汁,鮮奶油,蛋白,柳橙,香草精
+緬因州的回憶,Remember The Maine,黑麥威士忌,櫻桃香甜酒,苦艾酒,苦艾酒
+俄羅斯春日潘趣,Russian Spring Punch,伏特加,黑醋栗香甜酒,葡萄酒,糖,檸檬汁
+鏽釘,Rusty Nail,蘇格蘭威士忌,德蘭布依香甜酒
+蒂珀雷里,Tipperary,愛爾蘭威士忌,夏翠絲香甜酒,安格式苦精,苦艾酒
+薩澤拉克,Sazerac,干邑白蘭地,苦艾酒,苦精,糖
+海風,Sea Breeze,伏特加,蔓越莓汁,葡萄柚汁
+性感海灘,Sex On The Beach,伏特加,蜜桃香甜酒,蔓越莓汁,柳橙汁
+雪莉鞋匠,Sherry Cobbler,雪莉酒,帕洛科塔多雪莉酒,糖,柳橙,檸檬
+側車,Sidecar,干邑白蘭地,橙皮香甜酒,檸檬汁
+新加坡司令,Singapore Sling,琴酒,君度橙酒,班尼狄克丁香甜酒,安格式苦精,鳳梨汁,櫻桃,萊姆汁,石榴糖漿
+湯米瑪格麗特,Tommy's Margarita,龍舌蘭酒,萊姆汁,龍舌蘭糖漿
+南方,South Side,乾琴酒,簡單糖漿,檸檬汁,薄荷,蛋白
+辛辣五十,Spicy Fifty,伏特加,接骨木花,紅辣椒,萊姆汁,蜂蜜
+斯普利茲,Spritz,阿佩羅,普羅賽克氣泡酒,蘇打水
+刺針,Stinger,干邑白蘭地,薄荷香甜酒
+受苦混蛋,Suffering Bastard,白蘭地,琴酒,安格式苦精,薑汁啤酒,萊姆汁
+龍舌蘭日出,Tequila Sunrise,龍舌蘭酒,柳橙汁,石榴糖漿
+三點一劃,Three Dots And A Dash,馬丁尼克農業蘭姆酒,蘭姆酒,法勒南香甜酒,安格式苦精,萊姆汁,柳橙汁,蜂蜜
+千里達酸酒,Trinidad Sour,黑麥威士忌,安格式苦精,檸檬汁,杏仁糖漿
+燕尾服,Tuxedo,琴酒,馬拉斯奇諾櫻桃酒,苦艾酒,乾苦艾酒,橙味苦精
+威尼托,Ve.N.To,白葡萄渣白蘭地,洋甘菊糖漿,蜂蜜,蛋白,檸檬汁
+維斯珀,Vesper,伏特加,琴酒,莉蕾白苦艾酒
+維尤卡雷,Vieux Carre,黑麥威士忌,干邑白蘭地,班尼狄克丁香甜酒,苦艾酒,苦精
+威士忌酸酒,Whiskey Sour,波本威士忌,糖,蛋白,檸檬汁
+白色佳人,White Lady,琴酒,橙皮香甜酒,檸檬汁
+殭屍,Zombie,蘭姆酒,蘭姆酒,蘭姆酒,法勒南香甜酒,培諾苦艾酒,安格式苦精,唐氏混合果汁,石榴糖漿,萊姆汁

@@ -5,8 +5,6 @@ import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 
 import Container from "react-bootstrap/Container";
-import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
 import CocktailDetail from "../components/CocktailDetail";
 import CocktailRec from "../components/CocktailRec";
 import API_BASE_URL from "../apiConfig";
@@ -46,15 +44,9 @@ const Cocktail = () => {
 
   return (
     <div className="page-section">
-      <Container>
-        <Row className="g-4 justify-content-center">
-          <Col xs={12} lg={6} className="d-flex justify-content-center">
-            <CocktailDetail data={cocktail} />
-          </Col>
-          <Col xs={12} lg={6} className="d-flex justify-content-center">
-            <CocktailRec data={cocktails} />
-          </Col>
-        </Row>
+      <Container className="cocktail-detail-layout">
+        <CocktailDetail data={cocktail} />
+        <CocktailRec data={cocktails} />
       </Container>
     </div>
   );

@@ -1,0 +1,5448 @@
+[
+  {
+    "Chinese_Name": "亞歷山大",
+    "English_Name": "Alexander",
+    "iba_category": "The unforgettables",
+    "recipe_ingredients": [
+      {
+        "name_zh": "干邑白蘭地",
+        "name_en": "Cognac",
+        "amount": "30 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "可可香甜酒",
+        "name_en": "Crème de Cacao (Brown)",
+        "amount": "30 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "liqueur"
+      },
+      {
+        "name_zh": "鮮奶油",
+        "name_en": "Fresh Cream",
+        "amount": "30 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      }
+    ],
+    "instructions_zh": "將材料與冰塊放入雪克壺，搖至冰鎮後濾入杯中。",
+    "instructions_en": "Pour all ingredients into cocktail shaker filled with ice cubes. Shake and strain into a chilled cocktail glass.",
+    "glassware_zh": "雞尾酒杯",
+    "glassware_en": "Cocktail glass",
+    "garnish_zh": "肉豆蔻粉",
+    "garnish_en": "Sprinkle fresh ground nutmeg on top.",
+    "flavor_zh": "口感圓潤，帶有奶香、咖啡或可可調性。",
+    "flavor_en": "A rounded texture with creamy, coffee, or cocoa notes.",
+    "strength": "medium",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/alexander/",
+    "artwork_color": "brown",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "美國佬",
+    "English_Name": "Americano",
+    "iba_category": "The unforgettables",
+    "recipe_ingredients": [
+      {
+        "name_zh": "金巴利",
+        "name_en": "Bitter Campari",
+        "amount": "30 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "liqueur"
+      },
+      {
+        "name_zh": "苦艾酒",
+        "name_en": "Sweet Red Vermouth",
+        "amount": "30 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "alcohol"
+      },
+      {
+        "name_zh": "蘇打水",
+        "name_en": "Soda Water",
+        "amount": "A splash",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      }
+    ],
+    "instructions_zh": "在裝有冰塊的杯中加入金巴利與甜苦艾酒，補入蘇打水並輕拌。",
+    "instructions_en": "Mix the ingredients directly in an old fashioned glass filled with ice cubes. Add a splash of Soda Water. Stir gently.",
+    "glassware_zh": "古典杯",
+    "glassware_en": "Old Fashioned glass",
+    "garnish_zh": "柳橙片、檸檬皮",
+    "garnish_en": "Garnish with half orange slice and a lemon zest.",
+    "flavor_zh": "帶有草本與苦甜層次，尾韻乾爽。",
+    "flavor_en": "Herbal bittersweet layers lead to a dry finish.",
+    "strength": "low",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/americano/",
+    "artwork_color": "red",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "天使之顏",
+    "English_Name": "Angel Face",
+    "iba_category": "The unforgettables",
+    "recipe_ingredients": [
+      {
+        "name_zh": "琴酒",
+        "name_en": "Gin",
+        "amount": "30 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "杏桃白蘭地",
+        "name_en": "Apricot Brandy",
+        "amount": "30 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "liqueur"
+      },
+      {
+        "name_zh": "蘋果白蘭地",
+        "name_en": "Calvados",
+        "amount": "30 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      }
+    ],
+    "instructions_zh": "將材料與冰塊放入雪克壺，搖至冰鎮後濾入杯中。",
+    "instructions_en": "Pour all ingredients into cocktail shaker filled with ice cubes. Shake and strain into a chilled cocktail glass.",
+    "glassware_zh": "雞尾酒杯",
+    "glassware_en": "Cocktail glass",
+    "garnish_zh": "無",
+    "garnish_en": "N/A",
+    "flavor_zh": "以基酒香氣為主，呈現經典而平衡的酒感。",
+    "flavor_en": "The base spirit leads a classic, balanced profile.",
+    "strength": "high",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/angel-face/",
+    "artwork_color": "amber",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "航空",
+    "English_Name": "Aviation",
+    "iba_category": "The unforgettables",
+    "recipe_ingredients": [
+      {
+        "name_zh": "琴酒",
+        "name_en": "Gin",
+        "amount": "45 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "馬拉斯奇諾櫻桃酒",
+        "name_en": "Maraschino Luxardo",
+        "amount": "15 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "liqueur"
+      },
+      {
+        "name_zh": "檸檬汁",
+        "name_en": "Fresh Lemon Juice",
+        "amount": "15 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "紫羅蘭香甜酒",
+        "name_en": "Crème de Violette",
+        "amount": "1 Bar Spoon",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "liqueur"
+      }
+    ],
+    "instructions_zh": "將材料與冰塊放入雪克壺，搖至冰鎮後濾入杯中。",
+    "instructions_en": "Add all ingredients into a cocktail shaker. Shake with cracked ice and strain into a chilled cocktail glass.",
+    "glassware_zh": "雞尾酒杯",
+    "glassware_en": "Cocktail glass",
+    "garnish_zh": "櫻桃",
+    "garnish_en": "Optional Maraschino Cherry.",
+    "flavor_zh": "果香與柑橘酸度突出，呈現清爽的酸甜平衡。",
+    "flavor_en": "Fruit and citrus acidity create a bright sweet-tart balance.",
+    "strength": "low",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/aviation/",
+    "artwork_color": "amber",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "蜜蜂之膝",
+    "English_Name": "Bee's Knees",
+    "iba_category": "New Era",
+    "recipe_ingredients": [
+      {
+        "name_zh": "乾琴酒",
+        "name_en": "Dry Gin",
+        "amount": "52.5 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "蜂蜜糖漿",
+        "name_en": "Honey Syrup",
+        "amount": "2 teaspoons",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "檸檬汁",
+        "name_en": "Fresh Lemon Juice",
+        "amount": "22.5 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "柳橙汁",
+        "name_en": "Fresh Orange Juice",
+        "amount": "22.5 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      }
+    ],
+    "instructions_zh": "將蜂蜜糖漿與檸檬汁、柳橙汁攪拌至溶解，加入琴酒與冰塊搖勻，濾入冰鎮雞尾酒杯。",
+    "instructions_en": "Stir honey with lemon and orange juices until it dissolves, add gin and shake with ice. Strain into a chilled cocktail glass.",
+    "glassware_zh": "雞尾酒杯",
+    "glassware_en": "Cocktail glass",
+    "garnish_zh": "柳橙皮、檸檬",
+    "garnish_en": "Optionally garnish with a lemon or orange zest.",
+    "flavor_zh": "果香與柑橘酸度突出，呈現清爽的酸甜平衡。",
+    "flavor_en": "Fruit and citrus acidity create a bright sweet-tart balance.",
+    "strength": "low",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/bees-knees/",
+    "artwork_color": "orange",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "貝里尼",
+    "English_Name": "Bellini",
+    "iba_category": "Contemporary Classics",
+    "recipe_ingredients": [
+      {
+        "name_zh": "普羅賽克氣泡酒",
+        "name_en": "Prosecco",
+        "amount": "100 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "alcohol"
+      },
+      {
+        "name_zh": "白桃泥",
+        "name_en": "White Peach Puree",
+        "amount": "50 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      }
+    ],
+    "instructions_zh": "將白桃泥放入裝有冰塊的調酒杯，加入普羅賽克並輕輕攪拌，接著倒入冰鎮香檳杯。",
+    "instructions_en": "Pour peach puree into the mixing glass with ice, add the Prosecco wine. Stir gently and pour in a chilled flute glass. NOTE: Puccini – Fresh Mandarin Orange Juice; Rossini – Fresh Strawberry Puree; Tintoretto – Fresh Pomegranate Juice.",
+    "glassware_zh": "香檳笛型杯",
+    "glassware_en": "Champagne flute",
+    "garnish_zh": "無",
+    "garnish_en": "N/A.",
+    "flavor_zh": "以基酒香氣為主，呈現經典而平衡的酒感。",
+    "flavor_en": "The base spirit leads a classic, balanced profile.",
+    "strength": "low",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/bellini/",
+    "artwork_color": "amber",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "床笫之間",
+    "English_Name": "Between the Sheets",
+    "iba_category": "The unforgettables",
+    "recipe_ingredients": [
+      {
+        "name_zh": "白蘭姆酒",
+        "name_en": "White Rum",
+        "amount": "30 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "干邑白蘭地",
+        "name_en": "Cognac",
+        "amount": "30 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "橙皮香甜酒",
+        "name_en": "Triple Sec",
+        "amount": "30 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "liqueur"
+      },
+      {
+        "name_zh": "檸檬汁",
+        "name_en": "Fresh Lemon Juice",
+        "amount": "20 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      }
+    ],
+    "instructions_zh": "將材料與冰塊放入雪克壺，搖至冰鎮後濾入杯中。",
+    "instructions_en": "Add all ingredients into a cocktail shaker. Shake with ice and strain into a chilled cocktail glass.",
+    "glassware_zh": "雞尾酒杯",
+    "glassware_en": "Cocktail glass",
+    "garnish_zh": "無",
+    "garnish_en": "N/A",
+    "flavor_zh": "果香與柑橘酸度突出，呈現清爽的酸甜平衡。",
+    "flavor_en": "Fruit and citrus acidity create a bright sweet-tart balance.",
+    "strength": "medium",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/between-the-sheets/",
+    "artwork_color": "amber",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "黑色俄羅斯",
+    "English_Name": "Black Russian",
+    "iba_category": "Contemporary Classics",
+    "recipe_ingredients": [
+      {
+        "name_zh": "伏特加",
+        "name_en": "Vodka",
+        "amount": "50 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "咖啡",
+        "name_en": "Coffee Liqueur",
+        "amount": "20 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "liqueur"
+      }
+    ],
+    "instructions_zh": "將材料倒入裝有冰塊的古典杯中，輕輕攪拌，再濾入另一個裝有冰塊的古典杯。",
+    "instructions_en": "Pour the ingredients into the old fashioned glass filled with ice cubes. Stir gently. strain ingredients into old fashioned glass filled with ice. NOTE: WHITE RUSSIAN – Float fresh cream on the top and stir in slowly.",
+    "glassware_zh": "古典杯",
+    "glassware_en": "Old Fashioned glass",
+    "garnish_zh": "無",
+    "garnish_en": "N/A",
+    "flavor_zh": "口感圓潤，帶有奶香、咖啡或可可調性。",
+    "flavor_en": "A rounded texture with creamy, coffee, or cocoa notes.",
+    "strength": "medium",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/black-russian/",
+    "artwork_color": "brown",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "血腥瑪麗",
+    "English_Name": "Bloody Mary",
+    "iba_category": "Contemporary Classics",
+    "recipe_ingredients": [
+      {
+        "name_zh": "伏特加",
+        "name_en": "Vodka",
+        "amount": "45 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "番茄汁",
+        "name_en": "Tomato Juice",
+        "amount": "90 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "檸檬汁",
+        "name_en": "Fresh Lemon Juice",
+        "amount": "15 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "伍斯特醬",
+        "name_en": "Worcestershire Sauce",
+        "amount": "2 dashes",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "塔巴斯可辣醬、芹菜鹽與胡椒",
+        "name_en": "Tabasco, Celery Salt, Pepper",
+        "amount": "Up to taste",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      }
+    ],
+    "instructions_zh": "將所有材料放入裝有冰塊的調酒杯中輕輕攪拌，倒入岩石杯。若要加冰供應，則倒入高球杯。",
+    "instructions_en": "Stir gently all the ingredients in a mixing glass with ice, pour into rocks glass. NOTE: If requested served with ice, pour into highball glass.",
+    "glassware_zh": "岩石杯",
+    "glassware_en": "Rocks glass",
+    "garnish_zh": "西洋芹、檸檬",
+    "garnish_en": "Celery, lemon wedge (Optional).",
+    "flavor_zh": "果香與柑橘酸度突出，呈現清爽的酸甜平衡。",
+    "flavor_en": "Fruit and citrus acidity create a bright sweet-tart balance.",
+    "strength": "low",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/bloody-mary/",
+    "artwork_color": "amber",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "林蔭大道",
+    "English_Name": "Boulevardier",
+    "iba_category": "The unforgettables",
+    "recipe_ingredients": [
+      {
+        "name_zh": "黑麥威士忌",
+        "name_en": "Bourbon or Rye Whiskey",
+        "amount": "45 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "金巴利",
+        "name_en": "Bitter Campari",
+        "amount": "30 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "liqueur"
+      },
+      {
+        "name_zh": "苦艾酒",
+        "name_en": "Sweet Red Vermouth",
+        "amount": "30 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "alcohol"
+      }
+    ],
+    "instructions_zh": "將材料與冰塊放入調酒杯攪拌冰鎮，再濾入杯中。",
+    "instructions_en": "Pour all ingredients into mixing glass with ice cubes. Stir well. Strain into chilled cocktail glass.",
+    "glassware_zh": "雞尾酒杯",
+    "glassware_en": "Cocktail glass",
+    "garnish_zh": "柳橙皮、檸檬皮",
+    "garnish_en": "Garnish with a orange zest, optionally a lemon zest.",
+    "flavor_zh": "帶有草本與苦甜層次，尾韻乾爽。",
+    "flavor_en": "Herbal bittersweet layers lead to a dry finish.",
+    "strength": "medium",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/boulevardier/",
+    "artwork_color": "red",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "黑莓琴酒",
+    "English_Name": "Bramble",
+    "iba_category": "New Era",
+    "recipe_ingredients": [
+      {
+        "name_zh": "琴酒",
+        "name_en": "Gin",
+        "amount": "50 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "檸檬汁",
+        "name_en": "Fresh Lemon Juice",
+        "amount": "25 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "糖",
+        "name_en": "Sugar Syrup",
+        "amount": "12.5 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "黑莓香甜酒",
+        "name_en": "Crème de Mûre",
+        "amount": "15 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "liqueur"
+      }
+    ],
+    "instructions_zh": "將材料與冰塊放入雪克壺，搖至冰鎮後濾入杯中。",
+    "instructions_en": "Pour all ingredients into cocktail shaker except the Crème de Mûre, shake well with ice, strain into chilled old fashioned glass filled with crushed ice, then pour the blackberry liqueur (Crème de Mûre) over the top of the drink, in a circular motion.",
+    "glassware_zh": "古典杯",
+    "glassware_en": "Old Fashioned glass",
+    "garnish_zh": "檸檬片、黑莓、莓果",
+    "garnish_en": "Garnish optionally with a lemon slice and blackberries.",
+    "flavor_zh": "果香與柑橘酸度突出，呈現清爽的酸甜平衡。",
+    "flavor_en": "Fruit and citrus acidity create a bright sweet-tart balance.",
+    "strength": "low",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/bramble/",
+    "artwork_color": "amber",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "白蘭地克魯斯塔",
+    "English_Name": "Brandy Crusta",
+    "iba_category": "The unforgettables",
+    "recipe_ingredients": [
+      {
+        "name_zh": "白蘭地",
+        "name_en": "Brandy",
+        "amount": "52.5 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "馬拉斯奇諾櫻桃酒",
+        "name_en": "Maraschino Luxardo",
+        "amount": "7.5 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "liqueur"
+      },
+      {
+        "name_zh": "庫拉索酒",
+        "name_en": "Curacao",
+        "amount": "1 Bar Spoon",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "liqueur"
+      },
+      {
+        "name_zh": "檸檬汁",
+        "name_en": "Fresh Lemon Juice",
+        "amount": "15 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "簡單糖漿",
+        "name_en": "Simple Syrup",
+        "amount": "1 Bar Spoon",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "苦精",
+        "name_en": "Aromatic Bitters",
+        "amount": "2 Dashes",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "alcohol"
+      }
+    ],
+    "instructions_zh": "將材料依序倒入杯中；含氣泡的材料最後加入，輕輕混合。",
+    "instructions_en": "Mix together all ingredients with ice cubes in a mixing glass and strain into a prepared slim cocktail glass.",
+    "glassware_zh": "雞尾酒杯",
+    "glassware_en": "Cocktail glass",
+    "garnish_zh": "檸檬、柳橙",
+    "garnish_en": "Rub a slice of orange (or lemon) around the rim of the glass and dip it in pulverized white sugar, so that the sugar will adhere to the edge of the glass. Carefully curling place the orange/lemon peel around the inside of the glass.",
+    "flavor_zh": "帶有草本與苦甜層次，尾韻乾爽。",
+    "flavor_en": "Herbal bittersweet layers lead to a dry finish.",
+    "strength": "low",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/brandy-crusta/",
+    "artwork_color": "amber",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "凱匹林納",
+    "English_Name": "Caipirinha",
+    "iba_category": "Contemporary Classics",
+    "recipe_ingredients": [
+      {
+        "name_zh": "卡莎薩酒",
+        "name_en": "Cachaça",
+        "amount": "60 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "萊姆",
+        "name_en": "Lime cut into small wedges",
+        "amount": "1",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "糖",
+        "name_en": "White Cane Sugar",
+        "amount": "4 Teaspoons",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      }
+    ],
+    "instructions_zh": "在古典杯中輕壓萊姆角與糖，加入卡莎薩酒和碎冰，攪拌均勻。",
+    "instructions_en": "Place lime and sugar into a double old fashioned glass and muddle gently. Fill the glass with cracked ice and add Cachaça. Stir gently to involve ingredients. Note: Caipiroska – Instead of Cachaça use Vodka; Caipirissima – Instead of Cachaça use Rum. Caipirão – Instead of Cachaça use Licor Beirão.",
+    "glassware_zh": "古典杯",
+    "glassware_en": "Old Fashioned glass",
+    "garnish_zh": "無",
+    "garnish_en": "N/A",
+    "flavor_zh": "果香與柑橘酸度突出，呈現清爽的酸甜平衡。",
+    "flavor_en": "Fruit and citrus acidity create a bright sweet-tart balance.",
+    "strength": "medium",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/caipirinha/",
+    "artwork_color": "amber",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "坎昌查拉",
+    "English_Name": "Canchanchara",
+    "iba_category": "New Era",
+    "recipe_ingredients": [
+      {
+        "name_zh": "古巴甘蔗烈酒",
+        "name_en": "Cuban Aguardiente",
+        "amount": "60 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "萊姆汁",
+        "name_en": "Fresh Lime Juice",
+        "amount": "15 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "蜂蜜",
+        "name_en": "Raw Honey",
+        "amount": "15 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "水",
+        "name_en": "Water",
+        "amount": "50 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      }
+    ],
+    "instructions_zh": "先將蜂蜜、水與萊姆汁混合，倒入古典杯並抹勻杯底與杯壁；加入碎冰和古巴甘蔗烈酒，由下往上用力攪拌。",
+    "instructions_en": "Mix honey with water and lime juice and spread the mixture on the bottom and sides of the glass. Add cracked ice, and then the rum. End by energetically stirring from bottom to top.",
+    "glassware_zh": "古典杯",
+    "glassware_en": "Old Fashioned glass",
+    "garnish_zh": "萊姆角",
+    "garnish_en": "Garnish with a lime wedge.",
+    "flavor_zh": "果香與柑橘酸度突出，呈現清爽的酸甜平衡。",
+    "flavor_en": "Fruit and citrus acidity create a bright sweet-tart balance.",
+    "strength": "low",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/canchanchara/",
+    "artwork_color": "amber",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "樞機主教",
+    "English_Name": "Cardinale",
+    "iba_category": "Contemporary Classics",
+    "recipe_ingredients": [
+      {
+        "name_zh": "琴酒",
+        "name_en": "Gin",
+        "amount": "40 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "乾苦艾酒",
+        "name_en": "Dry Vermouth",
+        "amount": "20 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "alcohol"
+      },
+      {
+        "name_zh": "金巴利",
+        "name_en": "Bitter Campari",
+        "amount": "10 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "liqueur"
+      }
+    ],
+    "instructions_zh": "將材料與冰塊放入調酒杯攪拌冰鎮，再濾入杯中。",
+    "instructions_en": "Pour all ingredients into mixing glass with ice cubes. Stir well. Strain into chilled cocktail glass.",
+    "glassware_zh": "雞尾酒杯",
+    "glassware_en": "Cocktail glass",
+    "garnish_zh": "檸檬皮",
+    "garnish_en": "Garnish with a lemon zest.",
+    "flavor_zh": "帶有草本與苦甜層次，尾韻乾爽。",
+    "flavor_en": "Herbal bittersweet layers lead to a dry finish.",
+    "strength": "medium",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/cardinale/",
+    "artwork_color": "red",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "卡西諾",
+    "English_Name": "Casino",
+    "iba_category": "The unforgettables",
+    "recipe_ingredients": [
+      {
+        "name_zh": "老湯姆琴酒",
+        "name_en": "Old Tom Gin",
+        "amount": "40 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "馬拉斯奇諾櫻桃酒",
+        "name_en": "Maraschino Luxardo",
+        "amount": "10 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "liqueur"
+      },
+      {
+        "name_zh": "檸檬汁",
+        "name_en": "Fresh Lemon Juice",
+        "amount": "10 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "橙味苦精",
+        "name_en": "Orange Bitters",
+        "amount": "2 Dashes",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "alcohol"
+      }
+    ],
+    "instructions_zh": "將材料與冰塊放入雪克壺，搖至冰鎮後濾入杯中。",
+    "instructions_en": "Pour all ingredients into cocktails shaker, shake well with ice, strain into chilled rocks glass with ice.",
+    "glassware_zh": "岩石杯",
+    "glassware_en": "Rocks glass",
+    "garnish_zh": "櫻桃、檸檬皮",
+    "garnish_en": "Garnish with a lemon zest and a maraschino cherry.",
+    "flavor_zh": "帶有草本與苦甜層次，尾韻乾爽。",
+    "flavor_en": "Herbal bittersweet layers lead to a dry finish.",
+    "strength": "low",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/casino/",
+    "artwork_color": "amber",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "香檳雞尾酒",
+    "English_Name": "Champagne Cocktail",
+    "iba_category": "Contemporary Classics",
+    "recipe_ingredients": [
+      {
+        "name_zh": "香檳",
+        "name_en": "Chilled Champagne",
+        "amount": "90 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "alcohol"
+      },
+      {
+        "name_zh": "干邑白蘭地",
+        "name_en": "Cognac",
+        "amount": "10 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "安格式苦精",
+        "name_en": "Angostura bitters",
+        "amount": "2 dashes",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "alcohol"
+      },
+      {
+        "name_zh": "柑曼怡橙酒",
+        "name_en": "Grand Marnier (optional)",
+        "amount": "Few drops",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "糖",
+        "name_en": "sugar cube",
+        "amount": "1",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      }
+    ],
+    "instructions_zh": "將方糖放入香檳杯，滴上苦精與柑曼怡，再加入干邑白蘭地。緩緩倒入冰鎮香檳。",
+    "instructions_en": "Place the sugar cube with 2 dashes of bitters in a large Champagne glass, add the cognac. Pour gently chilled Champagne.",
+    "glassware_zh": "香檳笛型杯",
+    "glassware_en": "Champagne flute",
+    "garnish_zh": "櫻桃、柳橙皮",
+    "garnish_en": "Garnish with orange zest and maraschino cherry.",
+    "flavor_zh": "帶有草本與苦甜層次，尾韻乾爽。",
+    "flavor_en": "Herbal bittersweet layers lead to a dry finish.",
+    "strength": "low",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/champagne-cocktail/",
+    "artwork_color": "amber",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "夏翠絲搖拌",
+    "English_Name": "Chartreuse Swizzle",
+    "iba_category": "New Era",
+    "recipe_ingredients": [
+      {
+        "name_zh": "夏翠絲香甜酒",
+        "name_en": "Green Chartreuse",
+        "amount": "45 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "liqueur"
+      },
+      {
+        "name_zh": "鳳梨汁",
+        "name_en": "Fresh Pineapple Juice",
+        "amount": "30 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "萊姆汁",
+        "name_en": "Fresh Lime Juice",
+        "amount": "22.5 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "法勒南香甜酒",
+        "name_en": "Falernum",
+        "amount": "15 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "liqueur"
+      }
+    ],
+    "instructions_zh": "將材料倒入裝有碎冰的高球杯，以調酒棒由下往上攪拌至杯身冰冷。",
+    "instructions_en": "Pour all ingredients into a tall glass, add pebble ice. With the help of a swizzle stick (or cocktail spoon) mix vigorously, complete by filling the glass with more pebble ice.",
+    "glassware_zh": "高球杯",
+    "glassware_en": "Highball glass",
+    "garnish_zh": "薄荷葉、肉豆蔻粉",
+    "garnish_en": "Garnish with mint leaves and grated nutmeg.",
+    "flavor_zh": "果香與柑橘酸度突出，呈現清爽的酸甜平衡。",
+    "flavor_en": "Fruit and citrus acidity create a bright sweet-tart balance.",
+    "strength": "low",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/chartreuse-swizzle/",
+    "artwork_color": "green",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "三葉草俱樂部",
+    "English_Name": "Clover Club",
+    "iba_category": "The unforgettables",
+    "recipe_ingredients": [
+      {
+        "name_zh": "琴酒",
+        "name_en": "Gin",
+        "amount": "45 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "覆盆子",
+        "name_en": "Raspberry Syrup",
+        "amount": "15 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "檸檬汁",
+        "name_en": "Fresh Lemon Juice",
+        "amount": "15 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "蛋白",
+        "name_en": "Egg White",
+        "amount": "Few Drops",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      }
+    ],
+    "instructions_zh": "將材料與冰塊放入雪克壺充分搖勻；若加入蛋白，需更用力搖盪以打發並混合泡沫。",
+    "instructions_en": "Pour all ingredients into cocktails shaker, shake well with ice, strain into chilled cocktail glass.",
+    "glassware_zh": "雞尾酒杯",
+    "glassware_en": "Cocktail glass",
+    "garnish_zh": "覆盆子、莓果",
+    "garnish_en": "Fresh raspberries.",
+    "flavor_zh": "果香與柑橘酸度突出，呈現清爽的酸甜平衡。",
+    "flavor_en": "Fruit and citrus acidity create a bright sweet-tart balance.",
+    "strength": "low",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/clover-club/",
+    "artwork_color": "red",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "屍體復甦者 2 號",
+    "English_Name": "Corpse Reviver #2",
+    "iba_category": "Contemporary Classics",
+    "recipe_ingredients": [
+      {
+        "name_zh": "琴酒",
+        "name_en": "Gin",
+        "amount": "30 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "君度橙酒",
+        "name_en": "Cointreau",
+        "amount": "30 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "liqueur"
+      },
+      {
+        "name_zh": "莉蕾白苦艾酒",
+        "name_en": "Lillet Blanc",
+        "amount": "30 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "檸檬汁",
+        "name_en": "Fresh Lemon Juice",
+        "amount": "30 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "苦艾酒",
+        "name_en": "dash Absinthe",
+        "amount": "1",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "alcohol"
+      }
+    ],
+    "instructions_zh": "將材料與冰塊放入雪克壺，搖至冰鎮後濾入杯中。",
+    "instructions_en": "Pour all ingredients into shaker with ice. Shake well and strain in chilled cocktail glass.",
+    "glassware_zh": "雞尾酒杯",
+    "glassware_en": "Cocktail glass",
+    "garnish_zh": "柳橙皮",
+    "garnish_en": "Garnish with an orange zest.",
+    "flavor_zh": "果香與柑橘酸度突出，呈現清爽的酸甜平衡。",
+    "flavor_en": "Fruit and citrus acidity create a bright sweet-tart balance.",
+    "strength": "low",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/corpse-reviver-2/",
+    "artwork_color": "amber",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "柯夢波丹",
+    "English_Name": "Cosmopolitan",
+    "iba_category": "Contemporary Classics",
+    "recipe_ingredients": [
+      {
+        "name_zh": "檸檬伏特加",
+        "name_en": "Vodka Citron",
+        "amount": "40 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "君度橙酒",
+        "name_en": "Cointreau",
+        "amount": "15 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "liqueur"
+      },
+      {
+        "name_zh": "萊姆汁",
+        "name_en": "Fresh Lime Juice",
+        "amount": "15 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "蔓越莓汁",
+        "name_en": "Cranberry Juice",
+        "amount": "30 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      }
+    ],
+    "instructions_zh": "將材料與冰塊放入雪克壺，搖至冰鎮後濾入杯中。",
+    "instructions_en": "Add all ingredients into cocktail shaker filled with ice. Shake well and strain into large cocktail glass.",
+    "glassware_zh": "雞尾酒杯",
+    "glassware_en": "Cocktail glass",
+    "garnish_zh": "檸檬皮捲",
+    "garnish_en": "Garnish with lemon twist.",
+    "flavor_zh": "果香與柑橘酸度突出，呈現清爽的酸甜平衡。",
+    "flavor_en": "Fruit and citrus acidity create a bright sweet-tart balance.",
+    "strength": "low",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/cosmopolitan/",
+    "artwork_color": "red",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "自由古巴",
+    "English_Name": "Cuba Libre",
+    "iba_category": "Contemporary Classics",
+    "recipe_ingredients": [
+      {
+        "name_zh": "白蘭姆酒",
+        "name_en": "White Rum",
+        "amount": "50 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "可樂",
+        "name_en": "Cola",
+        "amount": "120 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "萊姆汁",
+        "name_en": "Fresh Lime Juice",
+        "amount": "10 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      }
+    ],
+    "instructions_zh": "將材料依序倒入杯中；含氣泡的材料最後加入，輕輕混合。",
+    "instructions_en": "Build all ingredients in a highball glass filled with ice.",
+    "glassware_zh": "高球杯",
+    "glassware_en": "Highball glass",
+    "garnish_zh": "萊姆角",
+    "garnish_en": "Garnish with lime wedge.",
+    "flavor_zh": "果香與柑橘酸度突出，呈現清爽的酸甜平衡。",
+    "flavor_en": "Fruit and citrus acidity create a bright sweet-tart balance.",
+    "strength": "low",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/cuba-libre/",
+    "artwork_color": "brown",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "黛綺莉",
+    "English_Name": "Daiquiri",
+    "iba_category": "The unforgettables",
+    "recipe_ingredients": [
+      {
+        "name_zh": "古巴白蘭姆酒",
+        "name_en": "White Cuban Ron",
+        "amount": "60 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "萊姆汁",
+        "name_en": "Fresh Lime Juice",
+        "amount": "20 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "糖",
+        "name_en": "Superfine Sugar",
+        "amount": "2 Bar Spoons",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      }
+    ],
+    "instructions_zh": "將材料與冰塊放入雪克壺，搖至冰鎮後濾入杯中。",
+    "instructions_en": "In a cocktail shaker add all ingredients. Stir well to dissolve the sugar. Add ice and shake. Strain into chilled cocktail glass.",
+    "glassware_zh": "雞尾酒杯",
+    "glassware_en": "Cocktail glass",
+    "garnish_zh": "無",
+    "garnish_en": "N/A",
+    "flavor_zh": "果香與柑橘酸度突出，呈現清爽的酸甜平衡。",
+    "flavor_en": "Fruit and citrus acidity create a bright sweet-tart balance.",
+    "strength": "low",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/daiquiri/",
+    "artwork_color": "amber",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "黑暗風暴",
+    "English_Name": "Dark 'n' Stormy",
+    "iba_category": "New Era",
+    "recipe_ingredients": [
+      {
+        "name_zh": "哥斯林蘭姆酒",
+        "name_en": "Goslings Rum",
+        "amount": "60 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "薑汁啤酒",
+        "name_en": "Ginger Beer",
+        "amount": "100 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      }
+    ],
+    "instructions_zh": "將材料依序倒入杯中；含氣泡的材料最後加入，輕輕混合。",
+    "instructions_en": "In a highball glass filled with ice pour the ginger beer and top floating with the Rum.",
+    "glassware_zh": "高球杯",
+    "glassware_en": "Highball glass",
+    "garnish_zh": "萊姆角",
+    "garnish_en": "Garnish with a lime wedge or slice.",
+    "flavor_zh": "草本或辛香氣息鮮明，口感清新。",
+    "flavor_en": "Fresh herbal or spicy notes give it a lively profile.",
+    "strength": "low",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/dark-n-stormy/",
+    "artwork_color": "amber",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "唐氏特調黛綺莉",
+    "English_Name": "Don's Special Daiquiri",
+    "iba_category": "New Era",
+    "recipe_ingredients": [
+      {
+        "name_zh": "牙買加金蘭姆酒",
+        "name_en": "Gold Jamaican Rum",
+        "amount": "30 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "古巴蘭姆酒",
+        "name_en": "Cuban Rum",
+        "amount": "15 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "百香果",
+        "name_en": "Passion Fruit Syrup",
+        "amount": "15 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "萊姆汁",
+        "name_en": "Fresh lime juice",
+        "amount": "15 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "蜂蜜糖漿",
+        "name_en": "Honey Syrup",
+        "amount": "15 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      }
+    ],
+    "instructions_zh": "將材料與冰塊攪打至均勻，倒入杯中。",
+    "instructions_en": "Blend for a few seconds in a milkshake mixer with crushed ice and pour into a footed copo glass. Fill the glass with more crushed ice.",
+    "glassware_zh": "雞尾酒杯",
+    "glassware_en": "Cocktail glass",
+    "garnish_zh": "百香果",
+    "garnish_en": "Garnish with 1/2 passion fruit",
+    "flavor_zh": "果香與柑橘酸度突出，呈現清爽的酸甜平衡。",
+    "flavor_en": "Fruit and citrus acidity create a bright sweet-tart balance.",
+    "strength": "medium",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/dons-special-daiquiri/",
+    "artwork_color": "orange",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "乾馬丁尼",
+    "English_Name": "Dry Martini",
+    "iba_category": "The unforgettables",
+    "recipe_ingredients": [
+      {
+        "name_zh": "琴酒",
+        "name_en": "Gin",
+        "amount": "60 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "乾苦艾酒",
+        "name_en": "Dry Vermouth",
+        "amount": "10 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "alcohol"
+      }
+    ],
+    "instructions_zh": "將材料與冰塊放入調酒杯攪拌冰鎮，再濾入杯中。",
+    "instructions_en": "Pour all ingredients into mixing glass with ice cubes. Stir well. Strain into chilled martini cocktail glass.",
+    "glassware_zh": "雞尾酒杯",
+    "glassware_en": "Cocktail glass",
+    "garnish_zh": "檸檬",
+    "garnish_en": "Squeeze oil from lemon peel onto the drink, or garnish with a green olives if requested.",
+    "flavor_zh": "帶有草本與苦甜層次，尾韻乾爽。",
+    "flavor_en": "Herbal bittersweet layers lead to a dry finish.",
+    "strength": "medium",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/dry-martini/",
+    "artwork_color": "amber",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "濃縮咖啡馬丁尼",
+    "English_Name": "Espresso Martini",
+    "iba_category": "New Era",
+    "recipe_ingredients": [
+      {
+        "name_zh": "伏特加",
+        "name_en": "Vodka",
+        "amount": "50 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "咖啡香甜酒",
+        "name_en": "Kahlúa",
+        "amount": "30 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "liqueur"
+      },
+      {
+        "name_zh": "糖",
+        "name_en": "Sugar Syrup",
+        "amount": "10 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "濃縮咖啡",
+        "name_en": "strong Espresso",
+        "amount": "1",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      }
+    ],
+    "instructions_zh": "將材料與冰塊放入雪克壺，搖至冰鎮後濾入杯中。",
+    "instructions_en": "Pour all ingredients into cocktail shaker, shake well with ice, strain into chilled cocktail glass.",
+    "glassware_zh": "雞尾酒杯",
+    "glassware_en": "Cocktail glass",
+    "garnish_zh": "咖啡豆",
+    "garnish_en": "3 coffee beans",
+    "flavor_zh": "以基酒香氣為主，呈現經典而平衡的酒感。",
+    "flavor_en": "The base spirit leads a classic, balanced profile.",
+    "strength": "medium",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/espresso-martini/",
+    "artwork_color": "amber",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "費南迪托",
+    "English_Name": "Fernandito",
+    "iba_category": "New Era",
+    "recipe_ingredients": [
+      {
+        "name_zh": "費爾內特苦酒",
+        "name_en": "Fernet Branca",
+        "amount": "50 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "liqueur"
+      },
+      {
+        "name_zh": "可樂",
+        "name_en": "Cola",
+        "amount": "Fill up with",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      }
+    ],
+    "instructions_zh": "在裝有冰塊的古典杯中倒入費爾內特苦酒，以可樂補滿並輕拌。",
+    "instructions_en": "Pour the Fernet Branca into a double old fashioned glass with ice, fill the glass up with Cola. Gently stir.",
+    "glassware_zh": "古典杯",
+    "glassware_en": "Old Fashioned glass",
+    "garnish_zh": "無",
+    "garnish_en": "N/A",
+    "flavor_zh": "以基酒香氣為主，呈現經典而平衡的酒感。",
+    "flavor_en": "The base spirit leads a classic, balanced profile.",
+    "strength": "low",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/fernandito/",
+    "artwork_color": "brown",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "法式 75",
+    "English_Name": "French 75",
+    "iba_category": "Contemporary Classics",
+    "recipe_ingredients": [
+      {
+        "name_zh": "琴酒",
+        "name_en": "Gin",
+        "amount": "30 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "檸檬汁",
+        "name_en": "Fresh Lemon Juice",
+        "amount": "15 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "糖",
+        "name_en": "Sugar Syrup",
+        "amount": "15 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "香檳",
+        "name_en": "Champagne",
+        "amount": "60 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "alcohol"
+      }
+    ],
+    "instructions_zh": "將氣泡材料以外的材料與冰塊搖至冰鎮，濾入杯中後再加入氣泡材料。",
+    "instructions_en": "Pour all the ingredients, except Champagne, into a shaker. Shake well and strain into a Champagne flute. Top up with Champagne. Stir gently.",
+    "glassware_zh": "香檳笛型杯",
+    "glassware_en": "Champagne flute",
+    "garnish_zh": "無",
+    "garnish_en": "N/A",
+    "flavor_zh": "果香與柑橘酸度突出，呈現清爽的酸甜平衡。",
+    "flavor_en": "Fruit and citrus acidity create a bright sweet-tart balance.",
+    "strength": "low",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/french-75/",
+    "artwork_color": "amber",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "法式連結",
+    "English_Name": "French Connection",
+    "iba_category": "Contemporary Classics",
+    "recipe_ingredients": [
+      {
+        "name_zh": "干邑白蘭地",
+        "name_en": "Cognac",
+        "amount": "35 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "杏仁香甜酒",
+        "name_en": "Amaretto",
+        "amount": "35 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "liqueur"
+      }
+    ],
+    "instructions_zh": "將干邑白蘭地與杏仁香甜酒倒入裝有冰塊的古典杯中，輕輕攪拌。",
+    "instructions_en": "Pour all ingredients directly into old fashioned glass filled with ice cubes. Stir gently.",
+    "glassware_zh": "古典杯",
+    "glassware_en": "Old Fashioned glass",
+    "garnish_zh": "無",
+    "garnish_en": "N/A",
+    "flavor_zh": "以基酒香氣為主，呈現經典而平衡的酒感。",
+    "flavor_en": "The base spirit leads a classic, balanced profile.",
+    "strength": "medium",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/french-connection/",
+    "artwork_color": "amber",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "法式馬丁尼",
+    "English_Name": "French Martini",
+    "iba_category": "New Era",
+    "recipe_ingredients": [
+      {
+        "name_zh": "伏特加",
+        "name_en": "Vodka",
+        "amount": "45 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "覆盆子",
+        "name_en": "Raspberry Liqueur",
+        "amount": "15 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "liqueur"
+      },
+      {
+        "name_zh": "鳳梨汁",
+        "name_en": "Fresh Pineapple Juice",
+        "amount": "15 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      }
+    ],
+    "instructions_zh": "將材料與冰塊放入雪克壺，搖至冰鎮後濾入杯中。",
+    "instructions_en": "Pour all ingredients into cocktail shaker, shake well with ice, strain into chilled cocktail glass.",
+    "glassware_zh": "雞尾酒杯",
+    "glassware_en": "Cocktail glass",
+    "garnish_zh": "檸檬",
+    "garnish_en": "Squeeze oil from lemon peel onto the drink.",
+    "flavor_zh": "果香與柑橘酸度突出，呈現清爽的酸甜平衡。",
+    "flavor_en": "Fruit and citrus acidity create a bright sweet-tart balance.",
+    "strength": "low",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/french-martini/",
+    "artwork_color": "red",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "加里波第",
+    "English_Name": "Garibaldi",
+    "iba_category": "Contemporary Classics",
+    "recipe_ingredients": [
+      {
+        "name_zh": "金巴利",
+        "name_en": "Bitter Campari",
+        "amount": "45 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "liqueur"
+      },
+      {
+        "name_zh": "柳橙汁",
+        "name_en": "Freshly Squeezed Orange Juice",
+        "amount": "120 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      }
+    ],
+    "instructions_zh": "將材料依序倒入杯中；含氣泡的材料最後加入，輕輕混合。",
+    "instructions_en": "Build all ingredients in a highball glass filled with ice.",
+    "glassware_zh": "高球杯",
+    "glassware_en": "Highball glass",
+    "garnish_zh": "柳橙",
+    "garnish_en": "Garnish with an orange wedge.",
+    "flavor_zh": "帶有草本與苦甜層次，尾韻乾爽。",
+    "flavor_en": "Herbal bittersweet layers lead to a dry finish.",
+    "strength": "low",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/garibaldi/",
+    "artwork_color": "red",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "羅勒琴酒碎",
+    "English_Name": "Gin Basil Smash",
+    "iba_category": "New Era",
+    "recipe_ingredients": [
+      {
+        "name_zh": "琴酒",
+        "name_en": "Gin",
+        "amount": "60ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "檸檬汁",
+        "name_en": "Freshly Squeezed Lemon Juice",
+        "amount": "22.5 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "糖",
+        "name_en": "Sugar Syrup",
+        "amount": "22.5 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "羅勒",
+        "name_en": "Italian Basil leaves",
+        "amount": "10 pcs",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      }
+    ],
+    "instructions_zh": "將材料與冰塊放入雪克壺，搖至冰鎮後濾入杯中。",
+    "instructions_en": "Add all ingredients into shaker with ice. Shake vigorously and pour into chilled cocktail glass.",
+    "glassware_zh": "雞尾酒杯",
+    "glassware_en": "Cocktail glass",
+    "garnish_zh": "無",
+    "garnish_en": "N/A",
+    "flavor_zh": "草本或辛香氣息鮮明，口感清新。",
+    "flavor_en": "Fresh herbal or spicy notes give it a lively profile.",
+    "strength": "low",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/gin-basil-smash/",
+    "artwork_color": "green",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "琴費士",
+    "English_Name": "Gin Fizz",
+    "iba_category": "The unforgettables",
+    "recipe_ingredients": [
+      {
+        "name_zh": "琴酒",
+        "name_en": "Gin",
+        "amount": "45 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "檸檬汁",
+        "name_en": "Fresh Lemon Juice",
+        "amount": "30 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "簡單糖漿",
+        "name_en": "Simple Syrup",
+        "amount": "10 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "蘇打水",
+        "name_en": "Soda Water",
+        "amount": "Splash",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      }
+    ],
+    "instructions_zh": "將氣泡材料以外的材料與冰塊搖至冰鎮，濾入杯中後再加入氣泡材料。",
+    "instructions_en": "Shake all ingredients with ice except soda water. Pour into thin tall Tumbler glass , top with a splash soda water. NOTE: Serve without ice.",
+    "glassware_zh": "平底杯",
+    "glassware_en": "Tumbler",
+    "garnish_zh": "檸檬皮、檸檬片",
+    "garnish_en": "Garnish with lemon slice, optional lemon zest.",
+    "flavor_zh": "果香與柑橘酸度突出，呈現清爽的酸甜平衡。",
+    "flavor_en": "Fruit and citrus acidity create a bright sweet-tart balance.",
+    "strength": "low",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/gin-fizz/",
+    "artwork_color": "amber",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "大瑪格麗特",
+    "English_Name": "Grand Margarita",
+    "iba_category": "New Era",
+    "recipe_ingredients": [
+      {
+        "name_zh": "100% 龍舌蘭酒",
+        "name_en": "Tequila 100% agave",
+        "amount": "45 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "柑曼怡橙酒",
+        "name_en": "Grand Marnier",
+        "amount": "30 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "萊姆汁",
+        "name_en": "Fresh Lime Juice",
+        "amount": "15 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      }
+    ],
+    "instructions_zh": "將材料與冰塊放入雪克壺，搖至冰鎮後濾入杯中。",
+    "instructions_en": "Rim the rock glass with good quality sea salt. Pour the ingredients into the shaker. Add ice to both glass and shaker. Shake hard for 10 seconds. Strain the drink into the glass.",
+    "glassware_zh": "瑪格麗特杯",
+    "glassware_en": "Margarita glass",
+    "garnish_zh": "萊姆片",
+    "garnish_en": "Garnish with a lime slice.",
+    "flavor_zh": "果香與柑橘酸度突出，呈現清爽的酸甜平衡。",
+    "flavor_en": "Fruit and citrus acidity create a bright sweet-tart balance.",
+    "strength": "low",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/grand-margarita/",
+    "artwork_color": "amber",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "蚱蜢",
+    "English_Name": "Grasshopper",
+    "iba_category": "Contemporary Classics",
+    "recipe_ingredients": [
+      {
+        "name_zh": "可可香甜酒",
+        "name_en": "Crème de Cacao (White)",
+        "amount": "20 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "liqueur"
+      },
+      {
+        "name_zh": "薄荷香甜酒",
+        "name_en": "Crème de Menthe (Green)",
+        "amount": "20 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "liqueur"
+      },
+      {
+        "name_zh": "鮮奶油",
+        "name_en": "Fresh Cream",
+        "amount": "20 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      }
+    ],
+    "instructions_zh": "將材料與冰塊放入雪克壺，搖至冰鎮後濾入杯中。",
+    "instructions_en": "Pour all ingredients into shaker filled with ice. Shake briskly for few seconds. Strain into chilled cocktail glass.",
+    "glassware_zh": "雞尾酒杯",
+    "glassware_en": "Cocktail glass",
+    "garnish_zh": "薄荷葉",
+    "garnish_en": "N/A, optional mint leave.",
+    "flavor_zh": "口感圓潤，帶有奶香、咖啡或可可調性。",
+    "flavor_en": "A rounded texture with creamy, coffee, or cocoa notes.",
+    "strength": "medium",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/grasshopper/",
+    "artwork_color": "brown",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "漢基潘基",
+    "English_Name": "Hanky Panky",
+    "iba_category": "The unforgettables",
+    "recipe_ingredients": [
+      {
+        "name_zh": "倫敦乾琴酒",
+        "name_en": "London Dry Gin",
+        "amount": "45 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "苦艾酒",
+        "name_en": "Sweet Red Vermouth",
+        "amount": "45 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "alcohol"
+      },
+      {
+        "name_zh": "費爾內特苦酒",
+        "name_en": "Fernet",
+        "amount": "7.5 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "liqueur"
+      }
+    ],
+    "instructions_zh": "將材料與冰塊放入調酒杯攪拌冰鎮，再濾入杯中。",
+    "instructions_en": "Pour all ingredients into mixing glass with ice cubes. Stir well. Strain into chilled cocktail glass.",
+    "glassware_zh": "雞尾酒杯",
+    "glassware_en": "Cocktail glass",
+    "garnish_zh": "柳橙皮",
+    "garnish_en": "Orange zest.",
+    "flavor_zh": "帶有草本與苦甜層次，尾韻乾爽。",
+    "flavor_en": "Herbal bittersweet layers lead to a dry finish.",
+    "strength": "medium",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/hanky-panky/",
+    "artwork_color": "amber",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "海明威特調",
+    "English_Name": "Hemingway Special",
+    "iba_category": "Contemporary Classics",
+    "recipe_ingredients": [
+      {
+        "name_zh": "蘭姆酒",
+        "name_en": "Rum",
+        "amount": "60 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "葡萄柚汁",
+        "name_en": "Grapefruit Juice",
+        "amount": "40 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "馬拉斯奇諾櫻桃酒",
+        "name_en": "Maraschino Luxardo",
+        "amount": "15 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "liqueur"
+      },
+      {
+        "name_zh": "萊姆",
+        "name_en": "Fresh Lime",
+        "amount": "15 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      }
+    ],
+    "instructions_zh": "將材料與冰塊放入雪克壺，搖至冰鎮後濾入杯中。",
+    "instructions_en": "Pour all ingredients into a shaker with ice. Shake well and strain into a large cocktail glass.",
+    "glassware_zh": "雞尾酒杯",
+    "glassware_en": "Cocktail glass",
+    "garnish_zh": "無",
+    "garnish_en": "N/A",
+    "flavor_zh": "果香與柑橘酸度突出，呈現清爽的酸甜平衡。",
+    "flavor_en": "Fruit and citrus acidity create a bright sweet-tart balance.",
+    "strength": "low",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/hemingway-special/",
+    "artwork_color": "amber",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "馬頸",
+    "English_Name": "Horse's Neck",
+    "iba_category": "Contemporary Classics",
+    "recipe_ingredients": [
+      {
+        "name_zh": "干邑白蘭地",
+        "name_en": "Cognac",
+        "amount": "40 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "薑汁汽水",
+        "name_en": "Ginger Ale",
+        "amount": "120 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "安格式苦精",
+        "name_en": "Angostura Bitters (optional)",
+        "amount": "Dash",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "alcohol"
+      }
+    ],
+    "instructions_zh": "在高球杯中加入冰塊與干邑白蘭地，倒入薑汁汽水，最後加入苦精。",
+    "instructions_en": "Pour Cognac and ginger ale directly into highball glass with ice cubes. Stir gently. If preferred, add dashes of Angostura Bitter.",
+    "glassware_zh": "高球杯",
+    "glassware_en": "Highball glass",
+    "garnish_zh": "檸檬",
+    "garnish_en": "Garnish with rind of one lemon spiral.",
+    "flavor_zh": "帶有草本與苦甜層次，尾韻乾爽。",
+    "flavor_en": "Herbal bittersweet layers lead to a dry finish.",
+    "strength": "medium",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/horses-neck/",
+    "artwork_color": "amber",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "IBA 提基",
+    "English_Name": "Iba Tiki",
+    "iba_category": "New Era",
+    "recipe_ingredients": [
+      {
+        "name_zh": "Havana Club Profundo 蘭姆酒",
+        "name_en": "Ron Profundo Havana Club",
+        "amount": "30 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "Havana Club Smoky 蘭姆酒",
+        "name_en": "Ron Smoky Havana Club",
+        "amount": "30 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "杏仁香甜酒",
+        "name_en": "Licor Amaretto",
+        "amount": "15 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "liqueur"
+      },
+      {
+        "name_zh": "榛果香甜酒",
+        "name_en": "Licor Frangelico",
+        "amount": "5 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "馬拉斯奇諾櫻桃酒",
+        "name_en": "Maraschino Luxardo",
+        "amount": "5 drops",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "liqueur"
+      },
+      {
+        "name_zh": "百香果",
+        "name_en": "Passion Fruit Puree",
+        "amount": "30 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "鳳梨汁",
+        "name_en": "Fresh Pineapple Juice",
+        "amount": "90 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "萊姆汁",
+        "name_en": "Fresh Lime Juice",
+        "amount": "30 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "薑片",
+        "name_en": "Gengibre Slice",
+        "amount": "1 pc",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      }
+    ],
+    "instructions_zh": "先輕壓香草或水果釋放香氣，再加入其餘材料與冰塊搖勻，濾入杯中。",
+    "instructions_en": "In a cocktail shaker muddle a thin slice of Gengibre, Pour all other ingredients. Shake vigorously with ice. Strain into a chilled Tiki glass filled with pebbled ice.",
+    "glassware_zh": "提基杯",
+    "glassware_en": "Tiki mug",
+    "garnish_zh": "鳳梨",
+    "garnish_en": "Garnish with citruses and dehydrated pineapple slice.",
+    "flavor_zh": "果香與柑橘酸度突出，呈現清爽的酸甜平衡。",
+    "flavor_en": "Fruit and citrus acidity create a bright sweet-tart balance.",
+    "strength": "medium",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/iba-tiki/",
+    "artwork_color": "orange",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "非法",
+    "English_Name": "Illegal",
+    "iba_category": "New Era",
+    "recipe_ingredients": [
+      {
+        "name_zh": "梅斯卡爾酒",
+        "name_en": "Espadin Mezcal",
+        "amount": "30 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "牙買加高酒精度白蘭姆酒",
+        "name_en": "Jamaica Overproof White Rum",
+        "amount": "15 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "法勒南香甜酒",
+        "name_en": "Falernum",
+        "amount": "15 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "liqueur"
+      },
+      {
+        "name_zh": "馬拉斯奇諾櫻桃酒",
+        "name_en": "Maraschino Luxardo",
+        "amount": "1 Bar Spoon",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "liqueur"
+      },
+      {
+        "name_zh": "萊姆汁",
+        "name_en": "Fresh Lime Juice",
+        "amount": "22.5 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "簡單糖漿",
+        "name_en": "Simple Syrup",
+        "amount": "15 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "蛋白",
+        "name_en": "Egg White (Optional)",
+        "amount": "Few Drops",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      }
+    ],
+    "instructions_zh": "將材料與冰塊放入雪克壺充分搖勻；若加入蛋白，需更用力搖盪以打發並混合泡沫。",
+    "instructions_en": "Pour all ingredients into the shaker. Shake vigorously with ice. Strain into a chilled cocktail glass, or “on the rocks” in a traditional clay or terracotta mug.",
+    "glassware_zh": "雞尾酒杯",
+    "glassware_en": "Cocktail glass",
+    "garnish_zh": "無",
+    "garnish_en": "N/A",
+    "flavor_zh": "果香與柑橘酸度突出，呈現清爽的酸甜平衡。",
+    "flavor_en": "Fruit and citrus acidity create a bright sweet-tart balance.",
+    "strength": "medium",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/illegal/",
+    "artwork_color": "amber",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "愛爾蘭咖啡",
+    "English_Name": "Irish Coffee",
+    "iba_category": "Contemporary Classics",
+    "recipe_ingredients": [
+      {
+        "name_zh": "愛爾蘭威士忌",
+        "name_en": "Irish Whiskey",
+        "amount": "50 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "咖啡",
+        "name_en": "Hot coffee",
+        "amount": "120 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "鮮奶油",
+        "name_en": "Fresh cream (Chilled)",
+        "amount": "50 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "糖",
+        "name_en": "Sugar",
+        "amount": "1 teaspoon",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      }
+    ],
+    "instructions_zh": "將糖加入熱咖啡中攪拌溶解，再加入愛爾蘭威士忌；輕輕浮上一層冷鮮奶油。",
+    "instructions_en": "Warm black coffee is poured into a preheated Irish coffee glass. Whiskey and at least one teaspoon of sugar is added and stirred until dissolved. Fresh thick chilled cream is carefully poured over the back of a spoon held just above the surface of the coffee. The layer of cream will float on the coffee without mixing. Plain sugar can be replaced with sugar syrup",
+    "glassware_zh": "愛爾蘭咖啡杯",
+    "glassware_en": "Irish coffee glass",
+    "garnish_zh": "無",
+    "garnish_en": "N/A",
+    "flavor_zh": "口感圓潤，帶有奶香、咖啡或可可調性。",
+    "flavor_en": "A rounded texture with creamy, coffee, or cocoa notes.",
+    "strength": "medium",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/irish-coffee/",
+    "artwork_color": "brown",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "約翰可林",
+    "English_Name": "John Collins",
+    "iba_category": "The unforgettables",
+    "recipe_ingredients": [
+      {
+        "name_zh": "琴酒",
+        "name_en": "Gin",
+        "amount": "45 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "檸檬汁",
+        "name_en": "Fresh Lemon Juice",
+        "amount": "30 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "簡單糖漿",
+        "name_en": "Simple Syrup",
+        "amount": "15 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "蘇打水",
+        "name_en": "Soda Water",
+        "amount": "60 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      }
+    ],
+    "instructions_zh": "將氣泡材料以外的材料與冰塊搖至冰鎮，濾入杯中後再加入氣泡材料。",
+    "instructions_en": "Pour all ingredients directly into highball filled with ice. Stir gently. NOTE: Use ‘Old Tom’ Gin for Tom Collins.",
+    "glassware_zh": "可林杯",
+    "glassware_en": "Collins glass",
+    "garnish_zh": "櫻桃、檸檬片",
+    "garnish_en": "Garnish with lemon slice and maraschino cherry.",
+    "flavor_zh": "果香與柑橘酸度突出，呈現清爽的酸甜平衡。",
+    "flavor_en": "Fruit and citrus acidity create a bright sweet-tart balance.",
+    "strength": "low",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/john-collins/",
+    "artwork_color": "amber",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "叢林之鳥",
+    "English_Name": "Jungle Bird",
+    "iba_category": "New Era",
+    "recipe_ingredients": [
+      {
+        "name_zh": "黑糖蜜蘭姆酒",
+        "name_en": "Blackstrap rum",
+        "amount": "45 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "金巴利",
+        "name_en": "Campari",
+        "amount": "22.5 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "liqueur"
+      },
+      {
+        "name_zh": "鳳梨汁",
+        "name_en": "Pineapple juice",
+        "amount": "45 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "萊姆汁",
+        "name_en": "Freshly Squeezed Lime juice",
+        "amount": "15 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "糖",
+        "name_en": "Demerara sugar syrup",
+        "amount": "15 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      }
+    ],
+    "instructions_zh": "將材料與冰塊放入雪克壺，搖至冰鎮後濾入杯中。",
+    "instructions_en": "Pour all ingredients into a shaker with ice and shake. Strain into a rocks glass filled with ice.",
+    "glassware_zh": "岩石杯",
+    "glassware_en": "Rocks glass",
+    "garnish_zh": "鳳梨",
+    "garnish_en": "Garnish with a pineapple wedge.",
+    "flavor_zh": "帶有草本與苦甜層次，尾韻乾爽。",
+    "flavor_en": "Herbal bittersweet layers lead to a dry finish.",
+    "strength": "low",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/jungle-bird/",
+    "artwork_color": "red",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "基爾",
+    "English_Name": "Kir",
+    "iba_category": "Contemporary Classics",
+    "recipe_ingredients": [
+      {
+        "name_zh": "葡萄酒",
+        "name_en": "Dry White Wine",
+        "amount": "90 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "alcohol"
+      },
+      {
+        "name_zh": "黑醋栗香甜酒",
+        "name_en": "Crème de Cassis",
+        "amount": "10 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "liqueur"
+      }
+    ],
+    "instructions_zh": "將材料依序倒入杯中；含氣泡的材料最後加入，輕輕混合。",
+    "instructions_en": "Pour Crème de Cassis into glass, top up with white wine. NOTE: Kir Royal – Use Champagne instead of white wine",
+    "glassware_zh": "白葡萄酒杯",
+    "glassware_en": "White wine glass",
+    "garnish_zh": "無",
+    "garnish_en": "N/A",
+    "flavor_zh": "以基酒香氣為主，呈現經典而平衡的酒感。",
+    "flavor_en": "The base spirit leads a classic, balanced profile.",
+    "strength": "medium",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/kir/",
+    "artwork_color": "amber",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "最後一語",
+    "English_Name": "Last Word",
+    "iba_category": "The unforgettables",
+    "recipe_ingredients": [
+      {
+        "name_zh": "琴酒",
+        "name_en": "Gin",
+        "amount": "22.5 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "夏翠絲香甜酒",
+        "name_en": "Green Chartreuse",
+        "amount": "22.5 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "liqueur"
+      },
+      {
+        "name_zh": "馬拉斯奇諾櫻桃酒",
+        "name_en": "Maraschino Luxardo",
+        "amount": "22.5 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "liqueur"
+      },
+      {
+        "name_zh": "萊姆汁",
+        "name_en": "Fresh Lime Juice",
+        "amount": "22.5 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      }
+    ],
+    "instructions_zh": "將材料與冰塊放入雪克壺，搖至冰鎮後濾入杯中。",
+    "instructions_en": "Add all ingredients into a cocktail shaker. Shake with ice and strain into a chilled cocktail glass.",
+    "glassware_zh": "雞尾酒杯",
+    "glassware_en": "Cocktail glass",
+    "garnish_zh": "無",
+    "garnish_en": "N/A",
+    "flavor_zh": "果香與柑橘酸度突出，呈現清爽的酸甜平衡。",
+    "flavor_en": "Fruit and citrus acidity create a bright sweet-tart balance.",
+    "strength": "low",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/last-word/",
+    "artwork_color": "green",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "檸檬滴馬丁尼",
+    "English_Name": "Lemon Drop Martini",
+    "iba_category": "Contemporary Classics",
+    "recipe_ingredients": [
+      {
+        "name_zh": "伏特加",
+        "name_en": "Vodka",
+        "amount": "30 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "橙皮香甜酒",
+        "name_en": "Triple Sec",
+        "amount": "20 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "liqueur"
+      },
+      {
+        "name_zh": "檸檬汁",
+        "name_en": "Fresh Squeezed Lemon Juice",
+        "amount": "15 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      }
+    ],
+    "instructions_zh": "將材料與冰塊放入雪克壺，搖至冰鎮後濾入杯中。",
+    "instructions_en": "Pour all ingredients into a shaker with ice. Shake well and strain into a chilled cocktail glass.",
+    "glassware_zh": "雞尾酒杯",
+    "glassware_en": "Cocktail glass",
+    "garnish_zh": "無",
+    "garnish_en": "N/A",
+    "flavor_zh": "果香與柑橘酸度突出，呈現清爽的酸甜平衡。",
+    "flavor_en": "Fruit and citrus acidity create a bright sweet-tart balance.",
+    "strength": "low",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/lemon-drop-martini/",
+    "artwork_color": "amber",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "長島冰茶",
+    "English_Name": "Long Island Iced Tea",
+    "iba_category": "Contemporary Classics",
+    "recipe_ingredients": [
+      {
+        "name_zh": "伏特加",
+        "name_en": "Vodka",
+        "amount": "15 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "龍舌蘭酒",
+        "name_en": "Tequila",
+        "amount": "15 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "白蘭姆酒",
+        "name_en": "White rum",
+        "amount": "15 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "琴酒",
+        "name_en": "Gin",
+        "amount": "15 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "君度橙酒",
+        "name_en": "Cointreau",
+        "amount": "15 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "liqueur"
+      },
+      {
+        "name_zh": "檸檬汁",
+        "name_en": "Lemon juice",
+        "amount": "25 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "簡單糖漿",
+        "name_en": "Simple syrup",
+        "amount": "30 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "可樂",
+        "name_en": "Cola",
+        "amount": "Top with",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      }
+    ],
+    "instructions_zh": "將可樂以外的材料與冰塊搖勻，倒入裝有冰塊的高球杯，再以可樂補滿。",
+    "instructions_en": "Add all ingredients into highball glass filled with ice. Stir gently.",
+    "glassware_zh": "高球杯",
+    "glassware_en": "Highball glass",
+    "garnish_zh": "檸檬片",
+    "garnish_en": "Garnish with lemon slice (Optional).",
+    "flavor_zh": "果香與柑橘酸度突出，呈現清爽的酸甜平衡。",
+    "flavor_en": "Fruit and citrus acidity create a bright sweet-tart balance.",
+    "strength": "medium",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/long-island-iced-tea/",
+    "artwork_color": "brown",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "邁泰",
+    "English_Name": "Mai Tai",
+    "iba_category": "Contemporary Classics",
+    "recipe_ingredients": [
+      {
+        "name_zh": "牙買加琥珀蘭姆酒",
+        "name_en": "Amber Jamaican Rum",
+        "amount": "30 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "馬丁尼克糖蜜蘭姆酒",
+        "name_en": "Martinique Molasses Rhum*",
+        "amount": "30 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "庫拉索酒",
+        "name_en": "Orange Curacao",
+        "amount": "15 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "liqueur"
+      },
+      {
+        "name_zh": "杏仁糖漿",
+        "name_en": "Orgeat Syrup (Almond)",
+        "amount": "15 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "萊姆汁",
+        "name_en": "Fresh Squeezed Lime Juice",
+        "amount": "30 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "簡單糖漿",
+        "name_en": "Simple Syrup",
+        "amount": "7.5 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      }
+    ],
+    "instructions_zh": "將材料與冰塊放入雪克壺，搖至冰鎮後濾入杯中。",
+    "instructions_en": "Add all ingredients into a shaker with ice. Shake and pour into a double rocks glass or an highball glass. * The Martinique molasses rum used by Trader Vic was not an Agricole Rhum but a type of “rummy” from molasses.",
+    "glassware_zh": "高球杯",
+    "glassware_en": "Highball glass",
+    "garnish_zh": "鳳梨、薄荷葉、萊姆",
+    "garnish_en": "Garnish with pineapple spear, mint leaves and lime peel.",
+    "flavor_zh": "果香與柑橘酸度突出，呈現清爽的酸甜平衡。",
+    "flavor_en": "Fruit and citrus acidity create a bright sweet-tart balance.",
+    "strength": "medium",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/mai-tai/",
+    "artwork_color": "amber",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "曼哈頓",
+    "English_Name": "Manhattan",
+    "iba_category": "The unforgettables",
+    "recipe_ingredients": [
+      {
+        "name_zh": "黑麥威士忌",
+        "name_en": "Rye Whiskey",
+        "amount": "50 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "苦艾酒",
+        "name_en": "Sweet Red Vermouth",
+        "amount": "20 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "alcohol"
+      },
+      {
+        "name_zh": "安格式苦精",
+        "name_en": "dash Angostura Bitters",
+        "amount": "1",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "alcohol"
+      }
+    ],
+    "instructions_zh": "將材料與冰塊放入調酒杯攪拌冰鎮，再濾入杯中。",
+    "instructions_en": "Pour all ingredients into mixing glass with ice cubes. Stir well. Strain into chilled cocktail glass.",
+    "glassware_zh": "雞尾酒杯",
+    "glassware_en": "Cocktail glass",
+    "garnish_zh": "雞尾酒櫻桃",
+    "garnish_en": "Garnish with cocktail cherry.",
+    "flavor_zh": "帶有草本與苦甜層次，尾韻乾爽。",
+    "flavor_en": "Herbal bittersweet layers lead to a dry finish.",
+    "strength": "medium",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/manhattan/",
+    "artwork_color": "amber",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "瑪格麗特",
+    "English_Name": "Margarita",
+    "iba_category": "Contemporary Classics",
+    "recipe_ingredients": [
+      {
+        "name_zh": "100% 龍舌蘭酒",
+        "name_en": "Tequila 100% Agave",
+        "amount": "50 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "橙皮香甜酒",
+        "name_en": "Triple Sec",
+        "amount": "20 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "liqueur"
+      },
+      {
+        "name_zh": "萊姆汁",
+        "name_en": "Freshly Squeezed Lime Juice",
+        "amount": "15 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      }
+    ],
+    "instructions_zh": "將材料與冰塊放入雪克壺，搖至冰鎮後濾入杯中。",
+    "instructions_en": "Add all ingredients into a shaker with ice. Shake and strain into a chilled cocktail glass.",
+    "glassware_zh": "雞尾酒杯",
+    "glassware_en": "Cocktail glass",
+    "garnish_zh": "鹽口杯緣",
+    "garnish_en": "Half salt rim (Optional).",
+    "flavor_zh": "果香與柑橘酸度突出，呈現清爽的酸甜平衡。",
+    "flavor_en": "Fruit and citrus acidity create a bright sweet-tart balance.",
+    "strength": "low",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/margarita/",
+    "artwork_color": "amber",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "馬丁尼茲",
+    "English_Name": "Martinez",
+    "iba_category": "The unforgettables",
+    "recipe_ingredients": [
+      {
+        "name_zh": "倫敦乾琴酒",
+        "name_en": "London Dry Gin",
+        "amount": "45 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "苦艾酒",
+        "name_en": "Sweet Red Vermouth",
+        "amount": "45 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "alcohol"
+      },
+      {
+        "name_zh": "馬拉斯奇諾櫻桃酒",
+        "name_en": "Maraschino Luxardo",
+        "amount": "1 Bar Spoon",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "liqueur"
+      },
+      {
+        "name_zh": "橙味苦精",
+        "name_en": "Orange Bitters",
+        "amount": "2 Dashes",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "alcohol"
+      }
+    ],
+    "instructions_zh": "將材料與冰塊放入調酒杯攪拌冰鎮，再濾入杯中。",
+    "instructions_en": "Pour all ingredients into mixing glass with ice cubes. Stir well. Strain into chilled cocktail glass.",
+    "glassware_zh": "雞尾酒杯",
+    "glassware_en": "Cocktail glass",
+    "garnish_zh": "檸檬皮",
+    "garnish_en": "Lemon zest.",
+    "flavor_zh": "帶有草本與苦甜層次，尾韻乾爽。",
+    "flavor_en": "Herbal bittersweet layers lead to a dry finish.",
+    "strength": "medium",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/martinez/",
+    "artwork_color": "amber",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "瑪麗·畢克馥",
+    "English_Name": "Mary Pickford",
+    "iba_category": "The unforgettables",
+    "recipe_ingredients": [
+      {
+        "name_zh": "白蘭姆酒",
+        "name_en": "White Rum",
+        "amount": "45 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "鳳梨汁",
+        "name_en": "Fresh Pineapple Juice",
+        "amount": "45 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "馬拉斯奇諾櫻桃酒",
+        "name_en": "Maraschino Luxardo",
+        "amount": "7.5 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "liqueur"
+      },
+      {
+        "name_zh": "石榴糖漿",
+        "name_en": "Grenadine Syrup",
+        "amount": "5 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      }
+    ],
+    "instructions_zh": "將材料與冰塊放入雪克壺，搖至冰鎮後濾入杯中。",
+    "instructions_en": "Pour all ingredients into cocktail shaker, shake well with ice, strain into chilled cocktail glass.",
+    "glassware_zh": "雞尾酒杯",
+    "glassware_en": "Cocktail glass",
+    "garnish_zh": "無",
+    "garnish_en": "N/A",
+    "flavor_zh": "果香與柑橘酸度突出，呈現清爽的酸甜平衡。",
+    "flavor_en": "Fruit and citrus acidity create a bright sweet-tart balance.",
+    "strength": "low",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/mary-pickford/",
+    "artwork_color": "red",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "含羞草",
+    "English_Name": "Mimosa",
+    "iba_category": "Contemporary Classics",
+    "recipe_ingredients": [
+      {
+        "name_zh": "柳橙汁",
+        "name_en": "Freshly Squeezed Orange Juice",
+        "amount": "75 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "普羅賽克氣泡酒",
+        "name_en": "Prosecco",
+        "amount": "75 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "alcohol"
+      }
+    ],
+    "instructions_zh": "將柳橙汁倒入香檳杯，再緩緩加入普羅賽克氣泡酒並輕輕混合。",
+    "instructions_en": "Pour orange juice into flute glass and gently pour the sparkling wine. Stir gently. NOTE: Also known as Buck’s Fizz.",
+    "glassware_zh": "香檳笛型杯",
+    "glassware_en": "Champagne flute",
+    "garnish_zh": "柳橙皮捲",
+    "garnish_en": "Garnish with orange twist (optional).",
+    "flavor_zh": "果香與柑橘酸度突出，呈現清爽的酸甜平衡。",
+    "flavor_en": "Fruit and citrus acidity create a bright sweet-tart balance.",
+    "strength": "low",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/mimosa/",
+    "artwork_color": "orange",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "薄荷茱莉普",
+    "English_Name": "Mint Julep",
+    "iba_category": "Contemporary Classics",
+    "recipe_ingredients": [
+      {
+        "name_zh": "波本威士忌",
+        "name_en": "Bourbon Whiskey",
+        "amount": "60 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "薄荷",
+        "name_en": "fresh Mint sprigs",
+        "amount": "4",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "糖",
+        "name_en": "Powdered Sugar",
+        "amount": "1 tsp",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "水",
+        "name_en": "Water",
+        "amount": "2 tsp",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      }
+    ],
+    "instructions_zh": "在茱莉普杯中輕壓薄荷、糖與水，加入波本威士忌和碎冰，攪拌冰鎮。",
+    "instructions_en": "In Julep Stainless Steel Cup gently muddle the mint with sugar and water. Fill the glass with cracked ice, add the Bourbon and stir well until the cup frosts.",
+    "glassware_zh": "茱莉普杯",
+    "glassware_en": "Julep cup",
+    "garnish_zh": "薄荷葉",
+    "garnish_en": "Garnish with a mint sprig.",
+    "flavor_zh": "草本或辛香氣息鮮明，口感清新。",
+    "flavor_en": "Fresh herbal or spicy notes give it a lively profile.",
+    "strength": "medium",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/mint-julep/",
+    "artwork_color": "green",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "傳教士的墜落",
+    "English_Name": "Missionary's Downfall",
+    "iba_category": "New Era",
+    "recipe_ingredients": [
+      {
+        "name_zh": "白蘭姆酒",
+        "name_en": "White rum",
+        "amount": "30 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "蜜桃白蘭地",
+        "name_en": "Peach Brandy",
+        "amount": "15 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "liqueur"
+      },
+      {
+        "name_zh": "萊姆汁",
+        "name_en": "Fresh lime juice",
+        "amount": "15 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "蜂蜜",
+        "name_en": "Honey Mix",
+        "amount": "30 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "薄荷",
+        "name_en": "Mint Leaves",
+        "amount": "10 pcs",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "鳳梨",
+        "name_en": "Pineapple Chunks",
+        "amount": "3 to 4 pcs",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      }
+    ],
+    "instructions_zh": "將材料與冰塊攪打至均勻，倒入杯中。",
+    "instructions_en": "Blend all the ingredients with half cup of crushed ice. Serve it in a Coppa grande.",
+    "glassware_zh": "提基杯",
+    "glassware_en": "Tiki mug",
+    "garnish_zh": "鳳梨、薄荷葉",
+    "garnish_en": "Garnish with mint sprig and a slice of pineapple.",
+    "flavor_zh": "草本或辛香氣息鮮明，口感清新。",
+    "flavor_en": "Fresh herbal or spicy notes give it a lively profile.",
+    "strength": "low",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/missionarys-downfall/",
+    "artwork_color": "green",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "莫希托",
+    "English_Name": "Mojito",
+    "iba_category": "Contemporary Classics",
+    "recipe_ingredients": [
+      {
+        "name_zh": "古巴白蘭姆酒",
+        "name_en": "White Cuban Ron",
+        "amount": "45 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "萊姆汁",
+        "name_en": "Fresh Lime Juice",
+        "amount": "20 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "薄荷",
+        "name_en": "Mint Sprigs",
+        "amount": "6 pcs",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "糖",
+        "name_en": "White Cane Sugar",
+        "amount": "2 tsp",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "蘇打水",
+        "name_en": "Soda Water",
+        "amount": "Top up",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      }
+    ],
+    "instructions_zh": "將薄荷、糖與萊姆汁混合，加入少量蘇打水並以冰塊裝滿高球杯；倒入白古巴蘭姆酒，再以蘇打水補滿，輕輕攪拌。",
+    "instructions_en": "Mix mint springs with sugar and lime juice. Add splash of soda water and fill the glass with ice. Pour the rum and top with soda water. Light stir to involve all ingredients.",
+    "glassware_zh": "高球杯",
+    "glassware_en": "Highball glass",
+    "garnish_zh": "薄荷葉、萊姆",
+    "garnish_en": "Garnish with sprigs of mint and slice of lime.",
+    "flavor_zh": "草本或辛香氣息鮮明，口感清新。",
+    "flavor_en": "Fresh herbal or spicy notes give it a lively profile.",
+    "strength": "low",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/mojito/",
+    "artwork_color": "green",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "猴腺",
+    "English_Name": "Monkey Gland",
+    "iba_category": "The unforgettables",
+    "recipe_ingredients": [
+      {
+        "name_zh": "乾琴酒",
+        "name_en": "Dry Gin",
+        "amount": "45 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "柳橙汁",
+        "name_en": "Fresh Orange Juice",
+        "amount": "45 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "苦艾酒",
+        "name_en": "Absinthe",
+        "amount": "1 Tablespoon",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "alcohol"
+      },
+      {
+        "name_zh": "石榴糖漿",
+        "name_en": "Grenadine Syrup",
+        "amount": "1 Tablespoon",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      }
+    ],
+    "instructions_zh": "將材料與冰塊放入雪克壺，搖至冰鎮後濾入杯中。",
+    "instructions_en": "Pour all ingredients into cocktail shaker, shake well with ice, strain into chilled cocktail glass.",
+    "glassware_zh": "雞尾酒杯",
+    "glassware_en": "Cocktail glass",
+    "garnish_zh": "無",
+    "garnish_en": "N/A",
+    "flavor_zh": "果香與柑橘酸度突出，呈現清爽的酸甜平衡。",
+    "flavor_en": "Fruit and citrus acidity create a bright sweet-tart balance.",
+    "strength": "low",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/monkey-gland/",
+    "artwork_color": "red",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "莫斯科騾子",
+    "English_Name": "Moscow Mule",
+    "iba_category": "Contemporary Classics",
+    "recipe_ingredients": [
+      {
+        "name_zh": "斯米諾伏特加",
+        "name_en": "Smirnoff Vodka",
+        "amount": "45 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "薑汁啤酒",
+        "name_en": "Ginger Beer",
+        "amount": "120 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "萊姆汁",
+        "name_en": "Fresh lime juice",
+        "amount": "10 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      }
+    ],
+    "instructions_zh": "在裝有冰塊的杯中加入伏特加與萊姆汁，以薑汁啤酒補滿並輕拌。",
+    "instructions_en": "In an Mule Cup or rocks glass, combine the vodka and ginger beer. Add lime juice and gently stir to involve all ingredients.",
+    "glassware_zh": "岩石杯",
+    "glassware_en": "Rocks glass",
+    "garnish_zh": "萊姆片",
+    "garnish_en": "Garnish with a lime slice.",
+    "flavor_zh": "草本或辛香氣息鮮明，口感清新。",
+    "flavor_en": "Fresh herbal or spicy notes give it a lively profile.",
+    "strength": "low",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/moscow-mule/",
+    "artwork_color": "amber",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "赤裸而聞名",
+    "English_Name": "Naked And Famous",
+    "iba_category": "New Era",
+    "recipe_ingredients": [
+      {
+        "name_zh": "梅斯卡爾酒",
+        "name_en": "Mezcal",
+        "amount": "22.5 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "夏翠絲香甜酒",
+        "name_en": "Yellow Chartreuse",
+        "amount": "22.5 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "liqueur"
+      },
+      {
+        "name_zh": "阿佩羅",
+        "name_en": "Aperol",
+        "amount": "22.5 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "liqueur"
+      },
+      {
+        "name_zh": "萊姆汁",
+        "name_en": "Fresh Lime Juice",
+        "amount": "22.5 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      }
+    ],
+    "instructions_zh": "將材料與冰塊放入雪克壺，搖至冰鎮後濾入杯中。",
+    "instructions_en": "Pour all ingredients into cocktail shaker, shake well with ice, strain into chilled cocktail glass.",
+    "glassware_zh": "雞尾酒杯",
+    "glassware_en": "Cocktail glass",
+    "garnish_zh": "無",
+    "garnish_en": "N/A",
+    "flavor_zh": "帶有草本與苦甜層次，尾韻乾爽。",
+    "flavor_en": "Herbal bittersweet layers lead to a dry finish.",
+    "strength": "low",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/naked-and-famous/",
+    "artwork_color": "green",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "內格羅尼",
+    "English_Name": "Negroni",
+    "iba_category": "The unforgettables",
+    "recipe_ingredients": [
+      {
+        "name_zh": "琴酒",
+        "name_en": "Gin",
+        "amount": "30 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "金巴利",
+        "name_en": "Bitter Campari",
+        "amount": "30 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "liqueur"
+      },
+      {
+        "name_zh": "苦艾酒",
+        "name_en": "Sweet Red Vermouth",
+        "amount": "30 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "alcohol"
+      }
+    ],
+    "instructions_zh": "將琴酒、金巴利與甜苦艾酒倒入裝有冰塊的古典杯中，輕輕攪拌。",
+    "instructions_en": "Pour all ingredients directly into chilled old fashioned glass filled with ice. Stir gently.",
+    "glassware_zh": "古典杯",
+    "glassware_en": "Old Fashioned glass",
+    "garnish_zh": "柳橙片",
+    "garnish_en": "Garnish with half orange slice.",
+    "flavor_zh": "帶有草本與苦甜層次，尾韻乾爽。",
+    "flavor_en": "Herbal bittersweet layers lead to a dry finish.",
+    "strength": "medium",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/negroni/",
+    "artwork_color": "red",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "紐約酸酒",
+    "English_Name": "New York Sour",
+    "iba_category": "New Era",
+    "recipe_ingredients": [
+      {
+        "name_zh": "黑麥威士忌",
+        "name_en": "Rye Whiskey or Bourbon",
+        "amount": "60 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "簡單糖漿",
+        "name_en": "Simple syrup",
+        "amount": "22.5 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "檸檬汁",
+        "name_en": "Fresh lemon juice",
+        "amount": "30 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "蛋白",
+        "name_en": "Egg White",
+        "amount": "Few Drops",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "葡萄酒",
+        "name_en": "Red wine (Shiraz or Malbech)",
+        "amount": "15 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "alcohol"
+      }
+    ],
+    "instructions_zh": "將材料與冰塊放入雪克壺充分搖勻；若加入蛋白，需更用力搖盪以打發並混合泡沫。",
+    "instructions_en": "Pour all ingredients into the shaker. Shake vigorously with ice. Strain into a chilled rocks glass filled with ice. Float the wine on top.",
+    "glassware_zh": "岩石杯",
+    "glassware_en": "Rocks glass",
+    "garnish_zh": "櫻桃、柳橙皮、檸檬",
+    "garnish_en": "Garnish with lemon or orange zest with cherry.",
+    "flavor_zh": "果香與柑橘酸度突出，呈現清爽的酸甜平衡。",
+    "flavor_en": "Fruit and citrus acidity create a bright sweet-tart balance.",
+    "strength": "low",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/new-york-sour/",
+    "artwork_color": "amber",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "老古巴",
+    "English_Name": "Old Cuban",
+    "iba_category": "New Era",
+    "recipe_ingredients": [
+      {
+        "name_zh": "薄荷",
+        "name_en": "Mint Leaves",
+        "amount": "6/8 pcs",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "熟成蘭姆酒",
+        "name_en": "Aged Rum",
+        "amount": "45 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "萊姆汁",
+        "name_en": "Fresh Lime Juice",
+        "amount": "22.5 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "簡單糖漿",
+        "name_en": "Simple Syrup",
+        "amount": "30 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "安格式苦精",
+        "name_en": "Angostura Bitters",
+        "amount": "2 Dashes",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "alcohol"
+      },
+      {
+        "name_zh": "香檳",
+        "name_en": "Brut Champagne or Prosecco",
+        "amount": "60 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "alcohol"
+      }
+    ],
+    "instructions_zh": "將氣泡材料以外的材料與冰塊搖至冰鎮，濾入杯中後再加入氣泡材料。",
+    "instructions_en": "Pour all ingredients into cocktail shaker except the wine, shake well with ice, strain into chilled elegant cocktail glass. Top up with the sparkling wine.",
+    "glassware_zh": "雞尾酒杯",
+    "glassware_en": "Cocktail glass",
+    "garnish_zh": "薄荷葉",
+    "garnish_en": "Garnish with mint springs.",
+    "flavor_zh": "帶有草本與苦甜層次，尾韻乾爽。",
+    "flavor_en": "Herbal bittersweet layers lead to a dry finish.",
+    "strength": "low",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/old-cuban/",
+    "artwork_color": "green",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "古典雞尾酒",
+    "English_Name": "Old Fashioned",
+    "iba_category": "The unforgettables",
+    "recipe_ingredients": [
+      {
+        "name_zh": "黑麥威士忌",
+        "name_en": "Bourbon or Rye Whiskey",
+        "amount": "45 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "糖",
+        "name_en": "Sugar Cube",
+        "amount": "1",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "安格式苦精",
+        "name_en": "Angostura Bitters",
+        "amount": "Few Dashes",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "alcohol"
+      },
+      {
+        "name_zh": "水",
+        "name_en": "Plain Water",
+        "amount": "Few Dashes",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      }
+    ],
+    "instructions_zh": "在古典杯中輕壓方糖、苦精與少量水，加入波本或黑麥威士忌及冰塊，攪拌冰鎮。不要濾出。",
+    "instructions_en": "Place sugar cube in old fashioned glass and saturate with bitter, add few dashes of plain water. Muddle until dissolved. Fill the glass with ice cubes and add whiskey. Stir gently.",
+    "glassware_zh": "古典杯",
+    "glassware_en": "Old Fashioned glass",
+    "garnish_zh": "雞尾酒櫻桃、柳橙片",
+    "garnish_en": "Garnish with orange slice or zest, and a cocktail cherry.",
+    "flavor_zh": "帶有草本與苦甜層次，尾韻乾爽。",
+    "flavor_en": "Herbal bittersweet layers lead to a dry finish.",
+    "strength": "medium",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/old-fashioned/",
+    "artwork_color": "amber",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "帕洛瑪",
+    "English_Name": "Paloma",
+    "iba_category": "New Era",
+    "recipe_ingredients": [
+      {
+        "name_zh": "100% 龍舌蘭酒",
+        "name_en": "100% Agave Tequila",
+        "amount": "50 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "萊姆",
+        "name_en": "Fresh lime",
+        "amount": "5 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "鹽",
+        "name_en": "Salt",
+        "amount": "A pinch",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "粉紅葡萄柚汽水",
+        "name_en": "Pink Grapefruit Soda",
+        "amount": "100 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      }
+    ],
+    "instructions_zh": "在高球杯中加入龍舌蘭酒、萊姆與鹽，放入冰塊後以葡萄柚汽水補滿並輕拌。",
+    "instructions_en": "Poor the tequila into a highball glass, squeeze the lime juice. Add ice and salt, fill up pink grapefruit soda. Stir gently.",
+    "glassware_zh": "高球杯",
+    "glassware_en": "Highball glass",
+    "garnish_zh": "萊姆",
+    "garnish_en": "Garnish with a slice of lime.",
+    "flavor_zh": "果香與柑橘酸度突出，呈現清爽的酸甜平衡。",
+    "flavor_en": "Fruit and citrus acidity create a bright sweet-tart balance.",
+    "strength": "low",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/paloma/",
+    "artwork_color": "amber",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "紙飛機",
+    "English_Name": "Paper Plane",
+    "iba_category": "New Era",
+    "recipe_ingredients": [
+      {
+        "name_zh": "波本威士忌",
+        "name_en": "Bourbon Whiskey",
+        "amount": "30 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "Nonino 苦味利口酒",
+        "name_en": "Amaro Nonino",
+        "amount": "30 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "liqueur"
+      },
+      {
+        "name_zh": "阿佩羅",
+        "name_en": "Aperol",
+        "amount": "30 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "liqueur"
+      },
+      {
+        "name_zh": "檸檬汁",
+        "name_en": "Fresh Lemon Juice",
+        "amount": "30 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      }
+    ],
+    "instructions_zh": "將材料與冰塊放入雪克壺，搖至冰鎮後濾入杯中。",
+    "instructions_en": "Pour all ingredients into cocktail shaker, shake well with ice, strain into chilled cocktail glass.",
+    "glassware_zh": "雞尾酒杯",
+    "glassware_en": "Cocktail glass",
+    "garnish_zh": "無",
+    "garnish_en": "N/A",
+    "flavor_zh": "帶有草本與苦甜層次，尾韻乾爽。",
+    "flavor_en": "Herbal bittersweet layers lead to a dry finish.",
+    "strength": "low",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/paper-plane/",
+    "artwork_color": "amber",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "天堂",
+    "English_Name": "Paradise",
+    "iba_category": "The unforgettables",
+    "recipe_ingredients": [
+      {
+        "name_zh": "琴酒",
+        "name_en": "Gin",
+        "amount": "30 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "杏桃白蘭地",
+        "name_en": "Apricot Brandy",
+        "amount": "20 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "liqueur"
+      },
+      {
+        "name_zh": "柳橙汁",
+        "name_en": "Fresh Orange Juice",
+        "amount": "15 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      }
+    ],
+    "instructions_zh": "將材料與冰塊放入雪克壺，搖至冰鎮後濾入杯中。",
+    "instructions_en": "Pour all ingredients into cocktail shaker, shake well with ice, strain into chilled cocktail glass.",
+    "glassware_zh": "雞尾酒杯",
+    "glassware_en": "Cocktail glass",
+    "garnish_zh": "無",
+    "garnish_en": "N/A",
+    "flavor_zh": "果香與柑橘酸度突出，呈現清爽的酸甜平衡。",
+    "flavor_en": "Fruit and citrus acidity create a bright sweet-tart balance.",
+    "strength": "low",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/paradise/",
+    "artwork_color": "orange",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "盤尼西林",
+    "English_Name": "Penicillin",
+    "iba_category": "New Era",
+    "recipe_ingredients": [
+      {
+        "name_zh": "蘇格蘭威士忌",
+        "name_en": "Blended scotch whisky",
+        "amount": "60 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "拉加維林威士忌",
+        "name_en": "Lagavulin 16y",
+        "amount": "7.5 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "檸檬汁",
+        "name_en": "Fresh lemon juice",
+        "amount": "22.5 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "蜂蜜糖漿",
+        "name_en": "Honey syrup",
+        "amount": "22.5 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "新鮮薑",
+        "name_en": "Fresh ginger",
+        "amount": "2-3 quarter",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      }
+    ],
+    "instructions_zh": "先輕壓香草或水果釋放香氣，再加入其餘材料與冰塊搖勻，濾入杯中。",
+    "instructions_en": "Muddle fresh ginger in a shaker and add the remaining ingredients except for the Islay single malt whisky. Fill the shaker with ice and shake. Fine train into a chilled Old Fashioned glass with ice. Float the single malt whisky on top.",
+    "glassware_zh": "古典杯",
+    "glassware_en": "Old Fashioned glass",
+    "garnish_zh": "薑片",
+    "garnish_en": "Garnish with candied ginger slices.",
+    "flavor_zh": "草本或辛香氣息鮮明，口感清新。",
+    "flavor_en": "Fresh herbal or spicy notes give it a lively profile.",
+    "strength": "low",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/penicillin/",
+    "artwork_color": "amber",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "鳳梨可樂達",
+    "English_Name": "Piña Colada",
+    "iba_category": "Contemporary Classics",
+    "recipe_ingredients": [
+      {
+        "name_zh": "白蘭姆酒",
+        "name_en": "White Rum",
+        "amount": "50 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "鮮奶油",
+        "name_en": "Coconut Cream",
+        "amount": "30 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "鳳梨汁",
+        "name_en": "Fresh Pineapple Juice",
+        "amount": "50 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      }
+    ],
+    "instructions_zh": "將材料與冰塊攪打至均勻，倒入杯中。",
+    "instructions_en": "Blend all the ingredients with ice in a electric blender, pour into a large glass and serve with straws. Note: Historically a few drops of fresh lime juice was added to taste. 4 slices of fresh pineapple can be used instead of juice",
+    "glassware_zh": "颶風杯",
+    "glassware_en": "Hurricane glass",
+    "garnish_zh": "雞尾酒櫻桃、鳳梨",
+    "garnish_en": "Garnish with a slice of pineapple with a cocktail cherry.",
+    "flavor_zh": "口感圓潤，帶有奶香、咖啡或可可調性。",
+    "flavor_en": "A rounded texture with creamy, coffee, or cocoa notes.",
+    "strength": "low",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/pina-colada/",
+    "artwork_color": "cream",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "皮斯可潘趣",
+    "English_Name": "Pisco Punch",
+    "iba_category": "New Era",
+    "recipe_ingredients": [
+      {
+        "name_zh": "皮斯可",
+        "name_en": "Pisco",
+        "amount": "60 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "鳳梨汁",
+        "name_en": "Fresh Pineapple Juice",
+        "amount": "22.5 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "簡單糖漿",
+        "name_en": "Simple Syrup",
+        "amount": "15 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "檸檬汁",
+        "name_en": "Fresh Lemon Juice",
+        "amount": "15 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "葡萄酒",
+        "name_en": "Dry White Wine",
+        "amount": "30 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "alcohol"
+      },
+      {
+        "name_zh": "丁香",
+        "name_en": "Cloves",
+        "amount": "3 pcs",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      }
+    ],
+    "instructions_zh": "將材料與冰塊放入雪克壺，搖至冰鎮後濾入杯中。",
+    "instructions_en": "Gentle mash the simple syrup with the cloves, add the remaining ingredients except the wine. Shake vigorously and double strain into a large goblet. Add the wine on top and gently stir.",
+    "glassware_zh": "高腳杯",
+    "glassware_en": "Goblet",
+    "garnish_zh": "無",
+    "garnish_en": "N/A",
+    "flavor_zh": "果香與柑橘酸度突出，呈現清爽的酸甜平衡。",
+    "flavor_en": "Fruit and citrus acidity create a bright sweet-tart balance.",
+    "strength": "low",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/pisco-punch/",
+    "artwork_color": "orange",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "皮斯可酸酒",
+    "English_Name": "Pisco Sour",
+    "iba_category": "Contemporary Classics",
+    "recipe_ingredients": [
+      {
+        "name_zh": "皮斯可",
+        "name_en": "Pisco",
+        "amount": "60 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "檸檬汁",
+        "name_en": "Fresh Lemon Juice",
+        "amount": "30 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "簡單糖漿",
+        "name_en": "Simple Syrup",
+        "amount": "20 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "蛋白",
+        "name_en": "Raw whole Egg White",
+        "amount": "1",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      }
+    ],
+    "instructions_zh": "將材料與冰塊放入雪克壺充分搖勻；若加入蛋白，需更用力搖盪以打發並混合泡沫。",
+    "instructions_en": "Add all ingredients into a shaker with ice. Shake and strain into a chilled goblet glass.",
+    "glassware_zh": "高腳杯",
+    "glassware_en": "Goblet",
+    "garnish_zh": "依酒譜裝飾",
+    "garnish_en": "Few dashes of Amargo bitters on top as an aromatic garnish.",
+    "flavor_zh": "果香與柑橘酸度突出，呈現清爽的酸甜平衡。",
+    "flavor_en": "Fruit and citrus acidity create a bright sweet-tart balance.",
+    "strength": "low",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/pisco-sour/",
+    "artwork_color": "amber",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "種植園潘趣",
+    "English_Name": "Planter's Punch",
+    "iba_category": "The unforgettables",
+    "recipe_ingredients": [
+      {
+        "name_zh": "牙買加蘭姆酒",
+        "name_en": "Jamaican Rum",
+        "amount": "45 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "萊姆汁",
+        "name_en": "Lime Juice",
+        "amount": "15 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "糖",
+        "name_en": "Sugar Cane Juice",
+        "amount": "30 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      }
+    ],
+    "instructions_zh": "將材料依序倒入杯中；含氣泡的材料最後加入，輕輕混合。",
+    "instructions_en": "Pour all ingredients directly in a small tumbler or a typical terracotta glass. NOTE: Add dilution up to taste, it can be given by water, ice or fresh juices.",
+    "glassware_zh": "平底杯",
+    "glassware_en": "Tumbler",
+    "garnish_zh": "柳橙皮",
+    "garnish_en": "Garnish with orange zest.",
+    "flavor_zh": "果香與柑橘酸度突出，呈現清爽的酸甜平衡。",
+    "flavor_en": "Fruit and citrus acidity create a bright sweet-tart balance.",
+    "strength": "low",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/planters-punch/",
+    "artwork_color": "amber",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "性感明星馬丁尼",
+    "English_Name": "Porn Star Martini",
+    "iba_category": "New Era",
+    "recipe_ingredients": [
+      {
+        "name_zh": "香草伏特加",
+        "name_en": "Vanilla Vodka",
+        "amount": "50 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "百香果",
+        "name_en": "Passion Fruit Liqueur",
+        "amount": "20 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "liqueur"
+      },
+      {
+        "name_zh": "百香果",
+        "name_en": "Passion Fruit Puree",
+        "amount": "50 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "糖",
+        "name_en": "Vanilla Sugar",
+        "amount": "2 Bar Spoons",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "香檳",
+        "name_en": "Champagne to serve on the side",
+        "amount": "50 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "alcohol"
+      }
+    ],
+    "instructions_zh": "將氣泡材料以外的材料與冰塊搖至冰鎮，濾入杯中後再加入氣泡材料。",
+    "instructions_en": "Pour all ingredients into cocktail shaker, shake well with ice, double strain into a large chilled cocktail glass. Accompany with a shot of champagne.",
+    "glassware_zh": "雞尾酒杯",
+    "glassware_en": "Cocktail glass",
+    "garnish_zh": "百香果",
+    "garnish_en": "Garnish with passion fruit cup and sugar.",
+    "flavor_zh": "果香與柑橘酸度突出，呈現清爽的酸甜平衡。",
+    "flavor_en": "Fruit and citrus acidity create a bright sweet-tart balance.",
+    "strength": "low",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/porn-star-martini/",
+    "artwork_color": "orange",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "波特翻轉",
+    "English_Name": "Porto Flip",
+    "iba_category": "The unforgettables",
+    "recipe_ingredients": [
+      {
+        "name_zh": "白蘭地",
+        "name_en": "Brandy",
+        "amount": "15 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "葡萄酒",
+        "name_en": "Red Tawny Port Wine",
+        "amount": "45 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "alcohol"
+      },
+      {
+        "name_zh": "蛋黃",
+        "name_en": "Egg Yolk",
+        "amount": "10 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      }
+    ],
+    "instructions_zh": "將材料與冰塊放入雪克壺，搖至冰鎮後濾入杯中。",
+    "instructions_en": "Pour all ingredients into cocktail shaker, shake well with ice, strain into chilled cocktail glass.",
+    "glassware_zh": "雞尾酒杯",
+    "glassware_en": "Cocktail glass",
+    "garnish_zh": "肉豆蔻粉",
+    "garnish_en": "Sprinkle with fresh ground nutmeg.",
+    "flavor_zh": "以基酒香氣為主，呈現經典而平衡的酒感。",
+    "flavor_en": "The base spirit leads a classic, balanced profile.",
+    "strength": "medium",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/porto-flip/",
+    "artwork_color": "cream",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "公雞尾",
+    "English_Name": "Rabo De Galo",
+    "iba_category": "Contemporary Classics",
+    "recipe_ingredients": [
+      {
+        "name_zh": "卡莎薩酒",
+        "name_en": "Cachaca",
+        "amount": "60 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "苦艾酒",
+        "name_en": "Sweet Vermouth Cinzano Rosso",
+        "amount": "20 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "alcohol"
+      },
+      {
+        "name_zh": "奇拿苦酒",
+        "name_en": "Cynar",
+        "amount": "15 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "liqueur"
+      },
+      {
+        "name_zh": "安格式苦精",
+        "name_en": "Angostura (Optional)",
+        "amount": "2 Drops",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      }
+    ],
+    "instructions_zh": "將材料倒入裝有冰塊的杯中，輕輕攪拌混合。",
+    "instructions_en": "Combine all the ingredients into a rocks glass, add ice and stir briefly.",
+    "glassware_zh": "岩石杯",
+    "glassware_en": "Rocks glass",
+    "garnish_zh": "柳橙皮捲",
+    "garnish_en": "Garnish with a orange twist.",
+    "flavor_zh": "帶有草本與苦甜層次，尾韻乾爽。",
+    "flavor_en": "Herbal bittersweet layers lead to a dry finish.",
+    "strength": "medium",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/rabo-de-galo/",
+    "artwork_color": "amber",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "拉莫斯琴費士",
+    "English_Name": "Ramos Fizz",
+    "iba_category": "The unforgettables",
+    "recipe_ingredients": [
+      {
+        "name_zh": "琴酒",
+        "name_en": "Gin",
+        "amount": "45 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "萊姆汁",
+        "name_en": "Fresh Lime Juice",
+        "amount": "15 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "檸檬汁",
+        "name_en": "Fresh Lemon Juice",
+        "amount": "15 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "糖",
+        "name_en": "Sugar Syrup",
+        "amount": "30 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "鮮奶油",
+        "name_en": "Cream",
+        "amount": "60 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "蛋白",
+        "name_en": "Egg white",
+        "amount": "30ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "柳橙",
+        "name_en": "Orange Flower Water",
+        "amount": "3 Dashes",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "香草精",
+        "name_en": "Vanilla Extract",
+        "amount": "2 Drops",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "蘇打水",
+        "name_en": "Soda Water",
+        "amount": "Top up",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      }
+    ],
+    "instructions_zh": "除蘇打水外的材料加冰搖盪約兩分鐘並雙重過濾；將酒液倒回雪克壺，不加冰再用力搖約一分鐘。濾入高球杯後補上蘇打水。",
+    "instructions_en": "Pour all ingredients except soda water in a cocktail shaker with ice. Shake for two minutes, double strain in a glass, pour the drink back in the shaker and hard shake without ice for one minute. Strain into a highball glass, top up with soda. NOTE: The drink was invented by Henry Ramos in 1888, at his bar Meyer’s Table d’Hôtel Internationale in New Orleans. The Ramos Fizz was originally shaken for 12 minutes by a crew of 30 bartenders who passed the shaker from one to another.",
+    "glassware_zh": "高球杯",
+    "glassware_en": "Highball glass",
+    "garnish_zh": "無",
+    "garnish_en": "N/A",
+    "flavor_zh": "口感圓潤，帶有奶香、咖啡或可可調性。",
+    "flavor_en": "A rounded texture with creamy, coffee, or cocoa notes.",
+    "strength": "low",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/ramos-fizz/",
+    "artwork_color": "cream",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "緬因州的回憶",
+    "English_Name": "Remember The Maine",
+    "iba_category": "The unforgettables",
+    "recipe_ingredients": [
+      {
+        "name_zh": "黑麥威士忌",
+        "name_en": "Rye Whiskey",
+        "amount": "60 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "苦艾酒",
+        "name_en": "Sweet Vermouth",
+        "amount": "22.5 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "alcohol"
+      },
+      {
+        "name_zh": "櫻桃香甜酒",
+        "name_en": "Cherry Brandy Luxardo",
+        "amount": "15 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "liqueur"
+      },
+      {
+        "name_zh": "苦艾酒",
+        "name_en": "Absinthe",
+        "amount": "7.5 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "alcohol"
+      }
+    ],
+    "instructions_zh": "將材料與冰塊放入調酒杯攪拌冰鎮，再濾入杯中。",
+    "instructions_en": "Pour the absinthe into a coupe glass and swirl to completely coat the inside. Discard the absinthe and set the glass aside. Add the other ingredients to a mixing glass and fill it 3/4 full with ice. Stir until chilled, then strain into the glass rinsed with the absinthe.",
+    "glassware_zh": "庫普杯",
+    "glassware_en": "Coupe glass",
+    "garnish_zh": "檸檬皮",
+    "garnish_en": "Garnish with lemon zest.",
+    "flavor_zh": "帶有草本與苦甜層次，尾韻乾爽。",
+    "flavor_en": "Herbal bittersweet layers lead to a dry finish.",
+    "strength": "medium",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/remember-the-maine/",
+    "artwork_color": "amber",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "俄羅斯春日潘趣",
+    "English_Name": "Russian Spring Punch",
+    "iba_category": "New Era",
+    "recipe_ingredients": [
+      {
+        "name_zh": "伏特加",
+        "name_en": "Vodka",
+        "amount": "25 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "檸檬汁",
+        "name_en": "Fresh Lemon Juice",
+        "amount": "25 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "黑醋栗香甜酒",
+        "name_en": "Creme de Cassis",
+        "amount": "15 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "liqueur"
+      },
+      {
+        "name_zh": "糖",
+        "name_en": "Sugar Syrup",
+        "amount": "10 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "葡萄酒",
+        "name_en": "Sparkling Wine",
+        "amount": "Top up with",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "alcohol"
+      }
+    ],
+    "instructions_zh": "將材料與冰塊放入雪克壺，搖至冰鎮後濾入杯中。",
+    "instructions_en": "Pour all ingredients into cocktail shaker except the sparkling wine, shake well with ice, strain into chilled tall tumbler glass filled with ice and top up with sparkling wine.",
+    "glassware_zh": "平底杯",
+    "glassware_en": "Tumbler",
+    "garnish_zh": "檸檬片、黑莓、莓果",
+    "garnish_en": "Garnish with blackberries and optionally a lemon slice as well.",
+    "flavor_zh": "果香與柑橘酸度突出，呈現清爽的酸甜平衡。",
+    "flavor_en": "Fruit and citrus acidity create a bright sweet-tart balance.",
+    "strength": "low",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/russian-spring-punch/",
+    "artwork_color": "amber",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "鏽釘",
+    "English_Name": "Rusty Nail",
+    "iba_category": "The unforgettables",
+    "recipe_ingredients": [
+      {
+        "name_zh": "蘇格蘭威士忌",
+        "name_en": "Scotch Whisky",
+        "amount": "45 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "德蘭布依香甜酒",
+        "name_en": "Drambuie",
+        "amount": "25 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "liqueur"
+      }
+    ],
+    "instructions_zh": "將蘇格蘭威士忌與德蘭布依香甜酒倒入裝有冰塊的古典杯中，輕輕攪拌。",
+    "instructions_en": "Pour all ingredients directly into an old fashioned glass filled with ice. Stir gently.",
+    "glassware_zh": "古典杯",
+    "glassware_en": "Old Fashioned glass",
+    "garnish_zh": "檸檬皮",
+    "garnish_en": "Garnish with lemon zest.",
+    "flavor_zh": "以基酒香氣為主，呈現經典而平衡的酒感。",
+    "flavor_en": "The base spirit leads a classic, balanced profile.",
+    "strength": "medium",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/rusty-nail/",
+    "artwork_color": "amber",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "薩澤拉克",
+    "English_Name": "Sazerac",
+    "iba_category": "The unforgettables",
+    "recipe_ingredients": [
+      {
+        "name_zh": "干邑白蘭地",
+        "name_en": "Cognac",
+        "amount": "50 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "苦艾酒",
+        "name_en": "Absinthe",
+        "amount": "10 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "alcohol"
+      },
+      {
+        "name_zh": "糖",
+        "name_en": "Sugar Cube",
+        "amount": "1",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "苦精",
+        "name_en": "Peychaud’s Bitters",
+        "amount": "2 Dashes",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "alcohol"
+      }
+    ],
+    "instructions_zh": "以苦艾酒潤洗冰鎮古典杯，加入碎冰暫置。將其餘材料在調酒杯中加冰攪拌，倒掉杯中冰塊與多餘苦艾酒，再將酒液濾入杯中。",
+    "instructions_en": "Rinse a chilled old-fashioned glass with the absinthe, add crushed ice and set it aside. Stir the remaining ingredients over ice in a mixing glass. Discard the ice and any excess absinthe from the prepared glass, strain the mixed drink into the glass. NOTE: The original recipe changed after the American Civil War, Rye Whiskey substituted Cognac as it became hard to obtain.",
+    "glassware_zh": "古典杯",
+    "glassware_en": "Old Fashioned glass",
+    "garnish_zh": "檸檬皮",
+    "garnish_en": "Garnish with lemon zest.",
+    "flavor_zh": "帶有草本與苦甜層次，尾韻乾爽。",
+    "flavor_en": "Herbal bittersweet layers lead to a dry finish.",
+    "strength": "medium",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/sazerac/",
+    "artwork_color": "amber",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "海風",
+    "English_Name": "Sea Breeze",
+    "iba_category": "Contemporary Classics",
+    "recipe_ingredients": [
+      {
+        "name_zh": "伏特加",
+        "name_en": "Vodka",
+        "amount": "40 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "蔓越莓汁",
+        "name_en": "Cranberry Juice",
+        "amount": "120 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "葡萄柚汁",
+        "name_en": "Grapefruit Juice",
+        "amount": "30 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      }
+    ],
+    "instructions_zh": "將材料依序倒入杯中；含氣泡的材料最後加入，輕輕混合。",
+    "instructions_en": "Build all ingredients in a highball glass filled with ice.",
+    "glassware_zh": "高球杯",
+    "glassware_en": "Highball glass",
+    "garnish_zh": "櫻桃、柳橙皮",
+    "garnish_en": "Garnish with an orange zest and cherry.",
+    "flavor_zh": "果香與柑橘酸度突出，呈現清爽的酸甜平衡。",
+    "flavor_en": "Fruit and citrus acidity create a bright sweet-tart balance.",
+    "strength": "low",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/sea-breeze/",
+    "artwork_color": "red",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "性感海灘",
+    "English_Name": "Sex On The Beach",
+    "iba_category": "Contemporary Classics",
+    "recipe_ingredients": [
+      {
+        "name_zh": "伏特加",
+        "name_en": "Vodka",
+        "amount": "40 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "蜜桃香甜酒",
+        "name_en": "Peach Schnapps",
+        "amount": "20 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "liqueur"
+      },
+      {
+        "name_zh": "柳橙汁",
+        "name_en": "Fresh Orange Juice",
+        "amount": "40 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "蔓越莓汁",
+        "name_en": "Cranberry Juice",
+        "amount": "40 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      }
+    ],
+    "instructions_zh": "將材料依序倒入杯中；含氣泡的材料最後加入，輕輕混合。",
+    "instructions_en": "Build all ingredients in a highball glass filled with ice.",
+    "glassware_zh": "高球杯",
+    "glassware_en": "Highball glass",
+    "garnish_zh": "柳橙片",
+    "garnish_en": "Garnish with half orange slice.",
+    "flavor_zh": "果香與柑橘酸度突出，呈現清爽的酸甜平衡。",
+    "flavor_en": "Fruit and citrus acidity create a bright sweet-tart balance.",
+    "strength": "low",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/sex-on-the-beach/",
+    "artwork_color": "red",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "雪莉鞋匠",
+    "English_Name": "Sherry Cobbler",
+    "iba_category": "New Era",
+    "recipe_ingredients": [
+      {
+        "name_zh": "雪莉酒",
+        "name_en": "Amontillado sherry",
+        "amount": "45 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "alcohol"
+      },
+      {
+        "name_zh": "帕洛科塔多雪莉酒",
+        "name_en": "Palo Cortado",
+        "amount": "45 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "糖",
+        "name_en": "Superfine Sugar (or granulated)",
+        "amount": "1 tsp",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "柳橙",
+        "name_en": "Orange Wheel",
+        "amount": "1/2",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "檸檬",
+        "name_en": "Lemon Wheel",
+        "amount": "1/2",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      }
+    ],
+    "instructions_zh": "將材料與冰塊放入雪克壺，搖至冰鎮後濾入杯中。",
+    "instructions_en": "Combine sherry, sugar and 2 quarter wheels each of orange and lemon in a shaker with ice, shake briskly, strain into a Julep cocktail cup filled with crushed ice.",
+    "glassware_zh": "葡萄酒杯",
+    "glassware_en": "Wine glass",
+    "garnish_zh": "莓果、檸檬、柳橙",
+    "garnish_en": "Garnish with fresh berries, ¼ wheel each orange and lemon. Serve with straws.",
+    "flavor_zh": "果香與柑橘酸度突出，呈現清爽的酸甜平衡。",
+    "flavor_en": "Fruit and citrus acidity create a bright sweet-tart balance.",
+    "strength": "medium",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/sherry-cobbler/",
+    "artwork_color": "amber",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "側車",
+    "English_Name": "Sidecar",
+    "iba_category": "The unforgettables",
+    "recipe_ingredients": [
+      {
+        "name_zh": "干邑白蘭地",
+        "name_en": "Cognac",
+        "amount": "50 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "橙皮香甜酒",
+        "name_en": "Triple Sec",
+        "amount": "20 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "liqueur"
+      },
+      {
+        "name_zh": "檸檬汁",
+        "name_en": "Fresh Lemon Juice",
+        "amount": "20 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      }
+    ],
+    "instructions_zh": "將材料與冰塊放入雪克壺，搖至冰鎮後濾入杯中。",
+    "instructions_en": "Pour all ingredients into cocktail shaker, shake well with ice, strain into chilled cocktail glass.",
+    "glassware_zh": "雞尾酒杯",
+    "glassware_en": "Cocktail glass",
+    "garnish_zh": "無",
+    "garnish_en": "N/A",
+    "flavor_zh": "果香與柑橘酸度突出，呈現清爽的酸甜平衡。",
+    "flavor_en": "Fruit and citrus acidity create a bright sweet-tart balance.",
+    "strength": "low",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/sidecar/",
+    "artwork_color": "amber",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "新加坡司令",
+    "English_Name": "Singapore Sling",
+    "iba_category": "Contemporary Classics",
+    "recipe_ingredients": [
+      {
+        "name_zh": "琴酒",
+        "name_en": "Gin",
+        "amount": "30 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "櫻桃",
+        "name_en": "Cherry Sangue Morlacco",
+        "amount": "15 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "君度橙酒",
+        "name_en": "Cointreau",
+        "amount": "7.5 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "liqueur"
+      },
+      {
+        "name_zh": "班尼狄克丁香甜酒",
+        "name_en": "DOM Bénédictine",
+        "amount": "7.5 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "liqueur"
+      },
+      {
+        "name_zh": "鳳梨汁",
+        "name_en": "Fresh Pineapple Juice",
+        "amount": "120 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "萊姆汁",
+        "name_en": "Fresh Lime Juice",
+        "amount": "15 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "石榴糖漿",
+        "name_en": "Grenadine Syrup",
+        "amount": "10 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "安格式苦精",
+        "name_en": "Angostura bitters",
+        "amount": "A dash",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "alcohol"
+      }
+    ],
+    "instructions_zh": "將材料與冰塊放入雪克壺，搖至冰鎮後濾入杯中。",
+    "instructions_en": "Pour all ingredients into cocktail shaker filled with ice cubes. Shake well. Strain into Hurricane glass.",
+    "glassware_zh": "颶風杯",
+    "glassware_en": "Hurricane glass",
+    "garnish_zh": "櫻桃、鳳梨",
+    "garnish_en": "Garnish with pineapple and maraschino cherry.",
+    "flavor_zh": "帶有草本與苦甜層次，尾韻乾爽。",
+    "flavor_en": "Herbal bittersweet layers lead to a dry finish.",
+    "strength": "low",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/singapore-sling/",
+    "artwork_color": "red",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "南方",
+    "English_Name": "South Side",
+    "iba_category": "New Era",
+    "recipe_ingredients": [
+      {
+        "name_zh": "倫敦乾琴酒",
+        "name_en": "London dry Gin",
+        "amount": "60 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "檸檬汁",
+        "name_en": "Fresh Lemon Juice",
+        "amount": "30 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "簡單糖漿",
+        "name_en": "Simple syrup",
+        "amount": "15 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "薄荷",
+        "name_en": "Mint leaves",
+        "amount": "5/6",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "蛋白",
+        "name_en": "Egg white (Optional)",
+        "amount": "Few drops",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      }
+    ],
+    "instructions_zh": "將材料與冰塊放入雪克壺充分搖勻；若加入蛋白，需更用力搖盪以打發並混合泡沫。",
+    "instructions_en": "Pour all ingredients into a cocktail shaker, shake well with ice, double-strain into chilled cocktail glass. Note: If egg white is used shake vigorously.",
+    "glassware_zh": "雞尾酒杯",
+    "glassware_en": "Cocktail glass",
+    "garnish_zh": "薄荷葉",
+    "garnish_en": "Garnish with mint springs.",
+    "flavor_zh": "草本或辛香氣息鮮明，口感清新。",
+    "flavor_en": "Fresh herbal or spicy notes give it a lively profile.",
+    "strength": "low",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/south-side/",
+    "artwork_color": "green",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "辛辣五十",
+    "English_Name": "Spicy Fifty",
+    "iba_category": "New Era",
+    "recipe_ingredients": [
+      {
+        "name_zh": "香草伏特加",
+        "name_en": "Vodka Vanilla",
+        "amount": "50 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "接骨木花",
+        "name_en": "Elderflower Cordial",
+        "amount": "15 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "liqueur"
+      },
+      {
+        "name_zh": "萊姆汁",
+        "name_en": "Fresh Lime Juice",
+        "amount": "15 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "蜂蜜糖漿",
+        "name_en": "Monin Honey Syrup",
+        "amount": "10 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "紅辣椒",
+        "name_en": "Red chili pepper",
+        "amount": "2",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      }
+    ],
+    "instructions_zh": "將材料與冰塊放入雪克壺，搖至冰鎮後濾入杯中。",
+    "instructions_en": "Pour all ingredients into a cocktail shaker, shake well with ice, double-strain into chilled cocktail glass.",
+    "glassware_zh": "雞尾酒杯",
+    "glassware_en": "Cocktail glass",
+    "garnish_zh": "辣椒",
+    "garnish_en": "Garnish with a red chili pepper.",
+    "flavor_zh": "果香與柑橘酸度突出，呈現清爽的酸甜平衡。",
+    "flavor_en": "Fruit and citrus acidity create a bright sweet-tart balance.",
+    "strength": "low",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/spicy-fifty/",
+    "artwork_color": "amber",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "斯普利茲",
+    "English_Name": "Spritz",
+    "iba_category": "New Era",
+    "recipe_ingredients": [
+      {
+        "name_zh": "普羅賽克氣泡酒",
+        "name_en": "Prosecco",
+        "amount": "90 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "alcohol"
+      },
+      {
+        "name_zh": "阿佩羅",
+        "name_en": "Aperol",
+        "amount": "60 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "liqueur"
+      },
+      {
+        "name_zh": "蘇打水",
+        "name_en": "Soda water",
+        "amount": "Splash",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      }
+    ],
+    "instructions_zh": "在葡萄酒杯中加入冰塊、普羅賽克與阿佩羅，以蘇打水補滿並輕拌。",
+    "instructions_en": "Build all ingredients into a wine glass filled with ice. Stir gently. NOTE: There are other versions of the Spritz that use Campari, Cynar or Select instead of Aperol.",
+    "glassware_zh": "葡萄酒杯",
+    "glassware_en": "Wine glass",
+    "garnish_zh": "柳橙",
+    "garnish_en": "Garnish with a slice of orange.",
+    "flavor_zh": "帶有草本與苦甜層次，尾韻乾爽。",
+    "flavor_en": "Herbal bittersweet layers lead to a dry finish.",
+    "strength": "low",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/spritz/",
+    "artwork_color": "amber",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "刺針",
+    "English_Name": "Stinger",
+    "iba_category": "The unforgettables",
+    "recipe_ingredients": [
+      {
+        "name_zh": "干邑白蘭地",
+        "name_en": "Cognac",
+        "amount": "50 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "薄荷香甜酒",
+        "name_en": "White Crème de Menthe",
+        "amount": "20 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "liqueur"
+      }
+    ],
+    "instructions_zh": "將材料與冰塊放入調酒杯攪拌冰鎮，再濾入杯中。",
+    "instructions_en": "Pour all ingredients into mixing glass with ice cubes. Stir well. Strain into chilled martini cocktail glass.",
+    "glassware_zh": "雞尾酒杯",
+    "glassware_en": "Cocktail glass",
+    "garnish_zh": "薄荷葉",
+    "garnish_en": "Optional mint leave.",
+    "flavor_zh": "以基酒香氣為主，呈現經典而平衡的酒感。",
+    "flavor_en": "The base spirit leads a classic, balanced profile.",
+    "strength": "medium",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/stinger/",
+    "artwork_color": "amber",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "受苦混蛋",
+    "English_Name": "Suffering Bastard",
+    "iba_category": "New Era",
+    "recipe_ingredients": [
+      {
+        "name_zh": "白蘭地",
+        "name_en": "Cognac or Brandy",
+        "amount": "30 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "琴酒",
+        "name_en": "Gin",
+        "amount": "30 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "萊姆汁",
+        "name_en": "Fresh Lime Juice",
+        "amount": "15 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "安格式苦精",
+        "name_en": "Angostura Bitters",
+        "amount": "2 Dashes",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "alcohol"
+      },
+      {
+        "name_zh": "薑汁啤酒",
+        "name_en": "Ginger beer",
+        "amount": "Top up",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      }
+    ],
+    "instructions_zh": "將氣泡材料以外的材料與冰塊搖至冰鎮，濾入杯中後再加入氣泡材料。",
+    "instructions_en": "Pour all ingredients into cocktail shaker except the ginger beer, shake well with ice. Pour unstrained into a Collins glass or in the original. S. Bastard mug and top up with ginger beer.",
+    "glassware_zh": "可林杯",
+    "glassware_en": "Collins glass",
+    "garnish_zh": "柳橙片、薄荷葉",
+    "garnish_en": "Garnish with mint spring and optionally an orange slice as well.",
+    "flavor_zh": "帶有草本與苦甜層次，尾韻乾爽。",
+    "flavor_en": "Herbal bittersweet layers lead to a dry finish.",
+    "strength": "medium",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/suffering-bastard/",
+    "artwork_color": "amber",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "龍舌蘭日出",
+    "English_Name": "Tequila Sunrise",
+    "iba_category": "Contemporary Classics",
+    "recipe_ingredients": [
+      {
+        "name_zh": "龍舌蘭酒",
+        "name_en": "Tequila",
+        "amount": "45 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "柳橙汁",
+        "name_en": "Fresh Orange Juice",
+        "amount": "90 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "石榴糖漿",
+        "name_en": "Grenadine Syrup",
+        "amount": "15 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      }
+    ],
+    "instructions_zh": "在高球杯中將龍舌蘭酒與柳橙汁倒在冰塊上，沿杯緣緩緩倒入石榴糖漿形成漸層，不攪拌。",
+    "instructions_en": "Pour tequila and orange juice directly into highball glass filled with ice cubes. Add the grenadine syrup to create chromatic effect (sunrise), do not stir.",
+    "glassware_zh": "高球杯",
+    "glassware_en": "Highball glass",
+    "garnish_zh": "柳橙皮、柳橙片",
+    "garnish_en": "Garnish with half orange slice or an orange zest.",
+    "flavor_zh": "果香與柑橘酸度突出，呈現清爽的酸甜平衡。",
+    "flavor_en": "Fruit and citrus acidity create a bright sweet-tart balance.",
+    "strength": "low",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/tequila-sunrise/",
+    "artwork_color": "red",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "三點一劃",
+    "English_Name": "Three Dots And A Dash",
+    "iba_category": "New Era",
+    "recipe_ingredients": [
+      {
+        "name_zh": "馬丁尼克農業蘭姆酒",
+        "name_en": "Rhum Martinique Agricole",
+        "amount": "45 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "調和熟成蘭姆酒",
+        "name_en": "Blended Aged Rum",
+        "amount": "15 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "法勒南香甜酒",
+        "name_en": "Falernum",
+        "amount": "7.5 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "liqueur"
+      },
+      {
+        "name_zh": "萊姆汁",
+        "name_en": "Allspice Saint Elizabeth15 ml Fresh Lime Juice",
+        "amount": "7.5 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "柳橙汁",
+        "name_en": "Fresh Orange juice",
+        "amount": "15 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "蜂蜜糖漿",
+        "name_en": "Honey Syrup",
+        "amount": "15 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "安格式苦精",
+        "name_en": "Angostura Bitters",
+        "amount": "2 Dashes",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "alcohol"
+      }
+    ],
+    "instructions_zh": "將材料與冰塊攪打至均勻，倒入杯中。",
+    "instructions_en": "Pour all ingredients in a Blender with 12 ounces of crushed ice, flash blend, pour the drink into a footed copo glass. Fill the glass with more crushed ice.",
+    "glassware_zh": "提基杯",
+    "glassware_en": "Tiki mug",
+    "garnish_zh": "鳳梨",
+    "garnish_en": "Garnish with three cherries and a rectangular chunk of pineapple.",
+    "flavor_zh": "帶有草本與苦甜層次，尾韻乾爽。",
+    "flavor_en": "Herbal bittersweet layers lead to a dry finish.",
+    "strength": "medium",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/three-dots-and-a-dash/",
+    "artwork_color": "orange",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "蒂珀雷里",
+    "English_Name": "Tipperary",
+    "iba_category": "New Era",
+    "recipe_ingredients": [
+      {
+        "name_zh": "愛爾蘭威士忌",
+        "name_en": "Irish Whiskey",
+        "amount": "50 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "苦艾酒",
+        "name_en": "Sweet Red Vermouth",
+        "amount": "25 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "alcohol"
+      },
+      {
+        "name_zh": "夏翠絲香甜酒",
+        "name_en": "Green Chartreuse",
+        "amount": "15 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "liqueur"
+      },
+      {
+        "name_zh": "安格式苦精",
+        "name_en": "Angostura Bitters",
+        "amount": "2 Dashes",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "alcohol"
+      }
+    ],
+    "instructions_zh": "將材料與冰塊放入調酒杯攪拌冰鎮，再濾入杯中。",
+    "instructions_en": "Pour all ingredients into mixing glass with ice cubes. Stir well. Strain into chilled martini cocktail glass.",
+    "glassware_zh": "雞尾酒杯",
+    "glassware_en": "Cocktail glass",
+    "garnish_zh": "柳橙",
+    "garnish_en": "Garnish with a slice of orange.",
+    "flavor_zh": "帶有草本與苦甜層次，尾韻乾爽。",
+    "flavor_en": "Herbal bittersweet layers lead to a dry finish.",
+    "strength": "medium",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/tipperary/",
+    "artwork_color": "green",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "湯米瑪格麗特",
+    "English_Name": "Tommy's Margarita",
+    "iba_category": "New Era",
+    "recipe_ingredients": [
+      {
+        "name_zh": "100% 龍舌蘭酒",
+        "name_en": "Tequila 100% agave",
+        "amount": "60 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "萊姆汁",
+        "name_en": "Fresh Lime Juice",
+        "amount": "30 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "龍舌蘭糖漿",
+        "name_en": "Agave Nectar",
+        "amount": "30 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      }
+    ],
+    "instructions_zh": "將材料與冰塊放入雪克壺，搖至冰鎮後濾入杯中。",
+    "instructions_en": "Pour all ingredients into a cocktail shaker, shake well with ice, strain into chilled rocks glass filled with ice.",
+    "glassware_zh": "岩石杯",
+    "glassware_en": "Rocks glass",
+    "garnish_zh": "萊姆片",
+    "garnish_en": "Garnish with a lime slice.",
+    "flavor_zh": "果香與柑橘酸度突出，呈現清爽的酸甜平衡。",
+    "flavor_en": "Fruit and citrus acidity create a bright sweet-tart balance.",
+    "strength": "low",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/tommys-margarita/",
+    "artwork_color": "amber",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "千里達酸酒",
+    "English_Name": "Trinidad Sour",
+    "iba_category": "New Era",
+    "recipe_ingredients": [
+      {
+        "name_zh": "安格式苦精",
+        "name_en": "Angostura Bitters",
+        "amount": "45 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "alcohol"
+      },
+      {
+        "name_zh": "杏仁糖漿",
+        "name_en": "Orgeat Syrup",
+        "amount": "30 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "檸檬汁",
+        "name_en": "Fresh Lemon Juice",
+        "amount": "22.5 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "黑麥威士忌",
+        "name_en": "Rye Whiskey",
+        "amount": "15 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      }
+    ],
+    "instructions_zh": "將材料與冰塊放入雪克壺，搖至冰鎮後濾入杯中。",
+    "instructions_en": "Pour all ingredients into a cocktail shaker, shake well with ice. Strain into chilled cocktail glass.",
+    "glassware_zh": "雞尾酒杯",
+    "glassware_en": "Cocktail glass",
+    "garnish_zh": "無",
+    "garnish_en": "N/A",
+    "flavor_zh": "帶有草本與苦甜層次，尾韻乾爽。",
+    "flavor_en": "Herbal bittersweet layers lead to a dry finish.",
+    "strength": "low",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/trinidad-sour/",
+    "artwork_color": "amber",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "燕尾服",
+    "English_Name": "Tuxedo",
+    "iba_category": "The unforgettables",
+    "recipe_ingredients": [
+      {
+        "name_zh": "老湯姆琴酒",
+        "name_en": "Old Tom Gin",
+        "amount": "30 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "乾苦艾酒",
+        "name_en": "Dry Vermouth",
+        "amount": "30 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "alcohol"
+      },
+      {
+        "name_zh": "馬拉斯奇諾櫻桃酒",
+        "name_en": "Maraschino Luxardo",
+        "amount": "1/2 Bar Spoon",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "liqueur"
+      },
+      {
+        "name_zh": "苦艾酒",
+        "name_en": "Absinthe",
+        "amount": "1/4 Bar Spoon",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "alcohol"
+      },
+      {
+        "name_zh": "橙味苦精",
+        "name_en": "Orange Bitters",
+        "amount": "3 Dashes",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "alcohol"
+      }
+    ],
+    "instructions_zh": "將材料與冰塊放入調酒杯攪拌冰鎮，再濾入杯中。",
+    "instructions_en": "Pour all ingredients into mixing glass with ice cubes. Stir well. Strain into chilled martini cocktail glass.",
+    "glassware_zh": "雞尾酒杯",
+    "glassware_en": "Cocktail glass",
+    "garnish_zh": "櫻桃、檸檬皮",
+    "garnish_en": "Garnish with cherry and lemon zest.",
+    "flavor_zh": "帶有草本與苦甜層次，尾韻乾爽。",
+    "flavor_en": "Herbal bittersweet layers lead to a dry finish.",
+    "strength": "medium",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/tuxedo/",
+    "artwork_color": "amber",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "威尼托",
+    "English_Name": "Ve.N.To",
+    "iba_category": "New Era",
+    "recipe_ingredients": [
+      {
+        "name_zh": "白葡萄渣白蘭地",
+        "name_en": "White Smooth Grappa",
+        "amount": "45 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "檸檬汁",
+        "name_en": "Fresh lemon Juice",
+        "amount": "22.5 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "蜂蜜",
+        "name_en": "Honey mix (replace water with chamomile)*",
+        "amount": "15 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "洋甘菊糖漿",
+        "name_en": "Chamomile cordial",
+        "amount": "15 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "liqueur"
+      },
+      {
+        "name_zh": "蛋白",
+        "name_en": "Egg White (Optional)",
+        "amount": "Few Drops",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      }
+    ],
+    "instructions_zh": "將材料與冰塊放入雪克壺充分搖勻；若加入蛋白，需更用力搖盪以打發並混合泡沫。",
+    "instructions_en": "Pour all ingredients into the shaker. Shake vigorously with ice. Strain into a chilled small tumbler glass filled with ice. NOTE: *If desired water can be replaced by chamomile infusion in the honey mix.",
+    "glassware_zh": "平底杯",
+    "glassware_en": "Tumbler",
+    "garnish_zh": "檸檬皮、葡萄",
+    "garnish_en": "Garnish with lemon zest and white grapes.",
+    "flavor_zh": "果香與柑橘酸度突出，呈現清爽的酸甜平衡。",
+    "flavor_en": "Fruit and citrus acidity create a bright sweet-tart balance.",
+    "strength": "low",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/ve-n-to/",
+    "artwork_color": "amber",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "維斯珀",
+    "English_Name": "Vesper",
+    "iba_category": "Contemporary Classics",
+    "recipe_ingredients": [
+      {
+        "name_zh": "琴酒",
+        "name_en": "Gin",
+        "amount": "45 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "伏特加",
+        "name_en": "Vodka",
+        "amount": "15 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "莉蕾白苦艾酒",
+        "name_en": "Lillet Blanc",
+        "amount": "7.5 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      }
+    ],
+    "instructions_zh": "將材料與冰塊放入雪克壺，搖至冰鎮後濾入杯中。",
+    "instructions_en": "Pour all ingredients into cocktail shaker filled with ice cubes. Shake and strain into a chilled cocktail glass.",
+    "glassware_zh": "雞尾酒杯",
+    "glassware_en": "Cocktail glass",
+    "garnish_zh": "檸檬皮",
+    "garnish_en": "Garnish with lemon zest.",
+    "flavor_zh": "以基酒香氣為主，呈現經典而平衡的酒感。",
+    "flavor_en": "The base spirit leads a classic, balanced profile.",
+    "strength": "high",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/vesper/",
+    "artwork_color": "amber",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "維尤卡雷",
+    "English_Name": "Vieux Carre",
+    "iba_category": "The unforgettables",
+    "recipe_ingredients": [
+      {
+        "name_zh": "黑麥威士忌",
+        "name_en": "Rye Whiskey",
+        "amount": "30 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "干邑白蘭地",
+        "name_en": "Cognac",
+        "amount": "30 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "苦艾酒",
+        "name_en": "Sweet Vermouth",
+        "amount": "30 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "alcohol"
+      },
+      {
+        "name_zh": "班尼狄克丁香甜酒",
+        "name_en": "Bénédictine",
+        "amount": "1 Bar Spoon",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "liqueur"
+      },
+      {
+        "name_zh": "苦精",
+        "name_en": "Peychaud’s Bitters",
+        "amount": "2 Dashes",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "alcohol"
+      }
+    ],
+    "instructions_zh": "將材料與冰塊放入調酒杯攪拌冰鎮，再濾入杯中。",
+    "instructions_en": "Pour all ingredients into mixing glass with ice cubes. Stir well. Strain into chilled cocktail glass.",
+    "glassware_zh": "雞尾酒杯",
+    "glassware_en": "Cocktail glass",
+    "garnish_zh": "櫻桃、柳橙皮",
+    "garnish_en": "Garnish with orange zest and maraschino cherry.",
+    "flavor_zh": "帶有草本與苦甜層次，尾韻乾爽。",
+    "flavor_en": "Herbal bittersweet layers lead to a dry finish.",
+    "strength": "high",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/vieux-carre/",
+    "artwork_color": "amber",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "威士忌酸酒",
+    "English_Name": "Whiskey Sour",
+    "iba_category": "The unforgettables",
+    "recipe_ingredients": [
+      {
+        "name_zh": "波本威士忌",
+        "name_en": "Bourbon Whiskey",
+        "amount": "45 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "檸檬汁",
+        "name_en": "Fresh Lemon Juice",
+        "amount": "25 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "糖",
+        "name_en": "Sugar Syrup",
+        "amount": "20 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "蛋白",
+        "name_en": "Egg White (Optional)",
+        "amount": "Few Drops",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      }
+    ],
+    "instructions_zh": "將所有材料放入裝有冰塊的雪克壺中充分搖勻，濾入科布勒杯；若要加冰供應，則濾入裝有冰塊的古典杯。使用蛋白時需更用力搖盪以打發並混合泡沫。",
+    "instructions_en": "Pour all ingredients into cocktail shaker filled with ice. Shake well. Strain into cobbler glass. If served “On the rocks”, strain ingredients into old fashioned glass filled with ice. NOTE: If egg white is used shake little harder to release and incorporate the foam from the egg white.",
+    "glassware_zh": "科布勒杯",
+    "glassware_en": "Cobbler glass",
+    "garnish_zh": "櫻桃、柳橙皮、柳橙片",
+    "garnish_en": "Garnish with half orange slice and maraschino cherry, optionally use orange zest.",
+    "flavor_zh": "果香與柑橘酸度突出，呈現清爽的酸甜平衡。",
+    "flavor_en": "Fruit and citrus acidity create a bright sweet-tart balance.",
+    "strength": "low",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/whiskey-sour/",
+    "artwork_color": "amber",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "白色佳人",
+    "English_Name": "White Lady",
+    "iba_category": "The unforgettables",
+    "recipe_ingredients": [
+      {
+        "name_zh": "琴酒",
+        "name_en": "Gin",
+        "amount": "40 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "橙皮香甜酒",
+        "name_en": "Triple Sec",
+        "amount": "30 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "liqueur"
+      },
+      {
+        "name_zh": "檸檬汁",
+        "name_en": "Fresh Lemon Juice",
+        "amount": "20 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      }
+    ],
+    "instructions_zh": "將材料與冰塊放入雪克壺，搖至冰鎮後濾入杯中。",
+    "instructions_en": "Pour all ingredients into cocktail shaker, shake well with ice, strain into chilled cocktail glass.",
+    "glassware_zh": "雞尾酒杯",
+    "glassware_en": "Cocktail glass",
+    "garnish_zh": "無",
+    "garnish_en": "N/A",
+    "flavor_zh": "果香與柑橘酸度突出，呈現清爽的酸甜平衡。",
+    "flavor_en": "Fruit and citrus acidity create a bright sweet-tart balance.",
+    "strength": "low",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/white-lady/",
+    "artwork_color": "amber",
+    "is_active": true
+  },
+  {
+    "Chinese_Name": "殭屍",
+    "English_Name": "Zombie",
+    "iba_category": "Contemporary Classics",
+    "recipe_ingredients": [
+      {
+        "name_zh": "牙買加深色蘭姆酒",
+        "name_en": "Jamaican dark rum",
+        "amount": "45 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "波多黎各金蘭姆酒",
+        "name_en": "Gold Puerto Rican rum",
+        "amount": "45 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "德梅拉拉蘭姆酒",
+        "name_en": "Demerara Rum",
+        "amount": "30 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "base"
+      },
+      {
+        "name_zh": "萊姆汁",
+        "name_en": "Fresh lime juice",
+        "amount": "20 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "法勒南香甜酒",
+        "name_en": "Falernum",
+        "amount": "15 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "liqueur"
+      },
+      {
+        "name_zh": "唐氏混合果汁",
+        "name_en": "Donn’s Mix*",
+        "amount": "15 ml",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "石榴糖漿",
+        "name_en": "Grenadine syrup",
+        "amount": "1 tsp",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "ingredient"
+      },
+      {
+        "name_zh": "安格式苦精",
+        "name_en": "dash Angostura bitters",
+        "amount": "1",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "alcohol"
+      },
+      {
+        "name_zh": "培諾苦艾酒",
+        "name_en": "Pernod",
+        "amount": "6 drops",
+        "unit_zh": "",
+        "unit_en": "",
+        "category": "liqueur"
+      }
+    ],
+    "instructions_zh": "將材料與冰塊攪打至均勻，倒入杯中。",
+    "instructions_en": "Add all ingredients into an electric blender with 170 grams of cracked ice. With pulse bottom blend for a few seconds. Serve in a tall tumbler glass. Note: *Donn’s Mix: 2 parts of fresh yellow grapefruit and 1 part of cinnamon syrup",
+    "glassware_zh": "平底杯",
+    "glassware_en": "Tumbler",
+    "garnish_zh": "薄荷葉",
+    "garnish_en": "Garnish with mint leaves.",
+    "flavor_zh": "帶有草本與苦甜層次，尾韻乾爽。",
+    "flavor_en": "Herbal bittersweet layers lead to a dry finish.",
+    "strength": "medium",
+    "history_zh": "",
+    "history_en": "",
+    "source_url": "https://iba-world.com/iba-cocktail/zombie/",
+    "artwork_color": "red",
+    "is_active": true
+  }
+]

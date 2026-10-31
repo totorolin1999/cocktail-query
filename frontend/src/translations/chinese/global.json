@@ -13,19 +13,50 @@
     "label_liqueur": "利口酒",
     "label_alcohol": "其他酒類",
     "label_ingredient": "其他成分",
+    "label_iba_category": "IBA分類",
+    "label_strength": "酒感",
+    "label_glassware": "杯型",
     "label_cocktail": "調酒名稱",
     "select_base": "選取基酒",
     "select_liqueur": "選取利口酒",
     "select_alcohol": "選取其他酒類",
     "select_ingredient": "選取其他成分",
+    "select_iba_category": "選取IBA分類",
+    "select_strength": "選取酒感",
+    "select_glassware": "選取杯型",
     "input_cocktail": "輸入調酒名稱 - 中文或英文",
-    "query": "查詢"
+    "query": "查詢",
+    "results_count": "查詢結果：{{count}} 款",
+    "strengths": {
+      "low": "清爽（推估）",
+      "medium": "中等（推估）",
+      "high": "濃烈（推估）"
+    },
+    "iba_categories": {
+      "the_unforgettables": "不朽經典",
+      "contemporary_classics": "當代經典",
+      "new_era": "新世代調酒"
+    }
   },
   "detail": {
     "base": "基酒：",
     "liqueur": "利口酒：",
     "alcohol": "其他酒類：",
-    "ingredient": "其他成分："
+    "ingredient": "其他成分：",
+    "recipe": "酒譜材料",
+    "method": "調製方式",
+    "methodTranslation": "中文翻譯（非官方）",
+    "officialMethod": "IBA 官方原文：",
+    "glassware": "杯型：",
+    "garnish": "裝飾：",
+    "flavor": "風味描述（推估）",
+    "strength": "估計酒感：",
+    "strength_low": "清爽",
+    "strength_medium": "中等",
+    "strength_high": "濃烈",
+    "ibaCategory": "IBA分類：",
+    "ibaTag": "IBA 調酒",
+    "history": "酒款背景"
   },
   "table": {
     "chinese": "中文名稱",

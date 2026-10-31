@@ -63,8 +63,8 @@ h3,
 }
 
 .chartPageColor {
-  background: linear-gradient(180deg, var(--color-surface-light) 0%, #e8edf5 100%);
-  color: var(--color-text-dark);
+  background: transparent;
+  color: var(--color-text);
   min-height: calc(100vh - 140px);
   padding-bottom: 2rem;
 }
@@ -84,13 +84,13 @@ h3,
 }
 
 .page-header .page-title {
-  color: var(--color-text-dark);
+  color: var(--color-accent);
   font-size: clamp(1.5rem, 4vw, 2rem);
   margin-bottom: 0.25rem;
 }
 
 .page-header .page-subtitle {
-  color: #5a5a7a;
+  color: var(--color-text-muted);
   font-size: 0.95rem;
   margin: 0;
 }

@@ -3,10 +3,25 @@ import joblib
 import pandas as pd
 from pathlib import Path
 from django.conf import settings
-from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.feature_extraction import DictVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
 from .models import Cocktail
+
+
+FEATURE_WEIGHTS = {
+    'base': 2.0,
+    'liqueur': 1.5,
+    'alcohol': 1.25,
+    'ingredient': 1.0,
+}
+
+MATERIAL_RELATIONS = (
+    ('base', 'Bases'),
+    ('liqueur', 'Liqueurs'),
+    ('alcohol', 'Alcohols'),
+    ('ingredient', 'Ingredients'),
+)
 
 
 def build_model(output_csv=None, output_model=None):
@@ -23,38 +38,49 @@ def build_model(output_csv=None, output_model=None):
     output_csv.parent.mkdir(parents=True, exist_ok=True)
     output_model.parent.mkdir(parents=True, exist_ok=True)
 
-    rows = []
-    for cocktail in Cocktail.objects.prefetch_related('Bases', 'Alcohols', 'Liqueurs', 'Ingredients').all():
-        row = [cocktail.Chinese_Name, cocktail.English_Name]
-        row.extend([item.Chinese_Name for item in cocktail.Bases.all()])
-        row.extend([item.Chinese_Name for item in cocktail.Alcohols.all()])
-        row.extend([item.Chinese_Name for item in cocktail.Liqueurs.all()])
-        row.extend([item.Chinese_Name for item in cocktail.Ingredients.all()])
-        rows.append(row)
-
-    with open(output_csv, 'w', newline='', encoding='utf-8') as f:
-        writer = csv.writer(f, delimiter=',')
-        writer.writerow([
-            'Chinese_Name',
-            'English_Name',
-            'Ingredient1',
-            'Ingredient2',
-            'Ingredient3',
-            'Ingredient4',
-            'Ingredient5',
-            'Ingredient6',
-            'Ingredient7',
-            'Ingredient8',
-        ])
-        writer.writerows(rows)
-
-    df = pd.read_csv(output_csv)
-    df2 = df.drop(['English_Name'], axis=1)
-    df2['data'] = df2[df2.columns[1:]].apply(
-        lambda x: ' '.join(x.dropna().astype(str)), axis=1
+    cocktails = list(
+        Cocktail.objects.filter(is_active=True).prefetch_related(
+            'Bases', 'Liqueurs', 'Alcohols', 'Ingredients'
+        )
     )
-    vectorizer = CountVectorizer()
-    vectorized = vectorizer.fit_transform(df2['data'])
-    similarities = cosine_similarity(vectorized)
-    df = pd.DataFrame(similarities, columns=df['Chinese_Name'], index=df['Chinese_Name']).reset_index()
-    joblib.dump(df, output_model)
+    names = [cocktail.Chinese_Name for cocktail in cocktails]
+    feature_rows = []
+    csv_rows = []
+
+    for cocktail in cocktails:
+        features = {}
+        csv_row = [cocktail.Chinese_Name, cocktail.English_Name]
+        for category, relation_name in MATERIAL_RELATIONS:
+            materials = list(getattr(cocktail, relation_name).all())
+            csv_row.extend(material.Chinese_Name for material in materials)
+            for material in materials:
+                features[f'{category}:{material.pk}'] = FEATURE_WEIGHTS[category]
+        feature_rows.append(features)
+        csv_rows.append(csv_row)
+
+    max_material_count = max((len(row) - 2 for row in csv_rows), default=0)
+    csv_header = ['Chinese_Name', 'English_Name'] + [
+        f'Ingredient{index}'
+        for index in range(1, max_material_count + 1)
+    ]
+    with output_csv.open('w', newline='', encoding='utf-8') as output_file:
+        writer = csv.writer(output_file, delimiter=',')
+        writer.writerow(csv_header)
+        writer.writerows(csv_rows)
+
+    if feature_rows and any(feature_rows):
+        vectorizer = DictVectorizer(sparse=True, sort=True)
+        vectorized = vectorizer.fit_transform(feature_rows)
+        similarities = cosine_similarity(vectorized)
+    else:
+        similarities = [[0.0] * len(cocktails) for _ in cocktails]
+
+    for index in range(len(similarities)):
+        similarities[index][index] = 1.0
+
+    similarity_frame = pd.DataFrame(
+        similarities,
+        columns=names,
+        index=names,
+    ).reset_index(names='Chinese_Name')
+    joblib.dump(similarity_frame, output_model)
