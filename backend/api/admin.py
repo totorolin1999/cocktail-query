@@ -9,21 +9,21 @@ class CocktailRecipeItemInline(admin.TabularInline):
 
 @admin.register(Cocktail)
 class CocktailAdmin(admin.ModelAdmin):
-    list_display = ('Chinese_Name', 'English_Name', 'iba_category', 'strength', 'is_active')
+    list_display = ('chinese_name', 'english_name', 'iba_category', 'strength', 'is_active')
     list_filter = ('is_active', 'iba_category', 'strength')
-    search_fields = ('Chinese_Name', 'English_Name')
+    search_fields = ('chinese_name', 'english_name')
     inlines = [CocktailRecipeItemInline]
 
 
 @admin.register(Material)
 class MaterialAdmin(admin.ModelAdmin):
-    list_display = ('Chinese_Name', 'English_Name', 'category')
+    list_display = ('chinese_name', 'english_name', 'category')
     list_filter = ('category',)
-    search_fields = ('Chinese_Name', 'English_Name')
+    search_fields = ('chinese_name', 'english_name')
 
 
 @admin.register(CocktailRecipeItem)
 class CocktailRecipeItemAdmin(admin.ModelAdmin):
     list_display = ('cocktail', 'material', 'amount', 'order')
     list_filter = ('material__category',)
-    search_fields = ('cocktail__Chinese_Name', 'material__Chinese_Name')
+    search_fields = ('cocktail__chinese_name', 'material__chinese_name')

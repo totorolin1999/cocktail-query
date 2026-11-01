@@ -18,8 +18,8 @@ describe("CocktailCard", () => {
           data={[
             {
               id: 1,
-              Chinese_Name: "莫希托",
-              English_Name: "Mojito",
+              chinese_name: "莫希托",
+              english_name: "Mojito",
               image: "/media/cocktail_images/illustration.svg",
               iba_category: "Contemporary Classics",
               artwork_color: "green",

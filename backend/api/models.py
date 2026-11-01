@@ -9,8 +9,8 @@ class Material(models.Model):
         ('ingredient', '副材料'),
     ]
 
-    Chinese_Name = models.CharField(max_length=255, db_index=True)
-    English_Name = models.CharField(max_length=255, db_index=True)
+    chinese_name = models.CharField(max_length=255, db_index=True)
+    english_name = models.CharField(max_length=255, db_index=True)
     category = models.CharField(max_length=20, choices=CATEGORY_CHOICES, db_index=True)
 
     class Meta:
@@ -19,11 +19,27 @@ class Material(models.Model):
         verbose_name_plural = '材料'
         indexes = [
             models.Index(fields=['category', 'id']),
-            models.Index(fields=['category', 'English_Name']),
+            models.Index(fields=['category', 'english_name']),
         ]
 
     def __str__(self):
-        return f"{self.Chinese_Name} ({self.get_category_display()})"
+        return f"{self.chinese_name} ({self.get_category_display()})"
+
+    @property
+    def Chinese_Name(self):
+        return self.chinese_name
+
+    @Chinese_Name.setter
+    def Chinese_Name(self, value):
+        self.chinese_name = value
+
+    @property
+    def English_Name(self):
+        return self.english_name
+
+    @English_Name.setter
+    def English_Name(self, value):
+        self.english_name = value
 
 
 class CocktailQuerySet(models.QuerySet):
@@ -57,8 +73,8 @@ class Cocktail(models.Model):
         ('high', 'High'),
     ]
 
-    Chinese_Name = models.CharField(max_length=255, db_index=True)
-    English_Name = models.CharField(max_length=255, db_index=True)
+    chinese_name = models.CharField(max_length=255, db_index=True)
+    english_name = models.CharField(max_length=255, db_index=True)
     materials = models.ManyToManyField(
         Material,
         through='CocktailRecipeItem',
@@ -95,7 +111,23 @@ class Cocktail(models.Model):
         ]
 
     def __str__(self):
-        return self.Chinese_Name
+        return self.chinese_name
+
+    @property
+    def Chinese_Name(self):
+        return self.chinese_name
+
+    @Chinese_Name.setter
+    def Chinese_Name(self, value):
+        self.chinese_name = value
+
+    @property
+    def English_Name(self):
+        return self.english_name
+
+    @English_Name.setter
+    def English_Name(self, value):
+        self.english_name = value
 
 
 class CocktailRecipeItem(models.Model):

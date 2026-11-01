@@ -7,7 +7,7 @@ describe("CocktailArtwork", () => {
     render(
       <CocktailArtwork
         cocktail={{
-          English_Name: "Mojito",
+          english_name: "Mojito",
           artwork_color: "green",
           glassware_en: "Highball glass",
           garnish_en: "Mint and lime",

@@ -130,8 +130,10 @@ def _resolve_related_payload(payload, field_name, model=Material):
     return [
         {
             'id': objects_by_id[related_id].id,
-            'Chinese_Name': objects_by_id[related_id].Chinese_Name,
-            'English_Name': objects_by_id[related_id].English_Name,
+            'chinese_name': objects_by_id[related_id].chinese_name,
+            'english_name': objects_by_id[related_id].english_name,
+            'Chinese_Name': objects_by_id[related_id].chinese_name,
+            'English_Name': objects_by_id[related_id].english_name,
         }
         for related_id in ids
     ]
@@ -230,7 +232,7 @@ def cocktailList(request):
 
     if name:
         cocktails = cocktails.filter(
-            Q(Chinese_Name__icontains=name) | Q(English_Name__icontains=name)
+            Q(chinese_name__icontains=name) | Q(english_name__icontains=name)
         )
 
     if iba_category:
@@ -386,8 +388,8 @@ def chartList(request, model_type):
     )
     chart_list = [
         {
-            'chinese_label': item.Chinese_Name,
-            'english_label': item.English_Name,
+            'chinese_label': item.chinese_name,
+            'english_label': item.english_name,
             'size': item.size,
         }
         for item in items
@@ -404,19 +406,19 @@ def cocktailRecommendation(request, pk):
     except FileNotFoundError:
         return Response([])
 
-    input_cocktail = cocktail.Chinese_Name
-
-    if 'Chinese_Name' not in similarity_df.columns:
+    input_cocktail = cocktail.chinese_name
+    name_col = 'Chinese_Name' if 'Chinese_Name' in similarity_df.columns else 'chinese_name'
+    if name_col not in similarity_df.columns:
         return Response([])
 
-    similarity_df = similarity_df.set_index('Chinese_Name')
+    similarity_df = similarity_df.set_index(name_col)
     if input_cocktail not in similarity_df.index:
         return Response([])
 
     recommendations = similarity_df.loc[input_cocktail].nlargest(9)
     recommendations = [name for name in recommendations.index if name != input_cocktail]
     cocktails = Cocktail.objects.filter(
-        Chinese_Name__in=recommendations, is_active=True
+        chinese_name__in=recommendations, is_active=True
     ).prefetch_related('recipe_items__material')
     serializer = CocktailSerializer(cocktails, many=True)
     return Response(serializer.data)

@@ -18,8 +18,8 @@ describe("CocktailRec", () => {
           data={[
             {
               id: 1,
-              Chinese_Name: "莫希托",
-              English_Name: "Mojito",
+              chinese_name: "莫希托",
+              english_name: "Mojito",
               image: "/media/cocktail_images/illustration.svg",
               iba_category: "Contemporary Classics",
               artwork_color: "green",
@@ -28,8 +28,8 @@ describe("CocktailRec", () => {
             },
             {
               id: 2,
-              Chinese_Name: "內格羅尼",
-              English_Name: "Negroni",
+              chinese_name: "內格羅尼",
+              english_name: "Negroni",
               image: "/media/cocktail_images/negroni.jpg",
             },
           ]}
@@ -56,8 +56,8 @@ describe("CocktailRec", () => {
   it("shows at most six recommendations", () => {
     const recommendations = Array.from({ length: 8 }, (_, index) => ({
       id: index + 1,
-      Chinese_Name: `調酒${index + 1}`,
-      English_Name: `Cocktail ${index + 1}`,
+      chinese_name: `調酒${index + 1}`,
+      english_name: `Cocktail ${index + 1}`,
       image: "/media/cocktail_images/illustration.svg",
     }));
 

@@ -23,14 +23,14 @@ const CocktailRec = ({ data }) => {
       <div className="recommendation-grid">
         {data.slice(0, MAX_RECOMMENDATIONS).map((item) => {
           const image = item.image ? `${API_BASE_URL}${item.image}` : "";
-          const displayName = chinese ? item.Chinese_Name : item.English_Name;
+          const displayName = chinese ? (item.chinese_name || item.Chinese_Name) : (item.english_name || item.English_Name);
 
           return (
             <Link
               className="recommendation-card"
               key={item.id}
               to={`/Cocktail/${item.id}`}
-              aria-label={`${displayName} (${item.English_Name})`}
+              aria-label={`${displayName} (${item.english_name || item.English_Name})`}
             >
               {isCocktailArtwork(item.image) ? (
                 <CocktailArtwork cocktail={item} />
@@ -45,7 +45,7 @@ const CocktailRec = ({ data }) => {
               <span className="recommendation-copy">
                 <span className="recommendation-name">{displayName}</span>
                 <span className="recommendation-english">
-                  {chinese ? item.English_Name : item.Chinese_Name}
+                  {chinese ? (item.english_name || item.English_Name) : (item.chinese_name || item.Chinese_Name)}
                 </span>
                 {item.iba_category && (
                   <span className="recommendation-category">

@@ -72,29 +72,29 @@ const CocktailTable = ({ data }) => {
             <tbody>
               {currentItems.map((item, idx) => (
                 <tr key={idx}>
-                  <td>{item.Chinese_Name}</td>
+                  <td>{item.chinese_name || item.Chinese_Name}</td>
                   <td>
-                    {item.English_Name}
+                    {item.english_name || item.English_Name}
                     <IbaBadge category={item.iba_category} />
                   </td>
                   <td>
                     {item.Bases.map((base, index) => (
-                      <span key={index}>{base.Chinese_Name}&nbsp;</span>
+                      <span key={index}>{base.chinese_name || base.Chinese_Name}&nbsp;</span>
                     ))}
                   </td>
                   <td>
                     {item.Liqueurs.map((liqueur, index) => (
-                      <span key={index}>{liqueur.Chinese_Name}&nbsp;</span>
+                      <span key={index}>{liqueur.chinese_name || liqueur.Chinese_Name}&nbsp;</span>
                     ))}
                   </td>
                   <td>
                     {item.Alcohols.map((alcohol, index) => (
-                      <span key={index}>{alcohol.Chinese_Name}&nbsp;</span>
+                      <span key={index}>{alcohol.chinese_name || alcohol.Chinese_Name}&nbsp;</span>
                     ))}
                   </td>
                   <td>
                     {item.Ingredients.map((ingredient, index) => (
-                      <span key={index}>{ingredient.Chinese_Name}&nbsp;</span>
+                      <span key={index}>{ingredient.chinese_name || ingredient.Chinese_Name}&nbsp;</span>
                     ))}
                   </td>
                   <td>

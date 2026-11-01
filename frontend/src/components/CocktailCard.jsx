@@ -60,12 +60,12 @@ function CocktailCard({ data }) {
               className="text-center cocktailCard cocktail-card-link w-100"
               aria-label={
                 i18n.language === "chinese"
-                  ? item.Chinese_Name
-                  : item.English_Name
+                  ? (item.chinese_name || item.Chinese_Name)
+                  : (item.english_name || item.English_Name)
               }
             >
               <Card.Header>
-                {item.English_Name}
+                {item.english_name || item.English_Name}
               </Card.Header>
               {isCocktailArtwork(item.image) ? (
                 <CocktailArtwork cocktail={item} />
@@ -74,14 +74,14 @@ function CocktailCard({ data }) {
                   variant="top"
                   src={`${API_BASE_URL}${item.image}`}
                   className="cocktail-card-img"
-                  alt={item.English_Name}
+                  alt={item.english_name || item.English_Name}
                 />
               )}
               <Card.Body>
                 <Card.Title className="cocktail-card-title">
                   {i18n.language === "chinese"
-                    ? item.Chinese_Name
-                    : item.English_Name}
+                    ? (item.chinese_name || item.Chinese_Name)
+                    : (item.english_name || item.English_Name)}
                   <IbaBadge category={item.iba_category} />
                 </Card.Title>
               </Card.Body>

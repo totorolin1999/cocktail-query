@@ -36,7 +36,7 @@ const CocktailArtwork = ({ cocktail }) => {
     <div
       className="cocktail-artwork cocktail-card-img"
       role="img"
-      aria-label={`${cocktail?.English_Name || "Cocktail"} illustration`}
+      aria-label={`${cocktail?.english_name || cocktail?.English_Name || "Cocktail"} illustration`}
     >
       <svg viewBox="0 0 320 240" aria-hidden="true">
         <defs>

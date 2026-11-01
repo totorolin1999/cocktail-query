@@ -1,8 +1,8 @@
 export const buildMaterialOptions = (items, useChinese) => {
   const primaryName = (item) =>
-    useChinese ? item.Chinese_Name : item.English_Name;
+    useChinese ? (item.chinese_name || item.Chinese_Name) : (item.english_name || item.English_Name);
   const secondaryName = (item) =>
-    useChinese ? item.English_Name : item.Chinese_Name;
+    useChinese ? (item.english_name || item.English_Name) : (item.chinese_name || item.Chinese_Name);
   const nameCounts = new Map();
 
   items.forEach((item) => {

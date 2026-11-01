@@ -77,8 +77,8 @@ const MaterialTable = ({ data }) => {
             <tbody>
               {currentItems.map((item) => (
                 <tr key={item.id}>
-                  <td>{item.Chinese_Name}</td>
-                  <td>{item.English_Name}</td>
+                  <td>{item.chinese_name || item.Chinese_Name}</td>
+                  <td>{item.english_name || item.English_Name}</td>
                   {user && (
                     <td>
                       <div className="action-buttons">

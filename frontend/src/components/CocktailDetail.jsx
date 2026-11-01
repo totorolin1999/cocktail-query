@@ -23,7 +23,7 @@ const CocktailDetail = ({ data }) => {
       border="warning"
       className="text-center cocktailCard detail-card"
     >
-      <Card.Header>{data?.English_Name}</Card.Header>
+      <Card.Header>{data?.english_name || data?.English_Name}</Card.Header>
       {isCocktailArtwork(data?.image) ? (
         <CocktailArtwork cocktail={data} />
       ) : (
@@ -31,12 +31,12 @@ const CocktailDetail = ({ data }) => {
           variant="top"
           src={url}
           className="cocktail-card-img"
-          alt={data?.English_Name}
+          alt={data?.english_name || data?.English_Name}
         />
       )}
       <Card.Body>
         <Card.Title className="cocktail-card-title">
-          {chinese ? data?.Chinese_Name : data?.English_Name}
+          {chinese ? (data?.chinese_name || data?.Chinese_Name) : (data?.english_name || data?.English_Name)}
           <IbaBadge category={data?.iba_category} />
         </Card.Title>
         <div className="card-text">
@@ -63,8 +63,8 @@ const CocktailDetail = ({ data }) => {
               {data.Bases.map((base, index) => (
                 <React.Fragment key={index}>
                   {chinese
-                    ? base.Chinese_Name
-                    : base.English_Name}
+                    ? (base.chinese_name || base.Chinese_Name)
+                    : (base.english_name || base.English_Name)}
                   {index < data.Bases.length - 1 ? <>&nbsp;/&nbsp;</> : <br />}
                 </React.Fragment>
               ))}
@@ -76,8 +76,8 @@ const CocktailDetail = ({ data }) => {
               {data.Liqueurs.map((liqueur, index) => (
                 <React.Fragment key={index}>
                   {chinese
-                    ? liqueur.Chinese_Name
-                    : liqueur.English_Name}
+                    ? (liqueur.chinese_name || liqueur.Chinese_Name)
+                    : (liqueur.english_name || liqueur.English_Name)}
                   {index < data.Liqueurs.length - 1 ? (
                     <>&nbsp;/&nbsp;</>
                   ) : (
@@ -93,8 +93,8 @@ const CocktailDetail = ({ data }) => {
               {data.Alcohols.map((alcohol, index) => (
                 <React.Fragment key={index}>
                   {chinese
-                    ? alcohol.Chinese_Name
-                    : alcohol.English_Name}
+                    ? (alcohol.chinese_name || alcohol.Chinese_Name)
+                    : (alcohol.english_name || alcohol.English_Name)}
                   {index < data.Alcohols.length - 1 ? (
                     <>&nbsp;/&nbsp;</>
                   ) : (
@@ -110,8 +110,8 @@ const CocktailDetail = ({ data }) => {
               {data.Ingredients.map((ingredient, index) => (
                 <React.Fragment key={index}>
                   {chinese
-                    ? ingredient.Chinese_Name
-                    : ingredient.English_Name}
+                    ? (ingredient.chinese_name || ingredient.Chinese_Name)
+                    : (ingredient.english_name || ingredient.English_Name)}
                   {index < data.Ingredients.length - 1 ? (
                     <>&nbsp;/&nbsp;</>
                   ) : (

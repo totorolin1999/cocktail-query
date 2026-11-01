@@ -9,10 +9,21 @@ from .models import (
 
 class MaterialSerializer(serializers.ModelSerializer):
     id = serializers.IntegerField(required=False)
+    Chinese_Name = serializers.CharField(source='chinese_name', required=False)
+    English_Name = serializers.CharField(source='english_name', required=False)
 
     class Meta:
         model = Material
         fields = '__all__'
+
+    def to_internal_value(self, data):
+        # 兼容接收 Chinese_Name 與 English_Name
+        data = data.copy() if hasattr(data, 'copy') else dict(data)
+        if 'Chinese_Name' in data and 'chinese_name' not in data:
+            data['chinese_name'] = data['Chinese_Name']
+        if 'English_Name' in data and 'english_name' not in data:
+            data['english_name'] = data['English_Name']
+        return super().to_internal_value(data)
 
 
 # 向下相容舊版 Serializer 命名
@@ -54,14 +65,14 @@ def _sync_recipe_items(cocktail, recipe_ingredients=None, bases_data=None, lique
             if not name_en and not name_zh:
                 continue
 
-            material = Material.objects.filter(category=cat, English_Name=name_en).first()
+            material = Material.objects.filter(category=cat, english_name=name_en).first()
             if not material and name_zh:
-                material = Material.objects.filter(category=cat, Chinese_Name=name_zh).first()
+                material = Material.objects.filter(category=cat, chinese_name=name_zh).first()
             if not material:
                 material = Material.objects.create(
                     category=cat,
-                    English_Name=name_en or name_zh,
-                    Chinese_Name=name_zh or name_en,
+                    english_name=name_en or name_zh,
+                    chinese_name=name_zh or name_en,
                 )
 
             items_to_create.append(
@@ -118,7 +129,15 @@ class CocktailSerializer(serializers.ModelSerializer):
     recipe_items = CocktailRecipeItemSerializer(many=True, read_only=True)
     image = serializers.ImageField(required=False, allow_null=True)
 
-    # 向下相容前端所需的中繼清單欄位
+    # 兼容舊版大寫欄位名稱
+    Chinese_Name = serializers.CharField(source='chinese_name', required=False)
+    English_Name = serializers.CharField(source='english_name', required=False)
+
+    # 標準 snake_case 與向下相容前端所需的中繼清單欄位
+    bases = serializers.SerializerMethodField()
+    liqueurs = serializers.SerializerMethodField()
+    alcohols = serializers.SerializerMethodField()
+    ingredients = serializers.SerializerMethodField()
     Bases = serializers.SerializerMethodField()
     Liqueurs = serializers.SerializerMethodField()
     Alcohols = serializers.SerializerMethodField()
@@ -128,12 +147,22 @@ class CocktailSerializer(serializers.ModelSerializer):
         model = Cocktail
         fields = '__all__'
 
+    def to_internal_value(self, data):
+        data = data.copy() if hasattr(data, 'copy') else dict(data)
+        if 'Chinese_Name' in data and 'chinese_name' not in data:
+            data['chinese_name'] = data['Chinese_Name']
+        if 'English_Name' in data and 'english_name' not in data:
+            data['english_name'] = data['English_Name']
+        return super().to_internal_value(data)
+
     def get_materials(self, obj):
         return [
             {
                 'id': item.material.id,
-                'Chinese_Name': item.material.Chinese_Name,
-                'English_Name': item.material.English_Name,
+                'chinese_name': item.material.chinese_name,
+                'english_name': item.material.english_name,
+                'Chinese_Name': item.material.chinese_name,
+                'English_Name': item.material.english_name,
                 'category': item.material.category,
             }
             for item in obj.recipe_items.all()
@@ -143,12 +172,26 @@ class CocktailSerializer(serializers.ModelSerializer):
         return [
             {
                 'id': item.material.id,
-                'Chinese_Name': item.material.Chinese_Name,
-                'English_Name': item.material.English_Name,
+                'chinese_name': item.material.chinese_name,
+                'english_name': item.material.english_name,
+                'Chinese_Name': item.material.chinese_name,
+                'English_Name': item.material.english_name,
             }
             for item in obj.recipe_items.all()
             if item.material.category == cat
         ]
+
+    def get_bases(self, obj):
+        return self._extract_category(obj, 'base')
+
+    def get_liqueurs(self, obj):
+        return self._extract_category(obj, 'liqueur')
+
+    def get_alcohols(self, obj):
+        return self._extract_category(obj, 'alcohol')
+
+    def get_ingredients(self, obj):
+        return self._extract_category(obj, 'ingredient')
 
     def get_Bases(self, obj):
         return self._extract_category(obj, 'base')
@@ -163,10 +206,10 @@ class CocktailSerializer(serializers.ModelSerializer):
         return self._extract_category(obj, 'ingredient')
 
     def create(self, validated_data):
-        bases_data = self.initial_data.get('Bases', [])
-        liqueurs_data = self.initial_data.get('Liqueurs', [])
-        alcohols_data = self.initial_data.get('Alcohols', [])
-        ingredients_data = self.initial_data.get('Ingredients', [])
+        bases_data = self.initial_data.get('bases', self.initial_data.get('Bases', []))
+        liqueurs_data = self.initial_data.get('liqueurs', self.initial_data.get('Liqueurs', []))
+        alcohols_data = self.initial_data.get('alcohols', self.initial_data.get('Alcohols', []))
+        ingredients_data = self.initial_data.get('ingredients', self.initial_data.get('Ingredients', []))
 
         with transaction.atomic():
             cocktail = Cocktail.objects.create(**validated_data)
@@ -181,10 +224,10 @@ class CocktailSerializer(serializers.ModelSerializer):
             return cocktail
 
     def update(self, instance, validated_data):
-        bases_data = self.initial_data.get('Bases')
-        liqueurs_data = self.initial_data.get('Liqueurs')
-        alcohols_data = self.initial_data.get('Alcohols')
-        ingredients_data = self.initial_data.get('Ingredients')
+        bases_data = self.initial_data.get('bases', self.initial_data.get('Bases'))
+        liqueurs_data = self.initial_data.get('liqueurs', self.initial_data.get('Liqueurs'))
+        alcohols_data = self.initial_data.get('alcohols', self.initial_data.get('Alcohols'))
+        ingredients_data = self.initial_data.get('ingredients', self.initial_data.get('Ingredients'))
 
         with transaction.atomic():
             for field_name, value in validated_data.items():

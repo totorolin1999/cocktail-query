@@ -36,15 +36,15 @@ def build_model(output_csv=None, output_model=None):
             'recipe_items__material'
         )
     )
-    names = [cocktail.Chinese_Name for cocktail in cocktails]
+    names = [cocktail.chinese_name for cocktail in cocktails]
     feature_rows = []
     csv_rows = []
 
     for cocktail in cocktails:
         features = {}
-        csv_row = [cocktail.Chinese_Name, cocktail.English_Name]
+        csv_row = [cocktail.chinese_name, cocktail.english_name]
         recipe_items = list(cocktail.recipe_items.all())
-        csv_row.extend(item.material.Chinese_Name for item in recipe_items)
+        csv_row.extend(item.material.chinese_name for item in recipe_items)
         for item in recipe_items:
             cat = item.material.category
             features[f'{cat}:{item.material.pk}'] = FEATURE_WEIGHTS.get(cat, 1.0)

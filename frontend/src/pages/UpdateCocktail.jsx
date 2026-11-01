@@ -16,6 +16,8 @@ import Alert from "react-bootstrap/Alert";
 const UpdateCocktail = () => {
   const [cocktail, setCocktail] = useState({
     id: null,
+    chinese_name: "",
+    english_name: "",
     Chinese_Name: "",
     English_Name: "",
   });
@@ -29,7 +31,17 @@ const UpdateCocktail = () => {
   const cocktailId = location.pathname.split("/")[2];
 
   const handleChange = (e) => {
-    setCocktail((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    const { name, value } = e.target;
+    setCocktail((prev) => ({
+      ...prev,
+      [name]: value,
+      ...(name === "Chinese_Name" || name === "chinese_name"
+        ? { chinese_name: value, Chinese_Name: value }
+        : {}),
+      ...(name === "English_Name" || name === "english_name"
+        ? { english_name: value, English_Name: value }
+        : {}),
+    }));
   };
 
   useEffect(() => {
@@ -84,8 +96,8 @@ const UpdateCocktail = () => {
           <Form.Control
             placeholder="輸入中文名稱"
             onChange={handleChange}
-            name="Chinese_Name"
-            value={cocktail.Chinese_Name}
+            name="chinese_name"
+            value={cocktail.chinese_name || cocktail.Chinese_Name || ""}
             required
           />
         </Form.Group>
@@ -95,8 +107,8 @@ const UpdateCocktail = () => {
           <Form.Control
             placeholder="輸入英文名稱"
             onChange={handleChange}
-            name="English_Name"
-            value={cocktail.English_Name}
+            name="english_name"
+            value={cocktail.english_name || cocktail.English_Name || ""}
             required
           />
         </Form.Group>

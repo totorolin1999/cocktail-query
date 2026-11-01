@@ -2,9 +2,9 @@ import { buildMaterialOptions } from "./materialOptionUtils";
 
 describe("buildMaterialOptions", () => {
   const materials = [
-    { id: 1, Chinese_Name: "蘭姆酒", English_Name: "Goslings Rum" },
-    { id: 2, Chinese_Name: "蘭姆酒", English_Name: "Gold Jamaican Rum" },
-    { id: 3, Chinese_Name: "白蘭姆酒", English_Name: "White Rum" },
+    { id: 1, chinese_name: "蘭姆酒", english_name: "Goslings Rum" },
+    { id: 2, chinese_name: "蘭姆酒", english_name: "Gold Jamaican Rum" },
+    { id: 3, chinese_name: "白蘭姆酒", english_name: "White Rum" },
   ];
 
   it("adds English names only when Chinese labels collide", () => {
@@ -17,8 +17,8 @@ describe("buildMaterialOptions", () => {
 
   it("uses Chinese names to disambiguate duplicate English labels", () => {
     const duplicateEnglishNames = [
-      { id: 1, Chinese_Name: "老湯姆琴酒", English_Name: "Gin" },
-      { id: 2, Chinese_Name: "琴酒", English_Name: "Gin" },
+      { id: 1, chinese_name: "老湯姆琴酒", english_name: "Gin" },
+      { id: 2, chinese_name: "琴酒", english_name: "Gin" },
     ];
 
     expect(buildMaterialOptions(duplicateEnglishNames, false)).toEqual([

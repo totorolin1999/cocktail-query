@@ -21,6 +21,8 @@ const materialTitles = {
 const UpdateItem = () => {
   const [item, setItem] = useState({
     id: null,
+    chinese_name: "",
+    english_name: "",
     Chinese_Name: "",
     English_Name: "",
   });
@@ -35,7 +37,17 @@ const UpdateItem = () => {
   const materialLabel = materialTitles[material] || material;
 
   const handleChange = (e) => {
-    setItem((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    const { name, value } = e.target;
+    setItem((prev) => ({
+      ...prev,
+      [name]: value,
+      ...(name === "Chinese_Name" || name === "chinese_name"
+        ? { chinese_name: value, Chinese_Name: value }
+        : {}),
+      ...(name === "English_Name" || name === "english_name"
+        ? { english_name: value, English_Name: value }
+        : {}),
+    }));
   };
 
   useEffect(() => {
@@ -75,8 +87,8 @@ const UpdateItem = () => {
           <Form.Control
             placeholder="輸入中文名稱"
             onChange={handleChange}
-            name="Chinese_Name"
-            value={item.Chinese_Name}
+            name="chinese_name"
+            value={item.chinese_name || item.Chinese_Name || ""}
             required
           />
         </Form.Group>
@@ -86,8 +98,8 @@ const UpdateItem = () => {
           <Form.Control
             placeholder="輸入英文名稱"
             onChange={handleChange}
-            name="English_Name"
-            value={item.English_Name}
+            name="english_name"
+            value={item.english_name || item.English_Name || ""}
             required
           />
         </Form.Group>

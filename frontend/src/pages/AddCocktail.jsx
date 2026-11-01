@@ -27,6 +27,8 @@ const AddCocktail = () => {
   const [selectedAlcohols, setSelectedAlcohols] = useState([]);
   const [selectedIngredients, setSelectedIngredients] = useState([]);
   const [cocktail, setCocktail] = useState({
+    chinese_name: "",
+    english_name: "",
     Chinese_Name: "",
     English_Name: "",
     Bases: selectedBases,
@@ -83,7 +85,17 @@ const AddCocktail = () => {
   const navigate = useNavigate();
 
   const handleChange = (e) => {
-    setCocktail((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    const { name, value } = e.target;
+    setCocktail((prev) => ({
+      ...prev,
+      [name]: value,
+      ...(name === "Chinese_Name" || name === "chinese_name"
+        ? { chinese_name: value, Chinese_Name: value }
+        : {}),
+      ...(name === "English_Name" || name === "english_name"
+        ? { english_name: value, English_Name: value }
+        : {}),
+    }));
   };
 
   const handleClick = async (e) => {
@@ -122,7 +134,7 @@ const AddCocktail = () => {
           <Form.Control
             placeholder="輸入中文名稱"
             onChange={handleChange}
-            name="Chinese_Name"
+            name="chinese_name"
             required
           />
         </Form.Group>
@@ -132,7 +144,7 @@ const AddCocktail = () => {
           <Form.Control
             placeholder="輸入英文名稱"
             onChange={handleChange}
-            name="English_Name"
+            name="english_name"
             required
           />
         </Form.Group>

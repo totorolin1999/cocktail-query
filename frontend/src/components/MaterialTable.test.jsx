@@ -19,8 +19,8 @@ describe("MaterialTable", () => {
   it("shows nine materials per page and paginates the remaining records", () => {
     const data = Array.from({ length: 20 }, (_, index) => ({
       id: index + 1,
-      Chinese_Name: `材料${index + 1}`,
-      English_Name: `Material ${index + 1}`,
+      chinese_name: `材料${index + 1}`,
+      english_name: `Material ${index + 1}`,
     }));
 
     render(

@@ -7,7 +7,7 @@ import { useLocation } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import AdminFormLayout from "../components/AdminFormLayout";
-import API_BASE_URL from "../apiConfig";
+import API_BASE_URL from '../apiConfig';
 
 const materialTitles = {
   base: "基酒",
@@ -18,6 +18,8 @@ const materialTitles = {
 
 const AddItem = () => {
   const [item, setItem] = useState({
+    chinese_name: "",
+    english_name: "",
     Chinese_Name: "",
     English_Name: "",
   });
@@ -31,7 +33,17 @@ const AddItem = () => {
   const materialLabel = materialTitles[material] || material;
 
   const handleChange = (e) => {
-    setItem((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    const { name, value } = e.target;
+    setItem((prev) => ({
+      ...prev,
+      [name]: value,
+      ...(name === "Chinese_Name" || name === "chinese_name"
+        ? { chinese_name: value, Chinese_Name: value }
+        : {}),
+      ...(name === "English_Name" || name === "english_name"
+        ? { english_name: value, English_Name: value }
+        : {}),
+    }));
   };
 
   const handleClick = async (e) => {
@@ -57,7 +69,7 @@ const AddItem = () => {
           <Form.Control
             placeholder="輸入中文名稱"
             onChange={handleChange}
-            name="Chinese_Name"
+            name="chinese_name"
             required
           />
         </Form.Group>
@@ -67,7 +79,7 @@ const AddItem = () => {
           <Form.Control
             placeholder="輸入英文名稱"
             onChange={handleChange}
-            name="English_Name"
+            name="english_name"
             required
           />
         </Form.Group>
