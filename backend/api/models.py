@@ -1,56 +1,29 @@
 from django.db import models
 
 
-class Base(models.Model):
+class Material(models.Model):
+    CATEGORY_CHOICES = [
+        ('base', '基酒'),
+        ('liqueur', '利口酒'),
+        ('alcohol', '其他酒類'),
+        ('ingredient', '副材料'),
+    ]
+
     Chinese_Name = models.CharField(max_length=255, db_index=True)
     English_Name = models.CharField(max_length=255, db_index=True)
+    category = models.CharField(max_length=20, choices=CATEGORY_CHOICES, db_index=True)
 
     class Meta:
         ordering = ['id']
-        verbose_name = '基酒'
-        verbose_name_plural = '基酒'
+        verbose_name = '材料'
+        verbose_name_plural = '材料'
+        indexes = [
+            models.Index(fields=['category', 'id']),
+            models.Index(fields=['category', 'English_Name']),
+        ]
 
     def __str__(self):
-        return self.Chinese_Name
-
-
-class Liqueur(models.Model):
-    Chinese_Name = models.CharField(max_length=255, db_index=True)
-    English_Name = models.CharField(max_length=255, db_index=True)
-
-    class Meta:
-        ordering = ['id']
-        verbose_name = '利口酒'
-        verbose_name_plural = '利口酒'
-
-    def __str__(self):
-        return self.Chinese_Name
-
-
-class Alcohol(models.Model):
-    Chinese_Name = models.CharField(max_length=255, db_index=True)
-    English_Name = models.CharField(max_length=255, db_index=True)
-
-    class Meta:
-        ordering = ['id']
-        verbose_name = '其他酒類'
-        verbose_name_plural = '其他酒類'
-
-    def __str__(self):
-        return self.Chinese_Name
-
-
-class Ingredient(models.Model):
-    Chinese_Name = models.CharField(max_length=255, db_index=True)
-    English_Name = models.CharField(max_length=255, db_index=True)
-
-    class Meta:
-        ordering = ['id']
-        verbose_name = '副材料'
-        verbose_name_plural = '副材料'
-
-    def __str__(self):
-        return self.Chinese_Name
+        return f"{self.Chinese_Name} ({self.get_category_display()})"
 
 
 class CocktailQuerySet(models.QuerySet):
@@ -58,7 +31,7 @@ class CocktailQuerySet(models.QuerySet):
         return self.filter(is_active=True)
 
     def with_related(self):
-        return self.prefetch_related('Bases', 'Liqueurs', 'Alcohols', 'Ingredients')
+        return self.prefetch_related('recipe_items__material')
 
 
 class CocktailManager(models.Manager.from_queryset(CocktailQuerySet)):
@@ -86,10 +59,12 @@ class Cocktail(models.Model):
 
     Chinese_Name = models.CharField(max_length=255, db_index=True)
     English_Name = models.CharField(max_length=255, db_index=True)
-    Bases = models.ManyToManyField(Base, blank=True)
-    Liqueurs = models.ManyToManyField(Liqueur, blank=True)
-    Alcohols = models.ManyToManyField(Alcohol, blank=True)
-    Ingredients = models.ManyToManyField(Ingredient, blank=True)
+    materials = models.ManyToManyField(
+        Material,
+        through='CocktailRecipeItem',
+        blank=True,
+        related_name='cocktails',
+    )
     image = models.ImageField(default='cocktail_images/illustration.svg', upload_to='cocktail_images')
     recipe_ingredients = models.JSONField(default=list, blank=True)
     iba_category = models.CharField(max_length=50, blank=True, db_index=True)
@@ -121,3 +96,31 @@ class Cocktail(models.Model):
 
     def __str__(self):
         return self.Chinese_Name
+
+
+class CocktailRecipeItem(models.Model):
+    cocktail = models.ForeignKey(
+        Cocktail,
+        on_delete=models.CASCADE,
+        related_name='recipe_items',
+    )
+    material = models.ForeignKey(
+        Material,
+        on_delete=models.CASCADE,
+        related_name='recipe_items',
+    )
+    amount = models.CharField(max_length=50, blank=True, default='')
+    unit_zh = models.CharField(max_length=50, blank=True, default='')
+    unit_en = models.CharField(max_length=50, blank=True, default='')
+    order = models.PositiveIntegerField(default=0)
+
+    class Meta:
+        ordering = ['order', 'id']
+        verbose_name = '酒譜用量項目'
+        verbose_name_plural = '酒譜用量項目'
+        indexes = [
+            models.Index(fields=['cocktail', 'order']),
+        ]
+
+    def __str__(self):
+        return f"{self.cocktail.Chinese_Name} - {self.material.Chinese_Name} ({self.amount})"

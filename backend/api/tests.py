@@ -13,7 +13,7 @@ from django.test import SimpleTestCase, override_settings
 from rest_framework import status
 from rest_framework.test import APITestCase
 
-from .models import Base, Liqueur, Alcohol, Ingredient, Cocktail
+from .models import Material, Cocktail, CocktailRecipeItem
 from .scripts.build_iba_recipes import parse_ingredient
 from .utils import build_model
 
@@ -129,9 +129,9 @@ class IBACocktailFixtureTests(SimpleTestCase):
 
 class CocktailListFilterTests(APITestCase):
     def setUp(self):
-        vodka = Base.objects.create(id=4, Chinese_Name="伏特加", English_Name="Vodka")
-        rum = Base.objects.create(id=5, Chinese_Name="蘭姆酒", English_Name="Rum")
-        cointreau = Liqueur.objects.create(id=2, Chinese_Name="君度橙酒", English_Name="Cointreau")
+        vodka = Material.objects.create(id=4, category="base", Chinese_Name="伏特加", English_Name="Vodka")
+        rum = Material.objects.create(id=5, category="base", Chinese_Name="蘭姆酒", English_Name="Rum")
+        cointreau = Material.objects.create(id=2, category="liqueur", Chinese_Name="君度橙酒", English_Name="Cointreau")
 
         long_island = Cocktail.objects.create(
             Chinese_Name="長島冰茶",
@@ -140,8 +140,9 @@ class CocktailListFilterTests(APITestCase):
             glassware_zh="高球杯",
             glassware_en="Highball glass",
         )
-        long_island.Bases.add(vodka)
-        long_island.Liqueurs.add(cointreau)
+        CocktailRecipeItem.objects.create(cocktail=long_island, material=vodka)
+        CocktailRecipeItem.objects.create(cocktail=long_island, material=cointreau)
+        CocktailRecipeItem.objects.create(cocktail=long_island, material=rum)
 
         cosmopolitan = Cocktail.objects.create(
             Chinese_Name="柯夢波丹",
@@ -150,8 +151,8 @@ class CocktailListFilterTests(APITestCase):
             glassware_zh="馬丁尼杯",
             glassware_en="Cocktail glass",
         )
-        cosmopolitan.Bases.add(vodka)
-        cosmopolitan.Liqueurs.add(cointreau)
+        CocktailRecipeItem.objects.create(cocktail=cosmopolitan, material=vodka)
+        CocktailRecipeItem.objects.create(cocktail=cosmopolitan, material=cointreau)
 
         kamikaze = Cocktail.objects.create(
             Chinese_Name="神風特攻隊",
@@ -160,16 +161,14 @@ class CocktailListFilterTests(APITestCase):
             glassware_zh="雞尾酒杯",
             glassware_en="Cocktail glass",
         )
-        kamikaze.Bases.add(vodka)
-        kamikaze.Liqueurs.add(cointreau)
+        CocktailRecipeItem.objects.create(cocktail=kamikaze, material=vodka)
+        CocktailRecipeItem.objects.create(cocktail=kamikaze, material=cointreau)
 
         free_cuba = Cocktail.objects.create(
             Chinese_Name="自由古巴",
             English_Name="Free Cuba",
         )
-        free_cuba.Bases.add(rum)
-
-        long_island.Bases.add(rum)
+        CocktailRecipeItem.objects.create(cocktail=free_cuba, material=rum)
 
     def test_filter_cocktails_by_vodka_and_cointreau(self):
         response = self.client.get(
@@ -246,33 +245,34 @@ class CocktailAPITestCase(APITestCase):
         self.user = User.objects.create_user(username="testuser", password="testpass")
         self.client.force_authenticate(user=self.user)
 
-        self.vodka = Base.objects.create(id=4, Chinese_Name="伏特加", English_Name="Vodka")
-        self.rum = Base.objects.create(id=5, Chinese_Name="蘭姆酒", English_Name="Rum")
-        self.cointreau = Liqueur.objects.create(id=2, Chinese_Name="君度橙酒", English_Name="Cointreau")
-        self.tequila = Alcohol.objects.create(id=3, Chinese_Name="龍舌蘭", English_Name="Tequila")
-        self.lemon = Ingredient.objects.create(id=10, Chinese_Name="檸檬", English_Name="Lemon")
+        self.vodka = Material.objects.create(id=4, category="base", Chinese_Name="伏特加", English_Name="Vodka")
+        self.rum = Material.objects.create(id=5, category="base", Chinese_Name="蘭姆酒", English_Name="Rum")
+        self.cointreau = Material.objects.create(id=2, category="liqueur", Chinese_Name="君度橙酒", English_Name="Cointreau")
+        self.tequila = Material.objects.create(id=3, category="alcohol", Chinese_Name="龍舌蘭", English_Name="Tequila")
+        self.lemon = Material.objects.create(id=10, category="ingredient", Chinese_Name="檸檬", English_Name="Lemon")
 
         self.long_island = Cocktail.objects.create(
             Chinese_Name="長島冰茶",
             English_Name="Long Island Iced Tea",
         )
-        self.long_island.Bases.add(self.vodka)
-        self.long_island.Liqueurs.add(self.cointreau)
-        self.long_island.Alcohols.add(self.tequila)
-        self.long_island.Ingredients.add(self.lemon)
+        CocktailRecipeItem.objects.create(cocktail=self.long_island, material=self.vodka)
+        CocktailRecipeItem.objects.create(cocktail=self.long_island, material=self.cointreau)
+        CocktailRecipeItem.objects.create(cocktail=self.long_island, material=self.tequila)
+        CocktailRecipeItem.objects.create(cocktail=self.long_island, material=self.lemon)
 
         self.mix_cocktail = Cocktail.objects.create(
             Chinese_Name="伏蘭君",
             English_Name="Vodka Rum Cointreau",
         )
-        self.mix_cocktail.Bases.add(self.vodka, self.rum)
-        self.mix_cocktail.Liqueurs.add(self.cointreau)
+        CocktailRecipeItem.objects.create(cocktail=self.mix_cocktail, material=self.vodka)
+        CocktailRecipeItem.objects.create(cocktail=self.mix_cocktail, material=self.rum)
+        CocktailRecipeItem.objects.create(cocktail=self.mix_cocktail, material=self.cointreau)
 
         self.free_cuba = Cocktail.objects.create(
             Chinese_Name="自由古巴",
             English_Name="Free Cuba",
         )
-        self.free_cuba.Bases.add(self.rum)
+        CocktailRecipeItem.objects.create(cocktail=self.free_cuba, material=self.rum)
 
     def test_cocktail_detail_returns_expected_data(self):
         self.long_island.recipe_ingredients = [
@@ -451,7 +451,7 @@ class CocktailAPITestCase(APITestCase):
         self.assertTrue(data["image"].endswith(".png"))
 
     def test_cocktail_update_can_modify_material_relations(self):
-        new_ingredient = Ingredient.objects.create(id=11, Chinese_Name="薄荷", English_Name="Mint")
+        new_ingredient = Material.objects.create(id=11, category="ingredient", Chinese_Name="薄荷", English_Name="Mint")
         update_payload = {
             "Chinese_Name": "長島最新版",
             "Bases": [{"id": self.rum.id}],
@@ -538,7 +538,7 @@ class CocktailAPITestCase(APITestCase):
             reverse("item-delete", args=["ingredient", material_id])
         )
         self.assertEqual(delete_response.status_code, status.HTTP_200_OK)
-        self.assertFalse(Ingredient.objects.filter(id=material_id).exists())
+        self.assertFalse(Material.objects.filter(id=material_id).exists())
 
     def test_material_endpoints_reject_unknown_model_types(self):
         response = self.client.get(reverse("material-list", args=["cocktail"]))
@@ -567,13 +567,15 @@ class CocktailAPITestCase(APITestCase):
 
     def test_recommendation_model_supports_more_than_eight_materials(self):
         extra_ingredients = [
-            Ingredient.objects.create(
+            Material.objects.create(
+                category="ingredient",
                 Chinese_Name=f"額外材料{index}",
                 English_Name=f"Extra ingredient {index}",
             )
             for index in range(1, 6)
         ]
-        self.long_island.Ingredients.add(*extra_ingredients)
+        for mat in extra_ingredients:
+            CocktailRecipeItem.objects.create(cocktail=self.long_island, material=mat)
 
         with tempfile.TemporaryDirectory() as output_dir:
             output_csv = Path(output_dir) / "cocktails.csv"
@@ -593,13 +595,13 @@ class CocktailAPITestCase(APITestCase):
             Chinese_Name="基酒相同",
             English_Name="Shared Base",
         )
-        base_match.Bases.add(self.vodka)
+        CocktailRecipeItem.objects.create(cocktail=base_match, material=self.vodka)
 
         ingredient_match = Cocktail.objects.create(
             Chinese_Name="副材料相同",
             English_Name="Shared Ingredient",
         )
-        ingredient_match.Ingredients.add(self.lemon)
+        CocktailRecipeItem.objects.create(cocktail=ingredient_match, material=self.lemon)
 
         with tempfile.TemporaryDirectory() as output_dir:
             output_model = Path(output_dir) / "similarities.joblib"
@@ -652,7 +654,7 @@ class CocktailAPITestCase(APITestCase):
         self.assertEqual(by_en.get("Rum"), 2)
 
     def test_cocktail_list_uses_constant_queries(self):
-        with self.assertNumQueries(5):
+        with self.assertNumQueries(3):
             response = self.client.get(reverse("cocktail-list"))
             self.assertEqual(response.status_code, status.HTTP_200_OK)
             self.assertGreaterEqual(len(response.json()), 2)
@@ -666,4 +668,43 @@ class CocktailAPITestCase(APITestCase):
         active_qs = Cocktail.objects.active()
         self.assertNotIn(inactive, active_qs)
         self.assertIn(self.long_island, active_qs)
+
+    def test_material_and_recipe_item_sync(self):
+        payload = {
+            "Chinese_Name": "整併調酒",
+            "English_Name": "Consolidated Cocktail",
+            "recipe_ingredients": [
+                {
+                    "name_zh": "特選琴酒",
+                    "name_en": "Craft Gin",
+                    "category": "base",
+                    "amount": "45 ml",
+                    "unit_zh": "",
+                    "unit_en": "",
+                },
+                {
+                    "name_zh": "通寧水",
+                    "name_en": "Tonic Water",
+                    "category": "ingredient",
+                    "amount": "120 ml",
+                    "unit_zh": "",
+                    "unit_en": "",
+                },
+            ],
+        }
+        response = self.client.post(reverse("cocktail-create"), payload, format="json")
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+        cocktail = Cocktail.objects.get(English_Name="Consolidated Cocktail")
+        self.assertEqual(cocktail.recipe_items.count(), 2)
+        self.assertEqual(cocktail.materials.count(), 2)
+        recipe_item = cocktail.recipe_items.first()
+        self.assertEqual(recipe_item.material.English_Name, "Craft Gin")
+        self.assertEqual(recipe_item.amount, "45 ml")
+
+    def test_material_endpoints(self):
+        material_response = self.client.get(reverse("material-list", args=["material"]))
+        self.assertEqual(material_response.status_code, status.HTTP_200_OK)
+
+        chart_response = self.client.get(reverse("chart-list", args=["material"]))
+        self.assertEqual(chart_response.status_code, status.HTTP_200_OK)
 

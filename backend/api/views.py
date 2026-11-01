@@ -11,29 +11,22 @@ from django.db.models import Q, Count
 
 from .serializers import (
     CocktailSerializer,
+    MaterialSerializer,
     BaseSerializer,
     LiqueurSerializer,
     AlcoholSerializer,
     IngredientSerializer,
 )
-from .models import Cocktail, Base, Liqueur, Alcohol, Ingredient
+from .models import (
+    Cocktail,
+    Material,
+    CocktailRecipeItem,
+)
 from .utils import build_model
 
 import joblib
 import json
 from django.conf import settings
-
-MODEL_MAPPING = {
-    'base': (Base, BaseSerializer),
-    'liqueur': (Liqueur, LiqueurSerializer),
-    'alcohol': (Alcohol, AlcoholSerializer),
-    'ingredient': (Ingredient, IngredientSerializer),
-}
-
-def get_model_and_serializer(model_type):
-    if model_type not in MODEL_MAPPING:
-        raise ValidationError(f'未知的模型類型: {model_type}')
-    return MODEL_MAPPING[model_type]
 
 
 def _parse_ids(request, key):
@@ -57,11 +50,9 @@ def _parse_ids(request, key):
     return ids
 
 
-def _filter_related_all(queryset, field_name, ids):
-    # 同一種類的多個選項必須同時存在於 cocktail 的關聯清單中。
-    # 例如 bases[] = 4|5 代表 cocktail 必須同時包含 Base id 4 和 Base id 5。
+def _filter_materials_all(queryset, ids):
     for related_id in ids:
-        queryset = queryset.filter(**{f'{field_name}__id': related_id})
+        queryset = queryset.filter(materials__id=related_id)
     return queryset
 
 
@@ -114,7 +105,7 @@ def _normalize_request_data(request):
     return data
 
 
-def _resolve_related_payload(payload, field_name, model):
+def _resolve_related_payload(payload, field_name, model=Material):
     raw_items = payload.get(field_name, []) or []
     if not isinstance(raw_items, list):
         raise ValidationError({field_name: ['必須提供材料清單。']})
@@ -234,7 +225,7 @@ def cocktailList(request):
     ingredients = _parse_ids(request, 'ingredients[]')
 
     cocktails = Cocktail.objects.filter(is_active=True).prefetch_related(
-        'Bases', 'Liqueurs', 'Alcohols', 'Ingredients'
+        'recipe_items__material'
     )
 
     if name:
@@ -255,13 +246,13 @@ def cocktailList(request):
         )
 
     if bases:
-        cocktails = _filter_related_all(cocktails, 'Bases', bases)
+        cocktails = _filter_materials_all(cocktails, bases)
     if liqueurs:
-        cocktails = _filter_related_all(cocktails, 'Liqueurs', liqueurs)
+        cocktails = _filter_materials_all(cocktails, liqueurs)
     if alcohols:
-        cocktails = _filter_related_all(cocktails, 'Alcohols', alcohols)
+        cocktails = _filter_materials_all(cocktails, alcohols)
     if ingredients:
-        cocktails = _filter_related_all(cocktails, 'Ingredients', ingredients)
+        cocktails = _filter_materials_all(cocktails, ingredients)
 
     serializer = CocktailSerializer(cocktails.distinct(), many=True)
     return Response(serializer.data)
@@ -270,7 +261,7 @@ def cocktailList(request):
 @api_view(['GET'])
 def cocktailDetail(request, pk):
     cocktail = get_object_or_404(
-        Cocktail.objects.prefetch_related('Bases', 'Liqueurs', 'Alcohols', 'Ingredients'),
+        Cocktail.objects.prefetch_related('recipe_items__material'),
         id=pk,
         is_active=True,
     )
@@ -280,9 +271,8 @@ def cocktailDetail(request, pk):
 
 @api_view(['GET'])
 def itemDetail(request, model_type, pk):
-    Model, Serializer = get_model_and_serializer(model_type)
-    item = get_object_or_404(Model, id=pk)
-    serializer = Serializer(item, many=False)
+    item = get_object_or_404(Material, id=pk)
+    serializer = MaterialSerializer(item, many=False)
     return Response(serializer.data)
 
 
@@ -292,14 +282,9 @@ def itemDetail(request, model_type, pk):
 def cocktailCreate(request):
     data = _normalize_request_data(request)
 
-    for field_name, model in (
-        ('Bases', Base),
-        ('Liqueurs', Liqueur),
-        ('Alcohols', Alcohol),
-        ('Ingredients', Ingredient),
-    ):
+    for field_name in ('Bases', 'Liqueurs', 'Alcohols', 'Ingredients'):
         data[field_name] = _parse_json_field(data.get(field_name, []))
-        data[field_name] = _resolve_related_payload(data, field_name, model)
+        data[field_name] = _resolve_related_payload(data, field_name, Material)
 
     serializer = CocktailSerializer(data=data)
     if serializer.is_valid():
@@ -316,15 +301,10 @@ def cocktailUpdate(request, pk):
     cocktail = get_object_or_404(Cocktail, id=pk)
     data = _normalize_request_data(request)
 
-    for field_name, model in (
-        ('Bases', Base),
-        ('Liqueurs', Liqueur),
-        ('Alcohols', Alcohol),
-        ('Ingredients', Ingredient),
-    ):
+    for field_name in ('Bases', 'Liqueurs', 'Alcohols', 'Ingredients'):
         if field_name in data:
             data[field_name] = _parse_json_field(data[field_name])
-            data[field_name] = _resolve_related_payload(data, field_name, model)
+            data[field_name] = _resolve_related_payload(data, field_name, Material)
 
     serializer = CocktailSerializer(instance=cocktail, data=data, partial=True)
     if serializer.is_valid():
@@ -337,8 +317,10 @@ def cocktailUpdate(request, pk):
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def itemCreate(request, model_type):
-    _, Serializer = get_model_and_serializer(model_type)
-    serializer = Serializer(data=request.data)
+    data = dict(request.data)
+    if model_type != 'material':
+        data['category'] = model_type
+    serializer = MaterialSerializer(data=data)
     if serializer.is_valid():
         serializer.save()
         return Response(serializer.data, status=201)
@@ -348,9 +330,8 @@ def itemCreate(request, model_type):
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def itemUpdate(request, model_type, pk):
-    Model, Serializer = get_model_and_serializer(model_type)
-    item = get_object_or_404(Model, id=pk)
-    serializer = Serializer(instance=item, data=request.data, partial=True)
+    item = get_object_or_404(Material, id=pk)
+    serializer = MaterialSerializer(instance=item, data=request.data, partial=True)
     if serializer.is_valid():
         serializer.save()
         return Response(serializer.data)
@@ -368,35 +349,40 @@ def cocktailDelete(request, pk):
 
 @api_view(['GET'])
 def materialList(request, model_type):
-    Model, Serializer = get_model_and_serializer(model_type)
-    items = Model.objects.all()
-    serializer = Serializer(items, many=True)
+    valid_categories = {'base', 'liqueur', 'alcohol', 'ingredient', 'material'}
+    if model_type not in valid_categories:
+        raise ValidationError(f'未知的模型類型: {model_type}')
+
+    if model_type == 'material':
+        items = Material.objects.all()
+    else:
+        items = Material.objects.filter(category=model_type)
+
+    serializer = MaterialSerializer(items, many=True)
     return Response(serializer.data)
 
 
 @api_view(['DELETE'])
 @permission_classes([IsAuthenticated])
 def itemDelete(request, model_type, pk):
-    Model, _ = get_model_and_serializer(model_type)
-    item = get_object_or_404(Model, id=pk)
+    item = get_object_or_404(Material, id=pk)
     item.delete()
     return Response({'message': '刪除成功'})
 
 
 @api_view(['GET'])
 def chartList(request, model_type):
-    model_mapping = {
-        'base': Base,
-        'liqueur': Liqueur,
-        'alcohol': Alcohol,
-        'ingredient': Ingredient,
-    }
-    if model_type not in model_mapping:
+    valid_categories = {'base', 'liqueur', 'alcohol', 'ingredient', 'material'}
+    if model_type not in valid_categories:
         return Response({'error': f'未知的模型類型: {model_type}'}, status=400)
 
-    Model = model_mapping[model_type]
-    items = Model.objects.annotate(
-        size=Count('cocktail', filter=Q(cocktail__is_active=True), distinct=True)
+    if model_type == 'material':
+        items = Material.objects.all()
+    else:
+        items = Material.objects.filter(category=model_type)
+
+    items = items.annotate(
+        size=Count('recipe_items__cocktail', filter=Q(recipe_items__cocktail__is_active=True), distinct=True)
     )
     chart_list = [
         {
@@ -431,7 +417,7 @@ def cocktailRecommendation(request, pk):
     recommendations = [name for name in recommendations.index if name != input_cocktail]
     cocktails = Cocktail.objects.filter(
         Chinese_Name__in=recommendations, is_active=True
-    ).prefetch_related('Bases', 'Liqueurs', 'Alcohols', 'Ingredients')
+    ).prefetch_related('recipe_items__material')
     serializer = CocktailSerializer(cocktails, many=True)
     return Response(serializer.data)
 
@@ -439,13 +425,10 @@ def cocktailRecommendation(request, pk):
 @api_view(['GET'])
 def backupData(request):
     data = []
-    data.extend(_serialize_model_entries('base', BaseSerializer(Base.objects.all(), many=True).data))
-    data.extend(_serialize_model_entries('liqueur', LiqueurSerializer(Liqueur.objects.all(), many=True).data))
-    data.extend(_serialize_model_entries('alcohol', AlcoholSerializer(Alcohol.objects.all(), many=True).data))
-    data.extend(_serialize_model_entries('ingredient', IngredientSerializer(Ingredient.objects.all(), many=True).data))
+    data.extend(_serialize_model_entries('material', MaterialSerializer(Material.objects.all(), many=True).data))
 
     cocktails = CocktailSerializer(
-        Cocktail.objects.all().prefetch_related('Bases', 'Liqueurs', 'Alcohols', 'Ingredients'),
+        Cocktail.objects.all().prefetch_related('recipe_items__material'),
         many=True,
     ).data
     data.extend(_serialize_cocktail_backup(cocktails))

@@ -1,131 +1,203 @@
 from rest_framework import serializers
 from django.db import transaction
-from .models import Cocktail, Base, Liqueur, Alcohol, Ingredient
+from .models import (
+    Cocktail,
+    Material,
+    CocktailRecipeItem,
+)
 
 
-class BaseSerializer(serializers.ModelSerializer):
+class MaterialSerializer(serializers.ModelSerializer):
     id = serializers.IntegerField(required=False)
 
     class Meta:
-        model = Base
+        model = Material
         fields = '__all__'
 
 
-class LiqueurSerializer(serializers.ModelSerializer):
-    id = serializers.IntegerField(required=False)
+# 向下相容舊版 Serializer 命名
+class BaseSerializer(MaterialSerializer):
+    pass
+
+
+class LiqueurSerializer(MaterialSerializer):
+    pass
+
+
+class AlcoholSerializer(MaterialSerializer):
+    pass
+
+
+class IngredientSerializer(MaterialSerializer):
+    pass
+
+
+class CocktailRecipeItemSerializer(serializers.ModelSerializer):
+    material = MaterialSerializer(read_only=True)
+    material_id = serializers.IntegerField(write_only=True, required=False)
 
     class Meta:
-        model = Liqueur
-        fields = '__all__'
+        model = CocktailRecipeItem
+        fields = ['id', 'material', 'material_id', 'amount', 'unit_zh', 'unit_en', 'order']
 
 
-class AlcoholSerializer(serializers.ModelSerializer):
-    id = serializers.IntegerField(required=False)
+def _sync_recipe_items(cocktail, recipe_ingredients=None, bases_data=None, liqueurs_data=None, alcohols_data=None, ingredients_data=None):
+    if recipe_ingredients and isinstance(recipe_ingredients, list):
+        CocktailRecipeItem.objects.filter(cocktail=cocktail).delete()
+        items_to_create = []
+        for index, item in enumerate(recipe_ingredients):
+            if not isinstance(item, dict):
+                continue
+            cat = item.get('category', 'ingredient')
+            name_en = item.get('name_en', '').strip()
+            name_zh = item.get('name_zh', '').strip()
+            if not name_en and not name_zh:
+                continue
 
-    class Meta:
-        model = Alcohol
-        fields = '__all__'
+            material = Material.objects.filter(category=cat, English_Name=name_en).first()
+            if not material and name_zh:
+                material = Material.objects.filter(category=cat, Chinese_Name=name_zh).first()
+            if not material:
+                material = Material.objects.create(
+                    category=cat,
+                    English_Name=name_en or name_zh,
+                    Chinese_Name=name_zh or name_en,
+                )
 
+            items_to_create.append(
+                CocktailRecipeItem(
+                    cocktail=cocktail,
+                    material=material,
+                    amount=item.get('amount', ''),
+                    unit_zh=item.get('unit_zh', ''),
+                    unit_en=item.get('unit_en', ''),
+                    order=index,
+                )
+            )
+        if items_to_create:
+            CocktailRecipeItem.objects.bulk_create(items_to_create)
+    else:
+        categories_data = [
+            ('base', bases_data),
+            ('liqueur', liqueurs_data),
+            ('alcohol', alcohols_data),
+            ('ingredient', ingredients_data),
+        ]
 
-class IngredientSerializer(serializers.ModelSerializer):
-    id = serializers.IntegerField(required=False)
+        if all(data is None for _, data in categories_data):
+            if recipe_ingredients == []:
+                CocktailRecipeItem.objects.filter(cocktail=cocktail).delete()
+            return
 
-    class Meta:
-        model = Ingredient
-        fields = '__all__'
-
-
-class NestedBaseSerializer(serializers.ModelSerializer):
-    id = serializers.IntegerField(required=False)
-
-    class Meta:
-        model = Base
-        fields = '__all__'
-        extra_kwargs = {
-            'Chinese_Name': {'validators': []},
-            'English_Name': {'validators': []},
-        }
-
-
-class NestedLiqueurSerializer(serializers.ModelSerializer):
-    id = serializers.IntegerField(required=False)
-
-    class Meta:
-        model = Liqueur
-        fields = '__all__'
-        extra_kwargs = {
-            'Chinese_Name': {'validators': []},
-            'English_Name': {'validators': []},
-        }
-
-
-class NestedAlcoholSerializer(serializers.ModelSerializer):
-    id = serializers.IntegerField(required=False)
-
-    class Meta:
-        model = Alcohol
-        fields = '__all__'
-        extra_kwargs = {
-            'Chinese_Name': {'validators': []},
-            'English_Name': {'validators': []},
-        }
-
-
-class NestedIngredientSerializer(serializers.ModelSerializer):
-    id = serializers.IntegerField(required=False)
-
-    class Meta:
-        model = Ingredient
-        fields = '__all__'
-        extra_kwargs = {
-            'Chinese_Name': {'validators': []},
-            'English_Name': {'validators': []},
-        }
+        for cat, data_list in categories_data:
+            if data_list is None:
+                continue
+            CocktailRecipeItem.objects.filter(cocktail=cocktail, material__category=cat).delete()
+            items_to_create = []
+            max_order = CocktailRecipeItem.objects.filter(cocktail=cocktail).count()
+            for entry in data_list:
+                mat_id = entry.get('id') if isinstance(entry, dict) else entry
+                material = Material.objects.filter(id=mat_id).first()
+                if not material:
+                    continue
+                items_to_create.append(
+                    CocktailRecipeItem(
+                        cocktail=cocktail,
+                        material=material,
+                        amount='',
+                        order=max_order,
+                    )
+                )
+                max_order += 1
+            if items_to_create:
+                CocktailRecipeItem.objects.bulk_create(items_to_create)
 
 
 class CocktailSerializer(serializers.ModelSerializer):
-    Bases = NestedBaseSerializer(many=True, required=False)
-    Liqueurs = NestedLiqueurSerializer(many=True, required=False)
-    Alcohols = NestedAlcoholSerializer(many=True, required=False)
-    Ingredients = NestedIngredientSerializer(many=True, required=False)
+    materials = serializers.SerializerMethodField()
+    recipe_items = CocktailRecipeItemSerializer(many=True, read_only=True)
     image = serializers.ImageField(required=False, allow_null=True)
+
+    # 向下相容前端所需的中繼清單欄位
+    Bases = serializers.SerializerMethodField()
+    Liqueurs = serializers.SerializerMethodField()
+    Alcohols = serializers.SerializerMethodField()
+    Ingredients = serializers.SerializerMethodField()
 
     class Meta:
         model = Cocktail
         fields = '__all__'
 
+    def get_materials(self, obj):
+        return [
+            {
+                'id': item.material.id,
+                'Chinese_Name': item.material.Chinese_Name,
+                'English_Name': item.material.English_Name,
+                'category': item.material.category,
+            }
+            for item in obj.recipe_items.all()
+        ]
+
+    def _extract_category(self, obj, cat):
+        return [
+            {
+                'id': item.material.id,
+                'Chinese_Name': item.material.Chinese_Name,
+                'English_Name': item.material.English_Name,
+            }
+            for item in obj.recipe_items.all()
+            if item.material.category == cat
+        ]
+
+    def get_Bases(self, obj):
+        return self._extract_category(obj, 'base')
+
+    def get_Liqueurs(self, obj):
+        return self._extract_category(obj, 'liqueur')
+
+    def get_Alcohols(self, obj):
+        return self._extract_category(obj, 'alcohol')
+
+    def get_Ingredients(self, obj):
+        return self._extract_category(obj, 'ingredient')
+
     def create(self, validated_data):
-        bases_data = validated_data.pop('Bases', [])
-        liqueurs_data = validated_data.pop('Liqueurs', [])
-        alcohols_data = validated_data.pop('Alcohols', [])
-        ingredients_data = validated_data.pop('Ingredients', [])
+        bases_data = self.initial_data.get('Bases', [])
+        liqueurs_data = self.initial_data.get('Liqueurs', [])
+        alcohols_data = self.initial_data.get('Alcohols', [])
+        ingredients_data = self.initial_data.get('Ingredients', [])
 
         with transaction.atomic():
             cocktail = Cocktail.objects.create(**validated_data)
-            cocktail.Bases.set([item['id'] for item in bases_data if 'id' in item])
-            cocktail.Liqueurs.set([item['id'] for item in liqueurs_data if 'id' in item])
-            cocktail.Alcohols.set([item['id'] for item in alcohols_data if 'id' in item])
-            cocktail.Ingredients.set([item['id'] for item in ingredients_data if 'id' in item])
+            _sync_recipe_items(
+                cocktail,
+                cocktail.recipe_ingredients,
+                bases_data=bases_data,
+                liqueurs_data=liqueurs_data,
+                alcohols_data=alcohols_data,
+                ingredients_data=ingredients_data,
+            )
             return cocktail
 
     def update(self, instance, validated_data):
-        bases_data = validated_data.pop('Bases', None)
-        liqueurs_data = validated_data.pop('Liqueurs', None)
-        alcohols_data = validated_data.pop('Alcohols', None)
-        ingredients_data = validated_data.pop('Ingredients', None)
+        bases_data = self.initial_data.get('Bases')
+        liqueurs_data = self.initial_data.get('Liqueurs')
+        alcohols_data = self.initial_data.get('Alcohols')
+        ingredients_data = self.initial_data.get('Ingredients')
 
         with transaction.atomic():
             for field_name, value in validated_data.items():
                 setattr(instance, field_name, value)
             instance.save()
 
-            if bases_data is not None:
-                instance.Bases.set([item['id'] for item in bases_data if 'id' in item])
-            if liqueurs_data is not None:
-                instance.Liqueurs.set([item['id'] for item in liqueurs_data if 'id' in item])
-            if alcohols_data is not None:
-                instance.Alcohols.set([item['id'] for item in alcohols_data if 'id' in item])
-            if ingredients_data is not None:
-                instance.Ingredients.set([item['id'] for item in ingredients_data if 'id' in item])
-
+            if any(x is not None for x in [bases_data, liqueurs_data, alcohols_data, ingredients_data]) or 'recipe_ingredients' in validated_data:
+                _sync_recipe_items(
+                    instance,
+                    instance.recipe_ingredients if 'recipe_ingredients' in validated_data else None,
+                    bases_data=bases_data,
+                    liqueurs_data=liqueurs_data,
+                    alcohols_data=alcohols_data,
+                    ingredients_data=ingredients_data,
+                )
             return instance

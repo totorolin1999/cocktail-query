@@ -16,13 +16,6 @@ FEATURE_WEIGHTS = {
     'ingredient': 1.0,
 }
 
-MATERIAL_RELATIONS = (
-    ('base', 'Bases'),
-    ('liqueur', 'Liqueurs'),
-    ('alcohol', 'Alcohols'),
-    ('ingredient', 'Ingredients'),
-)
-
 
 def build_model(output_csv=None, output_model=None):
     if output_csv is None:
@@ -40,7 +33,7 @@ def build_model(output_csv=None, output_model=None):
 
     cocktails = list(
         Cocktail.objects.filter(is_active=True).prefetch_related(
-            'Bases', 'Liqueurs', 'Alcohols', 'Ingredients'
+            'recipe_items__material'
         )
     )
     names = [cocktail.Chinese_Name for cocktail in cocktails]
@@ -50,11 +43,11 @@ def build_model(output_csv=None, output_model=None):
     for cocktail in cocktails:
         features = {}
         csv_row = [cocktail.Chinese_Name, cocktail.English_Name]
-        for category, relation_name in MATERIAL_RELATIONS:
-            materials = list(getattr(cocktail, relation_name).all())
-            csv_row.extend(material.Chinese_Name for material in materials)
-            for material in materials:
-                features[f'{category}:{material.pk}'] = FEATURE_WEIGHTS[category]
+        recipe_items = list(cocktail.recipe_items.all())
+        csv_row.extend(item.material.Chinese_Name for item in recipe_items)
+        for item in recipe_items:
+            cat = item.material.category
+            features[f'{cat}:{item.material.pk}'] = FEATURE_WEIGHTS.get(cat, 1.0)
         feature_rows.append(features)
         csv_rows.append(csv_row)
 
