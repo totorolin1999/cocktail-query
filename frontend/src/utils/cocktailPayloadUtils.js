@@ -20,10 +20,30 @@ export const buildCocktailPayload = (cocktail) => {
     payload.English_Name = englishName;
   }
 
-  payload.Bases = serializeRelatedField(cocktail.bases || cocktail.Bases);
-  payload.Liqueurs = serializeRelatedField(cocktail.liqueurs || cocktail.Liqueurs);
-  payload.Alcohols = serializeRelatedField(cocktail.alcohols || cocktail.Alcohols);
-  payload.Ingredients = serializeRelatedField(cocktail.ingredients || cocktail.Ingredients);
+  const getCategoryItems = (cat) => {
+    if (cocktail[cat] || cocktail[cat.charAt(0).toUpperCase() + cat.slice(1)]) {
+      return cocktail[cat] || cocktail[cat.charAt(0).toUpperCase() + cat.slice(1)];
+    }
+    if (Array.isArray(cocktail.recipe_items)) {
+      const singular =
+        cat === "bases"
+          ? "base"
+          : cat === "liqueurs"
+          ? "liqueur"
+          : cat === "alcohols"
+          ? "alcohol"
+          : "ingredient";
+      return cocktail.recipe_items
+        .filter((r) => r.material && r.material.category === singular)
+        .map((r) => r.material);
+    }
+    return [];
+  };
+
+  payload.Bases = serializeRelatedField(getCategoryItems("bases"));
+  payload.Liqueurs = serializeRelatedField(getCategoryItems("liqueurs"));
+  payload.Alcohols = serializeRelatedField(getCategoryItems("alcohols"));
+  payload.Ingredients = serializeRelatedField(getCategoryItems("ingredients"));
 
   return payload;
 };

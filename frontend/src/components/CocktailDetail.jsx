@@ -9,7 +9,24 @@ const CocktailDetail = ({ data }) => {
   const url = data?.image ? `${API_BASE_URL}${data.image}` : "";
   const [t, i18n] = useTranslation("global");
   const chinese = i18n.language === "chinese";
-  const recipeIngredients = data?.recipe_ingredients || [];
+
+  const recipeItems = data?.recipe_items || [];
+  const recipeIngredients = recipeItems.length > 0
+    ? recipeItems.map((item) => ({
+        name_zh: item.material?.chinese_name || item.name_zh || "",
+        name_en: item.material?.english_name || item.name_en || "",
+        amount: item.amount,
+        unit_zh: item.unit_zh,
+        unit_en: item.unit_en,
+        category: item.material?.category,
+      }))
+    : data?.recipe_ingredients || [];
+
+  const bases = data?.bases || recipeItems.filter((i) => i.material?.category === "base").map((i) => i.material);
+  const liqueurs = data?.liqueurs || recipeItems.filter((i) => i.material?.category === "liqueur").map((i) => i.material);
+  const alcohols = data?.alcohols || recipeItems.filter((i) => i.material?.category === "alcohol").map((i) => i.material);
+  const ingredients = data?.ingredients || recipeItems.filter((i) => i.material?.category === "ingredient").map((i) => i.material);
+
   const ibaCategories = {
     "The unforgettables": "不朽經典",
     "Contemporary Classics": "當代經典",
@@ -57,28 +74,28 @@ const CocktailDetail = ({ data }) => {
               </ul>
             </section>
           ) : null}
-          {data?.Bases?.length > 0 && (
+          {bases.length > 0 && (
             <>
               {t("detail.base")}
-              {data.Bases.map((base, index) => (
+              {bases.map((base, index) => (
                 <React.Fragment key={index}>
                   {chinese
                     ? (base.chinese_name || base.Chinese_Name)
                     : (base.english_name || base.English_Name)}
-                  {index < data.Bases.length - 1 ? <>&nbsp;/&nbsp;</> : <br />}
+                  {index < bases.length - 1 ? <>&nbsp;/&nbsp;</> : <br />}
                 </React.Fragment>
               ))}
             </>
           )}
-          {data?.Liqueurs?.length > 0 && (
+          {liqueurs.length > 0 && (
             <>
               {t("detail.liqueur")}
-              {data.Liqueurs.map((liqueur, index) => (
+              {liqueurs.map((liqueur, index) => (
                 <React.Fragment key={index}>
                   {chinese
                     ? (liqueur.chinese_name || liqueur.Chinese_Name)
                     : (liqueur.english_name || liqueur.English_Name)}
-                  {index < data.Liqueurs.length - 1 ? (
+                  {index < liqueurs.length - 1 ? (
                     <>&nbsp;/&nbsp;</>
                   ) : (
                     <br />
@@ -87,15 +104,15 @@ const CocktailDetail = ({ data }) => {
               ))}
             </>
           )}
-          {data?.Alcohols?.length > 0 && (
+          {alcohols.length > 0 && (
             <>
               {t("detail.alcohol")}
-              {data.Alcohols.map((alcohol, index) => (
+              {alcohols.map((alcohol, index) => (
                 <React.Fragment key={index}>
                   {chinese
                     ? (alcohol.chinese_name || alcohol.Chinese_Name)
                     : (alcohol.english_name || alcohol.English_Name)}
-                  {index < data.Alcohols.length - 1 ? (
+                  {index < alcohols.length - 1 ? (
                     <>&nbsp;/&nbsp;</>
                   ) : (
                     <br />
@@ -104,15 +121,15 @@ const CocktailDetail = ({ data }) => {
               ))}
             </>
           )}
-          {data?.Ingredients?.length > 0 && (
+          {ingredients.length > 0 && (
             <>
               {t("detail.ingredient")}
-              {data.Ingredients.map((ingredient, index) => (
+              {ingredients.map((ingredient, index) => (
                 <React.Fragment key={index}>
                   {chinese
                     ? (ingredient.chinese_name || ingredient.Chinese_Name)
                     : (ingredient.english_name || ingredient.English_Name)}
-                  {index < data.Ingredients.length - 1 ? (
+                  {index < ingredients.length - 1 ? (
                     <>&nbsp;/&nbsp;</>
                   ) : (
                     <br />

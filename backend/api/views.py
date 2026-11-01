@@ -147,7 +147,7 @@ def _serialize_model_entries(model_name, items):
     return [
         _build_backup_item(
             model_name,
-            {'Chinese_Name': item['Chinese_Name'], 'English_Name': item['English_Name']},
+            {'chinese_name': item.get('chinese_name', item.get('Chinese_Name')), 'english_name': item.get('english_name', item.get('English_Name'))},
         )
         for item in items
     ]
@@ -160,14 +160,10 @@ def _serialize_cocktail_backup(items):
             {
                 'model': 'api.cocktail',
                 'fields': {
-                    'Chinese_Name': item['Chinese_Name'],
-                    'English_Name': item['English_Name'],
+                    'chinese_name': item.get('chinese_name', item.get('Chinese_Name')),
+                    'english_name': item.get('english_name', item.get('English_Name')),
                     'image': item['image'].replace('/media/', '', 1),
-                    'Bases': [base['id'] for base in item['Bases']],
-                    'Liqueurs': [liqueur['id'] for liqueur in item['Liqueurs']],
-                    'Alcohols': [alcohol['id'] for alcohol in item['Alcohols']],
-                    'Ingredients': [ingredient['id'] for ingredient in item['Ingredients']],
-                    'recipe_ingredients': item['recipe_ingredients'],
+                    'recipe_items': item.get('recipe_items', []),
                     'iba_category': item['iba_category'],
                     'instructions_zh': item['instructions_zh'],
                     'instructions_en': item['instructions_en'],

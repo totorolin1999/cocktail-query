@@ -53,6 +53,24 @@ const CocktailTable = ({ data }) => {
     }
   };
 
+  const getCategoryMaterials = (item, category) => {
+    if (Array.isArray(item.recipe_items) && item.recipe_items.length > 0) {
+      return item.recipe_items
+        .filter((r) => r.material && r.material.category === category)
+        .map((r) => r.material);
+    }
+    const plural =
+      category === "base"
+        ? "bases"
+        : category === "liqueur"
+        ? "liqueurs"
+        : category === "alcohol"
+        ? "alcohols"
+        : "ingredients";
+    const capitalPlural = plural.charAt(0).toUpperCase() + plural.slice(1);
+    return item[plural] || item[capitalPlural] || [];
+  };
+
   return (
     <>
       <div className="table-panel">
@@ -78,22 +96,22 @@ const CocktailTable = ({ data }) => {
                     <IbaBadge category={item.iba_category} />
                   </td>
                   <td>
-                    {item.Bases.map((base, index) => (
+                    {getCategoryMaterials(item, "base").map((base, index) => (
                       <span key={index}>{base.chinese_name || base.Chinese_Name}&nbsp;</span>
                     ))}
                   </td>
                   <td>
-                    {item.Liqueurs.map((liqueur, index) => (
+                    {getCategoryMaterials(item, "liqueur").map((liqueur, index) => (
                       <span key={index}>{liqueur.chinese_name || liqueur.Chinese_Name}&nbsp;</span>
                     ))}
                   </td>
                   <td>
-                    {item.Alcohols.map((alcohol, index) => (
+                    {getCategoryMaterials(item, "alcohol").map((alcohol, index) => (
                       <span key={index}>{alcohol.chinese_name || alcohol.Chinese_Name}&nbsp;</span>
                     ))}
                   </td>
                   <td>
-                    {item.Ingredients.map((ingredient, index) => (
+                    {getCategoryMaterials(item, "ingredient").map((ingredient, index) => (
                       <span key={index}>{ingredient.chinese_name || ingredient.Chinese_Name}&nbsp;</span>
                     ))}
                   </td>
