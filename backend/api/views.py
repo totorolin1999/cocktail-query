@@ -1,4 +1,4 @@
-﻿from rest_framework.decorators import api_view, permission_classes, parser_classes
+from rest_framework.decorators import api_view, permission_classes, parser_classes
 from rest_framework.parsers import MultiPartParser, FormParser, JSONParser
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.exceptions import ValidationError
@@ -7,7 +7,7 @@ from rest_framework_simplejwt.views import TokenObtainPairView
 from rest_framework.response import Response
 from django.shortcuts import get_object_or_404
 from django.http import FileResponse
-from django.db.models import Q
+from django.db.models import Q, Count
 
 from .serializers import (
     CocktailSerializer,
@@ -233,7 +233,9 @@ def cocktailList(request):
     alcohols = _parse_ids(request, 'alcohols[]')
     ingredients = _parse_ids(request, 'ingredients[]')
 
-    cocktails = Cocktail.objects.filter(is_active=True)
+    cocktails = Cocktail.objects.filter(is_active=True).prefetch_related(
+        'Bases', 'Liqueurs', 'Alcohols', 'Ingredients'
+    )
 
     if name:
         cocktails = cocktails.filter(
@@ -267,7 +269,11 @@ def cocktailList(request):
 
 @api_view(['GET'])
 def cocktailDetail(request, pk):
-    cocktail = get_object_or_404(Cocktail, id=pk, is_active=True)
+    cocktail = get_object_or_404(
+        Cocktail.objects.prefetch_related('Bases', 'Liqueurs', 'Alcohols', 'Ingredients'),
+        id=pk,
+        is_active=True,
+    )
     serializer = CocktailSerializer(cocktail, many=False)
     return Response(serializer.data)
 
@@ -380,28 +386,26 @@ def itemDelete(request, model_type, pk):
 @api_view(['GET'])
 def chartList(request, model_type):
     model_mapping = {
-        'base': (Base, 'Bases'),
-        'liqueur': (Liqueur, 'Liqueurs'),
-        'alcohol': (Alcohol, 'Alcohols'),
-        'ingredient': (Ingredient, 'Ingredients'),
+        'base': Base,
+        'liqueur': Liqueur,
+        'alcohol': Alcohol,
+        'ingredient': Ingredient,
     }
     if model_type not in model_mapping:
         return Response({'error': f'未知的模型類型: {model_type}'}, status=400)
 
-    Model, relation_field = model_mapping[model_type]
-    items = Model.objects.all()
-    chart_list = []
-    for item in items:
-        count = Cocktail.objects.filter(
-            **{relation_field: item}, is_active=True
-        ).count()
-        chart_list.append(
-            {
-                'chinese_label': item.Chinese_Name,
-                'english_label': item.English_Name,
-                'size': count,
-            }
-        )
+    Model = model_mapping[model_type]
+    items = Model.objects.annotate(
+        size=Count('cocktail', filter=Q(cocktail__is_active=True), distinct=True)
+    )
+    chart_list = [
+        {
+            'chinese_label': item.Chinese_Name,
+            'english_label': item.English_Name,
+            'size': item.size,
+        }
+        for item in items
+    ]
     return Response(chart_list)
 
 
@@ -425,7 +429,9 @@ def cocktailRecommendation(request, pk):
 
     recommendations = similarity_df.loc[input_cocktail].nlargest(9)
     recommendations = [name for name in recommendations.index if name != input_cocktail]
-    cocktails = Cocktail.objects.filter(Chinese_Name__in=recommendations, is_active=True)
+    cocktails = Cocktail.objects.filter(
+        Chinese_Name__in=recommendations, is_active=True
+    ).prefetch_related('Bases', 'Liqueurs', 'Alcohols', 'Ingredients')
     serializer = CocktailSerializer(cocktails, many=True)
     return Response(serializer.data)
 
@@ -438,7 +444,10 @@ def backupData(request):
     data.extend(_serialize_model_entries('alcohol', AlcoholSerializer(Alcohol.objects.all(), many=True).data))
     data.extend(_serialize_model_entries('ingredient', IngredientSerializer(Ingredient.objects.all(), many=True).data))
 
-    cocktails = CocktailSerializer(Cocktail.objects.all(), many=True).data
+    cocktails = CocktailSerializer(
+        Cocktail.objects.all().prefetch_related('Bases', 'Liqueurs', 'Alcohols', 'Ingredients'),
+        many=True,
+    ).data
     data.extend(_serialize_cocktail_backup(cocktails))
 
     file_path = 'backupData/cocktail_data.json'

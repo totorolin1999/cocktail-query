@@ -163,10 +163,21 @@ WSGI_APPLICATION = 'cocktail_query_drf.wsgi.application'
 # Database 設定 (完美支援：本機有無 Docker / Render 雙棲部署)
 # ==============================================================================
 
-# 1. 優先檢查：不論本地還是線上，只要有 DATABASE_URL (如 Docker 內網或 Render 線上)，就自動使用 PostgreSQL
-if os.getenv("DATABASE_URL"):
+_db_conn_max_age = int(os.getenv("DB_CONN_MAX_AGE", "600"))
+
+# 0. 測試模式或指定 SQLite
+if TESTING or os.getenv("USE_SQLITE", "False").lower() in ("true", "1"):
     DATABASES = {
-        'default': dj_database_url.parse(os.getenv("DATABASE_URL"))
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': ':memory:' if TESTING else (BASE_DIR / "db.sqlite3"),
+        }
+    }
+
+# 1. 優先檢查：不論本地還是線上，只要有 DATABASE_URL (如 Docker 內網或 Render 線上)，就自動使用 PostgreSQL
+elif os.getenv("DATABASE_URL"):
+    DATABASES = {
+        'default': dj_database_url.parse(os.getenv("DATABASE_URL"), conn_max_age=_db_conn_max_age)
     }
 
 # 2. 次要檢查：如果開啟了開發模式，且環境變數裡有設定本機實體的 PostgreSQL 帳密
@@ -179,6 +190,7 @@ elif os.getenv("DEVELOPMENT_MODE", "False") == "True" and os.getenv('PostgreSQL_
             'PASSWORD': os.getenv('PostgreSQL_PASSWORD'),
             'HOST': os.getenv('PostgreSQL_HOST', '127.0.0.1'),
             'PORT': os.getenv('PostgreSQL_PORT', '5432'),
+            'CONN_MAX_AGE': _db_conn_max_age,
         }
     }
 

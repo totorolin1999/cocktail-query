@@ -642,3 +642,28 @@ class CocktailAPITestCase(APITestCase):
         self.assertIsInstance(data, list)
         self.assertGreaterEqual(len(data), 1)
         self.assertTrue(any(item["Chinese_Name"] == "伏蘭君" for item in data))
+
+    def test_chart_list_returns_counts_with_single_query(self):
+        response = self.client.get(reverse("chart-list", args=["base"]))
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        data = response.json()
+        by_en = {item["english_label"]: item["size"] for item in data}
+        self.assertEqual(by_en.get("Vodka"), 2)
+        self.assertEqual(by_en.get("Rum"), 2)
+
+    def test_cocktail_list_uses_constant_queries(self):
+        with self.assertNumQueries(5):
+            response = self.client.get(reverse("cocktail-list"))
+            self.assertEqual(response.status_code, status.HTTP_200_OK)
+            self.assertGreaterEqual(len(response.json()), 2)
+
+    def test_cocktail_custom_manager(self):
+        inactive = Cocktail.objects.create(
+            Chinese_Name="隱藏調酒",
+            English_Name="Hidden Cocktail",
+            is_active=False,
+        )
+        active_qs = Cocktail.objects.active()
+        self.assertNotIn(inactive, active_qs)
+        self.assertIn(self.long_island, active_qs)
+
