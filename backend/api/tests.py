@@ -720,3 +720,68 @@ class CocktailAPITestCase(APITestCase):
         chart_response = self.client.get(reverse("chart-list", args=["material"]))
         self.assertEqual(chart_response.status_code, status.HTTP_200_OK)
 
+
+
+class InitAdminCommandTests(APITestCase):
+    def test_initadmin_creates_superuser_when_env_vars_set(self):
+        import os
+        from io import StringIO
+        from django.core.management import call_command
+
+        out = StringIO()
+        old_username = os.environ.get("DJANGO_SUPERUSER_USERNAME")
+        old_password = os.environ.get("DJANGO_SUPERUSER_PASSWORD")
+        old_email = os.environ.get("DJANGO_SUPERUSER_EMAIL")
+
+        try:
+            os.environ["DJANGO_SUPERUSER_USERNAME"] = "testadmin"
+            os.environ["DJANGO_SUPERUSER_PASSWORD"] = "testadminpassword"
+            os.environ["DJANGO_SUPERUSER_EMAIL"] = "testadmin@example.com"
+
+            # 首次執行：成功建立
+            call_command("initadmin", stdout=out)
+            self.assertIn("已成功建立", out.getvalue())
+
+            user = User.objects.get(username="testadmin")
+            self.assertTrue(user.is_superuser)
+            self.assertTrue(user.is_staff)
+            self.assertTrue(user.check_password("testadminpassword"))
+
+            # 第二次執行：已存在略過，不應噴錯
+            out_second = StringIO()
+            call_command("initadmin", stdout=out_second)
+            self.assertIn("已存在，略過建立", out_second.getvalue())
+
+        finally:
+            if old_username is not None:
+                os.environ["DJANGO_SUPERUSER_USERNAME"] = old_username
+            else:
+                os.environ.pop("DJANGO_SUPERUSER_USERNAME", None)
+
+            if old_password is not None:
+                os.environ["DJANGO_SUPERUSER_PASSWORD"] = old_password
+            else:
+                os.environ.pop("DJANGO_SUPERUSER_PASSWORD", None)
+
+            if old_email is not None:
+                os.environ["DJANGO_SUPERUSER_EMAIL"] = old_email
+            else:
+                os.environ.pop("DJANGO_SUPERUSER_EMAIL", None)
+
+    def test_initadmin_skips_when_env_vars_missing(self):
+        import os
+        from io import StringIO
+        from django.core.management import call_command
+
+        out = StringIO()
+        old_username = os.environ.pop("DJANGO_SUPERUSER_USERNAME", None)
+        old_password = os.environ.pop("DJANGO_SUPERUSER_PASSWORD", None)
+
+        try:
+            call_command("initadmin", stdout=out)
+            self.assertIn("未設定 DJANGO_SUPERUSER_USERNAME", out.getvalue())
+        finally:
+            if old_username is not None:
+                os.environ["DJANGO_SUPERUSER_USERNAME"] = old_username
+            if old_password is not None:
+                os.environ["DJANGO_SUPERUSER_PASSWORD"] = old_password

@@ -30,5 +30,5 @@ RUN python manage.py collectstatic --no-input
 # 開放連接埠
 EXPOSE 8000
 
-# 啟動命令：自動執行資料庫遷移後啟動 Gunicorn 伺服器
-CMD ["sh", "-c", "python manage.py migrate && gunicorn cocktail_query_drf.wsgi:application --bind 0.0.0.0:8000"]
+# 啟動命令：自動執行資料庫遷移與管理員初始化後啟動 Gunicorn 伺服器
+CMD ["sh", "-c", "python manage.py migrate && python manage.py initadmin && gunicorn cocktail_query_drf.wsgi:application --bind 0.0.0.0:8000"]

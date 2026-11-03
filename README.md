@@ -171,18 +171,14 @@ cd cocktail-query
 
 ```bash
 cd backend
-# 複製環境變數範本
+# 複製環境變數範本（內含預設超級使用者帳密 admin / adminpassword123，可自由修改）
 cp .env.example cocktail_query_drf/.env
 
-# 啟動 Web 與 PostgreSQL 容器
+# 啟動 Web 與 PostgreSQL 容器（自動執行資料庫遷移與管理員初始化）
 docker compose up -d
-
-# 執行資料庫遷移（自動套用欄位設定並匯入初始調酒資料）
-docker compose exec web python manage.py migrate
-
-# 建立超級管理員帳號
-docker compose exec web python manage.py createsuperuser
 ```
+
+> 💡 **自動化管理員初始化**：容器啟動時會自動執行 `python manage.py initadmin`，若尚未建立管理員則會依 `.env` 內的 `DJANGO_SUPERUSER_*` 變數自動建立，無需手動執行 `createsuperuser`。
 
 > - 後端 API 服務位址：`http://127.0.0.1:8000`
 > - Django 管理後台位址：`http://127.0.0.1:8000/admin/`
@@ -448,11 +444,12 @@ npm run build
 
 ### Step 4：建立雲端超級管理員 (Superuser)
 
-如需在雲端建立管理員帳號，可透過 Render Web Shell 執行：
-
-```powershell
-python manage.py createsuperuser
-```
+有兩種方式建立雲端管理員：
+- **方式 A（推薦自動化）**：直接在 Render 的 **Environment Variables** 新增 `DJANGO_SUPERUSER_USERNAME`、`DJANGO_SUPERUSER_PASSWORD` 與 `DJANGO_SUPERUSER_EMAIL`，在自動建置（`build.sh` 或 Docker 啟動）時系統會自動執行 `initadmin` 建立帳號，完全無需手動操作。
+- **方式 B（手動建立）**：若未設定上述變數，也可透過 Render Web Shell 執行互動式指令：
+  ```bash
+  python manage.py createsuperuser
+  ```
 
 ---
 

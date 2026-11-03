@@ -14,12 +14,14 @@ services:
   # Django Web 服務
   web:
     build: .
-    # 本地開發覆蓋 Dockerfile 的 CMD，改用 runserver 方便熱重載 (Hot-reload)
-    command: python manage.py runserver 0.0.0.0:8000
+    # 本地開發自動套用資料庫遷移、初始化超級使用者，並啟動支援熱重載的開發伺服器
+    command: sh -c "python manage.py migrate && python manage.py initadmin && python manage.py runserver 0.0.0.0:8000"
     volumes:
       - .:/app
     ports:
       - "8000:8000"
+    env_file:
+      - cocktail_query_drf/.env
     environment:
       - DEBUG=True
       # 讓 Django 自動連到上面定義的 db 服務
