@@ -1,44 +1,43 @@
-import React, { useContext } from "react";
-import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useParams, useLocation } from "react-router-dom";
 import axios from "axios";
-import { Link } from "react-router-dom";
-import Button from "react-bootstrap/Button";
-import Container from "react-bootstrap/Container";
-import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-import MaterialTable from "../components/MaterialTable";
-import MaterialPieChart from "../components/MaterialPieChart";
-import MaterialBarChart from "../components/MaterialBarChart";
-import LoadingMessage from "../components/LoadingMessage";
-import ErrorMessage from "../components/ErrorMessage";
-import AuthContext from "../context/AuthContext";
+import Col from "react-bootstrap/Col";
+import Container from "react-bootstrap/Container";
 import { useTranslation } from "react-i18next";
+import InteractiveChartPanel from "../components/InteractiveChartPanel";
+import MaterialTable from "../components/MaterialTable";
+import Missing from "../components/Missing";
 import API_BASE_URL from "../apiConfig";
-
-const materialTitles = {
-  base: { zh: "基酒", en: "Base Spirits" },
-  liqueur: { zh: "利口酒", en: "Liqueurs" },
-  alcohol: { zh: "其他酒類", en: "Other Alcohols" },
-  ingredient: { zh: "其他成分", en: "Other Ingredients" },
-};
+import { isValidMaterial, MATERIAL_TITLES } from "../utils/materialUtils";
 
 const Material = () => {
+  const params = useParams();
+  const location = useLocation();
+
+  // 兼顧 /Material/:id 與 /Material/:material 路由命名
+  const material =
+    params.material ||
+    params.id ||
+    location.pathname.split("/")[2];
+
+  const valid = isValidMaterial(material);
+
   const [materials, setMaterials] = useState([]);
   const [materialChart, setMaterialChart] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const location = useLocation();
-  const material = location.pathname.split("/")[2];
-
-  let { user } = useContext(AuthContext);
   const [, i18n] = useTranslation("global");
 
-  const title = materialTitles[material] || { zh: material, en: material };
+  const title = valid ? MATERIAL_TITLES[material] : { zh: "", en: "" };
 
   useEffect(() => {
+    if (!valid) {
+      setLoading(false);
+      return;
+    }
+
     const fetchData = async (url, setter) => {
       try {
         const res = await axios.get(url);
@@ -48,60 +47,51 @@ const Material = () => {
       }
     };
 
-    const fetchAllData = async () => {
-      await Promise.all([
-        fetchData(
-          `${API_BASE_URL}/api/material-list/${material}/`,
-          setMaterials
-        ),
-        fetchData(
-          `${API_BASE_URL}/api/chart-list/${material}/`,
-          setMaterialChart
-        ),
-      ]);
-      setLoading(false);
-    };
+    Promise.all([
+      fetchData(`${API_BASE_URL}/api/material-list/${material}/`, setMaterials),
+      fetchData(`${API_BASE_URL}/api/chart-list/${material}/`, setMaterialChart),
+    ]).finally(() => setLoading(false));
+  }, [material, valid]);
 
-    fetchAllData();
-  }, [material]);
+  if (!valid) {
+    return <Missing />;
+  }
 
-  if (loading) return <LoadingMessage />;
-  if (error) return <ErrorMessage />;
+  if (loading) {
+    return (
+      <div className="chartPageColor page-section d-flex justify-content-center align-items-center">
+        <p className="text-muted">載入中...</p>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="chartPageColor page-section d-flex justify-content-center align-items-center">
+        <p className="text-danger">載入失敗：{error}</p>
+      </div>
+    );
+  }
 
   return (
     <div className="chartPageColor page-section">
       <Container>
-        <div className="page-header">
+        <div className="page-header mb-4">
           <h1 className="page-title">
             {i18n.language === "chinese" ? title.zh : title.en}
           </h1>
         </div>
-
-        {user && (
-          <div className="page-actions">
-            <Button
-              variant="warning"
-              as={Link}
-              to={`/AddItem/${material}`}
-              className="btn-accent"
-            >
-              新增
-            </Button>
-          </div>
-        )}
 
         <Row className="g-4">
           <Col xs={12} lg={6}>
             <MaterialTable data={materials} />
           </Col>
           <Col xs={12} lg={6}>
-            <div className="chart-panel">
-              {material === "base" || material === "alcohol" ? (
-                <MaterialPieChart chartData={materialChart} />
-              ) : (
-                <MaterialBarChart chartData={materialChart} />
-              )}
-            </div>
+            <InteractiveChartPanel
+              chartData={materialChart}
+              defaultType={material === "liqueur" || material === "ingredient" ? "horizontal" : "doughnut"}
+              title={`${i18n.language === "chinese" ? title.zh : title.en} ${i18n.language === "chinese" ? "使用分布" : "Usage Distribution"}`}
+            />
           </Col>
         </Row>
       </Container>

@@ -6,7 +6,9 @@
     "liqueur": "Liqueur",
     "alcohol": "Other Alcohols",
     "ingredient": "Other Ingredients",
-    "visualization": "Data Visualization"
+    "visualization": "Data Visualization",
+    "cocktails_management": "Dashboard",
+    "logout": "Logout"
   },
   "home": {
     "label_base": "Base Spirit",
@@ -63,7 +65,12 @@
     "english": "English Name"
   },
   "chart": {
-    "label": "Usage Count"
+    "label": "Usage Count",
+    "bar": "Bar",
+    "horizontal": "Ranking",
+    "doughnut": "Doughnut",
+    "pie": "Pie",
+    "distribution": "Usage Distribution"
   },
   "loading": {
     "message": "This system is for testing purposes. The server may be asleep due to inactivity. Please wait patiently!"

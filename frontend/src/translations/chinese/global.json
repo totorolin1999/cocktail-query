@@ -6,7 +6,9 @@
     "liqueur": "利口酒",
     "alcohol": "其他酒類",
     "ingredient": "其他成分",
-    "visualization": "資料視覺化"
+    "visualization": "資料視覺化",
+    "cocktails_management": "管理後台",
+    "logout": "登出"
   },
   "home": {
     "label_base": "基酒",
@@ -63,7 +65,12 @@
     "english": "英文名稱"
   },
   "chart": {
-    "label": "使用數量"
+    "label": "使用數量",
+    "bar": "長條圖",
+    "horizontal": "排行圖",
+    "doughnut": "環狀圖",
+    "pie": "圓餅圖",
+    "distribution": "使用分布統計"
   },
   "loading": {
     "message": "本系統供測試使用，伺服器可能會因為沒有人使用而休眠，請耐心等候！"

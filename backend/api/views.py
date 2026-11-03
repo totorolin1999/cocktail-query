@@ -284,6 +284,9 @@ def cocktailCreate(request):
         data[field_name] = _parse_json_field(data.get(field_name, []))
         data[field_name] = _resolve_related_payload(data, field_name, Material)
 
+    if 'recipe_ingredients' in data:
+        data['recipe_ingredients'] = _parse_json_field(data['recipe_ingredients'])
+
     serializer = CocktailSerializer(data=data)
     if serializer.is_valid():
         cocktail = serializer.save()
@@ -304,6 +307,9 @@ def cocktailUpdate(request, pk):
             data[field_name] = _parse_json_field(data[field_name])
             data[field_name] = _resolve_related_payload(data, field_name, Material)
 
+    if 'recipe_ingredients' in data:
+        data['recipe_ingredients'] = _parse_json_field(data['recipe_ingredients'])
+
     serializer = CocktailSerializer(instance=cocktail, data=data, partial=True)
     if serializer.is_valid():
         serializer.save()
@@ -316,7 +322,7 @@ def cocktailUpdate(request, pk):
 @permission_classes([IsAuthenticated])
 def itemCreate(request, model_type):
     data = dict(request.data)
-    if model_type != 'material':
+    if 'category' not in data and model_type != 'material':
         data['category'] = model_type
     serializer = MaterialSerializer(data=data)
     if serializer.is_valid():

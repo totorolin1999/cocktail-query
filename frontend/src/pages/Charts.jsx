@@ -3,8 +3,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import axios from "axios";
 import Container from "react-bootstrap/Container";
-import MaterialPieChart from "../components/MaterialPieChart";
-import MaterialBarChart from "../components/MaterialBarChart";
+import InteractiveChartPanel from "../components/InteractiveChartPanel";
 import LoadingMessage from "../components/LoadingMessage";
 import ErrorMessage from "../components/ErrorMessage";
 import Col from "react-bootstrap/Col";
@@ -48,42 +47,52 @@ const Charts = () => {
   if (loading) return <LoadingMessage />;
   if (error) return <ErrorMessage />;
 
+  const isZh = i18n.language === "chinese";
+
   return (
     <div className="chartPageColor page-section">
       <Container>
         <div className="page-header">
           <h1 className="page-title">
-            {i18n.language === "chinese" ? "資料視覺化" : "Data Visualization"}
+            {isZh ? "資料視覺化" : "Data Visualization"}
           </h1>
           <p className="page-subtitle">
-            {i18n.language === "chinese"
+            {isZh
               ? "各類材料在調酒中的使用分布"
               : "Distribution of materials used across cocktails"}
           </p>
         </div>
 
         <Row className="g-4 mb-2">
-          <Col xs={12} md={5}>
-            <div className="chart-panel">
-              <MaterialPieChart chartData={baseChart} />
-            </div>
+          <Col xs={12} lg={6}>
+            <InteractiveChartPanel
+              chartData={baseChart}
+              defaultType="doughnut"
+              title={isZh ? "基酒使用分布" : "Base Spirits Distribution"}
+            />
           </Col>
-          <Col xs={12} md={7}>
-            <div className="chart-panel">
-              <MaterialBarChart chartData={liqueurChart} />
-            </div>
+          <Col xs={12} lg={6}>
+            <InteractiveChartPanel
+              chartData={liqueurChart}
+              defaultType="horizontal"
+              title={isZh ? "利口酒使用分布" : "Liqueurs Distribution"}
+            />
           </Col>
         </Row>
         <Row className="g-4">
-          <Col xs={12} md={5}>
-            <div className="chart-panel">
-              <MaterialPieChart chartData={alcoholChart} />
-            </div>
+          <Col xs={12} lg={6}>
+            <InteractiveChartPanel
+              chartData={alcoholChart}
+              defaultType="doughnut"
+              title={isZh ? "其他酒類使用分布" : "Other Alcohols Distribution"}
+            />
           </Col>
-          <Col xs={12} md={7}>
-            <div className="chart-panel">
-              <MaterialBarChart chartData={ingredientChart} />
-            </div>
+          <Col xs={12} lg={6}>
+            <InteractiveChartPanel
+              chartData={ingredientChart}
+              defaultType="horizontal"
+              title={isZh ? "副材料使用分布" : "Ingredients Distribution"}
+            />
           </Col>
         </Row>
       </Container>

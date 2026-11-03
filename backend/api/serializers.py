@@ -59,18 +59,23 @@ def _sync_recipe_items(cocktail, recipe_ingredients=None, bases_data=None, lique
             cat = item.get('category', 'ingredient')
             name_en = item.get('name_en', '').strip()
             name_zh = item.get('name_zh', '').strip()
-            if not name_en and not name_zh:
-                continue
+            material_id = item.get('material_id') or (item.get('material') if isinstance(item.get('material'), (int, str)) else None) or item.get('id')
 
-            material = Material.objects.filter(category=cat, english_name=name_en).first()
+            material = None
+            if material_id:
+                material = Material.objects.filter(id=material_id).first()
+            if not material and name_en:
+                material = Material.objects.filter(category=cat, english_name=name_en).first()
             if not material and name_zh:
                 material = Material.objects.filter(category=cat, chinese_name=name_zh).first()
-            if not material:
+            if not material and (name_en or name_zh):
                 material = Material.objects.create(
                     category=cat,
                     english_name=name_en or name_zh,
                     chinese_name=name_zh or name_en,
                 )
+            if not material:
+                continue
 
             items_to_create.append(
                 CocktailRecipeItem(
@@ -79,7 +84,7 @@ def _sync_recipe_items(cocktail, recipe_ingredients=None, bases_data=None, lique
                     amount=item.get('amount', ''),
                     unit_zh=item.get('unit_zh', ''),
                     unit_en=item.get('unit_en', ''),
-                    order=index,
+                    order=item.get('order', index),
                 )
             )
         if items_to_create:

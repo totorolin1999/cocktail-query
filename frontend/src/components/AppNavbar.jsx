@@ -8,12 +8,13 @@ import { useTranslation } from "react-i18next";
 import AuthContext from "../context/AuthContext";
 
 const AppNavbar = () => {
-  let { user, logoutUser } = useContext(AuthContext);
-
+  const { user, logoutUser } = useContext(AuthContext);
   const [t, i18n] = useTranslation("global");
+
   const handleChangeLanguage = (lang) => {
     i18n.changeLanguage(lang);
   };
+
   return (
     <Navbar variant="dark" expand="lg" className="app-navbar">
       <Container>
@@ -38,6 +39,11 @@ const AppNavbar = () => {
             <Nav.Link as={Link} to="/Charts">
               {t("navbar.visualization")}
             </Nav.Link>
+            {user && (
+              <Nav.Link as={Link} to="/Dashboard" className="nav-admin-link">
+                {t("navbar.cocktails_management")}
+              </Nav.Link>
+            )}
           </Nav>
           <Nav className="align-items-lg-center">
             <NavDropdown title={t("navbar.language")} id="basic-nav-dropdown">
@@ -49,8 +55,8 @@ const AppNavbar = () => {
               </NavDropdown.Item>
             </NavDropdown>
             {user && (
-              <Nav.Link onClick={logoutUser} className="text-nowrap">
-                {user.username} 登出
+              <Nav.Link onClick={logoutUser} className="text-nowrap ms-lg-2">
+                {user.username} {t("navbar.logout")}
               </Nav.Link>
             )}
           </Nav>

@@ -1,85 +1,119 @@
 import useAxios from "../utils/useAxios";
-import React from "react";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { useLocation } from "react-router-dom";
+import React, { useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import Alert from "react-bootstrap/Alert";
 import AdminFormLayout from "../components/AdminFormLayout";
-import API_BASE_URL from '../apiConfig';
+import Missing from "../components/Missing";
+import API_BASE_URL from "../apiConfig";
+import { isValidMaterial, getMaterialTitle } from "../utils/materialUtils";
 
-const materialTitles = {
-  base: "基酒",
-  liqueur: "利口酒",
-  alcohol: "其他酒類",
-  ingredient: "其他成分",
-};
+const CATEGORY_OPTIONS = [
+  { value: "base", labelZh: "基酒", labelEn: "Base" },
+  { value: "liqueur", labelZh: "利口酒", labelEn: "Liqueur" },
+  { value: "alcohol", labelZh: "其他酒類", labelEn: "Alcohol" },
+  { value: "ingredient", labelZh: "副材料", labelEn: "Ingredient" },
+];
 
 const AddItem = () => {
+  const { material } = useParams();
+
   const [item, setItem] = useState({
     chinese_name: "",
     english_name: "",
-    Chinese_Name: "",
-    English_Name: "",
+    category: material || "base",
   });
+  const [submitError, setSubmitError] = useState("");
 
-  let api = useAxios();
-
+  const api = useAxios();
   const navigate = useNavigate();
-  const location = useLocation();
 
-  const material = location.pathname.split("/")[2];
-  const materialLabel = materialTitles[material] || material;
+  if (!isValidMaterial(material)) {
+    return <Missing />;
+  }
+
+  const materialLabel = getMaterialTitle(material, "zh");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setItem((prev) => ({
       ...prev,
       [name]: value,
-      ...(name === "Chinese_Name" || name === "chinese_name"
-        ? { chinese_name: value, Chinese_Name: value }
-        : {}),
-      ...(name === "English_Name" || name === "english_name"
-        ? { english_name: value, English_Name: value }
-        : {}),
+      ...(name === "chinese_name" ? { Chinese_Name: value } : {}),
+      ...(name === "english_name" ? { English_Name: value } : {}),
     }));
   };
 
   const handleClick = async (e) => {
     e.preventDefault();
+    setSubmitError("");
+    const targetCategory = item.category || material;
     try {
-      await api.post(`${API_BASE_URL}/api/item-create/${material}/`, item);
-      navigate(`/Material/${material}`);
+      await api.post(`${API_BASE_URL}/api/item-create/${targetCategory}/`, {
+        ...item,
+        category: targetCategory,
+      });
+      navigate(`/Dashboard?tab=materials`);
     } catch (err) {
-      console.log(err);
+      console.error(err);
+      const detail =
+        err?.response?.data?.detail ||
+        err?.response?.data?.message ||
+        "新增失敗，請確認欄位是否填寫正確。";
+      setSubmitError(detail);
     }
   };
 
   return (
     <AdminFormLayout
       title={`新增${materialLabel}`}
-      subtitle="請填寫中英文名稱"
-      backTo={`/Material/${material}`}
-      backLabel={`返回${materialLabel}列表`}
+      subtitle="請填寫原料名稱與分類"
+      backTo="/Dashboard?tab=materials"
+      backLabel="返回材料庫管理"
     >
       <Form onSubmit={handleClick}>
+        {submitError && (
+          <Alert variant="danger" className="mb-3">
+            {submitError}
+          </Alert>
+        )}
+
+        <Form.Group className="mb-3">
+          <Form.Label>材料分類</Form.Label>
+          <Form.Select
+            name="category"
+            value={item.category}
+            onChange={handleChange}
+            required
+          >
+            {CATEGORY_OPTIONS.map((opt) => (
+              <option key={opt.value} value={opt.value}>
+                {opt.labelZh} ({opt.labelEn})
+              </option>
+            ))}
+          </Form.Select>
+        </Form.Group>
+
         <Form.Group className="mb-3">
           <Form.Label>中文名稱</Form.Label>
           <Form.Control
-            placeholder="輸入中文名稱"
+            placeholder="例如：琴酒、君度橙酒、檸檬汁"
             onChange={handleChange}
             name="chinese_name"
+            value={item.chinese_name}
             required
           />
         </Form.Group>
 
-        <Form.Group className="mb-3">
+        <Form.Group className="mb-4">
           <Form.Label>英文名稱</Form.Label>
           <Form.Control
-            placeholder="輸入英文名稱"
+            placeholder="例如：Gin、Cointreau、Lemon Juice"
             onChange={handleChange}
             name="english_name"
+            value={item.english_name}
             required
           />
         </Form.Group>

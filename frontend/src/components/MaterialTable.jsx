@@ -11,7 +11,7 @@ import { useTranslation } from "react-i18next";
 import AuthContext from "../context/AuthContext";
 import API_BASE_URL from "../apiConfig";
 
-const MaterialTable = ({ data }) => {
+const MaterialTable = ({ data, editable = false }) => {
   const [currentItems, setCurrentItems] = useState([]);
   const [pageCount, setPageCount] = useState(0);
   const [itemOffset, setItemOffset] = useState(0);
@@ -71,7 +71,7 @@ const MaterialTable = ({ data }) => {
               <tr>
                 <th>{t("table.chinese")}</th>
                 <th>{t("table.english")}</th>
-                {user && <th>編輯</th>}
+                {editable && user && <th>編輯</th>}
               </tr>
             </thead>
             <tbody>
@@ -79,7 +79,7 @@ const MaterialTable = ({ data }) => {
                 <tr key={item.id}>
                   <td>{item.chinese_name || item.Chinese_Name}</td>
                   <td>{item.english_name || item.English_Name}</td>
-                  {user && (
+                  {editable && user && (
                     <td>
                       <div className="action-buttons">
                         <Button

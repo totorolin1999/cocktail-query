@@ -7,7 +7,7 @@ import Home from "./pages/Home";
 import Material from "./pages/Material";
 import AddItem from "./pages/AddItem";
 import UpdateItem from "./pages/UpdateItem";
-import Cocktails from "./pages/Cocktails";
+import Dashboard from "./pages/Dashboard";
 import AddCocktail from "./pages/AddCocktail";
 import UpdateCocktail from "./pages/UpdateCocktail";
 import Cocktail from "./pages/Cocktail";
@@ -29,7 +29,8 @@ function App() {
         <Route element={<PrivateRoute />}>
           <Route path="/AddItem/:material" element={<AddItem />} />
           <Route path="/UpdateItem/:material/:id" element={<UpdateItem />} />
-          <Route path="/Cocktails" element={<Cocktails />} />
+          <Route path="/Dashboard" element={<Dashboard />} />
+          <Route path="/Cocktails" element={<Dashboard />} />
           <Route path="/AddCocktail" element={<AddCocktail />} />
           <Route path="/UpdateCocktail/:id" element={<UpdateCocktail />} />
         </Route>

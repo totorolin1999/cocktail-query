@@ -35,6 +35,16 @@
     }
   }
 
+  .nav-admin-link {
+    color: var(--color-accent) !important;
+    font-weight: 600;
+
+    &:hover {
+      color: #ffffff !important;
+      background-color: rgba(232, 168, 56, 0.15) !important;
+    }
+  }
+
   .dropdown-menu {
     background: var(--color-surface);
     border: 1px solid var(--color-border);
@@ -468,13 +478,67 @@
 .chart-panel {
   background: #fff;
   border-radius: var(--radius-md);
-  padding: 1rem;
-  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+  padding: 1.15rem 1.25rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   margin-bottom: 1.5rem;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .chart-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.85rem;
+    padding-bottom: 0.65rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+
+    .chart-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #1a1a3a;
+      margin: 0;
+      letter-spacing: 0.02em;
+    }
+
+    .chart-type-toggle {
+      .btn {
+        font-size: 0.8rem;
+        padding: 0.25rem 0.65rem;
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.25rem;
+      }
+
+      .btn-outline-secondary {
+        color: #495057;
+        border-color: #dee2e6;
+        background: #f8f9fa;
+
+        &:hover {
+          background: #e9ecef;
+          color: #212529;
+          border-color: #ced4da;
+        }
+      }
+    }
+  }
+
+  .chart-body {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 320px;
+    width: 100%;
+  }
 
   canvas {
     max-height: 360px;
+    width: 100% !important;
   }
 }
 
@@ -594,18 +658,51 @@
 
 // ── 404 ─────────────────────────────────────────────────
 .not-found-card {
-  max-width: 480px;
+  max-width: 520px;
   margin: 3rem auto;
+  background: var(--color-surface-card) !important;
+  color: var(--color-text) !important;
   border-radius: var(--radius-lg) !important;
   border: 1px solid var(--color-border) !important;
   box-shadow: var(--shadow-card);
   text-align: center;
+  overflow: hidden;
 
   .card-header {
-    background: var(--color-primary-light) !important;
-    color: var(--color-accent);
+    background: rgba(0, 0, 0, 0.35) !important;
+    color: var(--color-accent) !important;
     font-family: var(--font-display);
-    font-size: 1.25rem;
+    font-size: 1.15rem;
+    font-weight: 600;
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .not-found-code {
+    font-family: var(--font-display);
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    line-height: 1;
+    margin-bottom: 1rem;
+    letter-spacing: 0.05em;
+    text-shadow: 0 0 20px rgba(232, 168, 56, 0.3);
+  }
+
+  .not-found-title,
+  .card-title {
+    color: #ffffff !important;
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+
+  .not-found-desc,
+  .card-text {
+    color: var(--color-text-muted) !important;
+    font-size: 1rem;
+    line-height: 1.6;
   }
 }
 
@@ -639,43 +736,99 @@
 }
 
 .admin-form-back {
-  color: var(--color-primary-light) !important;
-  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-accent-muted) !important;
+  text-decoration: none !important;
   font-weight: 500;
-  padding-left: 0;
+  font-size: 0.95rem;
+  padding: 0.45rem 1rem;
+  border-radius: var(--radius-sm);
+  background: rgba(232, 168, 56, 0.08);
+  border: 1px solid rgba(232, 168, 56, 0.28);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  transition: all 0.2s ease-in-out;
 
   &:hover {
-    color: var(--color-accent) !important;
+    color: #ffffff !important;
+    background: rgba(232, 168, 56, 0.22);
+    border-color: var(--color-accent);
+    transform: translateX(-4px);
+    box-shadow: 0 4px 12px rgba(232, 168, 56, 0.3);
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 0.2rem rgba(232, 168, 56, 0.25);
+  }
+}
+
+.admin-form-container {
+  width: 100%;
+  max-width: 480px;
+
+  &--wide {
+    max-width: 640px;
   }
 }
 
 .admin-form-card {
   width: 100%;
   max-width: 480px;
+  background-color: #ffffff !important;
+  color: var(--color-text-dark) !important;
   border-radius: var(--radius-lg) !important;
   border: 1px solid rgba(0, 0, 0, 0.08) !important;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
-  overflow: visible;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+
+  .card-body {
+    color: var(--color-text-dark);
+  }
 
   &--wide {
     max-width: 640px;
   }
 
-  .card-header {
-    background: var(--color-primary-light) !important;
-    color: var(--color-accent) !important;
-    font-family: var(--font-display);
-    font-size: 1.25rem;
+  .card-header.admin-form-header {
+    background: linear-gradient(135deg, #13133e 0%, #1a1a5a 50%, #221c54 100%) !important;
+    border-top: 3px solid var(--color-accent) !important;
+    border-bottom: 1px solid rgba(232, 168, 56, 0.25) !important;
+    padding: 1.5rem 1.25rem 1.35rem;
     text-align: center;
-    padding: 1.25rem;
-    border-bottom: 1px solid rgba(232, 168, 56, 0.2);
-  }
+    position: relative;
 
-  .admin-form-subtitle {
-    color: #5a5a7a;
-    font-size: 0.9rem;
-    margin: -0.5rem 0 1.25rem;
-    text-align: center;
+    .admin-form-header-badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: var(--color-accent);
+      background: rgba(232, 168, 56, 0.12);
+      border: 1px solid rgba(232, 168, 56, 0.3);
+      padding: 0.18rem 0.65rem;
+      border-radius: 20px;
+      margin-bottom: 0.5rem;
+    }
+
+    .admin-form-title {
+      color: #ffffff !important;
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      margin: 0;
+      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+    }
+
+    .admin-form-subtitle {
+      color: #b8b8e0 !important;
+      font-size: 0.925rem;
+      margin-top: 0.4rem;
+      margin-bottom: 0;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+    }
   }
 
   .form-label {
@@ -702,3 +855,181 @@
     margin-top: 1.5rem;
   }
 }
+
+
+// ── Dark Admin Modal ─────────────────────────────────────
+.admin-dark-modal {
+  .modal-content {
+    background: #1e1e52 !important;
+    color: #f0f0f8 !important;
+    border-radius: var(--radius-lg) !important;
+    border: 1px solid var(--color-border) !important;
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.45);
+    overflow: hidden;
+  }
+
+  .modal-header {
+    background: rgba(0, 0, 0, 0.35) !important;
+    border-bottom: 1px solid var(--color-border) !important;
+    padding: 1.15rem 1.5rem;
+
+    .modal-title {
+      font-family: var(--font-display);
+      color: var(--color-accent) !important;
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .btn-close {
+      filter: invert(1) grayscale(100%) brightness(200%);
+      opacity: 0.8;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+
+  .modal-body {
+    padding: 1.75rem 1.5rem;
+
+    .form-label {
+      color: #ffffff !important;
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .form-control,
+    .form-select {
+      background: rgba(255, 255, 255, 0.08) !important;
+      border: 1px solid rgba(255, 255, 255, 0.22) !important;
+      color: #ffffff !important;
+      border-radius: var(--radius-sm);
+      padding: 0.6rem 0.85rem;
+
+      &::placeholder {
+        color: rgba(255, 255, 255, 0.4) !important;
+      }
+
+      &:focus {
+        background: rgba(255, 255, 255, 0.12) !important;
+        border-color: var(--color-accent) !important;
+        box-shadow: 0 0 0 0.2rem rgba(232, 168, 56, 0.25) !important;
+        color: #ffffff !important;
+      }
+
+      option {
+        background: #1e1e52 !important;
+        color: #ffffff !important;
+      }
+    }
+  }
+
+  .modal-footer {
+    background: rgba(0, 0, 0, 0.25) !important;
+    border-top: 1px solid var(--color-border) !important;
+    padding: 1rem 1.5rem;
+
+    .btn-outline-secondary {
+      color: #c0c0e0 !important;
+      border-color: rgba(255, 255, 255, 0.25) !important;
+
+      &:hover {
+        color: #ffffff !important;
+        background: rgba(255, 255, 255, 0.1) !important;
+        border-color: #ffffff !important;
+      }
+    }
+  }
+}
+
+// ── Admin Dashboard Tabs ────────────────────────────────
+.admin-dashboard-tabs {
+  border-bottom: 2px solid var(--color-border);
+  gap: 0.5rem;
+
+  .nav-item {
+    .nav-link {
+      color: #a0a0c8 !important;
+      background: transparent !important;
+      border: none !important;
+      border-bottom: 3px solid transparent !important;
+      font-size: 1.05rem;
+      font-weight: 600;
+      padding: 0.75rem 1.25rem;
+      border-radius: 0;
+      transition: color 0.2s, border-color 0.2s;
+
+      &:hover {
+        color: #ffffff !important;
+      }
+
+      &.active {
+        color: var(--color-accent) !important;
+        border-bottom-color: var(--color-accent) !important;
+      }
+
+      .tab-counter {
+        font-size: 0.85rem;
+        opacity: 0.85;
+        font-weight: 500;
+      }
+    }
+  }
+}
+
+// ── Admin Material Manager ──────────────────────────────
+.admin-material-manager {
+  .category-pills-bar {
+    .btn {
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+    .btn-outline-secondary {
+      border-color: rgba(255, 255, 255, 0.2);
+      color: #c0c0e0;
+
+      &:hover {
+        border-color: var(--color-accent);
+        color: #ffffff;
+        background: rgba(232, 168, 56, 0.15);
+      }
+    }
+  }
+
+  .cat-pill {
+    display: inline-block;
+    font-size: 0.82rem;
+    font-weight: 700;
+    padding: 0.28rem 0.75rem;
+    border-radius: 999px;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+    line-height: 1.2;
+    text-align: center;
+
+    &.badge-cat-base {
+      background: #fef3c7;
+      color: #78350f !important;
+      border: 1px solid #fcd34d;
+    }
+    &.badge-cat-liqueur {
+      background: #f3e8ff;
+      color: #581c87 !important;
+      border: 1px solid #d8b4fe;
+    }
+    &.badge-cat-alcohol {
+      background: #e0f2fe;
+      color: #075985 !important;
+      border: 1px solid #7dd3fc;
+    }
+    &.badge-cat-ingredient {
+      background: #dcfce7;
+      color: #14532d !important;
+      border: 1px solid #86efac;
+    }
+  }
+}
+
