@@ -4,7 +4,6 @@ import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
-import Badge from "react-bootstrap/Badge";
 import ReactPaginate from "react-paginate";
 import useAxios from "../utils/useAxios";
 import API_BASE_URL from "../apiConfig";
