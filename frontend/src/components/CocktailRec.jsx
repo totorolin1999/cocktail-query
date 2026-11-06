@@ -29,7 +29,7 @@ const CocktailRec = ({ data }) => {
             <Link
               className="recommendation-card"
               key={item.id}
-              to={`/Cocktail/${item.id}`}
+              to={`/cocktails/${item.id}`}
               aria-label={`${displayName} (${item.english_name || item.English_Name})`}
             >
               {isCocktailArtwork(item.image) ? (

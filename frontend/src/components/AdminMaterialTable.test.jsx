@@ -29,7 +29,7 @@ describe("AdminMaterialTable", () => {
 
     const updateButtons = screen.getAllByRole("button", { name: "更新" });
     expect(updateButtons.length).toBe(4);
-    expect(updateButtons[0].getAttribute("href")).toBe("/UpdateItem/base/1");
+    expect(updateButtons[0].getAttribute("href")).toBe("/materials/base/1/edit");
   });
 
   it("filters materials by category when category pill is clicked", () => {

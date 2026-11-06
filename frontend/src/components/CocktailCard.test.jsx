@@ -33,7 +33,7 @@ describe("CocktailCard", () => {
 
     const cardLink = await screen.findByRole("link", { name: "莫希托" });
 
-    expect(cardLink.getAttribute("href")).toBe("/Cocktail/1");
+    expect(cardLink.getAttribute("href")).toBe("/cocktails/1");
     expect(cardLink.textContent).toContain("莫希托");
     expect(cardLink.querySelector(".btn")).toBeNull();
     expect(cardLink.querySelector(".card-header .iba-badge")).toBeNull();

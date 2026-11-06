@@ -366,7 +366,7 @@ npm run build
    - 使用 `DictVectorizer` 將材料轉成類別化特徵，再以餘弦相似度衡量酒譜相似度；基酒權重為 2.0、利口酒 1.5、其他酒類 1.25、副材料 1.0。
    - 相似度矩陣以 `joblib` 序列化並儲存於 `backend/cocktailData/cocktailModel.joblib`。
 3. **API 推薦服務**：
-   - 請求 `/api/cocktail-recommendation/<pk>/` 時，系統載入 `joblib` 模型，比對輸入酒款與其他酒款的相似係數，取出相似度最高的前 9 款調酒（排除自身），序列化後回傳。
+   - 請求 `/api/v1/cocktails/<pk>/recommendations/` 時，系統載入 `joblib` 模型，比對輸入酒款與其他酒款的相似係數，取出相似度最高的前 9 款調酒（排除自身），序列化後回傳。
    - 新增、更新或刪除調酒時會自動重建模型；批次匯入資料或調整材料分類後，請手動執行 `docker compose exec web python manage.py shell -c "from api.utils import build_model; build_model()"`。
 
 > 💡 **互動式演算法沙盒**：
@@ -378,7 +378,7 @@ npm run build
 
 為避免手動維護測試資料的繁瑣，後端 API 提供了一鍵式備份端點：
 
-- **端點路由**：`/api/backup-data/`
+- **端點路由**：`/api/v1/backup/`
 - **運作原理**：
   - 視圖 `backupData` ([`backend/api/views.py`](backend/api/views.py)) 會自動查詢資料庫中所有的基酒、利口酒、其他酒類、副材料以及雞尾酒資料。
   - 將其序列化為 Django 標準 fixture 格式，寫入 `backend/backupData/cocktail_data.json` 並作為附件回傳下載。
@@ -463,8 +463,8 @@ npm run build
 ### Step 5：上線驗證端點
 
 部署完成後，可透過 Render 配發的網址逐一進行測試：
-- **API 總覽**：`https://[你的專案名稱].onrender.com/api/`
-- **調酒清單 API**：`https://[你的專案名稱].onrender.com/api/cocktail-list/`
+- **API 完整端點總覽**：`https://[你的專案名稱].onrender.com/api/`（含 v1 RESTful 各分類端點與 HTTP 動作完整規格）
+- **標準 RESTful 調酒清單 (v1)**：`https://[你的專案名稱].onrender.com/api/v1/cocktails/`
 - **Django 管理後台**：`https://[你的專案名稱].onrender.com/admin/`
 
 調酒清單 API 可使用 `iba_category`、`strength`（`low`、`medium`、`high`）及 `glassware` 篩選；杯型可傳中文或英文名稱。這些條件可與 `name` 及材料 ID 篩選條件搭配。

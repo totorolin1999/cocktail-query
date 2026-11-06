@@ -76,7 +76,7 @@ const AdminMaterialTable = ({ materials = [], onReload, onOpenAddModal }) => {
 
     try {
       const cat = item.category || "material";
-      await api.delete(`${API_BASE_URL}/api/item-delete/${cat}/${item.id}`);
+      await api.delete(`${API_BASE_URL}/api/v1/materials/${cat}/${item.id}/`);
       if (onReload) onReload();
     } catch (err) {
       console.error("刪除材料失敗", err);
@@ -204,7 +204,7 @@ const AdminMaterialTable = ({ materials = [], onReload, onOpenAddModal }) => {
                             variant="warning"
                             size="sm"
                             as={Link}
-                            to={`/UpdateItem/${item.category || "material"}/${item.id}`}
+                            to={`/materials/${item.category || "material"}/${item.id}/edit`}
                             className="btn-accent"
                           >
                             更新

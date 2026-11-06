@@ -46,7 +46,7 @@ const CocktailTable = ({ data }) => {
 
   const handleDelete = async (id) => {
     try {
-      await api.delete(`${API_BASE_URL}/api/cocktail-delete/` + id);
+      await api.delete(`${API_BASE_URL}/api/v1/cocktails/${id}/`);
       window.location.reload();
     } catch (err) {
       console.log(err);
@@ -121,7 +121,7 @@ const CocktailTable = ({ data }) => {
                         variant="warning"
                         size="sm"
                         as={Link}
-                        to={`/UpdateCocktail/${item.id}`}
+                        to={`/cocktails/${item.id}/edit`}
                         className="btn-accent"
                       >
                         更新

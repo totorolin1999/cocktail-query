@@ -172,7 +172,7 @@ class CocktailListFilterTests(APITestCase):
 
     def test_filter_cocktails_by_vodka_and_cointreau(self):
         response = self.client.get(
-            reverse("cocktail-list"),
+            reverse("v1-cocktails-collection"),
             {"bases[]": "4", "liqueurs[]": "2"},
         )
 
@@ -198,7 +198,7 @@ class CocktailListFilterTests(APITestCase):
         kamikaze.save()
 
         response = self.client.get(
-            reverse("cocktail-list"),
+            reverse("v1-cocktails-collection"),
             {
                 "iba_category": "Contemporary Classics",
                 "bases[]": "4",
@@ -214,7 +214,7 @@ class CocktailListFilterTests(APITestCase):
 
     def test_filter_cocktails_by_strength_and_bilingual_glassware(self):
         response = self.client.get(
-            reverse("cocktail-list"),
+            reverse("v1-cocktails-collection"),
             {"strength": "medium", "glassware": "馬丁尼杯"},
         )
         self.assertEqual(response.status_code, status.HTTP_200_OK)
@@ -224,7 +224,7 @@ class CocktailListFilterTests(APITestCase):
         )
 
         english_response = self.client.get(
-            reverse("cocktail-list"),
+            reverse("v1-cocktails-collection"),
             {"glassware": "Cocktail glass"},
         )
         self.assertEqual(english_response.status_code, status.HTTP_200_OK)
@@ -290,7 +290,7 @@ class CocktailAPITestCase(APITestCase):
         self.long_island.glassware_en = "Highball glass"
         self.long_island.save()
 
-        response = self.client.get(reverse("cocktail-detail", args=[self.long_island.id]))
+        response = self.client.get(reverse("v1-cocktails-member", args=[self.long_island.id]))
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         data = response.json()
         self.assertEqual(data["chinese_name"], "長島冰茶")
@@ -302,13 +302,12 @@ class CocktailAPITestCase(APITestCase):
         self.assertNotIn("bases", data)
 
     def test_cocktail_list_response_format(self):
-        response = self.client.get(reverse("cocktail-list"))
+        response = self.client.get(reverse("v1-cocktails-collection"))
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
         data = response.json()
         self.assertIsInstance(data, list)
         self.assertGreaterEqual(len(data), 1)
-
         item = data[0]
         self.assertIn("id", item)
         self.assertIn("chinese_name", item)
@@ -321,6 +320,9 @@ class CocktailAPITestCase(APITestCase):
         self.assertNotIn("ingredients", item)
         self.assertNotIn("materials", item)
         self.assertNotIn("recipe_ingredients", item)
+
+
+
         self.assertIn("instructions_zh", item)
         self.assertIn("artwork_color", item)
 
@@ -338,13 +340,34 @@ class CocktailAPITestCase(APITestCase):
 
         self.assertTrue(item["image"].startswith("/media/cocktail_images/"))
 
+    def test_api_overview_and_v1_restful_endpoints(self):
+        overview_res = self.client.get(reverse("api-Overview"))
+        self.assertEqual(overview_res.status_code, status.HTTP_200_OK)
+        self.assertEqual(overview_res.data["version"], "v1")
+        self.assertIn("cocktail_endpoints", overview_res.data)
+        self.assertIn("material_endpoints", overview_res.data)
+        self.assertIn("analytics_and_utility_endpoints", overview_res.data)
+
+        v1_list = self.client.get(reverse("v1-cocktails-collection"))
+        self.assertEqual(v1_list.status_code, status.HTTP_200_OK)
+
+        v1_detail = self.client.get(reverse("v1-cocktails-member", args=[self.long_island.id]))
+        self.assertEqual(v1_detail.status_code, status.HTTP_200_OK)
+        self.assertEqual(v1_detail.data["chinese_name"], "長島冰茶")
+
+        v1_rec = self.client.get(reverse("v1-cocktails-recommendations", args=[self.long_island.id]))
+        self.assertEqual(v1_rec.status_code, status.HTTP_200_OK)
+
+        v1_mat = self.client.get(reverse("v1-materials-collection", args=["base"]))
+        self.assertEqual(v1_mat.status_code, status.HTTP_200_OK)
+
     def test_public_api_hides_inactive_cocktails(self):
         self.free_cuba.is_active = False
         self.free_cuba.save(update_fields=["is_active"])
 
-        list_response = self.client.get(reverse("cocktail-list"))
+        list_response = self.client.get(reverse("v1-cocktails-collection"))
         detail_response = self.client.get(
-            reverse("cocktail-detail", args=[self.free_cuba.id])
+            reverse("v1-cocktails-member", args=[self.free_cuba.id])
         )
 
         self.assertEqual(list_response.status_code, status.HTTP_200_OK)
@@ -378,7 +401,7 @@ class CocktailAPITestCase(APITestCase):
         }
 
         response = self.client.post(
-            reverse("cocktail-update", args=[self.long_island.id]),
+            reverse("v1-cocktails-member", args=[self.long_island.id]),
             payload,
             format="json",
         )
@@ -402,7 +425,7 @@ class CocktailAPITestCase(APITestCase):
             "Alcohols": [{"id": self.tequila.id}],
             "Ingredients": [{"id": self.lemon.id}],
         }
-        response = self.client.post(reverse("cocktail-create"), payload, format="json")
+        response = self.client.post(reverse("v1-cocktails-collection"), payload, format="json")
         self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
 
     def test_cocktail_create_update_and_delete(self):
@@ -415,7 +438,7 @@ class CocktailAPITestCase(APITestCase):
             "Ingredients": [{"id": self.lemon.id}],
         }
 
-        create_response = self.client.post(reverse("cocktail-create"), payload, format="json")
+        create_response = self.client.post(reverse("v1-cocktails-collection"), payload, format="json")
         self.assertEqual(create_response.status_code, status.HTTP_201_CREATED)
         created_data = create_response.json()
         self.assertEqual(created_data["chinese_name"], "新雞尾酒")
@@ -427,11 +450,11 @@ class CocktailAPITestCase(APITestCase):
 
         cocktail_id = created_data["id"]
         update_payload = {"Chinese_Name": "更新雞尾酒"}
-        update_response = self.client.post(reverse("cocktail-update", args=[cocktail_id]), update_payload, format="json")
+        update_response = self.client.post(reverse("v1-cocktails-member", args=[cocktail_id]), update_payload, format="json")
         self.assertEqual(update_response.status_code, status.HTTP_200_OK)
         self.assertEqual(update_response.json()["chinese_name"], "更新雞尾酒")
 
-        delete_response = self.client.delete(reverse("cocktail-delete", args=[cocktail_id]))
+        delete_response = self.client.delete(reverse("v1-cocktails-member", args=[cocktail_id]))
         self.assertEqual(delete_response.status_code, status.HTTP_200_OK)
         self.assertFalse(Cocktail.objects.filter(id=cocktail_id).exists())
 
@@ -453,7 +476,7 @@ class CocktailAPITestCase(APITestCase):
             content_type="image/png",
         )
         payload["image"] = image
-        response = self.client.post(reverse("cocktail-create"), payload, format="multipart")
+        response = self.client.post(reverse("v1-cocktails-collection"), payload, format="multipart")
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         data = response.json()
         self.assertEqual(data["chinese_name"], "有圖調酒")
@@ -468,7 +491,7 @@ class CocktailAPITestCase(APITestCase):
             "Liqueurs": [{"id": self.cointreau.id}],
             "Ingredients": [{"id": new_ingredient.id}],
         }
-        response = self.client.post(reverse("cocktail-update", args=[self.long_island.id]), update_payload, format="json")
+        response = self.client.post(reverse("v1-cocktails-member", args=[self.long_island.id]), update_payload, format="json")
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         data = response.json()
         self.assertEqual(data["chinese_name"], "長島最新版")
@@ -484,7 +507,7 @@ class CocktailAPITestCase(APITestCase):
         }
 
         response = self.client.post(
-            reverse("cocktail-update", args=[self.long_island.id]),
+            reverse("v1-cocktails-member", args=[self.long_island.id]),
             update_payload,
             format="json",
         )
@@ -506,7 +529,7 @@ class CocktailAPITestCase(APITestCase):
 
     def test_cocktail_create_rejects_unknown_material_ids(self):
         response = self.client.post(
-            reverse("cocktail-create"),
+            reverse("v1-cocktails-collection"),
             {
                 "Chinese_Name": "錯誤材料",
                 "English_Name": "Invalid Material",
@@ -521,16 +544,16 @@ class CocktailAPITestCase(APITestCase):
 
     def test_material_crud(self):
         create_response = self.client.post(
-            reverse("item-create", args=["ingredient"]),
+            reverse("v1-materials-collection", args=["ingredient"]),
             {"Chinese_Name": "萊姆", "English_Name": "Lime"},
             format="json",
         )
         self.assertEqual(create_response.status_code, status.HTTP_201_CREATED)
         material_id = create_response.json()["id"]
 
-        list_response = self.client.get(reverse("material-list", args=["ingredient"]))
+        list_response = self.client.get(reverse("v1-materials-collection", args=["ingredient"]))
         detail_response = self.client.get(
-            reverse("item-detail", args=["ingredient", material_id])
+            reverse("v1-materials-member", args=["ingredient", material_id])
         )
         self.assertEqual(list_response.status_code, status.HTTP_200_OK)
         self.assertIn(material_id, [item["id"] for item in list_response.json()])
@@ -538,7 +561,7 @@ class CocktailAPITestCase(APITestCase):
         self.assertEqual(detail_response.json()["english_name"], "Lime")
 
         update_response = self.client.post(
-            reverse("item-update", args=["ingredient", material_id]),
+            reverse("v1-materials-member", args=["ingredient", material_id]),
             {"english_name": "Fresh Lime"},
             format="json",
         )
@@ -547,22 +570,22 @@ class CocktailAPITestCase(APITestCase):
         self.assertEqual(update_response.json()["english_name"], "Fresh Lime")
 
         delete_response = self.client.delete(
-            reverse("item-delete", args=["ingredient", material_id])
+            reverse("v1-materials-member", args=["ingredient", material_id])
         )
         self.assertEqual(delete_response.status_code, status.HTTP_200_OK)
         self.assertFalse(Material.objects.filter(id=material_id).exists())
 
     def test_material_endpoints_reject_unknown_model_types(self):
-        response = self.client.get(reverse("material-list", args=["cocktail"]))
+        response = self.client.get(reverse("v1-materials-collection", args=["cocktail"]))
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
     def test_cocktail_list_searches_chinese_and_english_names_case_insensitively(self):
         chinese_response = self.client.get(
-            reverse("cocktail-list"),
+            reverse("v1-cocktails-collection"),
             {"name": "長島"},
         )
         english_response = self.client.get(
-            reverse("cocktail-list"),
+            reverse("v1-cocktails-collection"),
             {"name": "long island"},
         )
 
@@ -630,7 +653,7 @@ class CocktailAPITestCase(APITestCase):
 
     def test_cocktail_list_pipe_separated_ids(self):
         response = self.client.get(
-            reverse("cocktail-list"),
+            reverse("v1-cocktails-collection"),
             {"bases[]": "4|5"},
         )
         self.assertEqual(response.status_code, status.HTTP_200_OK)
@@ -640,7 +663,7 @@ class CocktailAPITestCase(APITestCase):
 
     def test_cocktail_list_requires_all_selected_related_items(self):
         response = self.client.get(
-            reverse("cocktail-list"),
+            reverse("v1-cocktails-collection"),
             {"bases[]": "4|5", "liqueurs[]": "2"},
         )
         self.assertEqual(response.status_code, status.HTTP_200_OK)
@@ -650,7 +673,7 @@ class CocktailAPITestCase(APITestCase):
 
     def test_cocktail_recommendation_returns_similar_cocktails(self):
         build_model()
-        response = self.client.get(reverse("cocktail-recommendation", args=[self.long_island.id]))
+        response = self.client.get(reverse("v1-cocktails-recommendations", args=[self.long_island.id]))
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         data = response.json()
         self.assertIsInstance(data, list)
@@ -658,7 +681,7 @@ class CocktailAPITestCase(APITestCase):
         self.assertTrue(any(item["chinese_name"] == "伏蘭君" for item in data))
 
     def test_chart_list_returns_counts_with_single_query(self):
-        response = self.client.get(reverse("chart-list", args=["base"]))
+        response = self.client.get(reverse("v1-charts", args=["base"]))
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         data = response.json()
         by_en = {item["english_label"]: item["size"] for item in data}
@@ -667,7 +690,7 @@ class CocktailAPITestCase(APITestCase):
 
     def test_cocktail_list_uses_constant_queries(self):
         with self.assertNumQueries(3):
-            response = self.client.get(reverse("cocktail-list"))
+            response = self.client.get(reverse("v1-cocktails-collection"))
             self.assertEqual(response.status_code, status.HTTP_200_OK)
             self.assertGreaterEqual(len(response.json()), 2)
 
@@ -704,7 +727,7 @@ class CocktailAPITestCase(APITestCase):
                 },
             ],
         }
-        response = self.client.post(reverse("cocktail-create"), payload, format="json")
+        response = self.client.post(reverse("v1-cocktails-collection"), payload, format="json")
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         cocktail = Cocktail.objects.get(english_name="Consolidated Cocktail")
         self.assertEqual(cocktail.recipe_items.count(), 2)
@@ -714,10 +737,10 @@ class CocktailAPITestCase(APITestCase):
         self.assertEqual(recipe_item.amount, "45 ml")
 
     def test_material_endpoints(self):
-        material_response = self.client.get(reverse("material-list", args=["material"]))
+        material_response = self.client.get(reverse("v1-materials-collection", args=["material"]))
         self.assertEqual(material_response.status_code, status.HTTP_200_OK)
 
-        chart_response = self.client.get(reverse("chart-list", args=["material"]))
+        chart_response = self.client.get(reverse("v1-charts", args=["material"]))
         self.assertEqual(chart_response.status_code, status.HTTP_200_OK)
 
 

@@ -24,23 +24,23 @@ const AppNavbar = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link as={Link} to="/Material/base">
+            <Nav.Link as={Link} to="/materials/base">
               {t("navbar.base")}
             </Nav.Link>
-            <Nav.Link as={Link} to="/Material/liqueur">
+            <Nav.Link as={Link} to="/materials/liqueur">
               {t("navbar.liqueur")}
             </Nav.Link>
-            <Nav.Link as={Link} to="/Material/alcohol">
+            <Nav.Link as={Link} to="/materials/alcohol">
               {t("navbar.alcohol")}
             </Nav.Link>
-            <Nav.Link as={Link} to="/Material/ingredient">
+            <Nav.Link as={Link} to="/materials/ingredient">
               {t("navbar.ingredient")}
             </Nav.Link>
-            <Nav.Link as={Link} to="/Charts">
+            <Nav.Link as={Link} to="/charts">
               {t("navbar.visualization")}
             </Nav.Link>
             {user && (
-              <Nav.Link as={Link} to="/Dashboard" className="nav-admin-link">
+              <Nav.Link as={Link} to="/cocktails" className="nav-admin-link">
                 {t("navbar.cocktails_management")}
               </Nav.Link>
             )}

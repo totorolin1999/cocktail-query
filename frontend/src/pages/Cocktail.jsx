@@ -21,7 +21,7 @@ const Cocktail = () => {
     const fetchCocktail = async () => {
       try {
         const res = await axios.get(
-          `${API_BASE_URL}/api/cocktail-detail/${cocktailId}/`
+          `${API_BASE_URL}/api/v1/cocktails/${cocktailId}/`
         );
         setCocktail(res.data);
       } catch (err) {
@@ -31,7 +31,7 @@ const Cocktail = () => {
     const fetchCocktails = async () => {
       try {
         const res = await axios.get(
-          `${API_BASE_URL}/api/cocktail-recommendation/${cocktailId}/`
+          `${API_BASE_URL}/api/v1/cocktails/${cocktailId}/recommendations/`
         );
         setCocktails(res.data);
       } catch (err) {

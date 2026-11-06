@@ -44,7 +44,7 @@ export const AuthProvider = ({ children }) => {
     setLoginError("");
 
     try {
-      let response = await fetch(`${API_BASE_URL}/api/token/`, {
+      let response = await fetch(`${API_BASE_URL}/api/v1/auth/token/`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -74,12 +74,12 @@ export const AuthProvider = ({ children }) => {
     setAuthTokens(null);
     setUser(null);
     localStorage.removeItem("authTokens");
-    navigate("/Login");
+    navigate("/login");
   };
 
   // let updateToken = async ()=> {
 
-  //     let response = await fetch(`${API_BASE_URL}/api/token/refresh/`, {
+  //     let response = await fetch(`${API_BASE_URL}/api/v1/auth/token/refresh/`, {
   //         method:'POST',
   //         headers:{
   //             'Content-Type':'application/json'

@@ -39,10 +39,10 @@ describe("CocktailRec", () => {
 
     expect(screen.getByRole("heading", { name: "Similar cocktails" })).toBeTruthy();
     expect(screen.getByRole("link", { name: "莫希托 (Mojito)" }).getAttribute("href")).toBe(
-      "/Cocktail/1"
+      "/cocktails/1"
     );
     expect(screen.getByRole("link", { name: "內格羅尼 (Negroni)" }).getAttribute("href")).toBe(
-      "/Cocktail/2"
+      "/cocktails/2"
     );
     expect(screen.getAllByRole("link")).toHaveLength(2);
   });

@@ -56,14 +56,14 @@ const Home = () => {
 
     const fetchAllData = async () => {
       await Promise.all([
-        fetchData(`${API_BASE_URL}/api/material-list/base/`, setBases),
-        fetchData(`${API_BASE_URL}/api/material-list/liqueur/`, setLiqueurs),
-        fetchData(`${API_BASE_URL}/api/material-list/alcohol/`, setAlcohols),
+        fetchData(`${API_BASE_URL}/api/v1/materials/base/`, setBases),
+        fetchData(`${API_BASE_URL}/api/v1/materials/liqueur/`, setLiqueurs),
+        fetchData(`${API_BASE_URL}/api/v1/materials/alcohol/`, setAlcohols),
         fetchData(
-          `${API_BASE_URL}/api/material-list/ingredient/`,
+          `${API_BASE_URL}/api/v1/materials/ingredient/`,
           setIngredients
         ),
-        fetchData(`${API_BASE_URL}/api/cocktail-list/`, (cocktails) => {
+        fetchData(`${API_BASE_URL}/api/v1/cocktails/`, (cocktails) => {
           setData(cocktails);
           setCocktailCatalog(cocktails);
         }),
@@ -143,7 +143,7 @@ const Home = () => {
     });
 
     try {
-      const res = await axios.get(`${API_BASE_URL}/api/cocktail-list/`, {
+      const res = await axios.get(`${API_BASE_URL}/api/v1/cocktails/`, {
         params,
       });
       setData(res.data);

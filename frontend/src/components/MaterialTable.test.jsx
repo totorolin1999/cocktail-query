@@ -24,7 +24,7 @@ describe("MaterialTable", () => {
     }));
 
     render(
-      <MemoryRouter initialEntries={["/Material/base"]}>
+      <MemoryRouter initialEntries={["/materials/base"]}>
         <AuthContext.Provider value={{ user: null }}>
           <MaterialTable data={data} />
         </AuthContext.Provider>
@@ -48,7 +48,7 @@ describe("MaterialTable", () => {
     const data = [{ id: 1, chinese_name: "琴酒", english_name: "Gin" }];
 
     render(
-      <MemoryRouter initialEntries={["/Material/base"]}>
+      <MemoryRouter initialEntries={["/materials/base"]}>
         <AuthContext.Provider value={{ user: { username: "admin" } }}>
           <MaterialTable data={data} editable={false} />
         </AuthContext.Provider>

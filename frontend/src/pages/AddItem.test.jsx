@@ -11,9 +11,9 @@ jest.mock("../utils/useAxios", () => ({
 describe("AddItem Page", () => {
   it("renders 404 Missing page when given an invalid material param", () => {
     render(
-      <MemoryRouter initialEntries={["/AddItem/ba"]}>
+      <MemoryRouter initialEntries={["/materials/ba/new"]}>
         <Routes>
-          <Route path="/AddItem/:material" element={<AddItem />} />
+          <Route path="/materials/:material/new" element={<AddItem />} />
         </Routes>
       </MemoryRouter>
     );
@@ -24,9 +24,9 @@ describe("AddItem Page", () => {
 
   it("renders correct form title and back button for valid material", () => {
     render(
-      <MemoryRouter initialEntries={["/AddItem/base"]}>
+      <MemoryRouter initialEntries={["/materials/base/new"]}>
         <Routes>
-          <Route path="/AddItem/:material" element={<AddItem />} />
+          <Route path="/materials/:material/new" element={<AddItem />} />
         </Routes>
       </MemoryRouter>
     );

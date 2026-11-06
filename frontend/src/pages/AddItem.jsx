@@ -51,11 +51,11 @@ const AddItem = () => {
     setSubmitError("");
     const targetCategory = item.category || material;
     try {
-      await api.post(`${API_BASE_URL}/api/item-create/${targetCategory}/`, {
+      await api.post(`${API_BASE_URL}/api/v1/materials/${targetCategory}/`, {
         ...item,
         category: targetCategory,
       });
-      navigate(`/Dashboard?tab=materials`);
+      navigate(`/cocktails?tab=materials`);
     } catch (err) {
       console.error(err);
       const detail =
@@ -70,7 +70,7 @@ const AddItem = () => {
     <AdminFormLayout
       title={`新增${materialLabel}`}
       subtitle="請填寫原料名稱與分類"
-      backTo="/Dashboard?tab=materials"
+      backTo="/cocktails?tab=materials"
       backLabel="返回材料庫管理"
     >
       <Form onSubmit={handleClick}>
@@ -124,7 +124,7 @@ const AddItem = () => {
           </Button>
           <Button
             variant="outline-secondary"
-            onClick={() => navigate(`/Material/${material}`)}
+            onClick={() => navigate(`/materials/${material}`)}
           >
             取消
           </Button>

@@ -55,7 +55,7 @@ const MaterialTable = ({ data, editable = false }) => {
 
   const handleDelete = async (id) => {
     try {
-      await api.delete(`${API_BASE_URL}/api/item-delete/${material}/` + id);
+      await api.delete(`${API_BASE_URL}/api/v1/materials/${material}/${id}/`);
       window.location.reload();
     } catch (err) {
       console.log(err);
@@ -86,7 +86,7 @@ const MaterialTable = ({ data, editable = false }) => {
                           variant="warning"
                           size="sm"
                           as={Link}
-                          to={`/UpdateItem/${material}/${item.id}`}
+                          to={`/materials/${material}/${item.id}/edit`}
                           className="btn-accent"
                         >
                           更新

@@ -76,8 +76,8 @@ const UpdateCocktail = () => {
     const fetchMaterialsAndDetail = async () => {
       try {
         const [matRes, cocktailRes] = await Promise.all([
-          axios.get(`${API_BASE_URL}/api/material-list/material/`),
-          axios.get(`${API_BASE_URL}/api/cocktail-detail/${cocktailId}/`),
+          axios.get(`${API_BASE_URL}/api/v1/materials/material/`),
+          axios.get(`${API_BASE_URL}/api/v1/cocktails/${cocktailId}/`),
         ]);
 
         setAllMaterials(matRes.data);
@@ -183,12 +183,12 @@ const UpdateCocktail = () => {
       formData.append("Ingredients", JSON.stringify(filterCat("ingredient")));
 
       const response = await api.post(
-        `${API_BASE_URL}/api/cocktail-update/${cocktailId}/`,
+        `${API_BASE_URL}/api/v1/cocktails/${cocktailId}/`,
         formData
       );
 
       if (response?.status >= 200 && response?.status < 300) {
-        navigate("/Dashboard");
+        navigate("/cocktails");
       } else {
         setSubmitError("更新調酒失敗，請稍後再試。");
       }
@@ -206,7 +206,7 @@ const UpdateCocktail = () => {
     <AdminFormLayout
       title={`編輯調酒：${cocktail.chinese_name || cocktail.english_name || "載入中..."}`}
       subtitle="修改調酒基本資料、更新酒譜配方用量與風味設定"
-      backTo="/Dashboard"
+      backTo="/cocktails"
       backLabel="返回管理儀表板"
       wide
     >
@@ -470,7 +470,7 @@ const UpdateCocktail = () => {
           </Button>
           <Button
             variant="outline-secondary"
-            onClick={() => navigate("/Dashboard")}
+            onClick={() => navigate("/cocktails")}
           >
             取消
           </Button>

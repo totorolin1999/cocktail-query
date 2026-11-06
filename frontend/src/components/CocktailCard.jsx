@@ -53,7 +53,7 @@ function CocktailCard({ data }) {
           <Col key={idx} className="d-flex justify-content-center">
             <Card
               as={Link}
-              to={`/Cocktail/${item.id}`}
+              to={`/cocktails/${item.id}`}
               bg="dark"
               text="white"
               border="warning"

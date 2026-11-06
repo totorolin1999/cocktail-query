@@ -62,7 +62,7 @@ const QuickAddMaterialModal = ({
       };
 
       const res = await api.post(
-        `${API_BASE_URL}/api/item-create/${targetCategory}/`,
+        `${API_BASE_URL}/api/v1/materials/${targetCategory}/`,
         payload
       );
 

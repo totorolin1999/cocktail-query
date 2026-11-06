@@ -27,7 +27,7 @@ const useAxios = () => {
 
             if (!isExpired) return req;
 
-            const response = await axios.post(`${baseURL}/api/token/refresh/`, {
+            const response = await axios.post(`${baseURL}/api/v1/auth/token/refresh/`, {
                 refresh: authTokens.refresh
             });
 

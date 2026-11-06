@@ -107,7 +107,7 @@ const TRANSLATIONS = {
         },
         {
           title: "3. 攔截器捕捉 (Axios Response Interceptor)",
-          desc: "Axios 攔截器攔截到 401 錯誤，暫緩原始 Promise 請求，並自動使用 Refresh Token 向 /api/token/refresh/ 發起換證請求。",
+          desc: "Axios 攔截器攔截到 401 錯誤，暫緩原始 Promise 請求，並自動使用 Refresh Token 向 /api/v1/auth/token/refresh/ 發起換證請求。",
           status: "Interception"
         },
         {
@@ -244,7 +244,7 @@ const TRANSLATIONS = {
         },
         {
           title: "3. Axios Response Interception",
-          desc: "Axios interceptor catches 401, pauses current request queue, and calls /api/token/refresh/ using Refresh Token.",
+          desc: "Axios interceptor catches 401, pauses current request queue, and calls /api/v1/auth/token/refresh/ using Refresh Token.",
           status: "Interception"
         },
         {
@@ -362,8 +362,8 @@ const getSystemNodes = (isEn) => [
           "冷啟動友善：新調酒只要具備配方成份，即可立即融入推薦體系"
         ],
     dataflow: isEn
-      ? "When invoking /api/cocktailRecommendation/<id>, the view queries the preloaded similarity_df matrix, extracts top 9 recipe IDs, and retrieves structured cocktails via ORM."
-      : "當呼叫 /api/cocktailRecommendation/<id> 時，後端載入由 DictVectorizer 產生的 similarity_df 餘弦相似度矩陣，瞬間檢索 Top 9 相近酒譜 ID，再由 ORM 批次抓取詳情回傳。",
+      ? "When invoking /api/v1/cocktails/<id>/recommendations/<id>, the view queries the preloaded similarity_df matrix, extracts top 9 recipe IDs, and retrieves structured cocktails via ORM."
+      : "當呼叫 /api/v1/cocktails/<id>/recommendations/<id> 時，後端載入由 DictVectorizer 產生的 similarity_df 餘弦相似度矩陣，瞬間檢索 Top 9 相近酒譜 ID，再由 ORM 批次抓取詳情回傳。",
     path: "backend/api/views.py (cocktailRecommendation)"
   },
   {

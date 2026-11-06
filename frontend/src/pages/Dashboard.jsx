@@ -28,7 +28,7 @@ const Dashboard = () => {
 
   const fetchAllCocktails = async () => {
     try {
-      const res = await axios.get(`${API_BASE_URL}/api/cocktail-list/`);
+      const res = await axios.get(`${API_BASE_URL}/api/v1/cocktails/`);
       setCocktails(res.data);
     } catch (err) {
       console.error("載入調酒清單失敗", err);
@@ -38,7 +38,7 @@ const Dashboard = () => {
   const fetchAllMaterials = async () => {
     setLoadingMaterials(true);
     try {
-      const res = await axios.get(`${API_BASE_URL}/api/material-list/material/`);
+      const res = await axios.get(`${API_BASE_URL}/api/v1/materials/material/`);
       setMaterials(res.data);
     } catch (err) {
       console.error("載入材料清單失敗", err);
@@ -54,14 +54,14 @@ const Dashboard = () => {
 
   const handleTabSelect = (tabKey) => {
     setActiveTab(tabKey);
-    navigate(`/Dashboard${tabKey === "materials" ? "?tab=materials" : ""}`, {
+    navigate(`/cocktails${tabKey === "materials" ? "?tab=materials" : ""}`, {
       replace: true,
     });
   };
 
   const downloadJsonFile = async () => {
     try {
-      const response = await fetch(`${API_BASE_URL}/api/backup-data/`);
+      const response = await fetch(`${API_BASE_URL}/api/v1/backup/`);
       const blob = await response.blob();
 
       const url = window.URL.createObjectURL(blob);
@@ -124,7 +124,7 @@ const Dashboard = () => {
               <Button
                 variant="warning"
                 as={Link}
-                to="/AddCocktail"
+                to="/cocktails/new"
                 className="btn-accent"
               >
                 ＋ 新增調酒

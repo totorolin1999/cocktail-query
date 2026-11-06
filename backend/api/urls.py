@@ -1,6 +1,12 @@
-from django.urls import path, re_path
+from django.urls import path
 from . import views
-from .views import MyTokenObtainPairView
+from .views import (
+    MyTokenObtainPairView,
+    cocktailCollection,
+    cocktailMember,
+    materialCollection,
+    materialMember,
+)
 
 from rest_framework_simplejwt.views import (
     TokenRefreshView,
@@ -10,23 +16,19 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns = [
+    # API Catalog Overview
     path('', views.apiOverview, name='api-Overview'),
-    path('token/', MyTokenObtainPairView.as_view(), name='token_obtain_pair'),
-    path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
-    path('cocktail-list/', views.cocktailList, name='cocktail-list'),
-    path('material-list/<str:model_type>/', views.materialList, name='material-list'),
-    # re_path(r'^cocktail-list/$', views.cocktailList, name='cocktail-list'),
-    path('cocktail-detail/<str:pk>/', views.cocktailDetail, name='cocktail-detail'),
-    path('cocktail-create/', views.cocktailCreate, name='cocktail-create'),
-    path('cocktail-update/<str:pk>/', views.cocktailUpdate, name='cocktail-update'),
-    path('cocktail-delete/<str:pk>/', views.cocktailDelete, name='cocktail-delete'),
-    path('item-detail/<str:model_type>/<str:pk>/', views.itemDetail, name='item-detail'),
-    path('item-create/<str:model_type>/', views.itemCreate, name='item-create'),
-    path('item-update/<str:model_type>/<str:pk>/', views.itemUpdate, name='item-update'),
-    path('item-delete/<str:model_type>/<str:pk>/', views.itemDelete, name='item-delete'),
-    path('chart-list/<str:model_type>/', views.chartList, name='chart-list'),
-    path('cocktail-recommendation/<str:pk>/', views.cocktailRecommendation, name='cocktail-recommendation'),
-    path('backup-data/', views.backupData, name='backup-data'),
+
+    # RESTful v1 Endpoints
+    path('v1/auth/token/', MyTokenObtainPairView.as_view(), name='v1-token_obtain_pair'),
+    path('v1/auth/token/refresh/', TokenRefreshView.as_view(), name='v1-token_refresh'),
+    path('v1/cocktails/', cocktailCollection, name='v1-cocktails-collection'),
+    path('v1/cocktails/<str:pk>/', cocktailMember, name='v1-cocktails-member'),
+    path('v1/cocktails/<str:pk>/recommendations/', views.cocktailRecommendation, name='v1-cocktails-recommendations'),
+    path('v1/materials/<str:model_type>/', materialCollection, name='v1-materials-collection'),
+    path('v1/materials/<str:model_type>/<str:pk>/', materialMember, name='v1-materials-member'),
+    path('v1/charts/<str:model_type>/', views.chartList, name='v1-charts'),
+    path('v1/backup/', views.backupData, name='v1-backup'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

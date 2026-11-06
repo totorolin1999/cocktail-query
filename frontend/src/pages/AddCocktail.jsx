@@ -72,7 +72,7 @@ const AddCocktail = () => {
   useEffect(() => {
     const fetchMaterials = async () => {
       try {
-        const res = await axios.get(`${API_BASE_URL}/api/material-list/material/`);
+        const res = await axios.get(`${API_BASE_URL}/api/v1/materials/material/`);
         setAllMaterials(res.data);
       } catch (err) {
         console.error("載入原料失敗：", err);
@@ -143,9 +143,9 @@ const AddCocktail = () => {
       formData.append("Alcohols", JSON.stringify(filterCat("alcohol")));
       formData.append("Ingredients", JSON.stringify(filterCat("ingredient")));
 
-      const response = await api.post(`${API_BASE_URL}/api/cocktail-create/`, formData);
+      const response = await api.post(`${API_BASE_URL}/api/v1/cocktails/`, formData);
       if (response?.status >= 200 && response?.status < 300) {
-        navigate("/Dashboard");
+        navigate("/cocktails");
       } else {
         setSubmitError("新增調酒失敗，請稍後再試。");
       }
@@ -163,7 +163,7 @@ const AddCocktail = () => {
     <AdminFormLayout
       title="新增調酒"
       subtitle="填寫調酒基本資訊、配方比例與詳細介紹"
-      backTo="/Dashboard"
+      backTo="/cocktails"
       backLabel="返回管理儀表板"
       wide
     >
@@ -417,7 +417,7 @@ const AddCocktail = () => {
           </Button>
           <Button
             variant="outline-secondary"
-            onClick={() => navigate("/Dashboard")}
+            onClick={() => navigate("/cocktails")}
           >
             取消
           </Button>

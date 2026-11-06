@@ -48,7 +48,7 @@ const UpdateItem = () => {
     const fetchItem = async () => {
       try {
         const res = await axios.get(
-          `${API_BASE_URL}/api/item-detail/${material}/${itemId}/`
+          `${API_BASE_URL}/api/v1/materials/${material}/${itemId}/`
         );
         setItem({
           id: res.data.id,
@@ -74,11 +74,11 @@ const UpdateItem = () => {
     setSubmitError("");
     const targetCategory = item.category || material;
     try {
-      await api.post(`${API_BASE_URL}/api/item-update/${material}/${itemId}/`, {
+      await api.post(`${API_BASE_URL}/api/v1/materials/${material}/${itemId}/`, {
         ...item,
         category: targetCategory,
       });
-      navigate(`/Dashboard?tab=materials`);
+      navigate(`/cocktails?tab=materials`);
     } catch (err) {
       console.error(err);
       const detail =
@@ -93,7 +93,7 @@ const UpdateItem = () => {
     <AdminFormLayout
       title={`更新${materialLabel}`}
       subtitle="修改原料名稱與所屬分類"
-      backTo="/Dashboard?tab=materials"
+      backTo="/cocktails?tab=materials"
       backLabel="返回材料庫管理"
     >
       <Form onSubmit={handleClick}>
@@ -147,7 +147,7 @@ const UpdateItem = () => {
           </Button>
           <Button
             variant="outline-secondary"
-            onClick={() => navigate(`/Material/${material}`)}
+            onClick={() => navigate(`/materials/${material}`)}
           >
             取消
           </Button>

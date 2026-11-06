@@ -188,13 +188,97 @@ def _serialize_cocktail_backup(items):
 @api_view(['GET'])
 def apiOverview(request):
     api_urls = {
-        'Token': '/api/token',
-        'Refresh': '/api/token/refresh',
-        'List': '/cocktail-list/',
-        'Detail': '/cocktail-detail/<str:pk>/',
-        'Create': '/api/cocktail-create/',
-        'Update': '/api/cocktail-update/<str:pk>/',
-        'Delete': '/api/cocktail-delete/<str:pk>/',
+        'version': 'v1',
+        'title': 'Cocktail Query & Smart Recommendation RESTful API',
+        'auth_endpoints': {
+            'Token (Login)': {
+                'url': '/api/v1/auth/token/',
+                'method': 'POST',
+                'description': 'Obtain JWT access and refresh token pair',
+            },
+            'Token Refresh': {
+                'url': '/api/v1/auth/token/refresh/',
+                'method': 'POST',
+                'description': 'Refresh expired access token',
+            },
+        },
+        'cocktail_endpoints': {
+            'Cocktail List / Search': {
+                'url': '/api/v1/cocktails/',
+                'method': 'GET',
+                'description': 'List active cocktails with multi-criteria filtering',
+            },
+            'Cocktail Detail': {
+                'url': '/api/v1/cocktails/<str:pk>/',
+                'method': 'GET',
+                'description': 'Retrieve specific cocktail by ID',
+            },
+            'Cocktail Create': {
+                'url': '/api/v1/cocktails/',
+                'method': 'POST',
+                'auth_required': True,
+                'description': 'Create a new cocktail with recipe ingredients',
+            },
+            'Cocktail Update': {
+                'url': '/api/v1/cocktails/<str:pk>/',
+                'method': 'PUT / PATCH / POST',
+                'auth_required': True,
+                'description': 'Update an existing cocktail and retrain similarity model',
+            },
+            'Cocktail Delete': {
+                'url': '/api/v1/cocktails/<str:pk>/',
+                'method': 'DELETE',
+                'auth_required': True,
+                'description': 'Delete a cocktail and retrain similarity model',
+            },
+            'Cocktail Recommendations': {
+                'url': '/api/v1/cocktails/<str:pk>/recommendations/',
+                'method': 'GET',
+                'description': 'Top 9 similar cocktails via NLP cosine similarity',
+            },
+        },
+        'material_endpoints': {
+            'Material List': {
+                'url': '/api/v1/materials/<str:model_type>/',
+                'method': 'GET',
+                'description': 'List materials by category (base, liqueur, alcohol, ingredient, material)',
+            },
+            'Material Detail': {
+                'url': '/api/v1/materials/<str:model_type>/<str:pk>/',
+                'method': 'GET',
+                'description': 'Retrieve specific material item detail',
+            },
+            'Material Create': {
+                'url': '/api/v1/materials/<str:model_type>/',
+                'method': 'POST',
+                'auth_required': True,
+                'description': 'Create a new material item',
+            },
+            'Material Update': {
+                'url': '/api/v1/materials/<str:model_type>/<str:pk>/',
+                'method': 'PUT / PATCH / POST',
+                'auth_required': True,
+                'description': 'Update an existing material item',
+            },
+            'Material Delete': {
+                'url': '/api/v1/materials/<str:model_type>/<str:pk>/',
+                'method': 'DELETE',
+                'auth_required': True,
+                'description': 'Delete a material item',
+            },
+        },
+        'analytics_and_utility_endpoints': {
+            'Chart Statistics': {
+                'url': '/api/v1/charts/<str:model_type>/',
+                'method': 'GET',
+                'description': 'Frequency distribution of materials in cocktails for Chart.js',
+            },
+            'Database Backup': {
+                'url': '/api/v1/backup/',
+                'method': 'GET',
+                'description': 'Export full database fixture as downloadable JSON file',
+            },
+        },
     }
     return Response(api_urls)
 
@@ -442,3 +526,60 @@ def backupData(request):
         json.dump(data, json_file, indent=2, ensure_ascii=False)
 
     return FileResponse(open(file_path, 'rb'), as_attachment=True, filename='data.json')
+
+
+def cocktailCollection(request):
+    """
+    RESTful endpoint for cocktails collection:
+    - GET: List cocktails (supports filtering)
+    - POST: Create a new cocktail (requires authentication)
+    """
+    if request.method == 'GET':
+        return cocktailList(request)
+    return cocktailCreate(request)
+
+
+def cocktailMember(request, pk):
+    """
+    RESTful endpoint for single cocktail resource:
+    - GET: Retrieve cocktail detail
+    - PUT / PATCH / POST: Update cocktail (requires authentication)
+    - DELETE: Delete cocktail (requires authentication)
+    """
+    if request.method == 'GET':
+        return cocktailDetail(request, pk)
+    if request.method in ('PUT', 'PATCH', 'POST'):
+        return cocktailUpdate(request, pk)
+    if request.method == 'DELETE':
+        return cocktailDelete(request, pk)
+    from django.http import HttpResponseNotAllowed
+    return HttpResponseNotAllowed(['GET', 'PUT', 'PATCH', 'POST', 'DELETE'])
+
+
+def materialCollection(request, model_type):
+    """
+    RESTful endpoint for material category collection:
+    - GET: List materials for category
+    - POST: Create a new material in category (requires authentication)
+    """
+    if request.method == 'GET':
+        return materialList(request, model_type)
+    return itemCreate(request, model_type)
+
+
+def materialMember(request, model_type, pk):
+    """
+    RESTful endpoint for single material resource:
+    - GET: Retrieve material detail
+    - PUT / PATCH / POST: Update material (requires authentication)
+    - DELETE: Delete material (requires authentication)
+    """
+    if request.method == 'GET':
+        return itemDetail(request, model_type, pk)
+    if request.method in ('PUT', 'PATCH', 'POST'):
+        return itemUpdate(request, model_type, pk)
+    if request.method == 'DELETE':
+        return itemDelete(request, model_type, pk)
+    from django.http import HttpResponseNotAllowed
+    return HttpResponseNotAllowed(['GET', 'PUT', 'PATCH', 'POST', 'DELETE'])
+

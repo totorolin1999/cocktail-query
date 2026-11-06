@@ -48,8 +48,8 @@ const Material = () => {
     };
 
     Promise.all([
-      fetchData(`${API_BASE_URL}/api/material-list/${material}/`, setMaterials),
-      fetchData(`${API_BASE_URL}/api/chart-list/${material}/`, setMaterialChart),
+      fetchData(`${API_BASE_URL}/api/v1/materials/${material}/`, setMaterials),
+      fetchData(`${API_BASE_URL}/api/v1/charts/${material}/`, setMaterialChart),
     ]).finally(() => setLoading(false));
   }, [material, valid]);
 
