@@ -130,6 +130,7 @@ cocktail-query/
 │   │   │   └── AuthContext.js             # 登入與 Token 驗證狀態
 │   │   ├── pages/                         # 頁面元件 (對應路由)
 │   │   │   ├── Home.jsx                   # 首頁 (雞尾酒查詢)
+│   │   │   ├── SystemDesign.jsx           # 系統設計與架構互動模擬器 (/system-design)
 │   │   │   ├── LoginPage.jsx              # 管理員登入頁面
 │   │   │   ├── Cocktails.jsx              # 雞尾酒清單管理頁面 (需登入)
 │   │   │   ├── Material.jsx               # 原料詳細資訊頁面
@@ -230,6 +231,9 @@ npm start
 > # 部署至線上時的後端網址範例：
 > # REACT_APP_APP_URL=https://your-backend-app.onrender.com
 > ```
+>
+> 📐 **系統設計與互動模擬展示頁面**：
+> 前端啟動後，可直接造訪 `http://localhost:3000/system-design`，深入體驗互動式全端拓撲、NLP 推薦演算法沙盒、三層資料庫自動回退策略與 JWT 靜默刷新時序模擬。
 
 ---
 
@@ -364,6 +368,9 @@ npm run build
 3. **API 推薦服務**：
    - 請求 `/api/cocktail-recommendation/<pk>/` 時，系統載入 `joblib` 模型，比對輸入酒款與其他酒款的相似係數，取出相似度最高的前 9 款調酒（排除自身），序列化後回傳。
    - 新增、更新或刪除調酒時會自動重建模型；批次匯入資料或調整材料分類後，請手動執行 `docker compose exec web python manage.py shell -c "from api.utils import build_model; build_model()"`。
+
+> 💡 **互動式演算法沙盒**：
+> 想直觀了解成份特徵向量化與餘弦相似度的動態計算過程，可於前端啟動後造訪 `http://localhost:3000/system-design` 的「NLP 推薦演算法沙盒」進行即時試驗與配方交叉比對。
 
 ---
 

@@ -12,6 +12,7 @@ import AddCocktail from "./pages/AddCocktail";
 import UpdateCocktail from "./pages/UpdateCocktail";
 import Cocktail from "./pages/Cocktail";
 import Charts from "./pages/Charts";
+import SystemDesign from "./pages/SystemDesign";
 import Layout from "./components/Layout";
 import Missing from "./components/Missing";
 
@@ -23,6 +24,7 @@ function App() {
       <Route path="/" element={<Layout />}>
         <Route element={<LoginPage />} path="/Login" />
         <Route path="/Charts" element={<Charts />} />
+        <Route path="/system-design" element={<SystemDesign />} />
         <Route path="/" element={<Home />} exact />
         <Route path="/Material/:id" element={<Material />} />
         <Route path="/Cocktail/:id" element={<Cocktail />} />
