@@ -101,8 +101,7 @@ cocktail-query/
 │   │   ├── tests.py                       # API 端點單元測試
 │   │   ├── urls.py                        # API 路由規則
 │   │   ├── utils.py                       # 推薦系統模型訓練工具 (build_model)
-│   │   └── views.py                       # API 視圖邏輯 (CRUD, 推薦, 備份, 圖表)
-│   ├── backupData/                        # 資料庫備份檔存放目錄 (cocktail_data.json)
+│   │   └── views.py                       # API 視圖邏輯 (CRUD, 推薦, 圖表)
 │   ├── cocktailData/                      # 機器學習模型與特徵 CSV 存放目錄 (cocktailModel.joblib)
 │   ├── cocktail_query_drf/                # 專案核心設定目錄
 │   │   ├── .env                           # 本地開發環境變數 (手動建立，請勿提交至 Git)
@@ -376,17 +375,23 @@ npm run build
 
 ## 💾 資料備份與恢復機制 (Data Backup & Restore)
 
-為避免手動維護測試資料的繁瑣，後端 API 提供了一鍵式備份端點：
+為維護資料安全與方便跨環境遷移，建議使用 Django 官方原生的標準管理指令進行資料匯出與還原：
 
-- **端點路由**：`/api/v1/backup/`
-- **運作原理**：
-  - 視圖 `backupData` ([`backend/api/views.py`](backend/api/views.py)) 會自動查詢資料庫中所有的基酒、利口酒、其他酒類、副材料以及雞尾酒資料。
-  - 將其序列化為 Django 標準 fixture 格式，寫入 `backend/backupData/cocktail_data.json` 並作為附件回傳下載。
-- **恢復方式**：
+- **資料庫匯出 (Dump Data)**：
   ```bash
   cd backend
-  python manage.py loaddata backupData/cocktail_data.json
+  python manage.py dumpdata api --indent 2 -o backup.json
   ```
+  *(若在 Docker 環境下，可執行 `docker compose exec web python manage.py dumpdata api --indent 2 -o backup.json`)*
+
+- **資料庫恢復 (Load Data)**：
+  ```bash
+  cd backend
+  python manage.py loaddata backup.json
+  ```
+
+> 💡 **生產環境資料庫備份**：
+> 在 Render 或生產環境中，建議透過託管資料庫（如 Render Managed PostgreSQL）的定時快照或 `pg_dump` 進行實體備份。
 
 ---
 

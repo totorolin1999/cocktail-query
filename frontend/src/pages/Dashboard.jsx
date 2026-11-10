@@ -59,23 +59,6 @@ const Dashboard = () => {
     });
   };
 
-  const downloadJsonFile = async () => {
-    try {
-      const response = await fetch(`${API_BASE_URL}/api/v1/backup/`);
-      const blob = await response.blob();
-
-      const url = window.URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = "cocktail_data.json";
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-    } catch (error) {
-      console.error("Download failed:", error);
-    }
-  };
-
   const handleMaterialCreated = (newMaterial) => {
     const zh = newMaterial.chinese_name || newMaterial.Chinese_Name;
     const en = newMaterial.english_name || newMaterial.English_Name;
@@ -92,7 +75,7 @@ const Dashboard = () => {
       <Container>
         <div className="page-header">
           <h1 className="page-title">管理後台儀表板</h1>
-          <p className="page-subtitle">集中管理調酒資料、酒譜配方、材料庫存與系統備份</p>
+          <p className="page-subtitle">集中管理調酒資料、酒譜配方與材料庫存</p>
         </div>
 
         {successToast && (
@@ -135,9 +118,6 @@ const Dashboard = () => {
                 style={{ borderColor: "#e8a838", color: "#f5d78e" }}
               >
                 ＋ 新增材料
-              </Button>
-              <Button variant="outline-secondary" onClick={downloadJsonFile}>
-                下載備份資料
               </Button>
             </div>
 

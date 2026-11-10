@@ -405,13 +405,13 @@ const getSystemNodes = (isEn) => [
           "docker-compose.yml orchestrates both Django and PostgreSQL containers with 1 command",
           "Render Web Service + Managed DB continuous zero-downtime deployment",
           "Environment variable guard rails preventing missing credentials",
-          "Built-in database backup & restoration endpoints"
+          "Native Django migration pipeline & fixture data seeding"
         ]
       : [
           "docker-compose.yml 一鍵編排後端服務與 PostgreSQL 容器",
           "Render Web Service + Managed DB 雲端零停機部署配置",
           "三層環境變數防禦，防止部署時資料庫連線中斷或憑證遺失",
-          "完整資料庫備份與恢復機制 (backupData & restoreData)"
+          "Django 標竿遷移管理與 Fixture 資料自動注入機制"
         ],
     dataflow: isEn
       ? "docker-compose.yml links web and db services across an internal Docker network, triggering migrations and recipe seeding automatically on container spin-up."

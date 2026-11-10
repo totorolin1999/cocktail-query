@@ -28,7 +28,6 @@ urlpatterns = [
     path('v1/materials/<str:model_type>/', materialCollection, name='v1-materials-collection'),
     path('v1/materials/<str:model_type>/<str:pk>/', materialMember, name='v1-materials-member'),
     path('v1/charts/<str:model_type>/', views.chartList, name='v1-charts'),
-    path('v1/backup/', views.backupData, name='v1-backup'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

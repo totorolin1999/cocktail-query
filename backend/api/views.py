@@ -6,7 +6,6 @@ from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from rest_framework_simplejwt.views import TokenObtainPairView
 from rest_framework.response import Response
 from django.shortcuts import get_object_or_404
-from django.http import FileResponse
 from django.db.models import Q, Count
 
 from .serializers import (
@@ -139,52 +138,6 @@ def _resolve_related_payload(payload, field_name, model=Material):
     ]
 
 
-def _build_backup_item(model_name, fields):
-    return {'model': f'api.{model_name}', 'fields': fields}
-
-
-def _serialize_model_entries(model_name, items):
-    return [
-        _build_backup_item(
-            model_name,
-            {'chinese_name': item.get('chinese_name', item.get('Chinese_Name')), 'english_name': item.get('english_name', item.get('English_Name'))},
-        )
-        for item in items
-    ]
-
-
-def _serialize_cocktail_backup(items):
-    entries = []
-    for item in items:
-        entries.append(
-            {
-                'model': 'api.cocktail',
-                'fields': {
-                    'chinese_name': item.get('chinese_name', item.get('Chinese_Name')),
-                    'english_name': item.get('english_name', item.get('English_Name')),
-                    'image': item['image'].replace('/media/', '', 1),
-                    'recipe_items': item.get('recipe_items', []),
-                    'iba_category': item['iba_category'],
-                    'instructions_zh': item['instructions_zh'],
-                    'instructions_en': item['instructions_en'],
-                    'glassware_zh': item['glassware_zh'],
-                    'glassware_en': item['glassware_en'],
-                    'garnish_zh': item['garnish_zh'],
-                    'garnish_en': item['garnish_en'],
-                    'flavor_zh': item['flavor_zh'],
-                    'flavor_en': item['flavor_en'],
-                    'strength': item['strength'],
-                    'history_zh': item['history_zh'],
-                    'history_en': item['history_en'],
-                    'source_url': item['source_url'],
-                    'artwork_color': item['artwork_color'],
-                    'is_active': item['is_active'],
-                },
-            }
-        )
-    return entries
-
-
 @api_view(['GET'])
 def apiOverview(request):
     api_urls = {
@@ -272,11 +225,6 @@ def apiOverview(request):
                 'url': '/api/v1/charts/<str:model_type>/',
                 'method': 'GET',
                 'description': 'Frequency distribution of materials in cocktails for Chart.js',
-            },
-            'Database Backup': {
-                'url': '/api/v1/backup/',
-                'method': 'GET',
-                'description': 'Export full database fixture as downloadable JSON file',
             },
         },
     }
@@ -508,24 +456,6 @@ def cocktailRecommendation(request, pk):
     ).prefetch_related('recipe_items__material')
     serializer = CocktailSerializer(cocktails, many=True)
     return Response(serializer.data)
-
-
-@api_view(['GET'])
-def backupData(request):
-    data = []
-    data.extend(_serialize_model_entries('material', MaterialSerializer(Material.objects.all(), many=True).data))
-
-    cocktails = CocktailSerializer(
-        Cocktail.objects.all().prefetch_related('recipe_items__material'),
-        many=True,
-    ).data
-    data.extend(_serialize_cocktail_backup(cocktails))
-
-    file_path = 'backupData/cocktail_data.json'
-    with open(file_path, 'w', encoding='utf-8') as json_file:
-        json.dump(data, json_file, indent=2, ensure_ascii=False)
-
-    return FileResponse(open(file_path, 'rb'), as_attachment=True, filename='data.json')
 
 
 def cocktailCollection(request):
