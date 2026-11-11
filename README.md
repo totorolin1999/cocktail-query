@@ -94,9 +94,9 @@
 cocktail-query/
 ├── backend/                               # Django REST Framework 後端服務
 │   ├── api/                               # API 應用程式目錄
-│   │   ├── fixtures/                      # 資料庫初始資料 (包含 cocktail_data.json)
+│   │   ├── fixtures/                      # 資料庫初始資料 (包含 iba_cocktail_recipes.json 等)
 │   │   ├── migrations/                    # 資料庫遷移檔 (含 IBA 酒譜資料匯入)
-│   │   ├── models.py                      # 資料庫模型 (Base, Liqueur, Alcohol, Ingredient, Cocktail)
+│   │   ├── models.py                      # 資料庫模型 (Material, Cocktail, CocktailRecipeItem)
 │   │   ├── serializers.py                 # DRF 序列化器
 │   │   ├── tests.py                       # API 端點單元測試
 │   │   ├── urls.py                        # API 路由規則
@@ -448,8 +448,8 @@ npm run build
 
 ### Step 3：資料庫自動遷移與初始資料載入防呆
 
-- **Data Migration 0003 自動防護**：
-  在初始 fixture `backend/api/fixtures/cocktail_data.json` 中已為所有資料完整指定唯一主鍵 `"pk"`，並透過 Django Data Migration (`0003_load_cocktail_fixtures.py`) 內建防呆檢查。
+- **Data Migration 0002 自動防護**：
+  在 fixture `backend/api/fixtures/iba_cocktail_recipes.json` 中已為所有 IBA 經典調酒完整定義資料，並透過 Django Data Migration (`0002_import_iba_cocktail_recipes.py`) 內建防呆檢查。
 - **自動化與防重複**：每次部署執行 `python manage.py migrate` 時，僅在調酒表為空時自動載入初始資料；若已有資料則自動跳過，避免重複寫入或覆蓋後台維護的資料。
 
 ---
